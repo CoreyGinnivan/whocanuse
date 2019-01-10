@@ -11,12 +11,15 @@ const DemoAreaWrapper = styled('span')(props => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol',
   color: '#' + props.color,
   fontSize: props.size + 'px',
   lineHeight: props.size + 'px',
-  fontWeight: props.bold && '700',
-  textShadow: props.shadow && '0 1px 0 rgba(0,0,0,0.27)',
+  fontWeight: props.isBold && '600',
+  textShadow: props.isShadow && '0 2px 1px rgba(0,0,0,0.27)',
+  '@media screen and (max-width: 960px)': {
+    gridArea: '2 / 2 / 3 / 3',
+    textAlign: 'center'
+  }
 }))
 
 
@@ -34,8 +37,8 @@ export default class DemoArea extends Component {
     children: PropTypes.node,
     color: PropTypes.string,
     size: PropTypes.string,
-    bold: PropTypes.bool,
-    shadow: PropTypes.bool,
+    isBold: PropTypes.bool,
+    isShadow: PropTypes.bool,
   }
   render() {
     let { children, ...rest } = this.props;

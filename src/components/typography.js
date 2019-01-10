@@ -9,10 +9,10 @@ import { theme } from '../components/theme';
 ----------------------------------------------------------*/
 
 
-const SmallTextWrapper = styled.p(props => ({
+const SmallTextWrapper = styled.span(props => ({
    margin: 0,
    fontFamily: theme.fontFamily,
-   fontSize: '11px',
+   fontSize: '12px',
    textTransform: 'uppercase',
    fontWeight: theme.weight.extraBold,
    color: theme.color.grey,
@@ -20,25 +20,30 @@ const SmallTextWrapper = styled.p(props => ({
 }))
 
 const TextWrapper = styled.p(props => ({
-   margin: 0,
-   fontFamily: theme.fontFamily,
-   fontSize: '14px',
-   fontWeight: props.bold ? theme.weight.bold : theme.weight.normal,
-   color: props.dark ? theme.color.dark : theme.color.grey,
-   textAlign: props.align
-}))
-
-const MediumTextWrapper = styled.p(props => ({
-   margin: 0,
    fontFamily: theme.fontFamily,
    fontSize: '16px',
+   fontWeight: props.bold ? theme.weight.bold : theme.weight.normal,
+   color: props.dark ? theme.color.dark : theme.color.grey,
+   textAlign: props.align,
+   lineHeight: '1.45em',
+   outline: 0,
+   '& + &': {
+      marginTop: '20px'
+   }
+}))
+
+const MediumTextWrapper = styled.h2(props => ({
+   margin: props.margin,
+   fontFamily: theme.fontFamily,
+   fontSize: '18px',
    fontWeight: theme.weight.bold,
    color: theme.color.dark,
-   textAlign: props.align
+   textAlign: props.align,
+   lineHeight: '1.35em',
 }))
 
 const HeadingTextWrapper = styled.h1(props => ({
-   margin: 0,
+   margin: props.margin,
    fontFamily: theme.fontFamily,
    fontSize: '30px',
    fontWeight: theme.weight.extraBold,
@@ -76,7 +81,8 @@ export class Text extends Component {
       children: PropTypes.node,
       bold: PropTypes.bool,
       dark: PropTypes.bool,
-      align: PropTypes.string
+      align: PropTypes.string,
+      margin: PropTypes.string,
    }
    render() {
       let { children, ...rest } = this.props;
@@ -92,7 +98,8 @@ export class Text extends Component {
 export class MediumText extends Component {
    static propTypes = {
       children: PropTypes.node,
-      align: PropTypes.string
+      align: PropTypes.string,
+      margin: PropTypes.string,
    }
    render() {
       let { children, ...rest } = this.props;
@@ -108,7 +115,8 @@ export class MediumText extends Component {
 export class Heading extends Component {
    static propTypes = {
       children: PropTypes.node,
-      align: PropTypes.string
+      align: PropTypes.string,
+      margin: PropTypes.string,
    }
    render() {
       let { children, ...rest } = this.props;

@@ -10,7 +10,10 @@ import PropTypes from 'prop-types';
 const BackgroundWrapper = styled('div')(props => ({
   gridArea: '1 / 1 / 3 / 5',
   backgroundColor: '#' + props.background,
-  zIndex: '-1'
+  zIndex: '-1',
+  '@media screen and (max-width: 960px)': {
+    margin: '-20px'
+  }
 }))
 
 
