@@ -50,7 +50,7 @@ export default class Hero extends Component {
           isBold={bold}
           isShadow={shadow}
         />
-        <Actions />
+        <Actions background={background} foreground={foreground} />
         <Background background={background} />
       </Wrapper>
     );

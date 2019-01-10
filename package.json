@@ -7,6 +7,8 @@
     "@emotion/core": "^10.0.4",
     "@emotion/styled": "^10.0.4",
     "@tippy.js/react": "^1.1.1",
+    "chroma-js": "^2.0.2",
+    "clipboard": "^2.0.4",
     "emotion": "^10.0.4",
     "emotion-server": "^10.0.4",
     "gatsby": "^2.0.79",

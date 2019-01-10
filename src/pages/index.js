@@ -3,9 +3,10 @@ import styled from "@emotion/styled";
 import Layout from "../layout/layout";
 import Hero from "../components/hero";
 import { Heading } from "../components/typography";
-import { SmallInfoBar, LargeInfoBar } from "../components/infobars";
+import { LargeInfoBar } from "../components/infobars";
 import { VisionTable, VisionRow } from "../components/vision-table";
 import { About } from "../components/about";
+import FuckKnowsWhatToCallThis from "../components/fuck-knows";
 
 /*----------------------------------------------------------
    Styles
@@ -36,10 +37,23 @@ const InfoBarWrapper = styled("div")({
 ----------------------------------------------------------*/
 
 class IndexPage extends Component {
-  state = {
-    foreground: "FFFFFF",
-    background: "663399"
-  };
+  constructor(props) {
+    super(props);
+
+    let foreground = "FFFFFF";
+    let background = "663399";
+    const hash = window.location.hash;
+
+    if (hash) {
+      foreground = hash.split("#")[1];
+      background = hash.split("#")[2];
+    }
+
+    this.state = {
+      foreground,
+      background
+    };
+  }
 
   setForeground = color => {
     this.setState({ foreground: color });
@@ -48,7 +62,6 @@ class IndexPage extends Component {
   setBackground = color => {
     this.setState({ background: color });
   };
-
   render() {
     return (
       <Layout>
@@ -67,20 +80,10 @@ class IndexPage extends Component {
             <LargeInfoBar percent="97" name="Global Population (Online)" />
             <LargeInfoBar percent="80" name="Australian Population (Online)" />
           </InfoBarWrapper>
-          <InfoBarWrapper>
-            <SmallInfoBar
-              tooltip="The difference in luminance or color that makes an object distinguishable - a higher number is better"
-              name="4.51:1 Contrast Ratio"
-            />
-            <SmallInfoBar
-              tooltip="WCAG (Web Content Accessibility Guidelines) minimum required for general accessibility contrast ratios"
-              name="WCAG AA"
-            />
-            <SmallInfoBar
-              tooltip="WCAG (Web Content Accessibility Guidelines) that covers most vision type cases"
-              name="WCAG AAA"
-            />
-          </InfoBarWrapper>
+          <FuckKnowsWhatToCallThis
+            foreground={this.state.foreground}
+            background={this.state.background}
+          />
           <VisionTable>
             <VisionRow
               name="Regular Vision"
