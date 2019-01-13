@@ -32,8 +32,9 @@ export default class Hero extends Component {
       fontSize,
       bold,
       shadow,
+      setFontSize,
       setBackground,
-      setForeground
+      setForeground,
     } = this.props;
     return (
       <Wrapper>
@@ -41,12 +42,14 @@ export default class Hero extends Component {
         <Control
           setBackground={setBackground}
           setForeground={setForeground}
+          setFontSize={setFontSize}
+          fontSize={fontSize}
           background={background}
           color={foreground}
         />
         <DemoArea
           color={foreground}
-          size={fontSize}
+          fontSize={fontSize}
           isBold={bold}
           isShadow={shadow}
         />

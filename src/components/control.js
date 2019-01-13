@@ -149,7 +149,8 @@ const SwitchIcon = styled("button")({
 export default class Control extends Component {
   static propTypes = {
     background: PropTypes.string,
-    color: PropTypes.string
+    color: PropTypes.string,
+    fontSize: PropTypes.string
   };
 
   getTextColor(bgColor, lightColor, darkColor) {
@@ -161,7 +162,7 @@ export default class Control extends Component {
   }
 
   render() {
-    let { background, color, setBackground, setForeground } = this.props;
+    let { background, color, fontSize, setBackground, setForeground, setFontSize } = this.props;
 
     const getBackgroundTextColor = this.getTextColor(
       `${background}`,
@@ -184,19 +185,17 @@ export default class Control extends Component {
             <Hash textColour={getBackgroundTextColor}>#</Hash>
             <HexWrapper
               type="text"
-              id="textsize"
-              name="textsize"
               textColour={getBackgroundTextColor}
               defaultValue={background}
-              onChange={e => setBackground(e.target.value)}
+              onChange={e => {
+                setBackground(e.target.value);
+              }}
             />
           </BackgroundWrapper>
           <ForegroundWrapper color={color}>
             <Hash textColour={getForegroundTextColor}>#</Hash>
             <HexWrapper
               type="text"
-              id="textsize"
-              name="textsize"
               textColour={getForegroundTextColor}
               defaultValue={color}
               onChange={e => {
@@ -216,9 +215,10 @@ export default class Control extends Component {
           <SmallText>Text Size</SmallText>
           <TextSize
             type="text"
-            id="textsize"
-            name="textsize"
-            defaultValue="16"
+            defaultValue={fontSize}
+            onChange={e => {
+              setFontSize(e.target.value);
+            }}
           />
           <Text bold>px</Text>
         </FieldWrapper>

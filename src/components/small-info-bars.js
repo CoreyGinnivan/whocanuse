@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import chroma from "chroma-js";
 import styled from "@emotion/styled";
-import { Check } from "../components/icons";
+import { Check, Cross } from "../components/icons";
 import { theme } from "../components/theme";
 
 import PropTypes from "prop-types";
@@ -33,12 +33,6 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   marginTop: "10px",
   marginRight: '20px',
   outline: 0,
-  "svg, g": {
-    display: "block",
-    height: "100%",
-    width: "100%",
-    fill: theme.color.green
-  },
   svg: {
     margin: "auto"
   },
@@ -58,7 +52,7 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
 
 
 const renderCheckMark = (pass) =>
-  pass ? <Check style={{ marginRight: "10px" }} /> : "X";
+  pass ? <Check style={{ marginRight: "10px" }} /> : <Cross style={{ marginRight: "10px" }} />;
 
 
 class SmallInfoBar extends Component {

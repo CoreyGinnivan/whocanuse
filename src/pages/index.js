@@ -6,7 +6,7 @@ import { Heading } from "../components/typography";
 import { LargeInfoBar } from "../components/infobars";
 import { VisionTable, VisionRow } from "../components/vision-table";
 import { About } from "../components/about";
-import FuckKnowsWhatToCallThis from "../components/small-info-bars";
+import SmallInfoBars from "../components/small-info-bars";
 
 /*----------------------------------------------------------
    Styles
@@ -42,6 +42,7 @@ class IndexPage extends Component {
 
     let foreground = "FFFFFF";
     let background = "663399";
+    let fontSize = "20";
     const hash = window.location.hash;
 
     if (hash) {
@@ -51,7 +52,8 @@ class IndexPage extends Component {
 
     this.state = {
       foreground,
-      background
+      background,
+      fontSize
     };
   }
 
@@ -70,7 +72,8 @@ class IndexPage extends Component {
           setForeground={this.setForeground}
           foreground={this.state.foreground}
           background={this.state.background}
-          fontSize="18"
+          setfontSize={this.state.setFontSize}
+          fontSize={this.state.fontSize}
           shadow
           bold
         />
@@ -80,7 +83,7 @@ class IndexPage extends Component {
             <LargeInfoBar percent="97" name="Global Population (Online)" />
             <LargeInfoBar percent="80" name="Australian Population (Online)" />
           </InfoBarWrapper>
-          <FuckKnowsWhatToCallThis
+          <SmallInfoBars
             foreground={this.state.foreground}
             background={this.state.background}
           />

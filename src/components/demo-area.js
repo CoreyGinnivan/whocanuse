@@ -12,8 +12,8 @@ const DemoAreaWrapper = styled('span')(props => ({
   justifyContent: 'center',
   alignItems: 'center',
   color: '#' + props.color,
-  fontSize: props.size + 'px',
-  lineHeight: props.size + 'px',
+  fontSize: props.fontSize + 'px',
+  lineHeight: props.fontSize + 'px',
   fontWeight: props.isBold && '600',
   textShadow: props.isShadow && '0 2px 1px rgba(0,0,0,0.27)',
   '@media screen and (max-width: 960px)': {
@@ -36,14 +36,14 @@ export default class DemoArea extends Component {
   static propTypes = {
     children: PropTypes.node,
     color: PropTypes.string,
-    size: PropTypes.string,
+    fontSize: PropTypes.string,
     isBold: PropTypes.bool,
     isShadow: PropTypes.bool,
   }
   render() {
     let { children, ...rest } = this.props;
     return (
-      <DemoAreaWrapper {...rest}>
+      <DemoAreaWrapper  {...rest}>
         <TextWrapper>The quick brown fox jumps over the lazy dog</TextWrapper>
       </DemoAreaWrapper>);
   }
