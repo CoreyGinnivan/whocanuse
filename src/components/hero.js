@@ -30,6 +30,7 @@ export const Hero = ({
   foregroundText,
   backgroundText,
   fontSize,
+  fontSizeText,
   bold,
   shadow,
   setFontSize,
@@ -43,7 +44,7 @@ export const Hero = ({
         setBackground={setBackground}
         setForeground={setForeground}
         setFontSize={setFontSize}
-        fontSize={fontSize}
+        fontSize={fontSizeText}
         background={background}
         color={foreground}
         backgroundText={backgroundText}

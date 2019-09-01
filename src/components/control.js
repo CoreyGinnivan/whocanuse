@@ -111,7 +111,7 @@ const Button = styled.button(props => ({
   }
 }));
 
-const TextSize = styled.input(props => ({
+const TextSize = styled.input({
   textAlign: "center",
   backgroundColor: "#FFFFFF",
   border: "1px solid #E1E1E1",
@@ -124,7 +124,7 @@ const TextSize = styled.input(props => ({
   color: theme.color.dark,
   marginRight: "6px",
   cursor: "ew-resize"
-}));
+});
 
 const CheckboxWrapper = styled("label")({
   display: "flex",
@@ -146,108 +146,118 @@ const SwitchIcon = styled("button")({
 /*----------------------------------------------------------
    Control Control Component
 ----------------------------------------------------------*/
+function getTextColor(bgColor, lightColor, darkColor) {
+  const color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor;
+  const r = parseInt(color.substring(0, 2), 16); // hexToR
+  const g = parseInt(color.substring(2, 4), 16); // hexToG
+  const b = parseInt(color.substring(4, 6), 16); // hexToB
+  return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? darkColor : lightColor;
+}
 
-export class Control extends Component {
-  static propTypes = {
-    background: PropTypes.string,
-    color: PropTypes.string,
-    fontSize: PropTypes.string
-  };
+export const Control = ({
+  background,
+  color,
+  backgroundText,
+  colorText,
+  fontSize,
+  setBackground,
+  setForeground,
+  setFontSize
+}) => {
+  const getBackgroundTextColor = getTextColor(
+    `${background}`,
+    "#FFFFFF",
+    "#000000"
+  );
+  const getForegroundTextColor = getTextColor(`${color}`, "#FFFFFF", "#000000");
 
-  getTextColor(bgColor, lightColor, darkColor) {
-    const color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor;
-    const r = parseInt(color.substring(0, 2), 16); // hexToR
-    const g = parseInt(color.substring(2, 4), 16); // hexToG
-    const b = parseInt(color.substring(4, 6), 16); // hexToB
-    return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? darkColor : lightColor;
-  }
+  // const [isDraggingFont, setIsDraggingFont] = React.useState(false)
+  const [fontDragInfo, setFontDragInfo] = React.useState(null);
+  // React.useEffect(() => {
+  // }, [isDraggingFont])
 
-  render() {
-    let {
-      background,
-      color,
-      backgroundText,
-      colorText,
-      fontSize,
-      setBackground,
-      setForeground,
-      setFontSize
-    } = this.props;
-
-    const getBackgroundTextColor = this.getTextColor(
-      `${background}`,
-      "#FFFFFF",
-      "#000000"
-    );
-    const getForegroundTextColor = this.getTextColor(
-      `${color}`,
-      "#FFFFFF",
-      "#000000"
-    );
-
-    return (
-      <ControlWrapper>
-        <ColorWrapper>
-          <SwitchIcon>
-            <img src={Switch} alt="Switch colors" />
-          </SwitchIcon>
-          <BackgroundWrapper background={background}>
-            <Hash textColour={getBackgroundTextColor}>#</Hash>
-            <HexWrapper
-              type="text"
-              textColour={getBackgroundTextColor}
-              value={backgroundText}
-              onChange={e => {
-                setBackground(e.target.value);
-              }}
-            />
-          </BackgroundWrapper>
-          <ForegroundWrapper color={color}>
-            <Hash textColour={getForegroundTextColor}>#</Hash>
-            <HexWrapper
-              type="text"
-              textColour={getForegroundTextColor}
-              value={colorText}
-              onChange={e => {
-                setForeground(e.target.value);
-              }}
-            />
-          </ForegroundWrapper>
-        </ColorWrapper>
-        <FieldWrapper>
-          <SmallText>Type</SmallText>
-          <Button selected style={{ marginRight: "10px" }}>
-            Text
-          </Button>
-          <Button>Icon</Button>
-        </FieldWrapper>
-        <FieldWrapper>
-          <SmallText>Text Size</SmallText>
-          <TextSize
+  return (
+    <ControlWrapper>
+      <ColorWrapper>
+        <SwitchIcon>
+          <img src={Switch} alt="Switch colors" />
+        </SwitchIcon>
+        <BackgroundWrapper background={background}>
+          <Hash textColour={getBackgroundTextColor}>#</Hash>
+          <HexWrapper
             type="text"
-            defaultValue={fontSize}
+            textColour={getBackgroundTextColor}
+            value={backgroundText}
             onChange={e => {
-              setFontSize(e.target.value);
+              setBackground(e.target.value);
             }}
           />
-          <Text bold>px</Text>
-        </FieldWrapper>
-        <FieldWrapper>
-          <SmallText>Styles</SmallText>
-          <CheckboxWrapper style={{ marginRight: "30px" }}>
-            <input type="checkbox" id="bold" name="bold" />
-            <Text bold dark htmlFor="bold">
-              Bold
-            </Text>
-          </CheckboxWrapper>
-          <CheckboxWrapper>
-            <input type="checkbox" id="shadow" name="shadow" />
-            <Text bold dark htmlFor="shadow">
-              Shadow
-            </Text>
-          </CheckboxWrapper>
-        </FieldWrapper>
-      </ControlWrapper>
-    );
-  }
-}
+        </BackgroundWrapper>
+        <ForegroundWrapper color={color}>
+          <Hash textColour={getForegroundTextColor}>#</Hash>
+          <HexWrapper
+            type="text"
+            textColour={getForegroundTextColor}
+            value={colorText}
+            onChange={e => {
+              setForeground(e.target.value);
+            }}
+          />
+        </ForegroundWrapper>
+      </ColorWrapper>
+      <FieldWrapper>
+        <SmallText>Type</SmallText>
+        <Button selected style={{ marginRight: "10px" }}>
+          Text
+        </Button>
+        <Button>Icon</Button>
+      </FieldWrapper>
+      <FieldWrapper>
+        <SmallText>Text Size</SmallText>
+        <TextSize
+          type="text"
+          value={fontSize}
+          onMouseDown={e => {
+            setFontDragInfo({ x: e.clientX, fontSize });
+          }}
+          onMouseUp={e => {
+            setFontDragInfo(null);
+          }}
+          onMouseMove={e => {
+            if (!fontDragInfo) {
+              return;
+            }
+            const diff = fontDragInfo.x - e.clientX;
+            if (diff === 0) {
+              return;
+            }
+
+            const newFont = Math.round(
+              Number(fontDragInfo.fontSize) + -diff / 10
+            );
+            setFontSize(newFont.toString());
+          }}
+          onChange={e => {
+            setFontSize(e.target.value);
+          }}
+        />
+        <Text bold>px</Text>
+      </FieldWrapper>
+      <FieldWrapper>
+        <SmallText>Styles</SmallText>
+        <CheckboxWrapper style={{ marginRight: "30px" }}>
+          <input type="checkbox" id="bold" name="bold" />
+          <Text bold dark htmlFor="bold">
+            Bold
+          </Text>
+        </CheckboxWrapper>
+        <CheckboxWrapper>
+          <input type="checkbox" id="shadow" name="shadow" />
+          <Text bold dark htmlFor="shadow">
+            Shadow
+          </Text>
+        </CheckboxWrapper>
+      </FieldWrapper>
+    </ControlWrapper>
+  );
+};

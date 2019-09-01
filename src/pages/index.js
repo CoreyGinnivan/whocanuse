@@ -65,7 +65,8 @@ class IndexPage extends Component {
       foregroundText,
       background,
       backgroundText,
-      fontSize
+      fontSize,
+      fontSizeText: fontSize
     };
   }
 
@@ -94,6 +95,14 @@ class IndexPage extends Component {
     }
     this.setState({ backgroundText: color });
   };
+
+  setFontSize = fontSize => {
+    if (!isNaN(Number(fontSize))) {
+      this.setState({ fontSize: fontSize > 60 ? 60 : fontSize });
+    }
+    this.setState({ fontSizeText: fontSize });
+  };
+
   render() {
     return (
       <Layout>
@@ -104,8 +113,9 @@ class IndexPage extends Component {
           background={this.state.background}
           foregroundText={this.state.foregroundText}
           backgroundText={this.state.backgroundText}
-          setfontSize={this.state.setFontSize}
+          setFontSize={this.setFontSize}
           fontSize={this.state.fontSize}
+          fontSizeText={this.state.fontSizeText}
           shadow
           bold
         />
