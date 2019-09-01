@@ -52,8 +52,8 @@ const renderCheckMark = pass =>
   pass ? (
     <Check style={{ marginRight: "10px" }} />
   ) : (
-    <Cross style={{ marginRight: "10px" }} />
-  );
+      <Cross style={{ marginRight: "10px" }} />
+    );
 
 class SmallInfoBar extends Component {
   static propTypes = {
@@ -63,7 +63,7 @@ class SmallInfoBar extends Component {
   render() {
     const { name, tooltip, pass } = this.props;
     return (
-      <Tippy content={tooltip} placement="top" animation="shift-away">
+      <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
         <SmallInfoBarWrapper pass={pass}>
           {renderCheckMark(pass)}
           <MediumText>{name}</MediumText>
