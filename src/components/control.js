@@ -161,7 +161,11 @@ export const Control = ({
   fontSize,
   setBackground,
   setForeground,
-  setFontSize
+  setFontSize,
+  shadow,
+  setShadow,
+  bold,
+  setBold
 }) => {
   const getBackgroundTextColor = getTextColor(
     `${background}`,
@@ -245,13 +249,25 @@ export const Control = ({
       <FieldWrapper>
         <SmallText>Styles</SmallText>
         <CheckboxWrapper style={{ marginRight: "30px" }}>
-          <input type="checkbox" id="bold" name="bold" />
+          <input
+            type="checkbox"
+            id="bold"
+            name="bold"
+            checked={bold}
+            onChange={() => setBold(!bold)}
+          />
           <Text bold dark htmlFor="bold">
             Bold
           </Text>
         </CheckboxWrapper>
         <CheckboxWrapper>
-          <input type="checkbox" id="shadow" name="shadow" />
+          <input
+            type="checkbox"
+            id="shadow"
+            name="shadow"
+            checked={shadow}
+            onChange={() => setShadow(!shadow)}
+          />
           <Text bold dark htmlFor="shadow">
             Shadow
           </Text>

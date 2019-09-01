@@ -8,6 +8,8 @@ import { LargeInfoBar } from "../components/infobars";
 import { VisionTable, VisionRow } from "../components/vision-table";
 import { About } from "../components/about";
 import { SmallInfoBars } from "../components/small-info-bars";
+import queryString from "query-string";
+import { linkPath } from "../helpers/link";
 
 /*----------------------------------------------------------
    Styles
@@ -41,17 +43,17 @@ class IndexPage extends Component {
   constructor(props) {
     super(props);
 
-    let foreground;
-    let background;
+    let foreground = "663399";
+    let background = "663399";
+    let fontSize = "20";
     let foregroundText = "FFFFFF";
     let backgroundText = "663399";
-    let fontSize = "20";
-    const hash = window.location.hash;
 
-    if (hash) {
-      backgroundText = hash.split("#")[1];
-      foregroundText = hash.split("#")[2];
-    }
+    const qs = queryString.parse(window.location.search);
+
+    backgroundText = qs.b || "FFFFFF";
+    foregroundText = qs.c || "663399";
+    fontSize = qs.f || "20";
 
     if (chroma.valid(foregroundText)) {
       foreground = foregroundText;
@@ -60,13 +62,16 @@ class IndexPage extends Component {
       background = backgroundText;
     }
 
+    const style = qs.s || "";
     this.state = {
       foreground,
       foregroundText,
       background,
       backgroundText,
       fontSize,
-      fontSizeText: fontSize
+      fontSizeText: fontSize,
+      shadow: style.indexOf("s") !== -1,
+      bold: style.indexOf("b") !== -1
     };
   }
 
@@ -76,7 +81,7 @@ class IndexPage extends Component {
         window.history.pushState(
           undefined,
           "",
-          `/#${this.state.background}#${this.state.foreground}`
+          `?b=${this.state.background}&f=${this.state.foreground}&t`
         );
       });
     }
@@ -89,7 +94,13 @@ class IndexPage extends Component {
         window.history.pushState(
           undefined,
           "",
-          `/#${this.state.background}#${this.state.foreground}`
+          linkPath(
+            this.state.background,
+            this.state.foreground,
+            this.state.fontSize,
+            this.state.bold,
+            this.state.shadow
+          )
         );
       });
     }
@@ -101,6 +112,13 @@ class IndexPage extends Component {
       this.setState({ fontSize: fontSize > 60 ? 60 : fontSize });
     }
     this.setState({ fontSizeText: fontSize });
+  };
+
+  setShadow = shadow => {
+    this.setState({ shadow });
+  };
+  setBold = bold => {
+    this.setState({ bold });
   };
 
   render() {
@@ -116,8 +134,10 @@ class IndexPage extends Component {
           setFontSize={this.setFontSize}
           fontSize={this.state.fontSize}
           fontSizeText={this.state.fontSizeText}
-          shadow
-          bold
+          shadow={this.state.shadow}
+          setShadow={this.setShadow}
+          bold={this.state.bold}
+          setBold={this.setBold}
         />
         <ContentWrapper>
           <Heading align="center">Who can use this color combination?</Heading>

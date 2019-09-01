@@ -32,7 +32,9 @@ export const Hero = ({
   fontSize,
   fontSizeText,
   bold,
+  setBold,
   shadow,
+  setShadow,
   setFontSize,
   setBackground,
   setForeground
@@ -49,6 +51,10 @@ export const Hero = ({
         color={foreground}
         backgroundText={backgroundText}
         colorText={foregroundText}
+        bold={bold}
+        setBold={setBold}
+        shadow={shadow}
+        setShadow={setShadow}
       />
       <DemoArea
         color={foreground}
@@ -56,7 +62,13 @@ export const Hero = ({
         isBold={bold}
         isShadow={shadow}
       />
-      <Actions background={background} foreground={foreground} />
+      <Actions
+        background={background}
+        foreground={foreground}
+        fontSize={fontSizeText}
+        bold={bold}
+        shadow={shadow}
+      />
       <Background background={background} />
     </Wrapper>
   );

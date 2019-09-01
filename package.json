@@ -24,6 +24,7 @@
     "gatsby-plugin-sharp": "^2.2.18",
     "gatsby-source-filesystem": "^2.1.18",
     "gatsby-transformer-sharp": "^2.2.12",
+    "query-string": "^6.8.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",

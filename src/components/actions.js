@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { SmallText } from "./typography";
 import { theme } from "./theme";
 import { TwitterShareButton } from "react-twitter-embed";
+import { linkPath } from "../helpers/link";
 
 import Tippy from "@tippy.js/react";
 
@@ -47,7 +48,15 @@ const ActionsWrapper = styled("div")(props => ({
    Actions and Sharing Bar
 ----------------------------------------------------------*/
 
-export const Actions = ({ children, foreground, background, ...rest }) => {
+export const Actions = ({
+  children,
+  foreground,
+  background,
+  fontSize,
+  bold,
+  shadow,
+  ...rest
+}) => {
   const copyRef = React.useRef();
 
   return (
@@ -64,7 +73,13 @@ export const Actions = ({ children, foreground, background, ...rest }) => {
             type="text"
             id="permalink"
             name="permalink"
-            value={`http://whocanuse.com/#${background}#${foreground}`}
+            value={`http://whocanuse.com/${linkPath(
+              background,
+              foreground,
+              fontSize,
+              bold,
+              shadow
+            )}`}
             readOnly="readonly"
             ref={copyRef}
             onClick={() => {
