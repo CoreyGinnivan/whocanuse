@@ -122,7 +122,8 @@ const TextSize = styled.input(props => ({
   fontSize: "16px",
   fontWeight: theme.weight.bold,
   color: theme.color.dark,
-  marginRight: "6px"
+  marginRight: "6px",
+  cursor: "ew-resize"
 }));
 
 const CheckboxWrapper = styled("label")({
