@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import PropTypes from "prop-types";
 import { SmallText } from "./typography";
 import { theme } from "./theme";
 import { TwitterShareButton } from "react-twitter-embed";
