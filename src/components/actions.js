@@ -6,7 +6,6 @@ import { theme } from "./theme";
 import { TwitterShareButton } from "react-twitter-embed";
 
 import Tippy from "@tippy.js/react";
-import "tippy.js/dist/tippy.css";
 
 /*----------------------------------------------------------
    Styles
