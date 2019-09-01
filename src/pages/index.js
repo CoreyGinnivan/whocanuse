@@ -111,37 +111,37 @@ class IndexPage extends Component {
             <VisionRow
               name="Regular Vision"
               tooltip="Majority of the population with either no or minor visual impairments that can see the average color combinations"
-              percent="89"
-              number="6,760,000"
+              percent="-"
+              number="1,000,000"
             />
             <VisionRow
               name="Deuteranomaly"
               tooltip="People who have trouble seeing green colors"
-              percent="89"
-              number="6,760,000"
+              percent="-"
+              number="1,000,000"
             />
             <VisionRow
               name="Protanomaly"
               tooltip="People who have trouble seeing red colors"
-              percent="89"
-              number="6,760,000"
+              percent="-"
+              number="1,000,000"
             />
             <VisionRow
               name="Tritanopia"
               tooltip="People who have trouble seeing blue colors"
-              percent="89"
-              number="6,760,000"
+              percent="-"
+              number="1,000,000"
             />
             <VisionRow
               name="Achromatopsia"
               tooltip="People with this condition cannot see color at all"
-              percent="89"
-              number="6,760,000"
+              percent="-"
+              number="1,000,000"
             />
             <VisionRow
               name="Cataracts"
               tooltip="Clouding of the normally clear lens of the eye which will showed blurred vision"
-              percent="89"
+              percent="-"
               number="11,000"
             />
             <VisionRow
@@ -153,14 +153,14 @@ class IndexPage extends Component {
             <VisionRow
               name="Astigmatism"
               tooltip="Blurry vision caused by an irregular curvature of the eye's cornea or lens"
-              percent="89"
-              number="6,760,000"
+              percent="-"
+              number="1,000,000"
             />
             <VisionRow
               name="Macular Degeneration"
               tooltip="Causes loss in the centre of the field of vision and blurred vision is a key symptom"
-              percent="89"
-              number="6,760,000"
+              percent="-"
+              number="1,000,000"
             />
           </VisionTable>
         </ContentWrapper>
