@@ -20,8 +20,6 @@ const InfoBarWrapper = styled("div")({
   }
 });
 
-
-
 const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   display: "flex",
   flexDirection: "row",
@@ -31,7 +29,7 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   borderRadius: "6px",
   width: "100%",
   marginTop: "10px",
-  marginRight: '20px',
+  marginRight: "20px",
   outline: 0,
   svg: {
     margin: "auto"
@@ -50,10 +48,12 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   }
 }));
 
-
-const renderCheckMark = (pass) =>
-  pass ? <Check style={{ marginRight: "10px" }} /> : <Cross style={{ marginRight: "10px" }} />;
-
+const renderCheckMark = pass =>
+  pass ? (
+    <Check style={{ marginRight: "10px" }} />
+  ) : (
+    <Cross style={{ marginRight: "10px" }} />
+  );
 
 class SmallInfoBar extends Component {
   static propTypes = {
@@ -81,7 +81,7 @@ const formatContrast = contrast => {
   return `${Math.round(contrast * 100) / 100}:1`;
 };
 
-export default class WCAGAAInfoBar extends Component {
+export class SmallInfoBars extends Component {
   render() {
     const { foreground, background } = this.props;
     const constast = chroma.contrast(foreground, background);

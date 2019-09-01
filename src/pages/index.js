@@ -6,7 +6,7 @@ import { Heading } from "../components/typography";
 import { LargeInfoBar } from "../components/infobars";
 import { VisionTable, VisionRow } from "../components/vision-table";
 import { About } from "../components/about";
-import SmallInfoBars from "../components/small-info-bars";
+import { SmallInfoBars } from "../components/small-info-bars";
 
 /*----------------------------------------------------------
    Styles
