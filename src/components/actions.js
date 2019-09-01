@@ -48,56 +48,48 @@ const ActionsWrapper = styled("div")(props => ({
    Actions and Sharing Bar
 ----------------------------------------------------------*/
 
-export class Actions extends Component {
-  static propTypes = {
-    children: PropTypes.node
-  };
-  constructor() {
-    super();
-    this.copyRef = React.createRef();
-  }
-  render() {
-    let { children, foreground, background, ...rest } = this.props;
-    return (
-      <ActionsWrapper {...rest}>
-        <form>
-          <SmallText style={{ marginRight: "10px" }}>Permalink</SmallText>
-          <Tippy
-            content="Click to copy"
-            placement="bottom"
-            animation="shift-away"
-            arrow="true"
-          >
-            <input
-              type="text"
-              id="permalink"
-              name="permalink"
-              defaultValue={`http://whocanuse.com/#${background}#${foreground}`}
-              readOnly="readonly"
-              ref={this.copyRef}
-              onClick={() => {
-                this.copyRef.current.select();
-                document.execCommand("copy");
-              }}
-            />
-          </Tippy>
-        </form>
-        <TwitterShareButton
-          url={"https://whocanuse.com"}
-          options={{
-            text: `An easy-to-use tool that delivers a breakdown of which vision types can see your color combination`,
-            via: "CoreyGinnivan"
-          }}
-        />
-        <iframe
-          title="Github Star"
-          src="https://ghbtns.com/github-btn.html?user=coreyginnivan&repo=whocanuse&type=star&count=true"
-          frameBorder="0"
-          scrolling="0"
-          width="100"
-          height="20px"
-        />
-      </ActionsWrapper>
-    );
-  }
-}
+export const Actions = ({ children, foreground, background, ...rest }) => {
+  const copyRef = React.useRef();
+
+  return (
+    <ActionsWrapper {...rest}>
+      <form>
+        <SmallText style={{ marginRight: "10px" }}>Permalink</SmallText>
+        <Tippy
+          content="Click to copy"
+          placement="bottom"
+          animation="shift-away"
+          arrow="true"
+        >
+          <input
+            type="text"
+            id="permalink"
+            name="permalink"
+            value={`http://whocanuse.com/#${background}#${foreground}`}
+            readOnly="readonly"
+            ref={copyRef}
+            onClick={() => {
+              copyRef.current.select();
+              document.execCommand("copy");
+            }}
+          />
+        </Tippy>
+      </form>
+      <TwitterShareButton
+        url={"https://whocanuse.com"}
+        options={{
+          text: `An easy-to-use tool that delivers a breakdown of which vision types can see your color combination`,
+          via: "CoreyGinnivan"
+        }}
+      />
+      <iframe
+        title="Github Star"
+        src="https://ghbtns.com/github-btn.html?user=coreyginnivan&repo=whocanuse&type=star&count=true"
+        frameBorder="0"
+        scrolling="0"
+        width="100"
+        height="20px"
+      />
+    </ActionsWrapper>
+  );
+};

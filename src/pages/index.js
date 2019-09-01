@@ -49,8 +49,8 @@ class IndexPage extends Component {
     const hash = window.location.hash;
 
     if (hash) {
-      foregroundText = hash.split("#")[1];
-      backgroundText = hash.split("#")[2];
+      backgroundText = hash.split("#")[1];
+      foregroundText = hash.split("#")[2];
     }
 
     if (chroma.valid(foregroundText)) {
@@ -71,14 +71,26 @@ class IndexPage extends Component {
 
   setForeground = color => {
     if (chroma.valid(color)) {
-      this.setState({ foreground: color });
+      this.setState({ foreground: color }, () => {
+        window.history.pushState(
+          undefined,
+          "",
+          `/#${this.state.background}#${this.state.foreground}`
+        );
+      });
     }
     this.setState({ foregroundText: color });
   };
 
   setBackground = color => {
     if (chroma.valid(color)) {
-      this.setState({ background: color });
+      this.setState({ background: color }, () => {
+        window.history.pushState(
+          undefined,
+          "",
+          `/#${this.state.background}#${this.state.foreground}`
+        );
+      });
     }
     this.setState({ backgroundText: color });
   };
