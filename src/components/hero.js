@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import Logo from "./logo";
-import Control from "./control";
+import { Control } from "./control";
 import { Background } from "./background";
 import DemoArea from "./demo-area";
 import { Actions } from "./actions";
@@ -24,38 +24,39 @@ const Wrapper = styled("div")({
    Hero Section
 ----------------------------------------------------------*/
 
-export default class Hero extends Component {
-  render() {
-    const {
-      foreground,
-      background,
-      fontSize,
-      bold,
-      shadow,
-      setFontSize,
-      setBackground,
-      setForeground,
-    } = this.props;
-    return (
-      <Wrapper>
-        <Logo color={foreground} />
-        <Control
-          setBackground={setBackground}
-          setForeground={setForeground}
-          setFontSize={setFontSize}
-          fontSize={fontSize}
-          background={background}
-          color={foreground}
-        />
-        <DemoArea
-          color={foreground}
-          fontSize={fontSize}
-          isBold={bold}
-          isShadow={shadow}
-        />
-        <Actions background={background} foreground={foreground} />
-        <Background background={background} />
-      </Wrapper>
-    );
-  }
-}
+export const Hero = ({
+  foreground,
+  background,
+  foregroundText,
+  backgroundText,
+  fontSize,
+  bold,
+  shadow,
+  setFontSize,
+  setBackground,
+  setForeground
+}) => {
+  return (
+    <Wrapper>
+      <Logo color={foreground} />
+      <Control
+        setBackground={setBackground}
+        setForeground={setForeground}
+        setFontSize={setFontSize}
+        fontSize={fontSize}
+        background={background}
+        color={foreground}
+        backgroundText={backgroundText}
+        colorText={foregroundText}
+      />
+      <DemoArea
+        color={foreground}
+        fontSize={fontSize}
+        isBold={bold}
+        isShadow={shadow}
+      />
+      <Actions background={background} foreground={foreground} />
+      <Background background={background} />
+    </Wrapper>
+  );
+};

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import chroma from "chroma-js";
 import styled from "@emotion/styled";
 import Layout from "../layout/layout";
-import Hero from "../components/hero";
+import { Hero } from "../components/hero";
 import { Heading } from "../components/typography";
 import { LargeInfoBar } from "../components/infobars";
 import { VisionTable, VisionRow } from "../components/vision-table";
@@ -40,29 +41,46 @@ class IndexPage extends Component {
   constructor(props) {
     super(props);
 
-    let foreground = "FFFFFF";
-    let background = "663399";
+    let foreground;
+    let background;
+    let foregroundText = "FFFFFF";
+    let backgroundText = "663399";
     let fontSize = "20";
     const hash = window.location.hash;
 
     if (hash) {
-      foreground = hash.split("#")[1];
-      background = hash.split("#")[2];
+      foregroundText = hash.split("#")[1];
+      backgroundText = hash.split("#")[2];
+    }
+
+    if (chroma.valid(foregroundText)) {
+      foreground = foregroundText;
+    }
+    if (chroma.valid(backgroundText)) {
+      background = backgroundText;
     }
 
     this.state = {
       foreground,
+      foregroundText,
       background,
+      backgroundText,
       fontSize
     };
   }
 
   setForeground = color => {
-    this.setState({ foreground: color });
+    if (chroma.valid(color)) {
+      this.setState({ foreground: color });
+    }
+    this.setState({ foregroundText: color });
   };
 
   setBackground = color => {
-    this.setState({ background: color });
+    if (chroma.valid(color)) {
+      this.setState({ background: color });
+    }
+    this.setState({ backgroundText: color });
   };
   render() {
     return (
@@ -72,6 +90,8 @@ class IndexPage extends Component {
           setForeground={this.setForeground}
           foreground={this.state.foreground}
           background={this.state.background}
+          foregroundText={this.state.foregroundText}
+          backgroundText={this.state.backgroundText}
           setfontSize={this.state.setFontSize}
           fontSize={this.state.fontSize}
           shadow

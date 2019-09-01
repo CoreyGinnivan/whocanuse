@@ -146,7 +146,7 @@ const SwitchIcon = styled("button")({
    Control Control Component
 ----------------------------------------------------------*/
 
-export default class Control extends Component {
+export class Control extends Component {
   static propTypes = {
     background: PropTypes.string,
     color: PropTypes.string,
@@ -162,7 +162,16 @@ export default class Control extends Component {
   }
 
   render() {
-    let { background, color, fontSize, setBackground, setForeground, setFontSize } = this.props;
+    let {
+      background,
+      color,
+      backgroundText,
+      colorText,
+      fontSize,
+      setBackground,
+      setForeground,
+      setFontSize
+    } = this.props;
 
     const getBackgroundTextColor = this.getTextColor(
       `${background}`,
@@ -186,7 +195,7 @@ export default class Control extends Component {
             <HexWrapper
               type="text"
               textColour={getBackgroundTextColor}
-              defaultValue={background}
+              value={backgroundText}
               onChange={e => {
                 setBackground(e.target.value);
               }}
@@ -197,7 +206,7 @@ export default class Control extends Component {
             <HexWrapper
               type="text"
               textColour={getForegroundTextColor}
-              defaultValue={color}
+              value={colorText}
               onChange={e => {
                 setForeground(e.target.value);
               }}
