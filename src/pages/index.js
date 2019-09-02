@@ -141,6 +141,10 @@ class IndexPage extends Component {
         />
         <ContentWrapper>
           <Heading align="center">Who can use this color combination?</Heading>
+          <SmallInfoBars
+            foreground={this.state.foreground}
+            background={this.state.background}
+          />
           <InfoBarWrapper>
             <LargeInfoBar
               percent="97"
@@ -151,10 +155,6 @@ class IndexPage extends Component {
               name="Australian Population (Online)"
             />
           </InfoBarWrapper>
-          <SmallInfoBars
-            foreground={this.state.foreground}
-            background={this.state.background}
-          />
           <VisionTable>
             <VisionRow
               name="Regular Vision"
