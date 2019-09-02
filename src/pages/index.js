@@ -142,8 +142,14 @@ class IndexPage extends Component {
         <ContentWrapper>
           <Heading align="center">Who can use this color combination?</Heading>
           <InfoBarWrapper>
-            <LargeInfoBar percent="97" name="Global Population (Online)" />
-            <LargeInfoBar percent="80" name="Australian Population (Online)" />
+            <LargeInfoBar
+              percent="97"
+              name="Global Population (Online)"
+            />
+            <LargeInfoBar
+              percent="80"
+              name="Australian Population (Online)"
+            />
           </InfoBarWrapper>
           <SmallInfoBars
             foreground={this.state.foreground}

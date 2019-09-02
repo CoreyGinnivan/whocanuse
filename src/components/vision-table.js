@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Text, SmallText } from './typography';
 import { theme } from './theme';
 import { Check } from './icons';
-import Tippy from '@tippy.js/react';
+import Tippy from "@tippy.js/react";
 
 /*----------------------------------------------------------
    Styles
@@ -94,14 +94,14 @@ export class VisionRow extends Component {
     tooltip: PropTypes.string,
   }
   render() {
-    let { name, number, percent, tooltip } = this.props;
+    const { name, number, percent, tooltip } = this.props;
     return (
       <VisionRowWrapper>
         <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
           <IconWrapper>
             <Check />
           </IconWrapper>
-          <Tippy content={tooltip} placement="top-start" animation="shift-away">
+          <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
             <Text bold dark style={{ marginRight: 'auto' }}>{name}</Text>
           </Tippy>
         </VisionCellWrapper>

@@ -89,6 +89,7 @@ export class SmallInfoBars extends Component {
     return (
       <InfoBarWrapper>
         <SmallInfoBar
+          pass={constast >= 4.5}
           tooltip="The difference in luminance or color that makes an object distinguishable - a higher number is better"
           name={`${formatContrast(constast)} Contrast Ratio`}
         />
