@@ -269,6 +269,18 @@ export const Control = ({
           onChange={e => {
             setFontSize(e.target.value);
           }}
+          onBlur={() => {
+            const fontNumber = Number(fontSize);
+            if (isNaN(fontNumber)) {
+              return;
+            }
+            if (fontNumber > maxFontSize) {
+              return setFontSize(maxFontSize.toString());
+            }
+            if (fontNumber < minFontSize) {
+              return setFontSize(minFontSize.toString());
+            }
+          }}
         />
         <Text bold>px</Text>
       </FieldWrapper>
