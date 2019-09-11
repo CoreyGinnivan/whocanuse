@@ -158,55 +158,73 @@ class IndexPage extends Component {
           <VisionTable>
             <VisionRow
               name="Regular Vision"
-              tooltip="Majority of the population with either no or minor visual impairments that can see the average color combinations"
-              percent="-"
-              number="1,000,000"
-            />
-            <VisionRow
-              name="Deuteranomaly"
-              tooltip="People who have trouble seeing green colors"
+              description="Trichromatic - Vision that’s sensitive to all three primary colours"
               percent="-"
               number="1,000,000"
             />
             <VisionRow
               name="Protanomaly"
-              tooltip="People who have trouble seeing red colors"
+              description="Trouble distinguishing reds"
               percent="-"
               number="1,000,000"
+            />
+            <VisionRow
+              name="Protanopia"
+              description="Red blind - Can’t see reds at all"
+              percent="-"
+              number="1,000,000"
+            />
+            <VisionRow
+              name="Deuteranomaly"
+              description="Trouble distinguishing greens"
+              percent="-"
+              number="1,000,000"
+            />
+            <VisionRow
+              name="Deuteranopia"
+              description="Green blind - Can’t see greens at all"
+              percent="-"
+              number="1,000,000"
+            />
+            <VisionRow
+              name="Tritanomaly"
+              description="Trouble distinguishing blues"
+              percent="-"
+              number="11,000"
             />
             <VisionRow
               name="Tritanopia"
-              tooltip="People who have trouble seeing blue colors"
-              percent="-"
-              number="1,000,000"
+              description="Blue blind - Can’t see blues at all"
+              percent="4"
+              number="123,000"
             />
             <VisionRow
-              name="Achromatopsia"
-              tooltip="People with this condition cannot see color at all"
+              name="Monochromacy/Achromatopsia"
+              description="Complete colour blindness, can only see shades"
               percent="-"
               number="1,000,000"
             />
             <VisionRow
               name="Cataracts"
-              tooltip="Clouding of the normally clear lens of the eye which will showed blurred vision"
-              percent="-"
-              number="11,000"
-            />
-            <VisionRow
-              name="Low Vision"
-              tooltip="Significant visual imparment that generally affects people over the age of 60"
-              percent="4"
-              number="123,000"
-            />
-            <VisionRow
-              name="Astigmatism"
-              tooltip="Blurry vision caused by an irregular curvature of the eye's cornea or lens"
+              description="Clouding of the lens in the eye that affects vision"
               percent="-"
               number="1,000,000"
             />
             <VisionRow
-              name="Macular Degeneration"
-              tooltip="Causes loss in the centre of the field of vision and blurred vision is a key symptom"
+              name="Glaucoma"
+              description="Slight vision loss"
+              percent="-"
+              number="1,000,000"
+            />
+            <VisionRow
+              name="Hyperopia"
+              description="Farsightedness - Trouble seeing things up close"
+              percent="-"
+              number="1,000,000"
+            />
+            <VisionRow
+              name="Low Vision"
+              description="Decreased ability to see to a degree that causes problems (not fixable by usual means such as glasses)"
               percent="-"
               number="1,000,000"
             />

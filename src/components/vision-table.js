@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Text, SmallText } from './typography';
 import { theme } from './theme';
 import { Check } from './icons';
-import Tippy from "@tippy.js/react";
 
 /*----------------------------------------------------------
    Styles
@@ -21,9 +20,11 @@ const VisionTableWrapper = styled('table')(props => ({
 const VisionRowWrapper = styled('tr')(props => ({
   display: 'flex',
   flexDirection: 'row',
-  borderBottom: `1px solid ${theme.color.lightgrey}`,
-  borderCollapse: 'collapse',
-  padding: '10px 0',
+  background: '#FFFFFF',
+  boxShadow: '0 2px 6px 0 rgba(0,0,0,0.14), 0 2px 4px 0 rgba(0,0,0,0.12)',
+  borderRadius: '8px',
+  padding: '20px',
+  marginBottom: '10px',
   alignItems: 'center',
   '@media screen and (max-width: 560px)': {
     flexDirection: 'column',
@@ -36,11 +37,14 @@ const VisionRowWrapper = styled('tr')(props => ({
 const VisionCellWrapper = styled('td')(props => ({
   display: 'flex',
   flexDirection: 'row',
+  justifyContent: 'start',
   alignItems: 'center',
   '@media screen and (max-width: 560px)': {
     width: '100% !important',
     marginRight: 0,
     justifyContent: 'flex-start !important',
+    paddingBottom: '10px 0',
+    marginLeft: '0 !important',
     '&:before': {
       content: 'attr(data-th)',
       display: 'inline-block',
@@ -68,8 +72,7 @@ const IconWrapper = styled('div')({
 
 const TableHeaderWrapper = styled('thead')({
   display: 'flex',
-  borderBottom: `1px solid ${theme.color.lightgrey}`,
-  paddingBottom: '10px',
+  marginBottom: '20px',
   '@media screen and (max-width: 560px)': {
     display: 'none'
   }
@@ -94,21 +97,23 @@ export class VisionRow extends Component {
     tooltip: PropTypes.string,
   }
   render() {
-    const { name, number, percent, tooltip } = this.props;
+    const { name, number, percent, description } = this.props;
     return (
       <VisionRowWrapper>
-        <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
+        <VisionCellWrapper data-th="Pass Or Fail">
           <IconWrapper>
             <Check />
           </IconWrapper>
-          <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
-            <Text bold dark style={{ marginRight: 'auto' }}>{name}</Text>
-          </Tippy>
         </VisionCellWrapper>
-        <VisionCellWrapper data-th="% Global">
+        <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
+          <Text bold dark>{name}
+            <Text style={{ fontSize: '14px' }}>{description}</Text>
+          </Text>
+        </VisionCellWrapper>
+        <VisionCellWrapper style={{ minWidth: '30px', marginLeft: '100px' }} data-th="% Global">
           <Text bold>{percent}%</Text>
         </VisionCellWrapper>
-        <VisionCellWrapper style={{ width: '160px', justifyContent: 'flex-end' }} data-th="Who can see it">
+        <VisionCellWrapper style={{ minWidth: '160px', justifyContent: 'flex-end' }} data-th="Who can see it">
           <Text align="right">~{number}</Text>
         </VisionCellWrapper>
       </VisionRowWrapper >
@@ -126,7 +131,7 @@ export class VisionTable extends Component {
     return (
       <VisionTableWrapper>
         <TableHeaderWrapper>
-          <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '36px' }}>
+          <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '57px' }}>
             <td>
               <SmallText>
                 Vision Type
@@ -143,7 +148,7 @@ export class VisionTable extends Component {
           <TableHeadCellWrapper style={{ width: '160px', display: 'flex', justifyContent: 'flex-end' }}>
             <td>
               <SmallText>
-                Who can see it
+                Who can't see it
               </SmallText>
             </td>
           </TableHeadCellWrapper>

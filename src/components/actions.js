@@ -22,15 +22,19 @@ const ActionsWrapper = styled("div")(props => ({
     color: theme.color.grey,
     fontFamily: theme.fontFamily,
     border: `1px solid ${theme.color.lightgrey}`,
-    width: "300px",
+    width: "350px",
     padding: "8px 4px",
-    marginRight: "20px",
+    marginRight: "10px",
     transition: "all 0.2 ease",
     "&:hover": {
       cursor: "pointer",
       backgroundColor: "#f9f9f9",
       transition: "all 0.2 ease"
     }
+  },
+  form: {
+    display: 'flex',
+    alignItems: 'center'
   },
   iframe: {
     marginLeft: "10px"
