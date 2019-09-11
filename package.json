@@ -1,53 +1,55 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
-  "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "@emotion/core": "^10.0.17",
-    "@emotion/styled": "^10.0.17",
-    "@tippy.js/react": "^2.2.3",
-    "chroma-js": "^2.0.6",
-    "clipboard": "^2.0.4",
-    "emotion": "^10.0.17",
-    "emotion-server": "^10.0.17",
-    "gatsby": "^2.15.1",
-    "gatsby-cli": "^2.7.41",
-    "gatsby-image": "^2.2.15",
-    "gatsby-plugin-emotion": "^4.1.4",
-    "gatsby-plugin-google-analytics": "^2.1.12",
-    "gatsby-plugin-manifest": "^2.2.12",
-    "gatsby-plugin-netlify": "^2.1.10",
-    "gatsby-plugin-offline": "^3.0.0",
-    "gatsby-plugin-react-helmet": "^3.1.5",
-    "gatsby-plugin-sass": "^2.1.12",
-    "gatsby-plugin-sharp": "^2.2.18",
-    "gatsby-source-filesystem": "^2.1.18",
-    "gatsby-transformer-sharp": "^2.2.12",
-    "query-string": "^6.8.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1",
-    "react-twitter-embed": "^2.0.8",
-    "tippy.js": "^4.3.5"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "devDependencies": {
-    "css-loader": "^3.2.0",
-    "prettier": "^1.18.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  }
+    "name": "gatsby-starter-default",
+    "description": "Gatsby default starter",
+    "version": "1.0.0",
+    "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+    "dependencies": {
+        "@emotion/core": "^10.0.17",
+        "@emotion/styled": "^10.0.17",
+        "@tippy.js/react": "^2.2.3",
+        "chroma-js": "^2.0.6",
+        "clipboard": "^2.0.4",
+        "emotion": "^10.0.17",
+        "emotion-server": "^10.0.17",
+        "gatsby": "^2.15.1",
+        "gatsby-cli": "^2.7.41",
+        "gatsby-image": "^2.2.15",
+        "gatsby-plugin-emotion": "^4.1.4",
+        "gatsby-plugin-google-analytics": "^2.1.12",
+        "gatsby-plugin-manifest": "^2.2.12",
+        "gatsby-plugin-netlify": "^2.1.10",
+        "gatsby-plugin-offline": "^3.0.0",
+        "gatsby-plugin-react-helmet": "^3.1.5",
+        "gatsby-plugin-sass": "^2.1.12",
+        "gatsby-plugin-sharp": "^2.2.18",
+        "gatsby-source-filesystem": "^2.1.18",
+        "gatsby-transformer-sharp": "^2.2.12",
+        "query-string": "^6.8.3",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "react-helmet": "^5.2.1",
+        "react-twitter-embed": "^2.0.8",
+        "tippy.js": "^4.3.5"
+    },
+    "keywords": [
+        "gatsby"
+    ],
+    "license": "MIT",
+    "scripts": {
+        "build": "gatsby build",
+        "develop": "gatsby develop",
+        "start": "npm run develop",
+        "format": "prettier --write \"src/**/*.js\"",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "css-loader": "^3.2.0",
+        "eslint": "^5",
+        "eslint-plugin-react": "^7.14.3",
+        "prettier": "^1.18.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    }
 }
