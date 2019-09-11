@@ -133,6 +133,8 @@ class IndexPage extends Component {
           backgroundText={this.state.backgroundText}
           setFontSize={this.setFontSize}
           fontSize={this.state.fontSize}
+          minFontSize={10}
+          maxFontSize={60}
           fontSizeText={this.state.fontSizeText}
           shadow={this.state.shadow}
           setShadow={this.setShadow}
@@ -146,14 +148,8 @@ class IndexPage extends Component {
             background={this.state.background}
           />
           <InfoBarWrapper>
-            <LargeInfoBar
-              percent="97"
-              name="Global Population (Online)"
-            />
-            <LargeInfoBar
-              percent="80"
-              name="Australian Population (Online)"
-            />
+            <LargeInfoBar percent="97" name="Global Population (Online)" />
+            <LargeInfoBar percent="80" name="Australian Population (Online)" />
           </InfoBarWrapper>
           <VisionTable>
             <VisionRow

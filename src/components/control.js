@@ -149,9 +149,9 @@ function getTextColor(bgColor, lightColor, darkColor) {
   const color = bgColor.charAt(0) === "#" ? bgColor.substring(1, 7) : bgColor;
   let r, g, b;
   if (color.length === 3) {
-    r = parseInt(color.substring(0, 1) + color.substring(0, 1), 16)
-    g = parseInt(color.substring(1, 2) + color.substring(1, 2), 16)
-    b = parseInt(color.substring(2, 3) + color.substring(2, 3), 16)
+    r = parseInt(color.substring(0, 1) + color.substring(0, 1), 16);
+    g = parseInt(color.substring(1, 2) + color.substring(1, 2), 16);
+    b = parseInt(color.substring(2, 3) + color.substring(2, 3), 16);
   } else {
     r = parseInt(color.substring(0, 2), 16); // hexToR
     g = parseInt(color.substring(2, 4), 16); // hexToG
@@ -166,6 +166,8 @@ export const Control = ({
   backgroundText,
   colorText,
   fontSize,
+  maxFontSize,
+  minFontSize,
   setBackground,
   setForeground,
   setFontSize,
@@ -181,10 +183,42 @@ export const Control = ({
   );
   const getForegroundTextColor = getTextColor(`${color}`, "#FFFFFF", "#000000");
 
-  // const [isDraggingFont, setIsDraggingFont] = React.useState(false)
   const [fontDragInfo, setFontDragInfo] = React.useState(null);
-  // React.useEffect(() => {
-  // }, [isDraggingFont])
+
+  const mouseMove = React.useCallback(
+    e => {
+      if (!fontDragInfo) {
+        return;
+      }
+      const diff = fontDragInfo.x - e.clientX;
+      if (diff === 0) {
+        return;
+      }
+
+      const newFont = Math.round(Number(fontDragInfo.fontSize) + -diff / 10);
+      if (newFont > maxFontSize) {
+        setFontSize(maxFontSize.toString());
+      } else if (newFont < minFontSize) {
+        setFontSize(minFontSize.toString());
+      } else {
+        setFontSize(newFont.toString());
+      }
+    },
+    [fontDragInfo, maxFontSize, minFontSize, setFontSize]
+  );
+
+  const mouseUp = React.useCallback(() => {
+    setFontDragInfo(null);
+  }, []);
+
+  React.useEffect(() => {
+    document.addEventListener("mousemove", mouseMove);
+    document.addEventListener("mouseup", mouseUp);
+    return () => {
+      document.removeEventListener("mousemove", mouseMove);
+      document.removeEventListener("mouseup", mouseUp);
+    };
+  });
 
   return (
     <ControlWrapper>
@@ -231,23 +265,6 @@ export const Control = ({
           value={fontSize}
           onMouseDown={e => {
             setFontDragInfo({ x: e.clientX, fontSize });
-          }}
-          onMouseUp={e => {
-            setFontDragInfo(null);
-          }}
-          onMouseMove={e => {
-            if (!fontDragInfo) {
-              return;
-            }
-            const diff = fontDragInfo.x - e.clientX;
-            if (diff === 0) {
-              return;
-            }
-
-            const newFont = Math.round(
-              Number(fontDragInfo.fontSize) + -diff / 10
-            );
-            setFontSize(newFont.toString());
           }}
           onChange={e => {
             setFontSize(e.target.value);
