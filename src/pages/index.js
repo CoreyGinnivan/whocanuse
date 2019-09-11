@@ -51,8 +51,8 @@ class IndexPage extends Component {
 
     const qs = queryString.parse(window.location.search);
 
-    backgroundText = qs.b || "FFFFFF";
-    foregroundText = qs.c || "663399";
+    backgroundText = qs.b || "663399";
+    foregroundText = qs.c || "FFFFFF";
     fontSize = qs.f || "20";
 
     if (chroma.valid(foregroundText)) {
