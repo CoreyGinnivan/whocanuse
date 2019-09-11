@@ -157,8 +157,8 @@ class IndexPage extends Component {
           </InfoBarWrapper>
           <VisionTable>
             <VisionRow
-              name="Regular Vision"
-              description="Trichromatic - Vision that’s sensitive to all three primary colours"
+              name="Regular Vision (Trichromatic)"
+              description="Vision that’s sensitive to all three primary colours"
               percent="-"
               number="1,000,000"
             />
@@ -199,7 +199,7 @@ class IndexPage extends Component {
               number="123,000"
             />
             <VisionRow
-              name="Monochromacy/Achromatopsia"
+              name="Achromatopsia"
               description="Complete colour blindness, can only see shades"
               percent="-"
               number="1,000,000"

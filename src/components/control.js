@@ -225,7 +225,9 @@ export const Control = ({
       <FieldWrapper>
         <SmallText>Text Size</SmallText>
         <TextSize
-          type="text"
+          type="number"
+          min="10"
+          max="60"
           value={fontSize}
           onMouseDown={e => {
             setFontDragInfo({ x: e.clientX, fontSize });

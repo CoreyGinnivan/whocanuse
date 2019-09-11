@@ -23,7 +23,7 @@ const VisionRowWrapper = styled('tr')(props => ({
   background: '#FFFFFF',
   boxShadow: '0 2px 6px 0 rgba(0,0,0,0.14), 0 2px 4px 0 rgba(0,0,0,0.12)',
   borderRadius: '8px',
-  padding: '20px',
+  padding: '14px',
   marginBottom: '10px',
   alignItems: 'center',
   '@media screen and (max-width: 560px)': {
@@ -84,6 +84,19 @@ const TableHeadCellWrapper = styled('tr')({
   alignItems: 'center',
 })
 
+const Simulation = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '90px',
+  height: '60px',
+  background: '#663399',
+  boxShadow: 'inset 0 0 3px 0 rgba(0, 0, 0, 0.16)',
+  borderRadius: '6px',
+  color: '#FFFFFF',
+  overflow: 'hidden'
+})
+
 
 /*----------------------------------------------------------
    Vision Table
@@ -110,11 +123,16 @@ export class VisionRow extends Component {
             <Text style={{ fontSize: '14px' }}>{description}</Text>
           </Text>
         </VisionCellWrapper>
-        <VisionCellWrapper style={{ minWidth: '30px', marginLeft: '100px' }} data-th="% Global">
+        <VisionCellWrapper style={{ minWidth: '30px', marginLeft: '40px' }} data-th="% Global">
           <Text bold>{percent}%</Text>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ minWidth: '160px', justifyContent: 'flex-end' }} data-th="Who can see it">
           <Text align="right">~{number}</Text>
+        </VisionCellWrapper>
+        <VisionCellWrapper style={{ marginLeft: '20px' }} data-th="Simulation">
+          <Simulation>
+            Text
+          </Simulation>
         </VisionCellWrapper>
       </VisionRowWrapper >
     );
@@ -149,6 +167,13 @@ export class VisionTable extends Component {
             <td>
               <SmallText>
                 Who can't see it
+              </SmallText>
+            </td>
+          </TableHeadCellWrapper>
+          <TableHeadCellWrapper style={{ width: '126px', display: 'flex', justifyContent: 'center' }}>
+            <td>
+              <SmallText>
+                Simulation
               </SmallText>
             </td>
           </TableHeadCellWrapper>
