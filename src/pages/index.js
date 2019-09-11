@@ -158,7 +158,7 @@ class IndexPage extends Component {
           <VisionTable>
             <VisionRow
               name="Regular Vision (Trichromatic)"
-              description="Vision that’s sensitive to all three primary colours"
+              description="Can distinguish all three primary colours, little to no blurriness"
               percent="-"
               number="1,000,000"
             />
@@ -224,7 +224,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Low Vision"
-              description="Decreased ability to see to a degree that causes problems (not fixable by usual means such as glasses)"
+              description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
               percent="-"
               number="1,000,000"
             />
