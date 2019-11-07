@@ -157,72 +157,96 @@ class IndexPage extends Component {
               description="Can distinguish all three primary colours, little to no blurriness"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Protanomaly"
               description="Trouble distinguishing reds"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Protanopia"
               description="Red blind - Can’t see reds at all"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Deuteranomaly"
               description="Trouble distinguishing greens"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Deuteranopia"
               description="Green blind - Can’t see greens at all"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Tritanomaly"
               description="Trouble distinguishing blues"
               percent="-"
               number="11,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Tritanopia"
               description="Blue blind - Can’t see blues at all"
               percent="4"
               number="123,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Achromatopsia"
               description="Complete colour blindness, can only see shades"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Cataracts"
               description="Clouding of the lens in the eye that affects vision"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Glaucoma"
               description="Slight vision loss"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Hyperopia"
               description="Farsightedness - Trouble seeing things up close"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
             <VisionRow
               name="Low Vision"
               description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
               percent="-"
               number="1,000,000"
+              foreground={this.state.foreground}
+              background={this.state.background}
             />
           </VisionTable>
         </ContentWrapper>

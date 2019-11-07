@@ -223,7 +223,10 @@ export const Control = ({
   return (
     <ControlWrapper>
       <ColorWrapper>
-        <SwitchIcon>
+        <SwitchIcon
+          onChange={e => {
+            setForeground(e.target.value);
+          }}>
           <img src={Switch} alt="Switch colors" />
         </SwitchIcon>
         <BackgroundWrapper background={background}>

@@ -84,18 +84,19 @@ const TableHeadCellWrapper = styled('tr')({
   alignItems: 'center',
 })
 
-const Simulation = styled('div')({
+
+const Simulation = styled('div')(props => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   width: '90px',
   height: '60px',
-  background: '#663399',
+  background: '#' + props.background,
   boxShadow: 'inset 0 0 3px 0 rgba(0, 0, 0, 0.16)',
   borderRadius: '6px',
-  color: '#FFFFFF',
+  color: '#' + props.foreground,
   overflow: 'hidden'
-})
+}))
 
 
 /*----------------------------------------------------------
@@ -108,9 +109,11 @@ export class VisionRow extends Component {
     number: PropTypes.string,
     percent: PropTypes.string,
     tooltip: PropTypes.string,
+    foreground: PropTypes.string,
+    background: PropTypes.string,
   }
   render() {
-    const { name, number, percent, description } = this.props;
+    const { name, number, percent, description, foreground, background } = this.props;
     return (
       <VisionRowWrapper>
         <VisionCellWrapper data-th="Pass Or Fail">
@@ -130,7 +133,7 @@ export class VisionRow extends Component {
           <Text align="right">~{number}</Text>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginLeft: '20px' }} data-th="Simulation">
-          <Simulation>
+          <Simulation foreground={foreground} background={background}>
             Text
           </Simulation>
         </VisionCellWrapper>
@@ -173,7 +176,7 @@ export class VisionTable extends Component {
           <TableHeadCellWrapper style={{ width: '126px', display: 'flex', justifyContent: 'center' }}>
             <td>
               <SmallText>
-                Simulation
+                Preview
               </SmallText>
             </td>
           </TableHeadCellWrapper>
