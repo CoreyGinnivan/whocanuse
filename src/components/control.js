@@ -35,7 +35,7 @@ const ColorWrapper = styled("div")({
 
 const BackgroundWrapper = styled("div")(props => ({
   position: "absolute",
-  width: "270px",
+  width: "260px",
   height: "100px",
   backgroundColor: "#" + props.background,
   border: "1px solid #FFFFFF",
@@ -136,7 +136,7 @@ const CheckboxWrapper = styled("label")({
 const SwitchIcon = styled("button")({
   position: "absolute",
   right: "4px",
-  top: "30px",
+  top: "25px",
   cursor: "pointer",
   border: 0,
   background: "transparent"
@@ -224,8 +224,9 @@ export const Control = ({
     <ControlWrapper>
       <ColorWrapper>
         <SwitchIcon
-          onChange={e => {
-            setForeground(e.target.value);
+          onClick={e => {
+            setForeground(background);
+            setBackground(color)
           }}>
           <img src={Switch} alt="Switch colors" />
         </SwitchIcon>
