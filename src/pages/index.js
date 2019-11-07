@@ -154,6 +154,7 @@ class IndexPage extends Component {
           <VisionTable>
             <VisionRow
               name="Regular Vision (Trichromatic)"
+              simType="regular"
               description="Can distinguish all three primary colours, little to no blurriness"
               percent="-"
               number="1,000,000"
@@ -162,6 +163,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Protanomaly"
+              simType="protanomaly"
               description="Trouble distinguishing reds"
               percent="-"
               number="1,000,000"
@@ -170,6 +172,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Protanopia"
+              simType="protanopia"
               description="Red blind - Can’t see reds at all"
               percent="-"
               number="1,000,000"
@@ -178,6 +181,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Deuteranomaly"
+              simType="deuteranomaly"
               description="Trouble distinguishing greens"
               percent="-"
               number="1,000,000"
@@ -186,6 +190,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Deuteranopia"
+              simType="deuteranopia"
               description="Green blind - Can’t see greens at all"
               percent="-"
               number="1,000,000"
@@ -194,6 +199,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Tritanomaly"
+              simType="tritanomaly"
               description="Trouble distinguishing blues"
               percent="-"
               number="11,000"
@@ -202,6 +208,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Tritanopia"
+              simType="tritanopia"
               description="Blue blind - Can’t see blues at all"
               percent="4"
               number="123,000"
@@ -210,6 +217,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Achromatopsia"
+              simType="achromatopsia"
               description="Complete colour blindness, can only see shades"
               percent="-"
               number="1,000,000"
@@ -218,6 +226,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Cataracts"
+              simType="cataracts"
               description="Clouding of the lens in the eye that affects vision"
               percent="-"
               number="1,000,000"
@@ -226,6 +235,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Glaucoma"
+              simType="glaucoma"
               description="Slight vision loss"
               percent="-"
               number="1,000,000"
@@ -234,6 +244,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Hyperopia"
+              simType="hyperopia"
               description="Farsightedness - Trouble seeing things up close"
               percent="-"
               number="1,000,000"
@@ -242,6 +253,7 @@ class IndexPage extends Component {
             />
             <VisionRow
               name="Low Vision"
+              simType="lowvision"
               description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
               percent="-"
               number="1,000,000"

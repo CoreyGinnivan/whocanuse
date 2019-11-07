@@ -597,3 +597,43 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+
+/* Vision Styles */
+
+.regular {
+  filter: blur(2px);
+}
+.protanomaly {
+  filter: blur(2px);
+}
+.protanopia {
+  filter: blur(2px);
+}
+.deuteranomaly {
+  filter: blur(2px);
+}
+.deuteranopia {
+  filter: blur(2px);
+}
+.tritanomaly {
+  filter: blur(2px);
+}
+.tritanopia {
+  filter: blur(2px);
+}
+.achromatopsia {
+  backdrop-filter: grayscale(0.9);
+}
+.cataracts {
+  filter: blur(2px);
+}
+.glaucoma {
+  filter: blur(2px);
+}
+.hyperopia {
+  filter: blur(2px);
+}
+.lowvision {
+  filter: blur(4px);
+}

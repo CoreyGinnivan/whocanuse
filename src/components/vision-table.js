@@ -83,6 +83,15 @@ const TableHeadCellWrapper = styled('tr')({
   flexDirection: 'row',
   alignItems: 'center',
 })
+const SimulationFilter = styled('div')({
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  userSelect: 'none'
+})
 
 
 const Simulation = styled('div')(props => ({
@@ -95,7 +104,8 @@ const Simulation = styled('div')(props => ({
   boxShadow: 'inset 0 0 3px 0 rgba(0, 0, 0, 0.16)',
   borderRadius: '6px',
   color: '#' + props.foreground,
-  overflow: 'hidden'
+  overflow: 'hidden',
+  position: 'relative'
 }))
 
 
@@ -111,9 +121,10 @@ export class VisionRow extends Component {
     tooltip: PropTypes.string,
     foreground: PropTypes.string,
     background: PropTypes.string,
+    class: PropTypes.string,
   }
   render() {
-    const { name, number, percent, description, foreground, background } = this.props;
+    const { name, number, percent, description, foreground, background, simType } = this.props;
     return (
       <VisionRowWrapper>
         <VisionCellWrapper data-th="Pass Or Fail">
@@ -134,14 +145,15 @@ export class VisionRow extends Component {
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginLeft: '20px' }} data-th="Simulation">
           <Simulation foreground={foreground} background={background}>
-            Text
+            <SimulationFilter className={simType}>
+              Text
+            </SimulationFilter>
           </Simulation>
         </VisionCellWrapper>
       </VisionRowWrapper >
     );
   }
 }
-
 
 export class VisionTable extends Component {
   static propTypes = {
