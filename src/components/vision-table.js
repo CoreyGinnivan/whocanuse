@@ -36,11 +36,14 @@ const VisionRowWrapper = styled("tr")(({ pass }) => ({
   alignItems: 'center',
   '@media screen and (max-width: 560px)': {
     flexDirection: 'column',
-  }
+  },
+  'p': {
+    color: pass ? null : theme.color.red,
+  },
 }));
 
 
-const VisionCellWrapper = styled('td')({
+const VisionCellWrapper = styled("td")(({ pass }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'start',
@@ -65,7 +68,7 @@ const VisionCellWrapper = styled('td')({
       alignItems: 'center',
     },
   }
-})
+}));
 
 const PercentWrapper = styled("div")(({ pass }) => ({
   display: 'flex',
@@ -169,7 +172,7 @@ export class VisionRow extends Component {
           </div>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ justifyContent: 'flex-end', marginLeft: '40px' }} data-th="Who can see it">
-          <Text textAlign="right" style={{ fontSize: '14px' }}>
+          <Text textAlign="right" style={{ fontSize: '14px', fontWeight: pass ? null : '600' }}>
             ~{number}
             <span style={{ display: pass ? 'none' : 'inline-block' }}>&nbsp;can't</span>
           </Text>
@@ -205,7 +208,7 @@ export class VisionTable extends Component {
           <TableHeadCellWrapper style={{ width: '160px', display: 'flex', justifyContent: 'flex-end' }}>
             <td>
               <SmallText>
-                Who can't see it
+                Who can see it
               </SmallText>
             </td>
           </TableHeadCellWrapper>

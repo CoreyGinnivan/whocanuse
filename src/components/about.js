@@ -44,11 +44,12 @@ const FAQ = styled('section')({
 
 const Author = styled('section')({
   float: 'left',
-  width: '45%',
+  width: '100%',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   flexWrap: 'nowrap',
+  marginTop: '20px',
   'p, a': {
     display: 'flex',
     alignItems: 'center'
@@ -76,8 +77,8 @@ export class About extends Component {
             <Heading margin="0 0 20px 0">What is whocanuse.com?</Heading>
             <Text>Whocanuse.com both an easy to use color contrast tool, and a way to bring attention and understanding to how color contrast affects different users.</Text>
 
-            <Text>The WCAG (Web Content Accessbility Guidelines) is an amazing accomplishment for the web, where organisations, companies and goverernments throughout the world came together to agree on how to make the web accessible, but unfortunately the guidelines and gradings aren't really that easy to understand for most people.</Text>
-            <Text>Rather than giving a grading to a collective of people, I thought I'd try and humanise them by showcasing just who is affeted by a failing grade.</Text>
+            <Text>The WCAG (Web Content Accessbility Guidelines) is a helpful resource for the web, where organisations, companies and goverernments throughout the world came together to agree on how to make the web more accessible. Unfortunately the guidelines and gradings aren't really that easy to understand.</Text>
+            <Text>However rather than giving a generic grade, I thought I'd try and humanise the people who are affeted by a failing grade.</Text>
           </Info>
 
           <FAQ>
@@ -85,10 +86,7 @@ export class About extends Component {
             <Text>The stats are sourced from randomsite.com or provided by Vision Australia so far</Text>
 
             <MediumText>How accurate is the data?</MediumText>
-            <Text>Vision disabilities are never going to be the exact same for those with the same condition, so the data provided is fairly accurate based on recent sensus data, but the main objective is to give you a better understanding and breakdown of how colour rations affect different vision types</Text>
-
-            <MediumText>Why do you only support 2 countries data?</MediumText>
-            <Text>I'm a single human just doing this on the side, I'll get there though - this is an opensource project, so feel free to jump in and help <span role="img" aria-label="muscle emoji">💪</span></Text>
+            <Text>Vision disabilities are never going to be the exact same for those with the same condition, so the data provided is rough estimate. However the main objective is to give you a better understanding and breakdown of how colour contrast affect different vision types</Text>
 
             <MediumText>Can I support this site?</MediumText>
             <Text>Absolutely! You can either help contribute to the codebase on GitHub or donate to my patreon account to help me keep whocanuse.com running</Text>

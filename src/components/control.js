@@ -255,13 +255,6 @@ export const Control = ({
         </ForegroundWrapper>
       </ColorWrapper>
       <FieldWrapper>
-        <SmallText>Type</SmallText>
-        <Button selected style={{ marginRight: "10px" }}>
-          Text
-        </Button>
-        <Button>Icon</Button>
-      </FieldWrapper>
-      <FieldWrapper>
         <SmallText>Text Size</SmallText>
         <TextSize
           type="number"

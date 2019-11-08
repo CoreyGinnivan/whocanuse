@@ -149,7 +149,7 @@ class IndexPage extends Component {
           <InfoBarWrapper>
             <LargeInfoBar
               percent="97"
-              name="will struggle to"
+              name="will struggle"
               pass={constast >= 4.5}
             />
             <LargeInfoBar
