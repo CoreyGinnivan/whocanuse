@@ -1,50 +1,57 @@
 import React, { Component } from 'react'
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import { Text, SmallText } from './typography';
+import { Text, SmallText, Heading } from './typography';
 import { theme } from './theme';
-import { Check } from './icons';
 
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
 
 
-const VisionTableWrapper = styled('table')(props => ({
+
+const VisionTableWrapper = styled('table')({
   marginTop: '40px',
   display: 'flex',
-  flexDirection: 'column'
-}))
+  flexDirection: 'column',
+  'tbody > tr:last-child': {
+    borderBottom: 0
+  },
+  'tbody': {
+    boxShadow: '0 2px 6px 0 rgba(0,0,0,0.14), 0 2px 4px 0 rgba(0,0,0,0.12)',
+    borderRadius: '8px',
+    overflow: 'hidden'
+  }
+})
 
 
-const VisionRowWrapper = styled('tr')(props => ({
+
+const VisionRowWrapper = styled("tr")(({ pass }) => ({
   display: 'flex',
   flexDirection: 'row',
   background: '#FFFFFF',
-  boxShadow: '0 2px 6px 0 rgba(0,0,0,0.14), 0 2px 4px 0 rgba(0,0,0,0.12)',
-  borderRadius: '8px',
+  borderBottom: '1px solid #f1f1f1',
+  backgroundColor: pass ? theme.color.white : theme.color.lightred,
   padding: '14px',
-  marginBottom: '10px',
   alignItems: 'center',
   '@media screen and (max-width: 560px)': {
     flexDirection: 'column',
-  },
-  '&:last-child': {
-    borderBottom: 0
   }
-}))
+}));
 
-const VisionCellWrapper = styled('td')(props => ({
+
+const VisionCellWrapper = styled('td')({
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   justifyContent: 'start',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   '@media screen and (max-width: 560px)': {
     width: '100% !important',
     marginRight: 0,
     justifyContent: 'flex-start !important',
-    paddingBottom: '10px 0',
+    paddingBottom: '10px',
     marginLeft: '0 !important',
+    flexDirection: 'row',
     '&:before': {
       content: 'attr(data-th)',
       display: 'inline-block',
@@ -58,17 +65,26 @@ const VisionCellWrapper = styled('td')(props => ({
       alignItems: 'center',
     },
   }
-}))
-
-
-const IconWrapper = styled('div')({
-  display: 'flex',
-  backgroundColor: theme.color.lightgreen,
-  padding: '5px',
-  marginRight: '10px',
-  borderRadius: '50px'
 })
 
+const PercentWrapper = styled("div")(({ pass }) => ({
+  display: 'flex',
+  color: pass ? theme.color.green : theme.color.red,
+  justifyContent: 'center',
+  width: '80px',
+  alignItems: 'center',
+  height: '60px',
+  padding: '5px',
+  marginRight: '10px',
+  'h1': {
+    color: pass ? theme.color.green : theme.color.red,
+  },
+  '@media screen and (max-width: 560px)': {
+    justifyContent: 'flex-start',
+    width: 'auto',
+    height: 'auto',
+  }
+}));
 
 const TableHeaderWrapper = styled('thead')({
   display: 'flex',
@@ -83,6 +99,7 @@ const TableHeadCellWrapper = styled('tr')({
   flexDirection: 'row',
   alignItems: 'center',
 })
+
 const SimulationFilter = styled('div')({
   position: 'absolute',
   width: '100%',
@@ -112,6 +129,10 @@ const Simulation = styled('div')(props => ({
 /*----------------------------------------------------------
    Vision Table
 ----------------------------------------------------------*/
+const formatContrast = contrast => {
+  return `${Math.round(contrast * 100) / 100}:1`;
+};
+
 
 export class VisionRow extends Component {
   static propTypes = {
@@ -124,24 +145,34 @@ export class VisionRow extends Component {
     class: PropTypes.string,
   }
   render() {
-    const { name, number, percent, description, foreground, background, simType } = this.props;
+    const { name, number, percent, description, foreground, background, simType, pass } = this.props;
     return (
-      <VisionRowWrapper>
+      <VisionRowWrapper pass={pass}>
         <VisionCellWrapper data-th="Pass Or Fail">
-          <IconWrapper>
-            <Check />
-          </IconWrapper>
+          <PercentWrapper pass={pass}>
+            <Heading>
+              {percent}
+            </Heading>
+            <span style={{ marginBottom: '10px' }}>
+              %
+            </span>
+          </PercentWrapper>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
-          <Text bold dark>{name}
-            <Text style={{ fontSize: '14px' }}>{description}</Text>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Text bold dark>
+              {name}
+            </Text>
+            <Text style={{ fontSize: '14px' }}>
+              {description}
+            </Text>
+          </div>
+        </VisionCellWrapper>
+        <VisionCellWrapper style={{ justifyContent: 'flex-end', marginLeft: '40px' }} data-th="Who can see it">
+          <Text textAlign="right" style={{ fontSize: '14px' }}>
+            ~{number}
+            <span style={{ display: pass ? 'none' : 'inline-block' }}>&nbsp;can't</span>
           </Text>
-        </VisionCellWrapper>
-        <VisionCellWrapper style={{ minWidth: '30px', marginLeft: '40px' }} data-th="% Global">
-          <Text bold>{percent}%</Text>
-        </VisionCellWrapper>
-        <VisionCellWrapper style={{ minWidth: '160px', justifyContent: 'flex-end' }} data-th="Who can see it">
-          <Text align="right">~{number}</Text>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginLeft: '20px' }} data-th="Simulation">
           <Simulation foreground={foreground} background={background}>
@@ -164,17 +195,10 @@ export class VisionTable extends Component {
     return (
       <VisionTableWrapper>
         <TableHeaderWrapper>
-          <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '57px' }}>
+          <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '105px' }}>
             <td>
               <SmallText>
                 Vision Type
-              </SmallText>
-            </td>
-          </TableHeadCellWrapper>
-          <TableHeadCellWrapper>
-            <td>
-              <SmallText>
-                % Global
               </SmallText>
             </td>
           </TableHeadCellWrapper>
@@ -188,7 +212,7 @@ export class VisionTable extends Component {
           <TableHeadCellWrapper style={{ width: '126px', display: 'flex', justifyContent: 'center' }}>
             <td>
               <SmallText>
-                Preview
+                Simulation
               </SmallText>
             </td>
           </TableHeadCellWrapper>

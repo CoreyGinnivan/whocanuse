@@ -10,6 +10,7 @@ import { About } from "../components/about";
 import { SmallInfoBars } from "../components/small-info-bars";
 import queryString from "query-string";
 import { linkPath } from "../helpers/link";
+import { theme } from "../components/theme";
 
 /*----------------------------------------------------------
    Styles
@@ -40,6 +41,7 @@ const InfoBarWrapper = styled("div")({
 ----------------------------------------------------------*/
 
 class IndexPage extends Component {
+
   constructor(props) {
     super(props);
 
@@ -122,6 +124,7 @@ class IndexPage extends Component {
   };
 
   render() {
+    const constast = chroma.contrast(this.state.foreground, this.state.background);
     return (
       <Layout>
         <Hero
@@ -143,68 +146,82 @@ class IndexPage extends Component {
         />
         <ContentWrapper>
           <Heading align="center">Who can use this color combination?</Heading>
+          <InfoBarWrapper>
+            <LargeInfoBar
+              percent="97"
+              name="will struggle to"
+              pass={constast >= 4.5}
+            />
+            <LargeInfoBar
+              percent="3"
+              name="can"
+              style={{ backgroundColor: theme.color.lightgreen }}
+              pass={constast >= 4.5}
+            />
+          </InfoBarWrapper>
           <SmallInfoBars
             foreground={this.state.foreground}
             background={this.state.background}
           />
-          <InfoBarWrapper>
-            <LargeInfoBar percent="97" name="Global Population (Online)" />
-            <LargeInfoBar percent="80" name="Australian Population (Online)" />
-          </InfoBarWrapper>
           <VisionTable>
             <VisionRow
               name="Regular Vision (Trichromatic)"
-              simType="regular"
               description="Can distinguish all three primary colours, little to no blurriness"
-              percent="-"
+              percent="84"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 4.5}
             />
             <VisionRow
               name="Protanomaly"
               simType="protanomaly"
               description="Trouble distinguishing reds"
-              percent="-"
+              percent="3"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 7.5}
             />
             <VisionRow
               name="Protanopia"
               simType="protanopia"
               description="Red blind - Can’t see reds at all"
-              percent="-"
+              percent="2"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 2.5}
             />
             <VisionRow
               name="Deuteranomaly"
               simType="deuteranomaly"
               description="Trouble distinguishing greens"
-              percent="-"
+              percent="2"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 4.5}
             />
             <VisionRow
               name="Deuteranopia"
               simType="deuteranopia"
               description="Green blind - Can’t see greens at all"
-              percent="-"
+              percent="1"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 4.5}
             />
             <VisionRow
               name="Tritanomaly"
               simType="tritanomaly"
               description="Trouble distinguishing blues"
-              percent="-"
+              percent="1"
               number="11,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 1.5}
             />
             <VisionRow
               name="Tritanopia"
@@ -214,51 +231,57 @@ class IndexPage extends Component {
               number="123,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 3.5}
             />
             <VisionRow
               name="Achromatopsia"
               simType="achromatopsia"
               description="Complete colour blindness, can only see shades"
-              percent="-"
+              percent="4"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 4.5}
             />
             <VisionRow
               name="Cataracts"
               simType="cataracts"
               description="Clouding of the lens in the eye that affects vision"
-              percent="-"
+              percent="0.2"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 2.5}
             />
             <VisionRow
               name="Glaucoma"
               simType="glaucoma"
               description="Slight vision loss"
-              percent="-"
+              percent="0.1"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 3.5}
             />
             <VisionRow
               name="Hyperopia"
               simType="hyperopia"
               description="Farsightedness - Trouble seeing things up close"
-              percent="-"
+              percent="0.1"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 4.5}
             />
             <VisionRow
               name="Low Vision"
               simType="lowvision"
               description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
-              percent="-"
+              percent="0.1"
               number="1,000,000"
               foreground={this.state.foreground}
               background={this.state.background}
+              pass={constast >= 16}
             />
           </VisionTable>
         </ContentWrapper>

@@ -17,6 +17,7 @@ const ControlWrapper = styled("div")({
   boxShadow: "0 1px 2px 0 rgba(168,168,168,0.50)",
   padding: "20px",
   borderRadius: "6px",
+  minWidth: "334px",
   maxWidth: "400px",
   "&:after": {
     border: "2px solid #E6E6E6"

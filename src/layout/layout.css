@@ -601,9 +601,7 @@ pre tt:after {
 
 /* Vision Styles */
 
-.regular {
-  filter: blur(2px);
-}
+
 .protanomaly {
   filter: blur(2px);
 }
@@ -635,5 +633,5 @@ pre tt:after {
   filter: blur(2px);
 }
 .lowvision {
-  filter: blur(4px);
+  filter: blur(1.5px);
 }

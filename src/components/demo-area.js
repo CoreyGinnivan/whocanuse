@@ -12,8 +12,8 @@ const DemoAreaWrapper = styled('span')(props => ({
   justifyContent: 'center',
   alignItems: 'center',
   color: '#' + props.color,
-  fontSize: props.fontSize,
-  lineHeight: props.fontSize,
+  fontSize: props.fontSize + 'px',
+  lineHeight: props.fontSize + 'px',
   fontWeight: props.isBold && '600',
   textShadow: props.isShadow && '0 2px 1px rgba(0,0,0,0.4)',
   '@media screen and (max-width: 960px)': {

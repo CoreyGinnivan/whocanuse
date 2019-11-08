@@ -19,6 +19,9 @@ const LargeInfoBarWrapper = styled("div")(({ pass }) => ({
   borderRadius: "6px",
   width: "100%",
   outline: 0,
+  'h1, h2': {
+    color: pass ? theme.color.green : theme.color.red,
+  },
   "& + &": {
     marginLeft: "20px"
   },
@@ -47,8 +50,7 @@ export class LargeInfoBar extends Component {
     const { name, percent } = this.props;
     return (
       <LargeInfoBarWrapper>
-        <Heading>{percent}%</Heading>
-        <MediumText>{name}</MediumText>
+        <Heading>{percent}% {name}</Heading>
       </LargeInfoBarWrapper>
     );
   }
