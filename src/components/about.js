@@ -24,7 +24,7 @@ const Author = styled('div')({
   alignItems: 'center',
   justifyContent: 'flex-end',
   flexWrap: 'nowrap',
-  margin: '20px 0',
+  margin: '14px 0',
   'p, a': {
     display: 'flex',
     alignItems: 'center'
