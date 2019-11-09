@@ -18,6 +18,14 @@ const Wrapper = styled("div")({
   position: 'fixed',
   width: '50vw',
   padding: '40px',
+  "@media screen and (max-width: 1200px)": {
+    height: '100%',
+    gridTemplateColumns: "20px 1fr 20px",
+    gridTemplateRows: "100px 1fr 1fr 20px 60px",
+    position: 'relative',
+    width: 'auto',
+    padding: '20px',
+  }
 });
 
 /*----------------------------------------------------------

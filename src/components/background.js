@@ -12,10 +12,7 @@ const BackgroundWrapper = styled('div')(props => ({
   backgroundColor: '#' + props.background,
   boxShadow: 'inset 0px 0px 2px rgba(0,0,0,0.1)',
   borderRadius: '10px',
-  zIndex: '-1',
-  '@media screen and (max-width: 960px)': {
-    margin: '-20px'
-  }
+  zIndex: '-1'
 }))
 
 

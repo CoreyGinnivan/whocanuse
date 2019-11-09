@@ -11,12 +11,13 @@ const DemoAreaWrapper = styled('div')(props => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  minHight: '280px',
   color: '#' + props.color,
   fontSize: props.fontSize + 'px',
   lineHeight: props.fontSize + 'px',
   fontWeight: props.isBold && '600',
   textShadow: props.isShadow && '0 2px 1px rgba(0,0,0,0.4)',
-  '@media screen and (max-width: 960px)': {
+  '@media screen and (max-width: 1200px)': {
     gridArea: '2 / 2 / 3 / 3',
     textAlign: 'center'
   }

@@ -8,7 +8,7 @@ import Avatar from "../images/avatar.png"
 ----------------------------------------------------------*/
 
 const AboutWrapper = styled('div')({
-  marginTop: '90px',
+  marginTop: '60px',
   background: '#f6f8fa',
   padding: '40px',
   borderRadius: '10px',

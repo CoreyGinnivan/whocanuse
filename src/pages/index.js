@@ -19,7 +19,7 @@ import { theme } from "../components/theme";
 const MainLayout = styled("div")({
   display: 'flex',
   flexDirection: 'row',
-  "@media screen and (max-width: 780px)": {
+  "@media screen and (max-width: 1200px)": {
     flexDirection: "column"
   }
 });
@@ -29,15 +29,20 @@ const ContentWrapper = styled("div")({
   width: '50vw',
   marginLeft: '50vw',
   padding: '40px 40px 40px 0',
+  "@media screen and (max-width: 1200px)": {
+    width: '100%',
+    marginLeft: '0',
+    padding: '20px',
+  }
 });
 
 const InfoBarWrapper = styled("div")({
   display: "flex",
   marginTop: "30px",
+  justifyContent: "space-between",
   "& + &": {
     marginTop: "10px"
   },
-  justifyContent: "space-between",
   "@media screen and (max-width: 780px)": {
     flexDirection: "column"
   }

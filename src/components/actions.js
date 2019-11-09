@@ -42,9 +42,6 @@ const ActionsWrapper = styled("div")(props => ({
   div: {
     display: "flex",
     alignItems: "center"
-  },
-  "@media screen and (max-width: 960px)": {
-    display: "none"
   }
 }));
 

@@ -20,6 +20,9 @@ const ControlWrapper = styled("div")({
   minWidth: "334px",
   "&:after": {
     border: "2px solid #E6E6E6"
+  },
+  '@media screen and (max-width: 540px)': {
+    flexDirection: "column",
   }
 });
 
@@ -27,7 +30,11 @@ const ColorWrapper = styled("div")({
   position: "relative",
   width: "100%",
   height: "200px",
-  maxWidth: '296px'
+  maxWidth: '296px',
+  '@media screen and (max-width: 540px)': {
+    height: "180px",
+    maxWidth: 'calc(100% - 25px)',
+  }
 });
 
 const BackgroundWrapper = styled("div")(props => ({
@@ -84,7 +91,10 @@ const Hash = styled.div(props => ({
 const Fields = styled("div")({
   display: "flex",
   flexDirection: "column",
-  marginLeft: '40px'
+  marginLeft: '60px',
+  '@media screen and (max-width: 540px)': {
+    marginLeft: '0',
+  }
 });
 
 const FieldWrapper = styled("div")({
