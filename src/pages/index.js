@@ -174,6 +174,26 @@ class IndexPage extends Component {
               pass={constast >= 4.5}
             />
             <VisionRow
+              name="Direct Sunlight"
+              simType="lowvision"
+              description="Simulating what direct sunlight on a phone/screen would be"
+              percent="-"
+              number="Most"
+              foreground={this.state.foreground}
+              background={this.state.background}
+              pass={constast >= 2}
+            />
+            <VisionRow
+              name="Night Light Mode"
+              simType="lowvision"
+              description="Simulating what would be seen on phones/screens with night mode on"
+              percent="-"
+              number="Most"
+              foreground={this.state.foreground}
+              background={this.state.background}
+              pass={constast >= 2}
+            />
+            <VisionRow
               name="Protanomaly"
               simType="protanomaly"
               description="Trouble distinguishing reds"

@@ -86,7 +86,7 @@ export class About extends Component {
             <Text>The stats are sourced from randomsite.com or provided by Vision Australia so far</Text>
 
             <MediumText>How accurate is the data?</MediumText>
-            <Text>Vision disabilities are never going to be the exact same for those with the same condition, so the data provided is rough estimate. However the main objective is to give you a better understanding and breakdown of how colour contrast affect different vision types</Text>
+            <Text>Vision impairments are never going to be the exact same for those with the same conditions, so the data provided is rough estimate. However the main objective is to give you a better understanding of how colour contrast affect different vision types.</Text>
 
             <MediumText>Can I support this site?</MediumText>
             <Text>Absolutely! You can either help contribute to the codebase on GitHub or donate to my patreon account to help me keep whocanuse.com running</Text>
