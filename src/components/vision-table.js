@@ -278,7 +278,7 @@ export class VisionTableAlt extends Component {
           <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '12px' }}>
             <td>
               <SmallText>
-                Situational Vision Types
+                Situational Vision Events
               </SmallText>
             </td>
           </TableHeadCellWrapper>
