@@ -621,7 +621,7 @@ pre tt:after {
   filter: blur(2px);
 }
 .achromatopsia {
-  backdrop-filter: grayscale(0.9);
+  filter: grayscale(1);
 }
 .cataracts {
   filter: blur(2px);

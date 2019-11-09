@@ -103,29 +103,29 @@ const TableHeadCellWrapper = styled('tr')({
   alignItems: 'center',
 })
 
-const SimulationFilter = styled('div')({
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  userSelect: 'none'
-})
 
-
-const Simulation = styled('div')(props => ({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+const Simulation = styled('div')({
+  position: 'relative',
   width: '90px',
   height: '60px',
-  background: '#' + props.background,
-  boxShadow: 'inset 0 0 3px 0 rgba(0, 0, 0, 0.16)',
+  userSelect: 'none',
   borderRadius: '6px',
-  color: '#' + props.foreground,
   overflow: 'hidden',
-  position: 'relative'
+  boxShadow: '0 0 0px 1px rgba(0,0,0,0.1)',
+})
+
+const SimulationFilter = styled('div')(props => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  position: "absolute",
+  top: '-10px',
+  left: '-10px',
+  width: '110px',
+  height: '80px',
+  background: '#' + props.background,
+  color: '#' + props.foreground,
+  userSelect: 'none'
 }))
 
 
@@ -178,8 +178,8 @@ export class VisionRow extends Component {
           </Text>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginLeft: '20px' }} data-th="Simulation">
-          <Simulation foreground={foreground} background={background}>
-            <SimulationFilter className={simType}>
+          <Simulation>
+            <SimulationFilter className={simType} foreground={foreground} background={background}>
               Text
             </SimulationFilter>
           </Simulation>
@@ -254,8 +254,8 @@ export class VisionRowAlt extends Component {
           </div>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ justifyContent: 'flex-end', marginLeft: '20px' }} data-th="Simulation">
-          <Simulation foreground={foreground} background={background}>
-            <SimulationFilter className={simType}>
+          <Simulation>
+            <SimulationFilter className={simType} foreground={foreground} background={background}>
               Text
             </SimulationFilter>
           </Simulation>

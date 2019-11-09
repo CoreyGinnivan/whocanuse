@@ -58,9 +58,9 @@ const NegativeBar = styled("div")(({ negativePercent }) => ({
 
 export class PercentBars extends Component {
   static propTypes = {
-    positivePercent: PropTypes.number,
-    negativePercent: PropTypes.number,
-    neutralPercent: PropTypes.number,
+    positivePercent: PropTypes.string,
+    negativePercent: PropTypes.string,
+    neutralPercent: PropTypes.string,
   };
   render() {
     const { positivePercent, negativePercent, neutralPercent } = this.props;
