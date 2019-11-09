@@ -36,6 +36,12 @@ const PositiveBar = styled("div")(({ positivePercent }) => ({
   width: positivePercent + '%',
 }));
 
+const NeutralBar = styled("div")(({ neutralPercent }) => ({
+  backgroundColor: theme.color.orange,
+  height: '10px',
+  width: neutralPercent + '%',
+}));
+
 const NegativeBar = styled("div")(({ negativePercent }) => ({
   backgroundColor: theme.color.red,
   height: '10px',
@@ -53,18 +59,21 @@ const NegativeBar = styled("div")(({ negativePercent }) => ({
 export class PercentBars extends Component {
   static propTypes = {
     positivePercent: PropTypes.number,
-    negativePercent: PropTypes.number
+    negativePercent: PropTypes.number,
+    neutralPercent: PropTypes.number,
   };
   render() {
-    const { positivePercent, negativePercent } = this.props;
+    const { positivePercent, negativePercent, neutralPercent } = this.props;
     return (
       <CompleteWrapper>
         <TextWrapper>
           <SmallText style={{ color: theme.color.green }}>{positivePercent}% can</SmallText>
-          <SmallText style={{ color: theme.color.red }}>{negativePercent}% will struggle</SmallText>
+          <SmallText style={{ color: theme.color.orange }}>{neutralPercent}% will struggle</SmallText>
+          <SmallText style={{ color: theme.color.red }}>{negativePercent}% can't</SmallText>
         </TextWrapper>
         <BarWrapper>
           <PositiveBar positivePercent={positivePercent} />
+          <NeutralBar neutralPercent={neutralPercent} />
           <NegativeBar negativePercent={negativePercent} />
         </BarWrapper>
       </CompleteWrapper>

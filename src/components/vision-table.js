@@ -172,7 +172,7 @@ export class VisionRow extends Component {
           </div>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ justifyContent: 'flex-end', marginLeft: '40px' }} data-th="Who can see it">
-          <Text textAlign="right" style={{ fontSize: '14px', fontWeight: pass ? null : '600' }}>
+          <Text style={{ fontSize: '14px', fontWeight: pass ? null : '600', textAlign: 'right' }}>
             ~{number}
             <span style={{ display: pass ? 'none' : 'inline-block' }}>&nbsp;can't</span>
           </Text>
@@ -209,6 +209,76 @@ export class VisionTable extends Component {
             <td>
               <SmallText>
                 Who can see it
+              </SmallText>
+            </td>
+          </TableHeadCellWrapper>
+          <TableHeadCellWrapper style={{ width: '126px', display: 'flex', justifyContent: 'center' }}>
+            <td>
+              <SmallText>
+                Simulation
+              </SmallText>
+            </td>
+          </TableHeadCellWrapper>
+        </TableHeaderWrapper>
+        <tbody>
+          {children}
+        </tbody>
+      </VisionTableWrapper>
+    );
+  }
+}
+
+
+export class VisionRowAlt extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    number: PropTypes.string,
+    percent: PropTypes.string,
+    tooltip: PropTypes.string,
+    foreground: PropTypes.string,
+    background: PropTypes.string,
+    class: PropTypes.string,
+  }
+  render() {
+    const { name, number, percent, description, foreground, background, simType, pass } = this.props;
+    return (
+      <VisionRowWrapper pass={pass}>
+        <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <Text bold dark>
+              {name}
+            </Text>
+            <Text style={{ fontSize: '14px' }}>
+              {description}
+            </Text>
+          </div>
+        </VisionCellWrapper>
+        <VisionCellWrapper style={{ justifyContent: 'flex-end', marginLeft: '20px' }} data-th="Simulation">
+          <Simulation foreground={foreground} background={background}>
+            <SimulationFilter className={simType}>
+              Text
+            </SimulationFilter>
+          </Simulation>
+        </VisionCellWrapper>
+      </VisionRowWrapper >
+    );
+  }
+}
+
+
+export class VisionTableAlt extends Component {
+  static propTypes = {
+    children: PropTypes.node,
+  }
+  render() {
+    let { children } = this.props;
+    return (
+      <VisionTableWrapper>
+        <TableHeaderWrapper>
+          <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '12px' }}>
+            <td>
+              <SmallText>
+                Situational Vision Types
               </SmallText>
             </td>
           </TableHeadCellWrapper>

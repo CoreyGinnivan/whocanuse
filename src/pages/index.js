@@ -5,7 +5,7 @@ import Layout from "../layout/layout";
 import { Hero } from "../components/hero";
 import { Heading } from "../components/typography";
 import { PercentBars } from "../components/infobars";
-import { VisionTable, VisionRow } from "../components/vision-table";
+import { VisionTable, VisionTableAlt, VisionRow, VisionRowAlt } from "../components/vision-table";
 import { About } from "../components/about";
 import { SmallInfoBars } from "../components/small-info-bars";
 import queryString from "query-string";
@@ -168,7 +168,8 @@ class IndexPage extends Component {
             <StatsWrapper>
               <InfoBarWrapper>
                 <PercentBars
-                  positivePercent="97"
+                  positivePercent="83"
+                  neutralPercent="14"
                   negativePercent="3"
                 />
               </InfoBarWrapper>
@@ -186,26 +187,6 @@ class IndexPage extends Component {
                 foreground={this.state.foreground}
                 background={this.state.background}
                 pass={constast >= 4.5}
-              />
-              <VisionRow
-                name="Direct Sunlight"
-                simType="lowvision"
-                description="Simulating what direct sunlight on a phone/screen would be"
-                percent="-"
-                number="Most"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                pass={constast >= 2}
-              />
-              <VisionRow
-                name="Night Light Mode"
-                simType="lowvision"
-                description="Simulating what would be seen on phones/screens with night mode on"
-                percent="-"
-                number="Most"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                pass={constast >= 2}
               />
               <VisionRow
                 name="Protanomaly"
@@ -318,6 +299,28 @@ class IndexPage extends Component {
                 pass={constast >= 16}
               />
             </VisionTable>
+            <VisionTableAlt>
+              <VisionRowAlt
+                name="Direct Sunlight"
+                simType="lowvision"
+                description="Simulating what direct sunlight on a phone/screen would be"
+                percent="-"
+                number="Most"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 2}
+              />
+              <VisionRowAlt
+                name="Night Shift Mode"
+                simType="nightshift"
+                description="Simulating what would be seen on phones/screens with night mode on"
+                percent="-"
+                number="Most"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 2}
+              />
+            </VisionTableAlt>
             <About />
           </ContentWrapper>
         </MainLayout>
