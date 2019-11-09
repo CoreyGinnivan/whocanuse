@@ -3,34 +3,43 @@ import styled from "@emotion/styled";
 import { theme } from "../components/theme";
 import PropTypes from "prop-types";
 
-import { MediumText, Heading } from "../components/typography";
+import { SmallText } from "../components/typography";
 
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
 
-const LargeInfoBarWrapper = styled("div")(({ pass }) => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: pass ? theme.color.lightgreen : theme.color.lightred,
-  padding: "20px",
-  borderRadius: "6px",
-  width: "100%",
-  outline: 0,
-  'h1, h2': {
-    color: pass ? theme.color.green : theme.color.red,
-  },
-  "& + &": {
-    marginLeft: "20px"
-  },
-  "@media screen and (max-width: 780px)": {
-    "& + &": {
-      marginTop: "10px",
-      marginLeft: "0"
-    }
-  }
+const CompleteWrapper = styled("div")({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%'
+});
+
+const BarWrapper = styled("div")({
+  display: 'flex',
+  flexDirection: 'row',
+  overflow: 'hidden',
+  borderRadius: "10px",
+  width: '100%',
+  marginTop: '10px'
+});
+
+const TextWrapper = styled("div")({
+  display: 'flex',
+  justifyContent: 'space-between',
+  width: '100%'
+});
+
+const PositiveBar = styled("div")(({ positivePercent }) => ({
+  backgroundColor: theme.color.green,
+  height: '10px',
+  width: positivePercent + '%',
+}));
+
+const NegativeBar = styled("div")(({ negativePercent }) => ({
+  backgroundColor: theme.color.red,
+  height: '10px',
+  width: negativePercent + '%',
 }));
 
 
@@ -41,17 +50,24 @@ const LargeInfoBarWrapper = styled("div")(({ pass }) => ({
 
 
 
-export class LargeInfoBar extends Component {
+export class PercentBars extends Component {
   static propTypes = {
-    name: PropTypes.string,
-    percent: PropTypes.string
+    positivePercent: PropTypes.number,
+    negativePercent: PropTypes.number
   };
   render() {
-    const { name, percent } = this.props;
+    const { positivePercent, negativePercent } = this.props;
     return (
-      <LargeInfoBarWrapper>
-        <Heading>{percent}% {name}</Heading>
-      </LargeInfoBarWrapper>
+      <CompleteWrapper>
+        <TextWrapper>
+          <SmallText style={{ color: theme.color.green }}>{positivePercent}% can</SmallText>
+          <SmallText style={{ color: theme.color.red }}>{negativePercent}% will struggle</SmallText>
+        </TextWrapper>
+        <BarWrapper>
+          <PositiveBar positivePercent={positivePercent} />
+          <NegativeBar negativePercent={negativePercent} />
+        </BarWrapper>
+      </CompleteWrapper>
     );
   }
 }

@@ -5,32 +5,26 @@ import { Check, Cross } from "../components/icons";
 import { theme } from "../components/theme";
 
 import PropTypes from "prop-types";
-import { MediumText } from "../components/typography";
+import { SmallText, Heading } from "../components/typography";
 import Tippy from "@tippy.js/react";
 
 const InfoBarWrapper = styled("div")({
   display: "flex",
   marginTop: "30px",
-  "& + &": {
-    marginTop: "10px"
-  },
-  justifyContent: "space-between",
-  "@media screen and (max-width: 780px)": {
-    flexDirection: "column"
-  }
+  justifyContent: "space-between"
 });
 
 const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   display: "flex",
-  flexDirection: "row",
-  alignItems: "center",
-  backgroundColor: pass ? theme.color.lightgreen : theme.color.lightred,
-  padding: "16px",
+  flexDirection: "column",
+  alignItems: "flex-start",
   borderRadius: "6px",
   width: "100%",
-  marginTop: "10px",
   marginRight: "20px",
   outline: 0,
+  'h1': {
+    color: pass ? theme.color.green : theme.color.red,
+  },
   svg: {
     margin: "auto"
   },
@@ -42,7 +36,6 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   },
   "@media screen and (max-width: 780px)": {
     "& + &": {
-      marginTop: "10px",
       marginLeft: "0"
     }
   }
@@ -50,9 +43,9 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
 
 const renderCheckMark = pass =>
   pass ? (
-    <Check style={{ marginRight: "10px" }} />
+    <Heading>Pass</Heading>
   ) : (
-      <Cross style={{ marginRight: "10px" }} />
+      <Heading>Fail</Heading>
     );
 
 class SmallInfoBar extends Component {
@@ -65,8 +58,26 @@ class SmallInfoBar extends Component {
     return (
       <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
         <SmallInfoBarWrapper pass={pass}>
+          <SmallText style={{ marginBottom: '5px' }}>{name}</SmallText>
           {renderCheckMark(pass)}
-          <MediumText>{name}</MediumText>
+        </SmallInfoBarWrapper>
+      </Tippy>
+    );
+  }
+}
+
+class RatioStat extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    tooltip: PropTypes.string
+  };
+  render() {
+    const { name, tooltip, pass } = this.props;
+    return (
+      <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
+        <SmallInfoBarWrapper pass={pass}>
+          <SmallText style={{ marginBottom: '5px' }}>Contrast Ratio</SmallText>
+          <Heading>{name}</Heading>
         </SmallInfoBarWrapper>
       </Tippy>
     );
@@ -88,10 +99,10 @@ export class SmallInfoBars extends Component {
 
     return (
       <InfoBarWrapper>
-        <SmallInfoBar
+        <RatioStat
           pass={constast >= 4.5}
           tooltip="The difference in luminance or color that makes an object distinguishable - a higher number is better"
-          name={`${formatContrast(constast)} Contrast Ratio`}
+          name={`${formatContrast(constast)}`}
         />
         <SmallInfoBar
           pass={constast >= 4.5}

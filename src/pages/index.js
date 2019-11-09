@@ -4,13 +4,12 @@ import styled from "@emotion/styled";
 import Layout from "../layout/layout";
 import { Hero } from "../components/hero";
 import { Heading } from "../components/typography";
-import { LargeInfoBar } from "../components/infobars";
+import { PercentBars } from "../components/infobars";
 import { VisionTable, VisionRow } from "../components/vision-table";
 import { About } from "../components/about";
 import { SmallInfoBars } from "../components/small-info-bars";
 import queryString from "query-string";
 import { linkPath } from "../helpers/link";
-import { theme } from "../components/theme";
 
 /*----------------------------------------------------------
    Styles
@@ -28,7 +27,7 @@ const ContentWrapper = styled("div")({
   height: '100%',
   width: '50vw',
   marginLeft: '50vw',
-  padding: '40px 40px 40px 0',
+  padding: '60px 40px 40px 0',
   "@media screen and (max-width: 1200px)": {
     width: '100%',
     marginLeft: '0',
@@ -36,9 +35,16 @@ const ContentWrapper = styled("div")({
   }
 });
 
+const StatsWrapper = styled("div")({
+  background: '#f6f8fa',
+  padding: '20px',
+  marginTop: '20px',
+  borderRadius: '8px'
+});
+
 const InfoBarWrapper = styled("div")({
   display: "flex",
-  marginTop: "30px",
+  marginTop: "15px",
   justifyContent: "space-between",
   "& + &": {
     marginTop: "10px"
@@ -159,27 +165,22 @@ class IndexPage extends Component {
           />
           <ContentWrapper>
             <Heading align="left">Who can use this color combination?</Heading>
-            <InfoBarWrapper>
-              <LargeInfoBar
-                percent="97"
-                name="will struggle"
-                pass={constast >= 4.5}
+            <StatsWrapper>
+              <InfoBarWrapper>
+                <PercentBars
+                  positivePercent="97"
+                  negativePercent="3"
+                />
+              </InfoBarWrapper>
+              <SmallInfoBars
+                foreground={this.state.foreground}
+                background={this.state.background}
               />
-              <LargeInfoBar
-                percent="3"
-                name="can"
-                style={{ backgroundColor: theme.color.lightgreen }}
-                pass={constast >= 4.5}
-              />
-            </InfoBarWrapper>
-            <SmallInfoBars
-              foreground={this.state.foreground}
-              background={this.state.background}
-            />
+            </StatsWrapper>
             <VisionTable>
               <VisionRow
                 name="Regular Vision (Trichromatic)"
-                description="Can distinguish all three primary colours, little to no blurriness"
+                description="Can distinguish all three primary color, little to no blurriness"
                 percent="84"
                 number="1,000,000"
                 foreground={this.state.foreground}
