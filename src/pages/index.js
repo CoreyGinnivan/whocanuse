@@ -16,12 +16,19 @@ import { theme } from "../components/theme";
    Styles
 ----------------------------------------------------------*/
 
-const ContentWrapper = styled("div")({
-  maxWidth: "940px",
-  margin: "50px auto 0 auto",
-  "@media screen and (max-width: 960px)": {
-    padding: "0 20px"
+const MainLayout = styled("div")({
+  display: 'flex',
+  flexDirection: 'row',
+  "@media screen and (max-width: 780px)": {
+    flexDirection: "column"
   }
+});
+
+const ContentWrapper = styled("div")({
+  height: '100%',
+  width: '50vw',
+  marginLeft: '50vw',
+  padding: '40px 40px 40px 0',
 });
 
 const InfoBarWrapper = styled("div")({
@@ -127,185 +134,187 @@ class IndexPage extends Component {
     const constast = chroma.contrast(this.state.foreground, this.state.background);
     return (
       <Layout>
-        <Hero
-          setBackground={this.setBackground}
-          setForeground={this.setForeground}
-          foreground={this.state.foreground}
-          background={this.state.background}
-          foregroundText={this.state.foregroundText}
-          backgroundText={this.state.backgroundText}
-          setFontSize={this.setFontSize}
-          fontSize={this.state.fontSize}
-          minFontSize={10}
-          maxFontSize={60}
-          fontSizeText={this.state.fontSizeText}
-          shadow={this.state.shadow}
-          setShadow={this.setShadow}
-          bold={this.state.bold}
-          setBold={this.setBold}
-        />
-        <ContentWrapper>
-          <Heading align="center">Who can use this color combination?</Heading>
-          <InfoBarWrapper>
-            <LargeInfoBar
-              percent="97"
-              name="will struggle"
-              pass={constast >= 4.5}
-            />
-            <LargeInfoBar
-              percent="3"
-              name="can"
-              style={{ backgroundColor: theme.color.lightgreen }}
-              pass={constast >= 4.5}
-            />
-          </InfoBarWrapper>
-          <SmallInfoBars
+        <MainLayout>
+          <Hero
+            setBackground={this.setBackground}
+            setForeground={this.setForeground}
             foreground={this.state.foreground}
             background={this.state.background}
+            foregroundText={this.state.foregroundText}
+            backgroundText={this.state.backgroundText}
+            setFontSize={this.setFontSize}
+            fontSize={this.state.fontSize}
+            minFontSize={10}
+            maxFontSize={60}
+            fontSizeText={this.state.fontSizeText}
+            shadow={this.state.shadow}
+            setShadow={this.setShadow}
+            bold={this.state.bold}
+            setBold={this.setBold}
           />
-          <VisionTable>
-            <VisionRow
-              name="Regular Vision (Trichromatic)"
-              description="Can distinguish all three primary colours, little to no blurriness"
-              percent="84"
-              number="1,000,000"
+          <ContentWrapper>
+            <Heading align="left">Who can use this color combination?</Heading>
+            <InfoBarWrapper>
+              <LargeInfoBar
+                percent="97"
+                name="will struggle"
+                pass={constast >= 4.5}
+              />
+              <LargeInfoBar
+                percent="3"
+                name="can"
+                style={{ backgroundColor: theme.color.lightgreen }}
+                pass={constast >= 4.5}
+              />
+            </InfoBarWrapper>
+            <SmallInfoBars
               foreground={this.state.foreground}
               background={this.state.background}
-              pass={constast >= 4.5}
             />
-            <VisionRow
-              name="Direct Sunlight"
-              simType="lowvision"
-              description="Simulating what direct sunlight on a phone/screen would be"
-              percent="-"
-              number="Most"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 2}
-            />
-            <VisionRow
-              name="Night Light Mode"
-              simType="lowvision"
-              description="Simulating what would be seen on phones/screens with night mode on"
-              percent="-"
-              number="Most"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 2}
-            />
-            <VisionRow
-              name="Protanomaly"
-              simType="protanomaly"
-              description="Trouble distinguishing reds"
-              percent="3"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 7.5}
-            />
-            <VisionRow
-              name="Protanopia"
-              simType="protanopia"
-              description="Red blind - Can’t see reds at all"
-              percent="2"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 2.5}
-            />
-            <VisionRow
-              name="Deuteranomaly"
-              simType="deuteranomaly"
-              description="Trouble distinguishing greens"
-              percent="2"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 4.5}
-            />
-            <VisionRow
-              name="Deuteranopia"
-              simType="deuteranopia"
-              description="Green blind - Can’t see greens at all"
-              percent="1"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 4.5}
-            />
-            <VisionRow
-              name="Tritanomaly"
-              simType="tritanomaly"
-              description="Trouble distinguishing blues"
-              percent="1"
-              number="11,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 1.5}
-            />
-            <VisionRow
-              name="Tritanopia"
-              simType="tritanopia"
-              description="Blue blind - Can’t see blues at all"
-              percent="4"
-              number="123,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 3.5}
-            />
-            <VisionRow
-              name="Achromatopsia"
-              simType="achromatopsia"
-              description="Complete colour blindness, can only see shades"
-              percent="4"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 4.5}
-            />
-            <VisionRow
-              name="Cataracts"
-              simType="cataracts"
-              description="Clouding of the lens in the eye that affects vision"
-              percent="0.2"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 2.5}
-            />
-            <VisionRow
-              name="Glaucoma"
-              simType="glaucoma"
-              description="Slight vision loss"
-              percent="0.1"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 3.5}
-            />
-            <VisionRow
-              name="Hyperopia"
-              simType="hyperopia"
-              description="Farsightedness - Trouble seeing things up close"
-              percent="0.1"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 4.5}
-            />
-            <VisionRow
-              name="Low Vision"
-              simType="lowvision"
-              description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
-              percent="0.1"
-              number="1,000,000"
-              foreground={this.state.foreground}
-              background={this.state.background}
-              pass={constast >= 16}
-            />
-          </VisionTable>
-        </ContentWrapper>
-        <About />
+            <VisionTable>
+              <VisionRow
+                name="Regular Vision (Trichromatic)"
+                description="Can distinguish all three primary colours, little to no blurriness"
+                percent="84"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 4.5}
+              />
+              <VisionRow
+                name="Direct Sunlight"
+                simType="lowvision"
+                description="Simulating what direct sunlight on a phone/screen would be"
+                percent="-"
+                number="Most"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 2}
+              />
+              <VisionRow
+                name="Night Light Mode"
+                simType="lowvision"
+                description="Simulating what would be seen on phones/screens with night mode on"
+                percent="-"
+                number="Most"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 2}
+              />
+              <VisionRow
+                name="Protanomaly"
+                simType="protanomaly"
+                description="Trouble distinguishing reds"
+                percent="3"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 7.5}
+              />
+              <VisionRow
+                name="Protanopia"
+                simType="protanopia"
+                description="Red blind - Can’t see reds at all"
+                percent="2"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 2.5}
+              />
+              <VisionRow
+                name="Deuteranomaly"
+                simType="deuteranomaly"
+                description="Trouble distinguishing greens"
+                percent="2"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 4.5}
+              />
+              <VisionRow
+                name="Deuteranopia"
+                simType="deuteranopia"
+                description="Green blind - Can’t see greens at all"
+                percent="1"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 4.5}
+              />
+              <VisionRow
+                name="Tritanomaly"
+                simType="tritanomaly"
+                description="Trouble distinguishing blues"
+                percent="1"
+                number="11,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 1.5}
+              />
+              <VisionRow
+                name="Tritanopia"
+                simType="tritanopia"
+                description="Blue blind - Can’t see blues at all"
+                percent="4"
+                number="123,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 3.5}
+              />
+              <VisionRow
+                name="Achromatopsia"
+                simType="achromatopsia"
+                description="Complete colour blindness, can only see shades"
+                percent="4"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 4.5}
+              />
+              <VisionRow
+                name="Cataracts"
+                simType="cataracts"
+                description="Clouding of the lens in the eye that affects vision"
+                percent="0.2"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 2.5}
+              />
+              <VisionRow
+                name="Glaucoma"
+                simType="glaucoma"
+                description="Slight vision loss"
+                percent="0.1"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 3.5}
+              />
+              <VisionRow
+                name="Hyperopia"
+                simType="hyperopia"
+                description="Farsightedness - Trouble seeing things up close"
+                percent="0.1"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 4.5}
+              />
+              <VisionRow
+                name="Low Vision"
+                simType="lowvision"
+                description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
+                percent="0.1"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                pass={constast >= 16}
+              />
+            </VisionTable>
+            <About />
+          </ContentWrapper>
+        </MainLayout>
       </Layout>
     );
   }

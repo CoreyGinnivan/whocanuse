@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 ----------------------------------------------------------*/
 
 const Container = styled('div')(props => ({
-  gridArea: '1 / 2 / 2 / 3',
+  gridArea: '1 / 1 / 2 / 4',
   display: 'flex',
   alignContent: 'center',
   justifyContent: 'center',

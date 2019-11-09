@@ -9,34 +9,31 @@ import Switch from "../images/switch.svg";
 ----------------------------------------------------------*/
 
 const ControlWrapper = styled("div")({
-  gridArea: "2 / 2 / 4 / 3",
+  gridArea: "3 / 2 / 4 / 3",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   background: "#EEEEEE",
   border: "1px solid #FFFFFF",
   boxShadow: "0 1px 2px 0 rgba(168,168,168,0.50)",
   padding: "20px",
   borderRadius: "6px",
   minWidth: "334px",
-  maxWidth: "400px",
   "&:after": {
     border: "2px solid #E6E6E6"
-  },
-  "@media screen and (max-width: 960px)": {
-    margin: "0 auto",
-    gridArea: "3 / 2 / 4 / 3"
   }
 });
 
 const ColorWrapper = styled("div")({
   position: "relative",
   width: "100%",
-  height: "200px"
+  height: "200px",
+  maxWidth: '296px'
 });
 
 const BackgroundWrapper = styled("div")(props => ({
   position: "absolute",
-  width: "260px",
+  minWidth: "120px",
+  width: '100%',
   height: "100px",
   backgroundColor: "#" + props.background,
   border: "1px solid #FFFFFF",
@@ -48,14 +45,15 @@ const BackgroundWrapper = styled("div")(props => ({
 
 const ForegroundWrapper = styled("div")(props => ({
   position: "absolute",
-  width: "270px",
+  minWidth: "120px",
+  width: '100%',
   height: "100px",
   backgroundColor: "#" + props.color,
   border: "1px solid #FFFFFF",
   borderRadius: "4px",
   zIndex: "10",
   top: "55px",
-  right: 0,
+  right: '-25px',
   "&:before": {
     border: "2px solid rgba(0, 0, 0, 0.05)"
   }
@@ -83,6 +81,12 @@ const Hash = styled.div(props => ({
   left: "10px"
 }));
 
+const Fields = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  marginLeft: '40px'
+});
+
 const FieldWrapper = styled("div")({
   position: "relative",
   display: "flex",
@@ -92,7 +96,7 @@ const FieldWrapper = styled("div")({
     marginTop: "20px"
   },
   span: {
-    width: "90px"
+    width: "74px"
   }
 });
 
@@ -136,7 +140,7 @@ const CheckboxWrapper = styled("label")({
 
 const SwitchIcon = styled("button")({
   position: "absolute",
-  right: "4px",
+  right: "-25px",
   top: "25px",
   cursor: "pointer",
   border: 0,
@@ -254,61 +258,63 @@ export const Control = ({
           />
         </ForegroundWrapper>
       </ColorWrapper>
-      <FieldWrapper>
-        <SmallText>Text Size</SmallText>
-        <TextSize
-          type="number"
-          min="10"
-          max="60"
-          value={fontSize}
-          onMouseDown={e => {
-            setFontDragInfo({ x: e.clientX, fontSize });
-          }}
-          onChange={e => {
-            setFontSize(e.target.value);
-          }}
-          onBlur={() => {
-            const fontNumber = Number(fontSize);
-            if (isNaN(fontNumber)) {
-              return;
-            }
-            if (fontNumber > maxFontSize) {
-              return setFontSize(maxFontSize.toString());
-            }
-            if (fontNumber < minFontSize) {
-              return setFontSize(minFontSize.toString());
-            }
-          }}
-        />
-        <Text bold>px</Text>
-      </FieldWrapper>
-      <FieldWrapper>
-        <SmallText>Styles</SmallText>
-        <CheckboxWrapper style={{ marginRight: "30px" }}>
-          <input
-            type="checkbox"
-            id="bold"
-            name="bold"
-            checked={bold}
-            onChange={() => setBold(!bold)}
+      <Fields>
+        <FieldWrapper>
+          <SmallText>Text Size</SmallText>
+          <TextSize
+            type="number"
+            min="10"
+            max="60"
+            value={fontSize}
+            onMouseDown={e => {
+              setFontDragInfo({ x: e.clientX, fontSize });
+            }}
+            onChange={e => {
+              setFontSize(e.target.value);
+            }}
+            onBlur={() => {
+              const fontNumber = Number(fontSize);
+              if (isNaN(fontNumber)) {
+                return;
+              }
+              if (fontNumber > maxFontSize) {
+                return setFontSize(maxFontSize.toString());
+              }
+              if (fontNumber < minFontSize) {
+                return setFontSize(minFontSize.toString());
+              }
+            }}
           />
-          <Text bold dark htmlFor="bold">
-            Bold
+          <Text bold>px</Text>
+        </FieldWrapper>
+        <FieldWrapper>
+          <SmallText>Styles</SmallText>
+          <CheckboxWrapper style={{ marginRight: "20px" }}>
+            <input
+              type="checkbox"
+              id="bold"
+              name="bold"
+              checked={bold}
+              onChange={() => setBold(!bold)}
+            />
+            <Text bold dark htmlFor="bold">
+              Bold
           </Text>
-        </CheckboxWrapper>
-        <CheckboxWrapper>
-          <input
-            type="checkbox"
-            id="shadow"
-            name="shadow"
-            checked={shadow}
-            onChange={() => setShadow(!shadow)}
-          />
-          <Text bold dark htmlFor="shadow">
-            Shadow
+          </CheckboxWrapper>
+          <CheckboxWrapper>
+            <input
+              type="checkbox"
+              id="shadow"
+              name="shadow"
+              checked={shadow}
+              onChange={() => setShadow(!shadow)}
+            />
+            <Text bold dark htmlFor="shadow">
+              Shadow
           </Text>
-        </CheckboxWrapper>
-      </FieldWrapper>
+          </CheckboxWrapper>
+        </FieldWrapper>
+      </Fields>
     </ControlWrapper>
   );
 };

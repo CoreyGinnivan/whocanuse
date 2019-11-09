@@ -12,29 +12,29 @@ import Tippy from "@tippy.js/react";
 ----------------------------------------------------------*/
 
 const ActionsWrapper = styled("div")(props => ({
-  gridArea: "3 / 3 / 4 / 4",
+  gridArea: "5 / 1 / 6 / 4",
   display: "flex",
   alignItems: "center",
-  marginLeft: "20px",
   input: {
     borderRadius: "3px",
     fontSize: "14px",
     color: theme.color.grey,
     fontFamily: theme.fontFamily,
     border: `1px solid ${theme.color.lightgrey}`,
-    width: "350px",
+    width: "100%",
     padding: "8px 4px",
     marginRight: "10px",
-    transition: "all 0.2 ease",
+    transition: "all 0.2s ease",
     "&:hover": {
       cursor: "pointer",
       backgroundColor: "#f9f9f9",
-      transition: "all 0.2 ease"
+      transition: "all 0.2s ease"
     }
   },
   form: {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '100%'
   },
   iframe: {
     marginLeft: "10px"
@@ -105,7 +105,7 @@ export const Actions = ({
         src="https://ghbtns.com/github-btn.html?user=coreyginnivan&repo=whocanuse&type=star&count=true"
         frameBorder="0"
         scrolling="0"
-        width="100"
+        width="60"
         height="20px"
       />
     </ActionsWrapper>

@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
    Styles
 ----------------------------------------------------------*/
 
-const DemoAreaWrapper = styled('span')(props => ({
-  gridArea: '2 / 3 / 3 / 4',
+const DemoAreaWrapper = styled('div')(props => ({
+  gridArea: '2 / 2 / 3 / 3',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

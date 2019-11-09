@@ -12,12 +12,12 @@ import { Actions } from "./actions";
 
 const Wrapper = styled("div")({
   display: "grid",
-  gridTemplateColumns: "auto 340px 600px auto",
-  gridTemplateRows: "100px 280px 56px",
-  "@media screen and (max-width: 960px)": {
-    gridTemplateColumns: "20px 1fr 20px",
-    gridTemplateRows: "50px 150px auto"
-  }
+  gridTemplateColumns: "40px 1fr 40px",
+  gridTemplateRows: "100px 1fr 200px 40px 60px",
+  height: '100vh',
+  position: 'fixed',
+  width: '50vw',
+  padding: '40px',
 });
 
 /*----------------------------------------------------------
@@ -44,6 +44,12 @@ export const Hero = ({
   return (
     <Wrapper>
       <Logo color={foreground} />
+      <DemoArea
+        color={foreground}
+        fontSize={fontSize}
+        isBold={bold}
+        isShadow={shadow}
+      />
       <Control
         setBackground={setBackground}
         setForeground={setForeground}
@@ -59,12 +65,6 @@ export const Hero = ({
         setBold={setBold}
         shadow={shadow}
         setShadow={setShadow}
-      />
-      <DemoArea
-        color={foreground}
-        fontSize={fontSize}
-        isBold={bold}
-        isShadow={shadow}
       />
       <Actions
         background={background}
