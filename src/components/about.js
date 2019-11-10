@@ -54,10 +54,10 @@ export class About extends Component {
           <Text>The stats are sourced from randomsite.com or provided by Vision Australia so far</Text>
 
           <MediumText>Why isn't it just a pass or fail?</MediumText>
-          <Text>Just like humans, our vision isn't just binary. Having 0.1 under a "passing" grade shouldn'tmake it a fail – it's not a matter of immediately struggling to be able to see something. It's *harder* for people with these vision types to see your colour combo.</Text>
+          <Text>Just like humans, our vision isn't just binary. Having 0.1 under a "passing" grade shouldn't make it a fail – it's not a matter of immediately struggling to be able to see something. It's *harder* for people with these vision types to see your color combo.</Text>
 
           <MediumText>How accurate is the data?</MediumText>
-          <Text>Vision impairments are never going to be the exact same for those with the same conditions, so the data provided is rough estimate. However the main objective is to give you a better understanding of how colour contrast affect different vision types.</Text>
+          <Text>Vision impairments are never going to be the exact same for those with the same conditions, so the data provided is rough estimate. However the main objective is to give you a better understanding of how color contrast affect different vision types.</Text>
 
           <MediumText>Can I support this site?</MediumText>
           <Text>Absolutely! You can either help contribute to the codebase or sponsor me on GitHub to help me keep whocanuse.com running.</Text>

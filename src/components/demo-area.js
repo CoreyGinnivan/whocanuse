@@ -11,7 +11,7 @@ const DemoAreaWrapper = styled('div')(props => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  minHight: '280px',
+  minHeight: '200px',
   color: '#' + props.color,
   fontSize: props.fontSize + 'px',
   lineHeight: props.fontSize + 'px',

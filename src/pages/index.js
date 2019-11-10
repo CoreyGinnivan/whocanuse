@@ -142,7 +142,7 @@ class IndexPage extends Component {
   };
 
   render() {
-    const constast = chroma.contrast(this.state.foreground, this.state.background);
+
     return (
       <Layout>
         <MainLayout>
@@ -186,7 +186,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 4.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Protanomaly"
@@ -196,7 +196,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 7.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Protanopia"
@@ -206,7 +206,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 2.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Deuteranomaly"
@@ -216,7 +216,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 4.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Deuteranopia"
@@ -226,7 +226,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 4.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Tritanomaly"
@@ -236,7 +236,7 @@ class IndexPage extends Component {
                 number="11,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 1.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Tritanopia"
@@ -246,17 +246,27 @@ class IndexPage extends Component {
                 number="123,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 3.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
-                name="Achromatopsia"
-                simType="achromatopsia"
-                description="Complete colour blindness, can only see shades"
+                name="Achromatomaly"
+                simType="achromatomaly"
+                description="Partial color blindness, sees the absence of most colors"
                 percent="4"
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 4.5}
+                contrastThreshold={4.5}
+              />
+              <VisionRow
+                name="Achromatopsia"
+                simType="achromatopsia"
+                description="Complete color blindness, can only see shades"
+                percent="4"
+                number="1,000,000"
+                foreground={this.state.foreground}
+                background={this.state.background}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Cataracts"
@@ -266,7 +276,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 2.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Glaucoma"
@@ -276,7 +286,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 3.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Hyperopia"
@@ -286,7 +296,7 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 4.5}
+                contrastThreshold={4.5}
               />
               <VisionRow
                 name="Low Vision"
@@ -296,19 +306,19 @@ class IndexPage extends Component {
                 number="1,000,000"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 16}
+                contrastThreshold={4.5}
               />
             </VisionTable>
             <VisionTableAlt>
               <VisionRowAlt
                 name="Direct Sunlight"
-                simType="lowvision"
+                simType="sunlight"
                 description="Simulating what direct sunlight on a phone/screen would be"
                 percent="-"
                 number="Most"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 2}
+                contrastThreshold={4.5}
               />
               <VisionRowAlt
                 name="Night Shift Mode"
@@ -318,7 +328,7 @@ class IndexPage extends Component {
                 number="Most"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                pass={constast >= 2}
+                contrastThreshold={4.5}
               />
             </VisionTableAlt>
             <About />

@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { Text, SmallText, Heading } from './typography';
 import { theme } from './theme';
+import chroma from "chroma-js";
+import blinder from 'color-blind';
 
 /*----------------------------------------------------------
    Styles
@@ -132,9 +134,6 @@ const SimulationFilter = styled('div')(props => ({
 /*----------------------------------------------------------
    Vision Table
 ----------------------------------------------------------*/
-const formatContrast = contrast => {
-  return `${Math.round(contrast * 100) / 100}:1`;
-};
 
 
 export class VisionRow extends Component {
@@ -148,7 +147,55 @@ export class VisionRow extends Component {
     class: PropTypes.string,
   }
   render() {
-    const { name, number, percent, description, foreground, background, simType, pass } = this.props;
+    const { name, number, percent, description, foreground, background, simType, contrastThreshold } = this.props;
+
+    let simulatedForeground = foreground
+    let simulatedBackground = background
+
+    if (simType === 'protanomaly') {
+      simulatedForeground = blinder.protanomaly(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.protanomaly(`#${background}`).replace('#', '')
+    }
+
+    if (simType === 'protanopia') {
+      simulatedForeground = blinder.protanopia(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.protanopia(`#${background}`).replace('#', '')
+    }
+
+    if (simType === 'deuteranomaly') {
+      simulatedForeground = blinder.deuteranomaly(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.deuteranomaly(`#${background}`).replace('#', '')
+    }
+
+    if (simType === 'deuteranopia') {
+      simulatedForeground = blinder.deuteranopia(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.deuteranopia(`#${background}`).replace('#', '')
+    }
+
+    if (simType === 'tritanomaly') {
+      simulatedForeground = blinder.tritanomaly(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.tritanomaly(`#${background}`).replace('#', '')
+    }
+
+    if (simType === 'tritanopia') {
+      simulatedForeground = blinder.tritanopia(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.tritanopia(`#${background}`).replace('#', '')
+    }
+
+    if (simType === 'achromatomaly') {
+      simulatedForeground = blinder.achromatomaly(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.achromatomaly(`#${background}`).replace('#', '')
+    }
+
+    if (simType === 'achromatopsia') {
+      simulatedForeground = blinder.achromatopsia(`#${foreground}`).replace('#', '')
+      simulatedBackground = blinder.achromatopsia(`#${background}`).replace('#', '')
+    }
+
+
+    const contrast = chroma.contrast(simulatedForeground, simulatedBackground);
+    const pass = contrast >= contrastThreshold
+
     return (
       <VisionRowWrapper pass={pass}>
         <VisionCellWrapper data-th="Pass Or Fail">
@@ -179,7 +226,7 @@ export class VisionRow extends Component {
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginLeft: '20px' }} data-th="Simulation">
           <Simulation>
-            <SimulationFilter className={simType} foreground={foreground} background={background}>
+            <SimulationFilter className={simType} foreground={simulatedForeground} background={simulatedBackground}>
               Text
             </SimulationFilter>
           </Simulation>

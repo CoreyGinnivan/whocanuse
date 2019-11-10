@@ -602,36 +602,35 @@ pre tt:after {
 /* Vision Styles */
 
 
-.protanomaly {
-  filter: blur(2px);
-}
-.protanopia {
-  filter: blur(2px);
-}
-.deuteranomaly {
-  filter: blur(2px);
-}
-.deuteranopia {
-  filter: blur(2px);
-}
-.tritanomaly {
-  filter: blur(2px);
-}
-.tritanopia {
-  filter: blur(2px);
-}
-.achromatopsia {
-  filter: grayscale(1);
-}
 .cataracts {
-  filter: blur(2px);
+  filter: blur(1px);
 }
 .glaucoma {
-  filter: blur(2px);
+  box-shadow: inset 0 0 60px 1px rgba(0,0,0,0.81);
+}
+.glaucoma::before {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 60%);
+  content: "";
+  width:  100%;
+  height:  100%;
 }
 .hyperopia {
-  filter: blur(2px);
+  filter: blur(1px);
 }
 .lowvision {
-  filter: blur(1.5px);
+  filter: blur(0.6px);
+  box-shadow: inset 0 0 60px 1px rgba(0,0,0,0.81);
+}
+
+.sunlight {
+  filter: brightness(1.1);
+}
+
+.sunlight::before {
+  position: absolute;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 200%);
+  content: "";
+  width:  100%;
+  height:  100%;
 }
