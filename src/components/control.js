@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { SmallText, Text } from "./typography";
 import { theme } from "./theme";
 import Switch from "../images/switch.svg";
+import ColorPicker from '@mapbox/react-colorpickr'
 
 /*----------------------------------------------------------
    Styles
