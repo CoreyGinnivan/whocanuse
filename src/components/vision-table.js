@@ -317,7 +317,7 @@ export class VisionRowAlt extends Component {
 
     return (
       <VisionRowWrapper pass={pass}>
-        <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
+        <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Situational Event">
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', flexDrection: 'row', alignItems: 'center' }}>
               <Text bold dark>
