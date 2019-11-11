@@ -30,7 +30,6 @@ const ControlWrapper = styled("div")({
 const ColorWrapper = styled("div")({
   position: "relative",
   width: "100%",
-  height: "200px",
   maxWidth: '296px',
   '@media screen and (max-width: 540px)': {
     height: "180px",

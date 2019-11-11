@@ -603,7 +603,7 @@ pre tt:after {
 
 
 .cataracts {
-  filter: blur(1px);
+  filter: blur(0.8px) saturate(0.5);
 }
 .glaucoma {
   box-shadow: inset 0 0 60px 1px rgba(0,0,0,0.81);
@@ -622,9 +622,7 @@ pre tt:after {
 }
 
 .nightshift {
-  filter: saturate(1.5);
-  filter: sepia(50%);
-  
+  filter: saturate(1.2);  
 }
 .nightshift::before {
   mix-blend-mode: multiply;

@@ -166,12 +166,6 @@ class IndexPage extends Component {
           <ContentWrapper>
             <Heading align="left">Who can use this color combination?</Heading>
             <StatsWrapper>
-              <InfoBarWrapper>
-                <PercentBars
-                  positivePercent="83"
-                  negativePercent="17"
-                />
-              </InfoBarWrapper>
               <SmallInfoBars
                 foreground={this.state.foreground}
                 background={this.state.background}
@@ -265,7 +259,7 @@ class IndexPage extends Component {
                 percent="33"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                contrastThreshold={4.0}
               />
               <VisionRow
                 name="Glaucoma"
@@ -293,7 +287,7 @@ class IndexPage extends Component {
                 description="Simulating what direct sunlight on a phone/screen would be"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                contrastThreshold={7.1}
               />
               <VisionRowAlt
                 name="Night Shift Mode"
@@ -301,7 +295,7 @@ class IndexPage extends Component {
                 description="Simulating what would be seen on phones/screens with night mode on"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                contrastThreshold={7.1}
               />
             </VisionTableAlt>
             <About />

@@ -9,7 +9,6 @@ import Tippy from "@tippy.js/react";
 
 const InfoBarWrapper = styled("div")({
   display: "flex",
-  marginTop: "30px",
   justifyContent: "space-between"
 });
 
