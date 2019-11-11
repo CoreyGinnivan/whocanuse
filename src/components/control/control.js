@@ -4,7 +4,6 @@ import { ControlWrapper, ColorWrapper, SwitchIcon } from "./styled";
 import { Background } from "./background";
 import { Foreground } from "./foreground";
 import { Config } from "./config";
-import { ColourPicker } from "./colour-picker";
 import Helmet from "react-helmet";
 
 /*----------------------------------------------------------
@@ -24,8 +23,6 @@ function getTextColor(bgColor, lightColor, darkColor) {
   }
   return r * 0.299 + g * 0.587 + b * 0.114 > 186 ? darkColor : lightColor;
 }
-
-const ENABLE_COLOUR_PICKER = false;
 
 export const Control = ({
   background,
@@ -129,21 +126,17 @@ export const Control = ({
         />
       </ColorWrapper>
 
-      {isSelectingColour && ENABLE_COLOUR_PICKER ? (
-        <ColourPicker />
-      ) : (
-        <Config
-          fontSize={fontSize}
-          setFontDragInfo={setFontDragInfo}
-          setFontSize={setFontSize}
-          maxFontSize={maxFontSize}
-          minFontSize={minFontSize}
-          bold={bold}
-          setBold={setBold}
-          shadow={shadow}
-          setShadow={setShadow}
-        />
-      )}
+      <Config
+        fontSize={fontSize}
+        setFontDragInfo={setFontDragInfo}
+        setFontSize={setFontSize}
+        maxFontSize={maxFontSize}
+        minFontSize={minFontSize}
+        bold={bold}
+        setBold={setBold}
+        shadow={shadow}
+        setShadow={setShadow}
+      />
     </ControlWrapper>
   );
 };
