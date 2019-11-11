@@ -6,6 +6,7 @@ import { theme } from "../components/theme";
 import PropTypes from "prop-types";
 import { SmallText, Heading } from "../components/typography";
 import Tippy from "@tippy.js/react";
+import { getWcagScore } from "./getWcagScore";
 
 const InfoBarWrapper = styled("div")({
   display: "flex",
@@ -20,8 +21,8 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   width: "100%",
   marginRight: "20px",
   outline: 0,
-  'h1': {
-    color: pass ? theme.color.green : theme.color.red,
+  h1: {
+    color: pass ? theme.color.green : theme.color.red
   },
   svg: {
     margin: "auto"
@@ -38,13 +39,6 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
     }
   }
 }));
-
-const renderGrading = pass =>
-  pass ? (
-    <Heading>AAA</Heading>
-  ) : (
-      <Heading>Fail</Heading>
-    );
 
 // const contrast = chroma.contrast(foreground, background);
 
@@ -64,13 +58,20 @@ class SmallInfoBar extends Component {
     tooltip: PropTypes.string
   };
   render() {
-    const { name, tooltip, pass, foreground, background } = this.props;
+    const { name, tooltip, grade } = this.props;
+    const pass = grade !== "FAIL";
 
     return (
-      <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
+      <Tippy
+        content={tooltip}
+        duration="0"
+        arrow="true"
+        placement="top"
+        animation="shift-away"
+      >
         <SmallInfoBarWrapper pass={pass}>
-          <SmallText style={{ marginBottom: '5px' }}>{name}</SmallText>
-          {renderGrading(pass)}
+          <SmallText style={{ marginBottom: "5px" }}>{name}</SmallText>
+          <Heading>{grade}</Heading>
         </SmallInfoBarWrapper>
       </Tippy>
     );
@@ -85,9 +86,15 @@ class RatioStat extends Component {
   render() {
     const { name, tooltip, pass } = this.props;
     return (
-      <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
+      <Tippy
+        content={tooltip}
+        duration="0"
+        arrow="true"
+        placement="top"
+        animation="shift-away"
+      >
         <SmallInfoBarWrapper pass={pass}>
-          <SmallText style={{ marginBottom: '5px' }}>Contrast Ratio</SmallText>
+          <SmallText style={{ marginBottom: "5px" }}>Contrast Ratio</SmallText>
           <Heading>{name}</Heading>
         </SmallInfoBarWrapper>
       </Tippy>
@@ -103,24 +110,19 @@ const formatContrast = contrast => {
   return `${Math.round(contrast * 100) / 100}:1`;
 };
 
-export class SmallInfoBars extends Component {
-  render() {
-    const { foreground, background } = this.props;
-    const constast = chroma.contrast(foreground, background);
+export const SmallInfoBars = ({ foreground, background, bold, fontSize }) => {
+  const contrast = chroma.contrast(foreground, background);
+  const fontSizeNum = Number(fontSize);
+  let { wcagGrade, tooltip } = getWcagScore(fontSizeNum, bold, contrast);
 
-    return (
-      <InfoBarWrapper>
-        <RatioStat
-          pass={constast >= 4.5}
-          tooltip="The difference in luminance or color that makes an object distinguishable - a higher number is better"
-          name={`${formatContrast(constast)}`}
-        />
-        <SmallInfoBar
-          pass={constast >= 4.5}
-          tooltip="WCAG (Web Content Accessibility Guidelines) grades for general accessibility contrast ratios. A 4.5 is required for AA, and 7.1 for AAA"
-          name="WCAG Grading"
-        />
-      </InfoBarWrapper>
-    );
-  }
-}
+  return (
+    <InfoBarWrapper>
+      <RatioStat
+        pass={contrast >= 4.5}
+        tooltip="The difference in luminance or color that makes an object distinguishable - a higher number is better"
+        name={`${formatContrast(contrast)}`}
+      />
+      <SmallInfoBar grade={wcagGrade} tooltip={tooltip} name="WCAG Grading" />
+    </InfoBarWrapper>
+  );
+};

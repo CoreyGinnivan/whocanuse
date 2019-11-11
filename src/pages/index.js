@@ -4,7 +4,10 @@ import styled from "@emotion/styled";
 import Layout from "../layout/layout";
 import { Hero } from "../components/hero";
 import { Heading } from "../components/typography";
-import { VisionTable, VisionTableAlt, VisionRow, VisionRowAlt } from "../components/vision-table";
+import { VisionTable } from "../components/table/vision-table";
+import { VisionTableAlt } from "../components/table/vision-table-alt";
+import { VisionRow } from "../components/table/vision-row";
+import { VisionRowAlt } from "../components/table/vision-row-alt";
 import { About } from "../components/about";
 import { SmallInfoBars } from "../components/small-info-bars";
 import queryString from "query-string";
@@ -15,30 +18,30 @@ import { linkPath } from "../helpers/link";
 ----------------------------------------------------------*/
 
 const MainLayout = styled("div")({
-  display: 'flex',
-  flexDirection: 'row',
+  display: "flex",
+  flexDirection: "row",
   "@media screen and (max-width: 1200px)": {
     flexDirection: "column"
   }
 });
 
 const ContentWrapper = styled("div")({
-  height: '100%',
-  width: '50vw',
-  marginLeft: '50vw',
-  padding: '60px 40px 40px 0',
+  height: "100%",
+  width: "50vw",
+  marginLeft: "50vw",
+  padding: "60px 40px 40px 0",
   "@media screen and (max-width: 1200px)": {
-    width: '100%',
-    marginLeft: '0',
-    padding: '20px',
+    width: "100%",
+    marginLeft: "0",
+    padding: "20px"
   }
 });
 
 const StatsWrapper = styled("div")({
-  background: '#f6f8fa',
-  padding: '20px',
-  marginTop: '20px',
-  borderRadius: '8px'
+  background: "#f6f8fa",
+  padding: "20px",
+  marginTop: "20px",
+  borderRadius: "8px"
 });
 
 const InfoBarWrapper = styled("div")({
@@ -58,7 +61,6 @@ const InfoBarWrapper = styled("div")({
 ----------------------------------------------------------*/
 
 class IndexPage extends Component {
-
   constructor(props) {
     super(props);
 
@@ -144,7 +146,6 @@ class IndexPage extends Component {
   };
 
   render() {
-
     return (
       <Layout>
         <MainLayout>
@@ -171,6 +172,8 @@ class IndexPage extends Component {
               <SmallInfoBars
                 foreground={this.state.foreground}
                 background={this.state.background}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
             </StatsWrapper>
             <VisionTable>

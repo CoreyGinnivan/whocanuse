@@ -66,7 +66,7 @@ export const Config = ({
             Bold
           </Text>
         </CheckboxWrapper>
-        <CheckboxWrapper>
+        {/* <CheckboxWrapper>
           <input
             type="checkbox"
             id="shadow"
@@ -77,7 +77,7 @@ export const Config = ({
           <Text bold dark htmlFor="shadow">
             Shadow
           </Text>
-        </CheckboxWrapper>
+        </CheckboxWrapper> */}
       </FieldWrapper>
     </Fields>
   );
