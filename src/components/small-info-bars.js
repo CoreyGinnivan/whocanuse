@@ -47,14 +47,25 @@ const renderGrading = pass =>
       <Heading>Fail</Heading>
     );
 
+// const contrast = chroma.contrast(foreground, background);
+
+// const renderGrading2 = ({ contrast }) => {
+//   if (contrast > 7.1) {
+//     return <Heading>AAA</Heading>
+//   } else if (contrast > 5.1) {
+//     return <Heading>AA</Heading>
+//   } else {
+//     return <Heading>Fail</Heading>
+//   }
+// };
+
 class SmallInfoBar extends Component {
   static propTypes = {
     name: PropTypes.string,
     tooltip: PropTypes.string
   };
   render() {
-    const { name, tooltip, pass } = this.props;
-
+    const { name, tooltip, pass, foreground, background } = this.props;
 
     return (
       <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
