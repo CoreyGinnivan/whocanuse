@@ -2,6 +2,13 @@
   WhoCanUse.com
 </h1>
 
+<p align="center">
+    <img alt="Gatsby" src="https://www.whocanuse.com/images/whocanuse_600.png" width="200" />
+</p>
+<h1 align="center">
+  WhoCanUse.com
+</h1>
+
 Whocanuse.com both an easy to use color contrast tool, and a way to bring attention and understanding to how color contrast affects different users.
 
 The WCAG (Web Content Accessbility Guidelines) is an amazing accomplishment for the web, where organisations, companies and goverernments throughout the world came together to agree on how to make the web accessible, but unfortunately the guidelines and gradings aren't really that easy to understand for most people.
@@ -14,7 +21,7 @@ Rather than giving a grading to a collective of people, I thought I'd try and hu
 
 2.  **Install everything.**
 
-    Navigate to wherever you saved the whocanuse directory and install all the things.
+    Navigate to wherever you cloned the whocanuse repo to and install all the things:
 
     ```sh
     npm install
