@@ -627,7 +627,7 @@ pre tt:after {
 .nightshift::before {
   mix-blend-mode: multiply;
   position: absolute;
-  background-color: rgba(255, 230, 177, 0.8);
+  background-color: rgba(255, 230, 177, 0.5);
   content: "";
   width:  100%;
   height:  100%;
