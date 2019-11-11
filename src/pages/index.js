@@ -169,8 +169,7 @@ class IndexPage extends Component {
               <InfoBarWrapper>
                 <PercentBars
                   positivePercent="83"
-                  neutralPercent="14"
-                  negativePercent="3"
+                  negativePercent="17"
                 />
               </InfoBarWrapper>
               <SmallInfoBars

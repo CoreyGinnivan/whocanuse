@@ -118,7 +118,7 @@ export class SmallInfoBars extends Component {
         />
         <SmallInfoBar
           pass={constast >= 4.5}
-          tooltip="WCAG (Web Content Accessibility Guidelines) minimum required for general accessibility contrast ratios"
+          tooltip="WCAG (Web Content Accessibility Guidelines) grades for general accessibility contrast ratios. A 4.5 is required for AA, and 7.1 for AAA"
           name="WCAG Grading"
         />
       </InfoBarWrapper>
