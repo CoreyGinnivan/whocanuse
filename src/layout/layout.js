@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
     render={data => (
       <React.Fragment>
         <Helmet>
-          <title>{data.site.siteMetadata.title}</title>
+          <title>{data.site.siteMetadata.title}</title>4
           <meta name="Content-Type" content="text/html; charset=UTF-8" />
           <meta name="description" content="Find out who can use your color combination" />
           <meta name="keywords" content="accessibility, color, contrast, tool" />

@@ -249,6 +249,7 @@ export const Control = ({
           <Hash textColour={getBackgroundTextColor}>#</Hash>
           <HexWrapper
             type="text"
+            name="background"
             textColour={getBackgroundTextColor}
             value={backgroundText}
             onChange={e => {
@@ -260,6 +261,7 @@ export const Control = ({
           <Hash textColour={getForegroundTextColor}>#</Hash>
           <HexWrapper
             type="text"
+            name="foreground"
             textColour={getForegroundTextColor}
             value={colorText}
             onChange={e => {
@@ -273,6 +275,7 @@ export const Control = ({
           <SmallText>Text Size</SmallText>
           <TextSize
             type="number"
+            name="text size"
             min="10"
             max="60"
             value={fontSize}

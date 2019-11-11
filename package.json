@@ -18,6 +18,7 @@
         "gatsby-image": "^2.2.15",
         "gatsby-plugin-emotion": "^4.1.4",
         "gatsby-plugin-google-analytics": "^2.1.12",
+        "gatsby-plugin-html-attributes": "^1.0.5",
         "gatsby-plugin-manifest": "^2.2.12",
         "gatsby-plugin-netlify": "^2.1.10",
         "gatsby-plugin-offline": "^3.0.0",
