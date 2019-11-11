@@ -68,6 +68,7 @@ class SmallInfoBar extends Component {
         arrow="true"
         placement="top"
         animation="shift-away"
+        followCursor="true"
       >
         <SmallInfoBarWrapper pass={pass}>
           <SmallText style={{ marginBottom: "5px" }}>{name}</SmallText>
@@ -92,6 +93,7 @@ class RatioStat extends Component {
         arrow="true"
         placement="top"
         animation="shift-away"
+        followCursor="true"
       >
         <SmallInfoBarWrapper pass={pass}>
           <SmallText style={{ marginBottom: "5px" }}>Contrast Ratio</SmallText>
