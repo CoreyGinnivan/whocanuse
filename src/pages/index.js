@@ -69,7 +69,10 @@ class IndexPage extends Component {
     let foregroundText = "FFFFFF";
     let backgroundText = "663399";
 
-    const qs = queryString.parse(window.location.search);
+    const qs =
+      typeof window === "undefined"
+        ? {}
+        : queryString.parse(window.location.search);
 
     backgroundText = qs.b || "663399";
     foregroundText = qs.c || "FFFFFF";
