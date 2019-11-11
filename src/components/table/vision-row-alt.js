@@ -6,7 +6,6 @@ import { renderPassFail } from "./renderPassFail";
 import {
   VisionRowWrapper,
   VisionCellWrapper,
-  PercentWrapper,
   Simulation,
   SimulationFilter
 } from "./styled";
