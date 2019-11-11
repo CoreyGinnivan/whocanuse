@@ -236,7 +236,7 @@ class IndexPage extends Component {
                 name="Tritanopia"
                 simType="tritanopia"
                 description="Blue blind - Can’t see blues at all"
-                percent=">0.03"
+                percent="<0.03"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -245,7 +245,7 @@ class IndexPage extends Component {
                 name="Achromatomaly"
                 simType="achromatomaly"
                 description="Partial color blindness, sees the absence of most colors"
-                percent=">0.1"
+                percent="<0.1"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -254,7 +254,7 @@ class IndexPage extends Component {
                 name="Achromatopsia"
                 simType="achromatopsia"
                 description="Complete color blindness, can only see shades"
-                percent=">0.1"
+                percent="<0.1"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
