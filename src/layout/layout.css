@@ -7,7 +7,7 @@ body {
   margin: 0;
 }
 ::selection {
-  background: rgba(0, 0, 0, 0.99);
+  background: rgba(20, 68, 255, 0.99);
   opacity: 1;
   color: #FFFFFF;
 }
