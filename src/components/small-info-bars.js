@@ -108,7 +108,7 @@ class RatioStat extends Component {
    Small Info Bars
 ----------------------------------------------------------*/
 
-const formatContrast = contrast => {
+export const formatContrast = contrast => {
   return `${Math.round(contrast * 100) / 100}:1`;
 };
 

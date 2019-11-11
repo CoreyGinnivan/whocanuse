@@ -2,6 +2,7 @@ import { formatWcagGuidelines } from "./formatWcagGuidelines";
 export function getWcagScore(fontSizeNum, bold, contrast) {
   let wcagGrade;
   let tooltip;
+
   // Large text
   if (fontSizeNum >= 24 || (fontSizeNum >= 18.66 && bold)) {
     tooltip = formatWcagGuidelines(3, 4.5);

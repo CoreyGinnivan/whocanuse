@@ -183,7 +183,8 @@ class IndexPage extends Component {
                 percent="68"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Protanomaly"
@@ -192,7 +193,8 @@ class IndexPage extends Component {
                 percent="1.3"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Protanopia"
@@ -201,7 +203,8 @@ class IndexPage extends Component {
                 percent="1.5"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Deuteranomaly"
@@ -210,7 +213,8 @@ class IndexPage extends Component {
                 percent="5.3"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Deuteranopia"
@@ -219,7 +223,8 @@ class IndexPage extends Component {
                 percent="1.2"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Tritanomaly"
@@ -228,7 +233,8 @@ class IndexPage extends Component {
                 percent="0.02"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Tritanopia"
@@ -237,7 +243,8 @@ class IndexPage extends Component {
                 percent="<0.03"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Achromatomaly"
@@ -246,7 +253,8 @@ class IndexPage extends Component {
                 percent="<0.1"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Achromatopsia"
@@ -255,7 +263,8 @@ class IndexPage extends Component {
                 percent="<0.1"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Cataracts"
@@ -264,7 +273,9 @@ class IndexPage extends Component {
                 percent="33"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.0}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
+                contrastModifier={-0.2}
               />
               <VisionRow
                 name="Glaucoma"
@@ -273,7 +284,8 @@ class IndexPage extends Component {
                 percent="2"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRow
                 name="Low Vision"
@@ -282,7 +294,6 @@ class IndexPage extends Component {
                 percent="31"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.5}
               />
             </VisionTable>
             <VisionTableAlt>

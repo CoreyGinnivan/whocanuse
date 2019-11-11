@@ -113,7 +113,8 @@ export const SimulationFilter = styled("div")(props => ({
   height: "80px",
   background: "#" + props.background,
   color: "#" + props.foreground,
-  userSelect: "none"
+  userSelect: "none",
+  fontWeight: props.bold ? "bold" : undefined
 }));
 
 export const PassFailTextWrapper = styled("div")(({ pass }) => ({

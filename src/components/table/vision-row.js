@@ -11,6 +11,9 @@ import {
   SimulationFilter
 } from "./styled";
 import { renderPassFail } from "./renderPassFail";
+import { getWcagScore } from "../getWcagScore";
+import Tippy from "@tippy.js/react";
+import { formatContrast } from "../small-info-bars";
 
 export class VisionRow extends Component {
   static propTypes = {
@@ -30,7 +33,9 @@ export class VisionRow extends Component {
       foreground,
       background,
       simType,
-      contrastThreshold
+      contrastModifier = 0,
+      bold,
+      fontSize
     } = this.props;
     let simulatedForeground = foreground;
     let simulatedBackground = background;
@@ -99,7 +104,13 @@ export class VisionRow extends Component {
         .replace("#", "");
     }
     const contrast = chroma.contrast(simulatedForeground, simulatedBackground);
-    const pass = contrast >= contrastThreshold;
+
+    const fontSizeNum = Number(fontSize);
+    const modifiedContrast = contrast + contrast * contrastModifier;
+
+    let { wcagGrade } = getWcagScore(fontSizeNum, bold, modifiedContrast);
+    const pass = wcagGrade !== "FAIL";
+
     return (
       <VisionRowWrapper pass={pass}>
         <VisionCellWrapper data-th="Pop %">
@@ -123,7 +134,15 @@ export class VisionRow extends Component {
               <Text bold dark>
                 {name}
               </Text>
-              {renderPassFail(pass)}
+              <Tippy
+                content={`Contrast: ${formatContrast(contrast)}`}
+                duration="0"
+                arrow="true"
+                placement="top"
+                animation="shift-away"
+              >
+                {renderPassFail(wcagGrade)}
+              </Tippy>
             </div>
             <Text style={{ fontSize: "14px" }}>{description}</Text>
           </div>
@@ -134,6 +153,7 @@ export class VisionRow extends Component {
               className={simType}
               foreground={simulatedForeground}
               background={simulatedBackground}
+              bold={bold}
             >
               Text
             </SimulationFilter>

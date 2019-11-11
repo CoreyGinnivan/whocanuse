@@ -4,10 +4,10 @@ import { PassFailTextWrapper } from "./styled";
 /*----------------------------------------------------------
    Vision Table
 ----------------------------------------------------------*/
-export function renderPassFail(pass) {
-  return pass ? (
-    <PassFailTextWrapper pass={pass}>Pass</PassFailTextWrapper>
+export function renderPassFail(rating) {
+  return rating !== "FAIL" ? (
+    <PassFailTextWrapper pass={true}>{rating}</PassFailTextWrapper>
   ) : (
-    <PassFailTextWrapper pass={pass}>Fail</PassFailTextWrapper>
+    <PassFailTextWrapper pass={false}>Fail</PassFailTextWrapper>
   );
 }
