@@ -67,7 +67,7 @@ const VisionCellWrapper = styled("td")(({ pass }) => ({
       textTransform: 'uppercase',
       color: theme.color.grey,
       textAlign: 'left',
-      minWidth: '150px',
+      minWidth: '100px',
       alignItems: 'center',
     },
   }
