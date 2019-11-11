@@ -297,7 +297,7 @@ class IndexPage extends Component {
                 description="Simulating what would be seen on phones/screens with night mode on"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={5}
+                contrastThreshold={4.6}
               />
             </VisionTableAlt>
             <About />
