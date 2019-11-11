@@ -131,7 +131,7 @@ const SimulationFilter = styled('div')(props => ({
   userSelect: 'none'
 }))
 
-const PassFailTextWrapper = styled("div")(({ pass }) => ({
+const PassFailTextWrapper = styled("span")(({ pass }) => ({
   display: 'flex',
   backgroundColor: pass ? theme.color.lightgreen : theme.color.lightred,
   color: pass ? theme.color.green : theme.color.red,
