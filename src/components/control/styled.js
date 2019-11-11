@@ -147,6 +147,7 @@ export const SwitchIcon = styled("button")({
   position: "absolute",
   right: "-25px",
   top: "25px",
+  height: '12px',
   cursor: "pointer",
   border: 0,
   background: "transparent"
