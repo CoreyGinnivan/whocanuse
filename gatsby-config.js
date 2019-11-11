@@ -26,7 +26,7 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        image: "/images/whocanuse_600.png",
+        image: "src/images/whocanuse_600.png",
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
