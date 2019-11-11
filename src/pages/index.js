@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import Layout from "../layout/layout";
 import { Hero } from "../components/hero";
 import { Heading } from "../components/typography";
-import { PercentBars } from "../components/infobars";
 import { VisionTable, VisionTableAlt, VisionRow, VisionRowAlt } from "../components/vision-table";
 import { About } from "../components/about";
 import { SmallInfoBars } from "../components/small-info-bars";
