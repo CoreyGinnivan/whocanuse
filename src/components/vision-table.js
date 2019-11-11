@@ -316,9 +316,12 @@ export class VisionRowAlt extends Component {
       <VisionRowWrapper pass={pass}>
         <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Text bold dark>
-              {name}
-            </Text>
+            <div style={{ display: 'flex', flexDrection: 'row', alignItems: 'center' }}>
+              <Text bold dark>
+                {name}
+              </Text>
+              {renderPassFail(pass)}
+            </div>
             <Text style={{ fontSize: '14px' }}>
               {description}
             </Text>

@@ -53,11 +53,14 @@ export class About extends Component {
           <MediumText>Where did you get the info from?</MediumText>
           <Text>The stats are sourced from randomsite.com or provided by Vision Australia so far</Text>
 
-          <MediumText>Why isn't it just a pass or fail?</MediumText>
-          <Text>Just like humans, our vision isn't just binary. Having 0.1 under a "passing" grade shouldn't make it a fail – it's not a matter of immediately struggling to be able to see something. It's *harder* for people with these vision types to see your color combo.</Text>
+          <MediumText>Your maths is off, it doesn't add up to 100%...?</MediumText>
+          <Text>Good eyes! (hehe) The percentages are there to give you an idea of how much of the population is affected. Many people will fall in to multiple vision types there's no way to accurately show the complete data.</Text>
 
           <MediumText>How accurate is the data?</MediumText>
           <Text>Vision impairments are never going to be the exact same for those with the same conditions, so the data provided is rough estimate. However the main objective is to give you a better understanding of how color contrast affect different vision types.</Text>
+
+          <MediumText>What does a a failing grade mean?</MediumText>
+          <Text>A fail simply means that the color combination offers some visual strain to the person seeing it. You might still be able to read some of the different vision types, but your eyes are working overtime.</Text>
 
           <MediumText>Can I support this site?</MediumText>
           <Text>Absolutely! You can either help contribute to the codebase or sponsor me on GitHub to help me keep whocanuse.com running.</Text>
