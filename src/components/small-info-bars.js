@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import chroma from "chroma-js";
 import styled from "@emotion/styled";
-import { Check, Cross } from "../components/icons";
 import { theme } from "../components/theme";
 
 import PropTypes from "prop-types";

@@ -130,10 +130,30 @@ const SimulationFilter = styled('div')(props => ({
   userSelect: 'none'
 }))
 
+const PassFailTextWrapper = styled("div")(({ pass }) => ({
+  display: 'flex',
+  backgroundColor: pass ? theme.color.lightgreen : theme.color.lightred,
+  color: pass ? theme.color.green : theme.color.red,
+  border: pass ? 0 : `1px solid ${theme.color.red}`,
+  textTransform: 'uppercase',
+  borderRadius: '4px',
+  fontSize: '11px',
+  fontWeight: 600,
+  padding: '1px 4px',
+  marginLeft: '8px'
+}))
+
 
 /*----------------------------------------------------------
    Vision Table
 ----------------------------------------------------------*/
+
+const renderPassFail = pass =>
+  pass ? (
+    <PassFailTextWrapper pass={pass}>Pass</PassFailTextWrapper>
+  ) : (
+      <PassFailTextWrapper pass={pass}>Fail</PassFailTextWrapper>
+    );
 
 
 export class VisionRow extends Component {
@@ -198,31 +218,28 @@ export class VisionRow extends Component {
 
     return (
       <VisionRowWrapper pass={pass}>
-        <VisionCellWrapper data-th="Pass Or Fail">
+        <VisionCellWrapper data-th="Pop %">
           <PercentWrapper pass={pass}>
-            <Heading>
+            <Heading margin="0">
               {percent}
             </Heading>
             <span style={{ marginBottom: '10px' }}>
               %
             </span>
-          </PercentWrapper>
+          </PercentWrapper >
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <Text bold dark>
-              {name}
-            </Text>
+            <div style={{ display: 'flex', flexDrection: 'row', alignItems: 'center' }}>
+              <Text bold dark>
+                {name}
+              </Text>
+              {renderPassFail(pass)}
+            </div>
             <Text style={{ fontSize: '14px' }}>
               {description}
             </Text>
           </div>
-        </VisionCellWrapper>
-        <VisionCellWrapper style={{ justifyContent: 'flex-end', marginLeft: '40px' }} data-th="Who can see it">
-          <Text style={{ fontSize: '14px', fontWeight: pass ? null : '600', textAlign: 'right' }}>
-            ~{number}
-            <span style={{ display: pass ? 'none' : 'inline-block' }}>&nbsp;can't</span>
-          </Text>
         </VisionCellWrapper>
         <VisionCellWrapper style={{ marginLeft: '20px' }} data-th="Simulation">
           <Simulation>
@@ -245,17 +262,17 @@ export class VisionTable extends Component {
     return (
       <VisionTableWrapper>
         <TableHeaderWrapper>
-          <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '105px' }}>
+          <TableHeadCellWrapper style={{ paddingLeft: '30px' }}>
             <td>
               <SmallText>
-                Vision Type
+                Pop %
               </SmallText>
             </td>
           </TableHeadCellWrapper>
-          <TableHeadCellWrapper style={{ width: '160px', display: 'flex', justifyContent: 'flex-end' }}>
+          <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '40px' }}>
             <td>
               <SmallText>
-                Who can see it
+                Vision Type
               </SmallText>
             </td>
           </TableHeadCellWrapper>
@@ -287,7 +304,14 @@ export class VisionRowAlt extends Component {
     class: PropTypes.string,
   }
   render() {
-    const { name, number, percent, description, foreground, background, simType, pass } = this.props;
+    const { name, description, foreground, background, simType, contrastThreshold } = this.props;
+
+    let simulatedForeground = foreground
+    let simulatedBackground = background
+
+    const contrast = chroma.contrast(simulatedForeground, simulatedBackground);
+    const pass = contrast >= contrastThreshold
+
     return (
       <VisionRowWrapper pass={pass}>
         <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
@@ -302,7 +326,7 @@ export class VisionRowAlt extends Component {
         </VisionCellWrapper>
         <VisionCellWrapper style={{ justifyContent: 'flex-end', marginLeft: '20px' }} data-th="Simulation">
           <Simulation>
-            <SimulationFilter className={simType} foreground={foreground} background={background}>
+            <SimulationFilter className={simType} foreground={simulatedForeground} background={simulatedBackground}>
               Text
             </SimulationFilter>
           </Simulation>
