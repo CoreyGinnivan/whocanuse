@@ -24,7 +24,7 @@ const Author = styled('div')({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  flexWrap: 'nowrap',
+  flexWrap: 'wrap',
   margin: '14px 0',
   'p, a': {
     display: 'flex',
@@ -55,7 +55,7 @@ export class About extends Component {
           <Text>The percentages are sourced from both <a href="www.colour-blindness.com" target="_blank" rel="noopener noreferrer">colour-blindness.com</a> and <a href="https://www.visionaustralia.org/" target="_blank" rel="noopener noreferrer">Vision Australia</a>.</Text>
 
           <MediumText>Your maths is off, it doesn't add up to 100%...?</MediumText>
-          <Text>Good eyes! (hehe) The percentages are there to give you an idea of how much of the population is affected. Many people will fall in to multiple vision types there's no way to accurately show the complete data.</Text>
+          <Text>Good eyes! (hehe) The percentages are there to give you an idea of how much of the population could be affected by the color combination. Many people will fall in to multiple vision types there's no way to accurately show the complete data.</Text>
 
           <MediumText>How accurate is the data?</MediumText>
           <Text>Vision impairments are never going to be the exact same for those with the same conditions, so the data provided is rough estimate. However the main objective is to give you a better understanding of how color contrast affect different vision types.</Text>

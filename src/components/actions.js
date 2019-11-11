@@ -97,14 +97,7 @@ export const Actions = ({
           via: "CoreyGinnivan"
         }}
       />
-      <iframe
-        title="Github Star"
-        src="https://ghbtns.com/github-btn.html?user=coreyginnivan&repo=whocanuse&type=star&count=true"
-        frameBorder="0"
-        scrolling="0"
-        width="60"
-        height="20px"
-      />
+      <a class="github-button" href="https://github.com/coreyginnivan/whocanuse" data-icon="octicon-star" aria-label="Star coreyginnivan/whocanuse on GitHub">Star</a>
     </ActionsWrapper>
   );
 };
