@@ -605,20 +605,29 @@ pre tt:after {
 .cataracts {
   filter: blur(0.8px) saturate(0.5);
 }
+
 .glaucoma {
-  box-shadow: inset 0 0 60px 1px rgba(0,0,0,0.81);
+  filter: blur(0.6px);
 }
+
 .glaucoma::before {
   position: absolute;
+  box-shadow: inset 0 0 50px 1px rgba(0,0,0,0.1);
   background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 60%);
   content: "";
   width:  100%;
   height:  100%;
 }
 
+.lowvision::before  {
+  position: absolute;
+  box-shadow: inset 0 0 60px 1px rgba(0,0,0,0.1);
+  content: "";
+  width:  100%;
+  height:  100%;
+}
 .lowvision {
   filter: blur(0.6px);
-  box-shadow: inset 0 0 60px 1px rgba(0,0,0,0.81);
 }
 
 .nightshift {
