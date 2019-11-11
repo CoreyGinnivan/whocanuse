@@ -5,6 +5,7 @@ import { Text, SmallText, Heading } from './typography';
 import { theme } from './theme';
 import chroma from "chroma-js";
 import blinder from 'color-blind';
+import Tippy from '@tippy.js/react';
 
 /*----------------------------------------------------------
    Styles
@@ -263,11 +264,13 @@ export class VisionTable extends Component {
       <VisionTableWrapper>
         <TableHeaderWrapper>
           <TableHeadCellWrapper style={{ paddingLeft: '30px' }}>
-            <td>
-              <SmallText>
-                Pop %
-              </SmallText>
-            </td>
+            <Tippy content="Estimated affected population" duration="0" arrow="true" placement="top" animation="shift-away">
+              <td>
+                <SmallText>
+                  Pop %
+                </SmallText>
+              </td>
+            </Tippy>
           </TableHeadCellWrapper>
           <TableHeadCellWrapper style={{ marginRight: 'auto', paddingLeft: '40px' }}>
             <td>
