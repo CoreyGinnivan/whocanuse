@@ -139,6 +139,7 @@ const PassFailTextWrapper = styled("span")(({ pass }) => ({
   textTransform: 'uppercase',
   borderRadius: '4px',
   fontSize: '11px',
+  lineHeight: '14px',
   fontWeight: 600,
   padding: '1px 4px',
   marginLeft: '8px'
