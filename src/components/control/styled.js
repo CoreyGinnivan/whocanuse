@@ -5,7 +5,7 @@ export const ControlWrapper = styled("div")({
   gridArea: "3 / 2 / 4 / 3",
   display: "flex",
   flexDirection: "row",
-  background: "#EEEEEE",
+  background: "#f6f8fa",
   border: "1px solid #FFFFFF",
   boxShadow: "0 1px 2px 0 rgba(168,168,168,0.50)",
   padding: "20px",
@@ -36,6 +36,7 @@ export const BackgroundWrapper = styled("div")(props => ({
   height: "100px",
   backgroundColor: "#" + props.background,
   border: "1px solid #FFFFFF",
+  boxShadow: '0 0 2px 0 rgba(0,0,0,0.2)',
   borderRadius: "4px",
   "&:after": {
     border: "2px solid rgba(0, 0, 0, 0.05)"
@@ -49,6 +50,7 @@ export const ForegroundWrapper = styled("div")(props => ({
   height: "100px",
   backgroundColor: "#" + props.color,
   border: "1px solid #FFFFFF",
+  boxShadow: '0 0 2px 0 rgba(0,0,0,0.2)',
   borderRadius: "4px",
   zIndex: "10",
   top: "55px",
