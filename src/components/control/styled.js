@@ -66,6 +66,7 @@ export const HexWrapper = styled.input(props => ({
   left: "24px",
   borderRadius: "3px",
   display: "flex",
+  textTransform: 'uppercase',
   width: "80px",
   padding: "4px",
   fontWeight: theme.weight.bold,
