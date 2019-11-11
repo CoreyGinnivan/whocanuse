@@ -40,9 +40,9 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
   }
 }));
 
-const renderCheckMark = pass =>
+const renderGrading = pass =>
   pass ? (
-    <Heading>Pass</Heading>
+    <Heading>AAA</Heading>
   ) : (
       <Heading>Fail</Heading>
     );
@@ -54,11 +54,13 @@ class SmallInfoBar extends Component {
   };
   render() {
     const { name, tooltip, pass } = this.props;
+
+
     return (
       <Tippy content={tooltip} duration="0" arrow="true" placement="top" animation="shift-away">
         <SmallInfoBarWrapper pass={pass}>
           <SmallText style={{ marginBottom: '5px' }}>{name}</SmallText>
-          {renderCheckMark(pass)}
+          {renderGrading(pass)}
         </SmallInfoBarWrapper>
       </Tippy>
     );
@@ -106,12 +108,7 @@ export class SmallInfoBars extends Component {
         <SmallInfoBar
           pass={constast >= 4.5}
           tooltip="WCAG (Web Content Accessibility Guidelines) minimum required for general accessibility contrast ratios"
-          name="WCAG AA"
-        />
-        <SmallInfoBar
-          pass={constast >= 7.1}
-          tooltip="WCAG (Web Content Accessibility Guidelines) that covers most vision type cases"
-          name="WCAG AAA"
+          name="WCAG Grading"
         />
       </InfoBarWrapper>
     );

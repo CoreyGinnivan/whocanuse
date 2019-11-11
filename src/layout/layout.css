@@ -44,8 +44,8 @@ template {
 }
 a {
   background-color: transparent;
-  color: inherit;
-  text-decoration: none;
+  color: #344563;
+  text-decoration: underline;
   font-weight: 500;
   -webkit-text-decoration-skip: objects;
 }
@@ -615,15 +615,11 @@ pre tt:after {
   width:  100%;
   height:  100%;
 }
-.hyperopia {
-  filter: blur(1px);
-}
+
 .lowvision {
   filter: blur(0.6px);
   box-shadow: inset 0 0 60px 1px rgba(0,0,0,0.81);
 }
-
-
 
 .nightshift {
   filter: saturate(1.5);

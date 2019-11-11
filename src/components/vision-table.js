@@ -167,7 +167,7 @@ export class VisionRow extends Component {
     class: PropTypes.string,
   }
   render() {
-    const { name, number, percent, description, foreground, background, simType, contrastThreshold } = this.props;
+    const { name, percent, description, foreground, background, simType, contrastThreshold } = this.props;
 
     let simulatedForeground = foreground
     let simulatedBackground = background

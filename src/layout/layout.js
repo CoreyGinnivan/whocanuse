@@ -38,6 +38,7 @@ const Layout = ({ children }) => (
           <meta name="twitter:description" content="Find out who can use your color combination. Whocanuse is an easy-to-use tool that delivers a breakdown of which vision types can see your color combination." />
           <meta name="twitter:image" content="http://corey.ginnivan.net/images/home/whocanuse_600.png" />
           <link rel="shortcut icon" type="image/png" href={favicon} />
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
         </Helmet>
         <div>{children}</div>
       </React.Fragment>

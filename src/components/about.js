@@ -18,11 +18,12 @@ const AboutWrapper = styled('div')({
   }
 })
 
+
 const Author = styled('div')({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between',
   flexWrap: 'nowrap',
   margin: '14px 0',
   'p, a': {
@@ -51,7 +52,7 @@ export class About extends Component {
           <Text>However rather than giving a generic grade, I thought I'd try and humanise the people who are affeted by a failing grade.</Text>
 
           <MediumText>Where did you get the info from?</MediumText>
-          <Text>The stats are sourced from randomsite.com or provided by Vision Australia so far</Text>
+          <Text>The percentages are sourced from both <a href="www.colour-blindness.com" target="_blank" rel="noopener noreferrer">colour-blindness.com</a> and <a href="https://www.visionaustralia.org/" target="_blank" rel="noopener noreferrer">Vision Australia</a>.</Text>
 
           <MediumText>Your maths is off, it doesn't add up to 100%...?</MediumText>
           <Text>Good eyes! (hehe) The percentages are there to give you an idea of how much of the population is affected. Many people will fall in to multiple vision types there's no way to accurately show the complete data.</Text>
@@ -67,6 +68,11 @@ export class About extends Component {
 
         </AboutWrapper>
         <Author>
+          <div>
+            <a class="github-button" href="https://github.com/sponsors/coreyginnivan" data-icon="octicon-heart" aria-label="Sponsor @coreyginnivan on GitHub">Sponsor</a>
+            &nbsp;
+            <a class="github-button" href="https://github.com/coreyginnivan/whocanuse/fork" data-icon="octicon-repo-forked" aria-label="Fork coreyginnivan/whocanuse on GitHub">Fork</a>
+          </div>
           <Text>
             Created &amp; maintained by
             <a href="https://twitter.com/coreyginnivan" target="_blank" rel="noopener noreferrer">
@@ -74,7 +80,7 @@ export class About extends Component {
               @CoreyGinnivan</a>
           </Text>
         </Author>
-      </div>
+      </div >
     );
   }
 }

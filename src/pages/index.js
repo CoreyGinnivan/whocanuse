@@ -15,14 +15,6 @@ import { linkPath } from "../helpers/link";
    Styles
 ----------------------------------------------------------*/
 
-// Requiring function causes error during builds
-// as the code tries to reference window
-const module = require("module") // Error
-// Wrap the require in check for window
-if (typeof window !== `undefined`) {
-  const module = require("module")
-}
-
 const MainLayout = styled("div")({
   display: 'flex',
   flexDirection: 'row',
@@ -190,8 +182,7 @@ class IndexPage extends Component {
               <VisionRow
                 name="Regular Vision (Trichromatic)"
                 description="Can distinguish all three primary color, little to no blurriness"
-                percent="84"
-                number="1,000,000"
+                percent="68"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -200,8 +191,7 @@ class IndexPage extends Component {
                 name="Protanomaly"
                 simType="protanomaly"
                 description="Trouble distinguishing reds"
-                percent="3"
-                number="1,000,000"
+                percent="1.3"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -210,8 +200,7 @@ class IndexPage extends Component {
                 name="Protanopia"
                 simType="protanopia"
                 description="Red blind - Can’t see reds at all"
-                percent="2"
-                number="1,000,000"
+                percent="1.5"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -220,8 +209,7 @@ class IndexPage extends Component {
                 name="Deuteranomaly"
                 simType="deuteranomaly"
                 description="Trouble distinguishing greens"
-                percent="2"
-                number="1,000,000"
+                percent="5.3"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -230,8 +218,7 @@ class IndexPage extends Component {
                 name="Deuteranopia"
                 simType="deuteranopia"
                 description="Green blind - Can’t see greens at all"
-                percent="1"
-                number="1,000,000"
+                percent="1.2"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -240,8 +227,7 @@ class IndexPage extends Component {
                 name="Tritanomaly"
                 simType="tritanomaly"
                 description="Trouble distinguishing blues"
-                percent="1"
-                number="11,000"
+                percent="0.02"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -250,8 +236,7 @@ class IndexPage extends Component {
                 name="Tritanopia"
                 simType="tritanopia"
                 description="Blue blind - Can’t see blues at all"
-                percent="4"
-                number="123,000"
+                percent=">0.03"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -260,8 +245,7 @@ class IndexPage extends Component {
                 name="Achromatomaly"
                 simType="achromatomaly"
                 description="Partial color blindness, sees the absence of most colors"
-                percent="4"
-                number="1,000,000"
+                percent=">0.1"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -270,8 +254,7 @@ class IndexPage extends Component {
                 name="Achromatopsia"
                 simType="achromatopsia"
                 description="Complete color blindness, can only see shades"
-                percent="4"
-                number="1,000,000"
+                percent=">0.1"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -280,8 +263,7 @@ class IndexPage extends Component {
                 name="Cataracts"
                 simType="cataracts"
                 description="Clouding of the lens in the eye that affects vision"
-                percent="0.2"
-                number="1,000,000"
+                percent="33"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -290,18 +272,7 @@ class IndexPage extends Component {
                 name="Glaucoma"
                 simType="glaucoma"
                 description="Slight vision loss"
-                percent="0.1"
-                number="1,000,000"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                contrastThreshold={4.5}
-              />
-              <VisionRow
-                name="Hyperopia"
-                simType="hyperopia"
-                description="Farsightedness - Trouble seeing things up close"
-                percent="0.1"
-                number="1,000,000"
+                percent="2"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -310,8 +281,7 @@ class IndexPage extends Component {
                 name="Low Vision"
                 simType="lowvision"
                 description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
-                percent="0.1"
-                number="1,000,000"
+                percent="31"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -322,8 +292,6 @@ class IndexPage extends Component {
                 name="Direct Sunlight"
                 simType="sunlight"
                 description="Simulating what direct sunlight on a phone/screen would be"
-                percent="-"
-                number="Most"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
@@ -332,8 +300,6 @@ class IndexPage extends Component {
                 name="Night Shift Mode"
                 simType="nightshift"
                 description="Simulating what would be seen on phones/screens with night mode on"
-                percent="-"
-                number="Most"
                 foreground={this.state.foreground}
                 background={this.state.background}
                 contrastThreshold={4.5}
