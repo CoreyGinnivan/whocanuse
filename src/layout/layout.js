@@ -27,16 +27,16 @@ const Layout = ({ children }) => (
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="Who Can Use" />
           <meta property="og:title" content="Find out who can use your color combination" />
-          <meta property="og:description" content="An easy-to-use tool that delivers a breakdown of which vision types can see your color combination." />
-          <meta property="og:image" content={require("../images/whocanuse_600.png")} />
+          <meta property="og:description" content="A tool that brings attention and understanding to how color contrast can affect different people with visual impairments." />
+          <meta property="og:image" content={require('!!url-loader?../images/whocanuse_600.png')} />
           <meta property="og:url" content="https://www.whocanuse.com/" />
           <meta property="og:image:width" content="600" />
           <meta property="og:image:height" content="600" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@coreyginnivan" />
           <meta name="twitter:title" content="Who Can Use" />
-          <meta name="twitter:description" content="Find out who can use your color combination. Whocanuse is an easy-to-use tool that delivers a breakdown of which vision types can see your color combination." />
-          <meta name="twitter:image" content={require("../images/whocanuse_600.png")} />
+          <meta name="twitter:description" content="Find out who can use your color combination. Whocanuse is a tool that brings attention and understanding to how color contrast can affect different people that have visual impairments." />
+          <meta name="twitter:image" content={require('!!url-loader?../images/whocanuse_600.png')} />
           <link rel="shortcut icon" type="image/png" href={favicon} />
           <script async defer src="https://buttons.github.io/buttons.js"></script>
         </Helmet>

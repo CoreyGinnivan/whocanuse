@@ -56,7 +56,7 @@ export class About extends Component {
       <div>
         <AboutWrapper>
           <Heading margin="0 0 20px 0">What is whocanuse.com?</Heading>
-          <Text>It's a tool that brings attention and understanding to how color contrast can affect different people that have visual impairments.</Text>
+          <Text>It's a tool that brings attention and understanding to how color contrast can affect different people with visual impairments.</Text>
 
           <Text>The <a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener noreferrer">Web Content Accessbility Guidelines (WCAG)</a> covers a wide range of recommendations for making Web content more accessible. Just a tiny part of making the web more accessible is accommodating for those with a form of blindness or low vision.</Text>
           <Text>The standard grading system is a great start, but I thought I'd try to humanize the people who are affected by the different grades.</Text>
