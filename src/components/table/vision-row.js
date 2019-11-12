@@ -113,10 +113,10 @@ export class VisionRow extends Component {
 
     return (
       <VisionRowWrapper pass={pass}>
-        <VisionCellWrapper data-th="Pop %">
+        <VisionCellWrapper data-th="~Population">
           <PercentWrapper pass={pass}>
             <Heading margin="0">{percent}</Heading>
-            <span style={{ marginBottom: "10px" }}>%</span>
+            <span style={{ marginBottom: "6px" }}>%</span>
           </PercentWrapper>
         </VisionCellWrapper>
         <VisionCellWrapper
@@ -147,7 +147,7 @@ export class VisionRow extends Component {
             <Text style={{ fontSize: "14px" }}>{description}</Text>
           </div>
         </VisionCellWrapper>
-        <VisionCellWrapper style={{ marginLeft: "20px" }} data-th="Simulation">
+        <VisionCellWrapper style={{ marginLeft: "15px" }} data-th="Simulation">
           <Simulation>
             <SimulationFilter
               className={simType}

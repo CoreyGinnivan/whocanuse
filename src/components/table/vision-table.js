@@ -26,7 +26,7 @@ export class VisionTable extends Component {
               animation="shift-away"
             >
               <td>
-                <SmallText>Pop %</SmallText>
+                <SmallText>~Population</SmallText>
               </td>
             </Tippy>
           </TableHeadCellWrapper>
