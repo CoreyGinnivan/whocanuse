@@ -17,7 +17,7 @@ export class VisionTable extends Component {
     return (
       <VisionTableWrapper>
         <TableHeaderWrapper>
-          <TableHeadCellWrapper style={{ paddingLeft: "30px" }}>
+          <TableHeadCellWrapper style={{ paddingLeft: "6px" }}>
             <Tippy
               content="Estimated affected population"
               duration="0"
@@ -31,7 +31,7 @@ export class VisionTable extends Component {
             </Tippy>
           </TableHeadCellWrapper>
           <TableHeadCellWrapper
-            style={{ marginRight: "auto", paddingLeft: "40px" }}
+            style={{ marginRight: "auto", paddingLeft: "15px" }}
           >
             <td>
               <SmallText>Vision Type</SmallText>
