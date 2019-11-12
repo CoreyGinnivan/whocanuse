@@ -72,7 +72,7 @@ export class About extends Component {
           <Text>For the color blindness options we're using another plugin aptly called <a href="https://github.com/skratchdot/color-blind" target="_blank" rel="noopener noreferrer">Color-blind</a> that converts our HEX codes in to ones that would be seen by people with the different impairments, then we can apply our same process to obtain the color ratios and determine their grade.</Text>
           <Text>For cataracts, glaucoma, low vision, and the situational events I've personally created simulations to help identify their rating.</Text>
 
-          <MediumText>What does a a failing grade mean?</MediumText>
+          <MediumText>What does a failing grade mean?</MediumText>
           <Text>The grading uses a combination of color contrast, text size and text weight. A fail simply means that the color combination offers some visual strain to the person seeing it and should be avoided if possible.</Text>
 
           <MediumText>Can I help contribute?</MediumText>

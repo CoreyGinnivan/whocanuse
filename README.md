@@ -23,7 +23,7 @@
 <p>For the color blindness options we're using another plugin aptly called <a href="https://github.com/skratchdot/color-blind" target="_blank" rel="noopener noreferrer">Color-blind</a> that converts our HEX codes in to ones that would be seen by people with the different impairments, then we can apply our same process to obtain the color ratios and determine their grade.</p>
 <p>For cataracts, glaucoma, low vision, and the situational events I've personally created simulations to help identify their rating.</p>
 
-**What does a a failing grade mean?**
+**What does a failing grade mean?**
 <p>The grading uses a combination of color contrast, text size and text weight. A fail simply means that the color combination offers some visual strain to the person seeing it and should be avoided if possible.</p>
 
 **Can I help contribute?**
