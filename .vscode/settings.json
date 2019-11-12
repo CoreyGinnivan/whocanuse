@@ -3,5 +3,14 @@
   "editor.formatOnSave": true,
   "files.associations": {
     "*.js": "javascriptreact"
-  }
+  },
+  "spellright.language": [
+    "en"
+  ],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext",
+    "javascriptreact"
+  ]
 }
