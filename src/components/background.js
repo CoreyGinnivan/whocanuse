@@ -8,8 +8,10 @@ import PropTypes from 'prop-types';
 
 
 const BackgroundWrapper = styled('div')(props => ({
-  gridArea: '1 / 1 / 3 / 5',
+  gridArea: '1 / 1 / 5 / 4',
   backgroundColor: '#' + props.background,
+  boxShadow: 'inset 0px 0px 0px 1px rgba(0,0,0,0.1)',
+  borderRadius: '10px',
   zIndex: '-1'
 }))
 

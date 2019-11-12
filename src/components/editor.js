@@ -9,7 +9,7 @@ import styled from '@emotion/styled';
 const EditorWrapper = styled('div')({
   gridArea: '2 / 2 / 4 / 3',
   display: 'flex',
-  background: '#EEEEEE',
+  background: '#f6f8fa',
   border: '2px solid #E6E6E6, 1px solid #FFFFFF',
   boxShadow: '0 1px 2px 0 rgba(168,168,168,0.50)',
   padding: '20px',
