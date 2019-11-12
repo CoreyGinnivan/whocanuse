@@ -87,12 +87,6 @@ export const Control = ({
 
   return (
     <ControlWrapper>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://api.mapbox.com/mapbox-assembly/v0.24.0/assembly.min.css"
-        />
-      </Helmet>
       <ColorWrapper>
         <SwitchIcon
           onClick={() => {

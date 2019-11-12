@@ -294,6 +294,9 @@ class IndexPage extends Component {
                 percent="31"
                 foreground={this.state.foreground}
                 background={this.state.background}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
+                contrastModifier={-0.2}
               />
             </VisionTable>
             <VisionTableAlt>
@@ -303,7 +306,9 @@ class IndexPage extends Component {
                 description="Simulating what direct sunlight on a phone/screen would be"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={7.1}
+                contrastModifier={-0.4}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
               <VisionRowAlt
                 name="Night Shift Mode"
@@ -311,7 +316,9 @@ class IndexPage extends Component {
                 description="Simulating what would be seen on phones/screens with night mode on"
                 foreground={this.state.foreground}
                 background={this.state.background}
-                contrastThreshold={4.6}
+                contrastModifier={-0.1}
+                bold={this.state.bold}
+                fontSize={this.state.fontSize}
               />
             </VisionTableAlt>
             <About />

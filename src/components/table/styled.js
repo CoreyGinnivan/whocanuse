@@ -53,7 +53,7 @@ export const VisionCellWrapper = styled("td")(({ pass }) => ({
       textTransform: "uppercase",
       color: theme.color.grey,
       textAlign: "left",
-      minWidth: "100px",
+      minWidth: "140px",
       alignItems: "center"
     }
   }
@@ -128,5 +128,6 @@ export const PassFailTextWrapper = styled("div")(({ pass }) => ({
   lineHeight: "14px",
   fontWeight: 600,
   padding: "1px 4px",
-  marginLeft: "8px"
+  marginLeft: "8px",
+  cursor: 'default'
 }));

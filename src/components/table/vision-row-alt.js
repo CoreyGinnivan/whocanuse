@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { Text } from "../typography";
 import chroma from "chroma-js";
 import { renderPassFail } from "./renderPassFail";
+import { getWcagScore } from "../getWcagScore";
+import Tippy from "@tippy.js/react";
+import { formatContrast } from "../small-info-bars";
 import {
   VisionRowWrapper,
   VisionCellWrapper,
@@ -24,21 +27,29 @@ export class VisionRowAlt extends Component {
   render() {
     const {
       name,
+      percent,
       description,
       foreground,
       background,
       simType,
-      contrastThreshold
+      contrastModifier = 0,
+      bold,
+      fontSize
     } = this.props;
     let simulatedForeground = foreground;
     let simulatedBackground = background;
     const contrast = chroma.contrast(simulatedForeground, simulatedBackground);
-    const pass = contrast >= contrastThreshold;
+
+    const fontSizeNum = Number(fontSize);
+    const modifiedContrast = contrast + contrast * contrastModifier;
+
+    let { wcagGrade } = getWcagScore(fontSizeNum, bold, modifiedContrast);
+    const pass = wcagGrade !== "FAIL";
     return (
       <VisionRowWrapper pass={pass}>
         <VisionCellWrapper
           style={{ marginRight: "auto" }}
-          data-th="Vision Type"
+          data-th="Situational Vision Event"
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div
@@ -51,7 +62,15 @@ export class VisionRowAlt extends Component {
               <Text bold dark>
                 {name}
               </Text>
-              {renderPassFail(pass)}
+              <Tippy
+                content={`Contrast: ${formatContrast(contrast)}`}
+                duration="0"
+                arrow="true"
+                placement="top"
+                animation="shift-away"
+              >
+                {renderPassFail(wcagGrade)}
+              </Tippy>
             </div>
             <Text style={{ fontSize: "14px" }}>{description}</Text>
           </div>
@@ -65,6 +84,7 @@ export class VisionRowAlt extends Component {
               className={simType}
               foreground={simulatedForeground}
               background={simulatedBackground}
+              bold={bold}
             >
               Text
             </SimulationFilter>
