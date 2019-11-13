@@ -1,19 +1,19 @@
-import React from "react";
-import { BackgroundWrapper, Hash, HexWrapper } from "./styled";
+import React from 'react'
+import { BackgroundWrapper, Hash, HexWrapper } from './styled'
 
 export const Background = ({
   background,
   getBackgroundTextColor,
   backgroundText,
   setBackground,
-  onClick
+  onClick,
 }) => {
   return (
     <BackgroundWrapper
       background={background}
       onClick={e => {
         if (e.target === e.currentTarget) {
-          onClick();
+          onClick()
         }
       }}
     >
@@ -23,10 +23,15 @@ export const Background = ({
         name="background"
         textColour={getBackgroundTextColor}
         value={backgroundText}
+        onKeyPress={e => {
+          if (e.key.match(/[^0-9a-fA-F]/) || e.target.value.length >= 6) {
+            e.preventDefault()
+          }
+        }}
         onChange={e => {
-          setBackground(e.target.value);
+          setBackground(e.target.value)
         }}
       />
     </BackgroundWrapper>
-  );
-};
+  )
+}

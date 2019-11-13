@@ -1,19 +1,19 @@
-import React from "react";
-import { ForegroundWrapper, Hash, HexWrapper } from "./styled";
+import React from 'react'
+import { ForegroundWrapper, Hash, HexWrapper } from './styled'
 
 export const Foreground = ({
   color,
   getForegroundTextColor,
   colorText,
   setForeground,
-  onClick
+  onClick,
 }) => {
   return (
     <ForegroundWrapper
       color={color}
       onClick={e => {
         if (e.target === e.currentTarget) {
-          onClick();
+          onClick()
         }
       }}
     >
@@ -23,10 +23,15 @@ export const Foreground = ({
         name="foreground"
         textColour={getForegroundTextColor}
         value={colorText}
+        onKeyPress={e => {
+          if (e.key.match(/[^0-9a-fA-F]/) || e.target.value.length >= 6) {
+            e.preventDefault()
+          }
+        }}
         onChange={e => {
-          setForeground(e.target.value);
+          setForeground(e.target.value)
         }}
       />
     </ForegroundWrapper>
-  );
-};
+  )
+}
