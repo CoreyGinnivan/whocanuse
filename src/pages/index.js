@@ -133,6 +133,9 @@ class IndexPage extends Component {
   }
 
   updatePath() {
+    if (typeof window === 'undefined') {
+      return
+    }
     window.history.pushState(
       undefined,
       '',
