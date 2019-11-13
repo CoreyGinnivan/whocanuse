@@ -1,5 +1,4 @@
 {
-  "prettier.tabWidth": 2,
   "editor.formatOnSave": true,
   "files.associations": {
     "*.js": "javascriptreact"
