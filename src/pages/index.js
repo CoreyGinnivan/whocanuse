@@ -1,60 +1,60 @@
-import React, { Component } from "react";
-import chroma from "chroma-js";
-import styled from "@emotion/styled";
-import Layout from "../layout/layout";
-import { Hero } from "../components/hero";
-import { Heading } from "../components/typography";
-import { VisionTable } from "../components/table/vision-table";
-import { VisionTableAlt } from "../components/table/vision-table-alt";
-import { VisionRow } from "../components/table/vision-row";
-import { VisionRowAlt } from "../components/table/vision-row-alt";
-import { About } from "../components/about";
-import { SmallInfoBars } from "../components/small-info-bars";
-import queryString from "query-string";
-import { linkPath } from "../helpers/link";
+import React, { Component } from 'react'
+import chroma from 'chroma-js'
+import styled from '@emotion/styled'
+import Layout from '../layout/layout'
+import { Hero } from '../components/hero'
+import { Heading } from '../components/typography'
+import { VisionTable } from '../components/table/vision-table'
+import { VisionTableAlt } from '../components/table/vision-table-alt'
+import { VisionRow } from '../components/table/vision-row'
+import { VisionRowAlt } from '../components/table/vision-row-alt'
+import { About } from '../components/about'
+import { SmallInfoBars } from '../components/small-info-bars'
+import queryString from 'query-string'
+import { linkPath } from '../helpers/link'
 
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
 
-const MainLayout = styled("div")({
-  display: "flex",
-  flexDirection: "row",
-  "@media screen and (max-width: 1200px)": {
-    flexDirection: "column"
-  }
-});
-
-const ContentWrapper = styled("div")({
-  height: "100%",
-  width: "50vw",
-  marginLeft: "50vw",
-  padding: "60px 40px 40px 0",
-  "@media screen and (max-width: 1200px)": {
-    width: "100%",
-    marginLeft: "0",
-    padding: "20px"
-  }
-});
-
-const StatsWrapper = styled("div")({
-  background: "#f6f8fa",
-  padding: "20px",
-  marginTop: "20px",
-  borderRadius: "8px"
-});
-
-const InfoBarWrapper = styled("div")({
-  display: "flex",
-  marginTop: "15px",
-  justifyContent: "space-between",
-  "& + &": {
-    marginTop: "10px"
+const MainLayout = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+  '@media screen and (max-width: 1200px)': {
+    flexDirection: 'column',
   },
-  "@media screen and (max-width: 780px)": {
-    flexDirection: "column"
-  }
-});
+})
+
+const ContentWrapper = styled('div')({
+  height: '100%',
+  width: '50vw',
+  marginLeft: '50vw',
+  padding: '60px 40px 40px 0',
+  '@media screen and (max-width: 1200px)': {
+    width: '100%',
+    marginLeft: '0',
+    padding: '20px',
+  },
+})
+
+const StatsWrapper = styled('div')({
+  background: '#f6f8fa',
+  padding: '20px',
+  marginTop: '20px',
+  borderRadius: '8px',
+})
+
+const InfoBarWrapper = styled('div')({
+  display: 'flex',
+  marginTop: '15px',
+  justifyContent: 'space-between',
+  '& + &': {
+    marginTop: '10px',
+  },
+  '@media screen and (max-width: 780px)': {
+    flexDirection: 'column',
+  },
+})
 
 /*----------------------------------------------------------
    Main Layout
@@ -62,31 +62,31 @@ const InfoBarWrapper = styled("div")({
 
 class IndexPage extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    let foreground = "663399";
-    let background = "663399";
-    let fontSize = "20";
-    let foregroundText = "FFFFFF";
-    let backgroundText = "663399";
+    let foreground = '663399'
+    let background = '663399'
+    let fontSize = '20'
+    let foregroundText = 'FFFFFF'
+    let backgroundText = '663399'
 
     const qs =
-      typeof window === "undefined"
+      typeof window === 'undefined'
         ? {}
-        : queryString.parse(window.location.search);
+        : queryString.parse(window.location.search)
 
-    backgroundText = qs.b || "663399";
-    foregroundText = qs.c || "FFFFFF";
-    fontSize = qs.f || "20";
+    backgroundText = chroma.valid(qs.b) ? qs.b : '663399'
+    foregroundText = chroma.valid(qs.c) ? qs.c : 'FFFFFF'
+    fontSize = (Number(qs.f) || '20').toString()
 
     if (chroma.valid(foregroundText)) {
-      foreground = foregroundText;
+      foreground = foregroundText
     }
     if (chroma.valid(backgroundText)) {
-      background = backgroundText;
+      background = backgroundText
     }
 
-    const style = qs.s || "";
+    const style = qs.s || ''
     this.state = {
       foreground,
       foregroundText,
@@ -94,56 +94,57 @@ class IndexPage extends Component {
       backgroundText,
       fontSize,
       fontSizeText: fontSize,
-      shadow: style.indexOf("s") !== -1,
-      bold: style.indexOf("b") !== -1
-    };
+      shadow: style.indexOf('s') !== -1,
+      bold: style.indexOf('b') !== -1,
+    }
+    this.updatePath()
   }
 
   setForeground = color => {
     if (chroma.valid(color)) {
       this.setState({ foreground: color }, () => {
-        window.history.pushState(
-          undefined,
-          "",
-          `?b=${this.state.background}&f=${this.state.foreground}&t`
-        );
-      });
+        this.updatePath()
+      })
     }
-    this.setState({ foregroundText: color });
-  };
+    this.setState({ foregroundText: color })
+  }
 
   setBackground = color => {
     if (chroma.valid(color)) {
       this.setState({ background: color }, () => {
-        window.history.pushState(
-          undefined,
-          "",
-          linkPath(
-            this.state.background,
-            this.state.foreground,
-            this.state.fontSize,
-            this.state.bold,
-            this.state.shadow
-          )
-        );
-      });
+        this.updatePath()
+      })
     }
-    this.setState({ backgroundText: color });
-  };
+    this.setState({ backgroundText: color })
+  }
 
   setFontSize = fontSize => {
     if (!isNaN(Number(fontSize))) {
-      this.setState({ fontSize: fontSize > 60 ? 60 : fontSize });
+      this.setState({ fontSize: fontSize > 60 ? 60 : fontSize })
     }
-    this.setState({ fontSizeText: fontSize });
-  };
+    this.setState({ fontSizeText: fontSize })
+  }
 
   setShadow = shadow => {
-    this.setState({ shadow });
-  };
+    this.setState({ shadow })
+  }
   setBold = bold => {
-    this.setState({ bold });
-  };
+    this.setState({ bold })
+  }
+
+  updatePath() {
+    window.history.pushState(
+      undefined,
+      '',
+      linkPath(
+        this.state.background,
+        this.state.foreground,
+        this.state.fontSize,
+        this.state.bold,
+        this.state.shadow,
+      ),
+    )
+  }
 
   render() {
     return (
@@ -325,8 +326,8 @@ class IndexPage extends Component {
           </ContentWrapper>
         </MainLayout>
       </Layout>
-    );
+    )
   }
 }
 
-export default IndexPage;
+export default IndexPage
