@@ -16,7 +16,7 @@
 
 **What is WhoCanUse?**
 <MediumText>Where did you get the info from?</MediumText>
-<p>The percentages are sourced from both <a href="www.colour-blindness.com" target="_blank" rel="noopener noreferrer">colour-blindness.com</a> and <a href="https://www.visionaustralia.org/" target="_blank" rel="noopener noreferrer">Vision Australia</a>. P.S. You're both the best, thankyou ✌️</Text>
+<p>The percentages are sourced from both <a href="https://www.colour-blindness.com" target="_blank" rel="noopener noreferrer">colour-blindness.com</a> and <a href="https://www.visionaustralia.org/" target="_blank" rel="noopener noreferrer">Vision Australia</a>. P.S. You're both the best, thankyou ✌️</Text>
 
 **Your maths is off, it doesn't add up to 100%...?**
 <p>Good eyes! (haha) The population data provided are estimates for individual impairments, and don't cover the vast amount of visual impairments in the world. This is to give you not just an understanding of <strong>how</strong> color contrast affects different people but also <strong>who</strong> it can affect.</Text>
