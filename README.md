@@ -6,7 +6,7 @@
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6a01d121-f24e-4c62-8fa6-b6fd95bf0cc4/deploy-status)](https://app.netlify.com/sites/whocanuse/deploys)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
 
 **What is WhoCanUse?**
 <p>It's a tool that brings attention and understanding to how color contrast can affect different people with visual impairments.</p>
