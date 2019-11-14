@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "JakeGinnivan",
+      "name": "Jake Ginnivan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/453152?v=4",
+      "profile": "http://jake.ginnivan.net",
+      "contributions": [
+        "infra",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "whocanuse",
+  "projectOwner": "CoreyGinnivan",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
