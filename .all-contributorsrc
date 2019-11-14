@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "CoreyGinnivan",
+      "name": "Corey",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7619810?v=4",
+      "profile": "http://corey.ginnivan.net/",
+      "contributions": [
+        "design",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "whocanuse",
+  "projectOwner": "CoreyGinnivan",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
