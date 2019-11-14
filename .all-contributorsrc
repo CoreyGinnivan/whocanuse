@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Tombre",
+      "name": "Tom Leenders",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3880871?v=4",
+      "profile": "https://github.com/Tombre",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "whocanuse",
+  "projectOwner": "CoreyGinnivan",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
