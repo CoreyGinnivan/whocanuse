@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "jessbudd",
+      "name": "Jess Budd",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17704960?v=4",
+      "profile": "https://github.com/jessbudd",
+      "contributions": [
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "whocanuse",
+  "projectOwner": "CoreyGinnivan",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
