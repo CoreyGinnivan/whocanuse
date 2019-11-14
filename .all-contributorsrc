@@ -10,6 +10,26 @@
       "name": "Mike",
       "avatar_url": "https://avatars0.githubusercontent.com/u/1320567?v=4",
       "profile": "http://madebymike.com.au",
+       "contributions": [
+        "infra",
+        "code"
+      ]
+    },
+    {
+      "login": "CoreyGinnivan",
+      "name": "Corey",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7619810?v=4",
+      "profile": "http://corey.ginnivan.net/",
+      "contributions": [
+        "design",
+        "code"
+      ]
+    },
+    {
+      "login": "JakeGinnivan",
+      "name": "Jake Ginnivan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/453152?v=4",
+      "profile": "http://jake.ginnivan.net",
       "contributions": [
         "infra",
         "code"
