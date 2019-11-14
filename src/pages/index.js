@@ -69,24 +69,6 @@ class IndexPage extends Component {
     let fontSize = '20'
     let foregroundText = 'FFFFFF'
     let backgroundText = '663399'
-
-    const qs =
-      typeof window === 'undefined'
-        ? {}
-        : queryString.parse(window.location.search)
-
-    backgroundText = chroma.valid(qs.b) ? qs.b : '663399'
-    foregroundText = chroma.valid(qs.c) ? qs.c : 'FFFFFF'
-    fontSize = (Number(qs.f) || '20').toString()
-
-    if (chroma.valid(foregroundText)) {
-      foreground = foregroundText
-    }
-    if (chroma.valid(backgroundText)) {
-      background = backgroundText
-    }
-
-    const style = qs.s || ''
     this.state = {
       foreground,
       foregroundText,
@@ -94,10 +76,25 @@ class IndexPage extends Component {
       backgroundText,
       fontSize,
       fontSizeText: fontSize,
+    }
+  }
+
+  componentDidMount() {
+    const qs =
+      typeof window === 'undefined'
+        ? {}
+        : queryString.parse(window.location.search)
+
+    this.setForeground(qs.c)
+    this.setBackground(qs.b)
+    const fontSize = (Number(qs.f) || '20').toString()
+
+    const style = qs.s || ''
+    this.setState({
       shadow: style.indexOf('s') !== -1,
       bold: style.indexOf('b') !== -1,
-    }
-    this.updatePath()
+      fontSize,
+    })
   }
 
   setForeground = color => {
