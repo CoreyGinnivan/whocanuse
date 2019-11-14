@@ -6,6 +6,15 @@
   "commit": false,
   "contributors": [
     {
+      "login": "stringyland",
+      "name": "Julie Grundy",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3842742?v=4",
+      "profile": "http://www.juliegrundy.id.au/",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
       "login": "Logarek",
       "name": "Matthew Putland",
       "avatar_url": "https://avatars2.githubusercontent.com/u/25744314?v=4",

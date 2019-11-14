@@ -75,6 +75,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://madebymike.com.au"><img src="https://avatars0.githubusercontent.com/u/1320567?v=4" width="100px;" alt="Mike"/><br /><sub><b>Mike</b></sub></a><br /><a href="#infra-MadeByMike" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=MadeByMike" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Tombre"><img src="https://avatars1.githubusercontent.com/u/3880871?v=4" width="100px;" alt="Tom Leenders"/><br /><sub><b>Tom Leenders</b></sub></a><br /><a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=Tombre" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Logarek"><img src="https://avatars2.githubusercontent.com/u/25744314?v=4" width="100px;" alt="Matthew Putland"/><br /><sub><b>Matthew Putland</b></sub></a><br /><a href="#ideas-Logarek" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="http://www.juliegrundy.id.au/"><img src="https://avatars3.githubusercontent.com/u/3842742?v=4" width="100px;" alt="Julie Grundy"/><br /><sub><b>Julie Grundy</b></sub></a><br /><a href="#ideas-stringyland" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
