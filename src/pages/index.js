@@ -99,7 +99,7 @@ class IndexPage extends Component {
 
   setForeground = (color, setTextOnInvalid = true) => {
     if (chroma.valid(color)) {
-      this.setState({ foreground: color }, () => {
+      this.setState({ foreground: color, foregroundText: color }, () => {
         this.updatePath()
       })
     }
@@ -110,7 +110,7 @@ class IndexPage extends Component {
 
   setBackground = (color, setTextOnInvalid = true) => {
     if (chroma.valid(color)) {
-      this.setState({ background: color }, () => {
+      this.setState({ background: color, backgroundText: color }, () => {
         this.updatePath()
       })
     }
