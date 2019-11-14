@@ -6,6 +6,15 @@
   "commit": false,
   "contributors": [
     {
+      "login": "Tombre",
+      "name": "Tom Leenders",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3880871?v=4",
+      "profile": "https://github.com/Tombre",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
       "login": "MadeByMike",
       "name": "Mike",
       "avatar_url": "https://avatars0.githubusercontent.com/u/1320567?v=4",
