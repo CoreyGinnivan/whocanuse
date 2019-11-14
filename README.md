@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="Gatsby" src="https://www.whocanuse.com/images/whocanuse_600.png" width="200" />
+    <img alt="WhoCanUse Logo" src="https://whocanuse.com/3cb0c517afe6a9a74b3853fccd8e881a.png" width="100" />
 </p>
 <h1 align="center">
   WhoCanUse.com
@@ -54,4 +54,8 @@
     Your site is now running at `http://localhost:8000`!
     
     *Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).*
+    
+    
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6a01d121-f24e-4c62-8fa6-b6fd95bf0cc4/deploy-status)](https://app.netlify.com/sites/whocanuse/deploys)
 
