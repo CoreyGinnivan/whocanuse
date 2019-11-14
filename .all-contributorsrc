@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Logarek",
+      "name": "Matthew Putland",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25744314?v=4",
+      "profile": "https://github.com/Logarek",
+      "contributions": [
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "whocanuse",
+  "projectOwner": "CoreyGinnivan",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
