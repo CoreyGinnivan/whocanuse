@@ -7,7 +7,7 @@
 </h1>
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6a01d121-f24e-4c62-8fa6-b6fd95bf0cc4/deploy-status)](https://app.netlify.com/sites/whocanuse/deploys)
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 
 **What is WhoCanUse?**
 <p>It's a tool that brings attention and understanding to how color contrast can affect different people with visual impairments.</p>
@@ -74,8 +74,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://jake.ginnivan.net"><img src="https://avatars2.githubusercontent.com/u/453152?v=4" width="100px;" alt="Jake Ginnivan"/><br /><sub><b>Jake Ginnivan</b></sub></a><br /><a href="#infra-JakeGinnivan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=JakeGinnivan" title="Code">💻</a></td>
     <td align="center"><a href="http://madebymike.com.au"><img src="https://avatars0.githubusercontent.com/u/1320567?v=4" width="100px;" alt="Mike"/><br /><sub><b>Mike</b></sub></a><br /><a href="#infra-MadeByMike" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=MadeByMike" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Tombre"><img src="https://avatars1.githubusercontent.com/u/3880871?v=4" width="100px;" alt="Tom Leenders"/><br /><sub><b>Tom Leenders</b></sub></a><br /><a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=Tombre" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Logarek"><img src="https://avatars2.githubusercontent.com/u/25744314?v=4" width="100px;" alt="Matthew Putland"/><br /><sub><b>Matthew Putland</b></sub></a><br /><a href="#ideas-Logarek" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="http://www.juliegrundy.id.au/"><img src="https://avatars3.githubusercontent.com/u/3842742?v=4" width="100px;" alt="Julie Grundy"/><br /><sub><b>Julie Grundy</b></sub></a><br /><a href="#ideas-stringyland" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/Logarek"><img src="https://avatars2.githubusercontent.com/u/25744314?v=4" width="100px;" alt="Matthew Putland"/><br /><sub><b>Matthew Putland</b></sub></a><br /><a href="#ideas-Logarek" title="Ideas, Planning, & Feedback">🤔</a> <a href="#accessibility-Logarek" title="A11y">♿️</a></td>
+    <td align="center"><a href="http://www.juliegrundy.id.au/"><img src="https://avatars3.githubusercontent.com/u/3842742?v=4" width="100px;" alt="Julie Grundy"/><br /><sub><b>Julie Grundy</b></sub></a><br /><a href="#ideas-stringyland" title="Ideas, Planning, & Feedback">🤔</a> <a href="#accessibility-stringyland" title="A11y">♿️</a></td>
+    <td align="center"><a href="https://github.com/jessbudd"><img src="https://avatars1.githubusercontent.com/u/17704960?v=4" width="100px;" alt="Jess Budd"/><br /><sub><b>Jess Budd</b></sub></a><br /><a href="#content-jessbudd" title="Content">🖋</a> <a href="#accessibility-jessbudd" title="A11y">♿️</a></td>
   </tr>
 </table>
 

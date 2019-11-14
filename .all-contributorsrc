@@ -6,12 +6,21 @@
   "commit": false,
   "contributors": [
     {
+      "login": "jessbudd",
+      "name": "Jess Budd",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17704960?v=4",
+      "profile": "https://github.com/jessbudd",
+      "contributions": [
+        "content",
+        "a11y"
+    }
       "login": "stringyland",
       "name": "Julie Grundy",
       "avatar_url": "https://avatars3.githubusercontent.com/u/3842742?v=4",
       "profile": "http://www.juliegrundy.id.au/",
       "contributions": [
-        "ideas"
+        "ideas",
+        "a11y"
       ]
     },
     {
@@ -20,7 +29,8 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/25744314?v=4",
       "profile": "https://github.com/Logarek",
       "contributions": [
-        "ideas"
+        "ideas",
+        "a11y"
       ]
     },
     {
