@@ -67,7 +67,7 @@ export class About extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Web Content Accessbility Guidelines (WCAG)
+              Web Content Accessibility Guidelines (WCAG)
             </a>{' '}
             covers a wide range of recommendations for making Web content more
             accessible. Just a tiny part of making the web more accessible is
