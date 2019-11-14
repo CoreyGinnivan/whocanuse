@@ -1,4 +1,5 @@
 <p align="center">
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
     <img alt="WhoCanUse Logo" src="https://whocanuse.com/3cb0c517afe6a9a74b3853fccd8e881a.png" width="100" />
 </p>
 <h1 align="center">
@@ -59,3 +60,19 @@
     
     
 
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/jessbudd"><img src="https://avatars1.githubusercontent.com/u/17704960?v=4" width="100px;" alt="Jess Budd"/><br /><sub><b>Jess Budd</b></sub></a><br /><a href="#content-jessbudd" title="Content">🖋</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
