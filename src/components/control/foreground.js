@@ -24,7 +24,7 @@ export const Foreground = ({
         textColour={getForegroundTextColor}
         value={colorText}
         onKeyPress={e => {
-          if (e.key.match(/[^0-9a-fA-F]/) || e.target.value.length >= 6) {
+          if (e.key.match(/[^0-9a-fA-F]/)) {
             e.preventDefault()
           }
         }}
