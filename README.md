@@ -1,5 +1,4 @@
 <p align="center">
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
     <img alt="WhoCanUse Logo" src="https://whocanuse.com/3cb0c517afe6a9a74b3853fccd8e881a.png" width="100" />
 </p>
 <h1 align="center">
