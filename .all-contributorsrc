@@ -11,7 +11,65 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/17704960?v=4",
       "profile": "https://github.com/jessbudd",
       "contributions": [
-        "content"
+        "content",
+        "a11y"
+    }
+      "login": "stringyland",
+      "name": "Julie Grundy",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3842742?v=4",
+      "profile": "http://www.juliegrundy.id.au/",
+      "contributions": [
+        "ideas",
+        "a11y"
+      ]
+    },
+    {
+      "login": "Logarek",
+      "name": "Matthew Putland",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25744314?v=4",
+      "profile": "https://github.com/Logarek",
+      "contributions": [
+        "ideas",
+        "a11y"
+      ]
+    },
+    {
+      "login": "Tombre",
+      "name": "Tom Leenders",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3880871?v=4",
+      "profile": "https://github.com/Tombre",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "MadeByMike",
+      "name": "Mike",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1320567?v=4",
+      "profile": "http://madebymike.com.au",
+       "contributions": [
+        "infra",
+        "code"
+      ]
+    },
+    {
+      "login": "CoreyGinnivan",
+      "name": "Corey",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7619810?v=4",
+      "profile": "http://corey.ginnivan.net/",
+      "contributions": [
+        "design",
+        "code"
+      ]
+    },
+    {
+      "login": "JakeGinnivan",
+      "name": "Jake Ginnivan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/453152?v=4",
+      "profile": "http://jake.ginnivan.net",
+      "contributions": [
+        "infra",
+        "code"
       ]
     }
   ],
