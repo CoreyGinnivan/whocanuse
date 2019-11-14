@@ -69,6 +69,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore -->
 <table>
   <tr>
+    <td align="center"><a href="http://jake.ginnivan.net"><img src="https://avatars2.githubusercontent.com/u/453152?v=4" width="100px;" alt="Jake Ginnivan"/><br /><sub><b>Jake Ginnivan</b></sub></a><br /><a href="#infra-JakeGinnivan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=JakeGinnivan" title="Code">💻</a></td>
     <td align="center"><a href="http://corey.ginnivan.net/"><img src="https://avatars1.githubusercontent.com/u/7619810?v=4" width="100px;" alt="Corey"/><br /><sub><b>Corey</b></sub></a><br /><a href="#design-CoreyGinnivan" title="Design">🎨</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=CoreyGinnivan" title="Code">💻</a></td>
   </tr>
 </table>
