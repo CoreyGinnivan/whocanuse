@@ -6,6 +6,15 @@
   "commit": false,
   "contributors": [
     {
+      "login": "Logarek",
+      "name": "Matthew Putland",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25744314?v=4",
+      "profile": "https://github.com/Logarek",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
       "login": "Tombre",
       "name": "Tom Leenders",
       "avatar_url": "https://avatars1.githubusercontent.com/u/3880871?v=4",
