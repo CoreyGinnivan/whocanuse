@@ -6,6 +6,16 @@
   "commit": false,
   "contributors": [
     {
+      "login": "MadeByMike",
+      "name": "Mike",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1320567?v=4",
+      "profile": "http://madebymike.com.au",
+       "contributions": [
+        "infra",
+        "code"
+      ]
+    },
+    {
       "login": "CoreyGinnivan",
       "name": "Corey",
       "avatar_url": "https://avatars1.githubusercontent.com/u/7619810?v=4",
@@ -24,7 +34,7 @@
         "infra",
         "code"
       ]
-    },
+    }
   ],
   "contributorsPerLine": 7,
   "projectName": "whocanuse",
