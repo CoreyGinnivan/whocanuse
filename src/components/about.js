@@ -82,7 +82,7 @@ export class About extends Component {
           <Text>
             The percentages are sourced from both{' '}
             <a
-              href="www.colour-blindness.com"
+              href="https://www.colour-blindness.com"
               target="_blank"
               rel="noopener noreferrer"
             >
