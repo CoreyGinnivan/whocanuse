@@ -23,10 +23,19 @@ const VersionWrapper = styled('div')({
   padding: '2px 4px',
   background: '#f6f8fa',
   border: `1px solid ${theme.color.grey}`,
-  marginRight: '10px',
+  marginRight: '6px',
   marginBottom: '4px',
   borderRadius: '4px',
   fontSize: '12px',
+})
+
+const ButtonWrapper = styled('div')({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  'span': {
+    marginRight: '6px'
+  }
 })
 
 const Author = styled('div')({
@@ -162,13 +171,7 @@ export class About extends Component {
           </Text>
         </AboutWrapper>
         <Author>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}
-          >
+          <ButtonWrapper>
             <VersionWrapper>v1.0.0</VersionWrapper>
             <a
               className="github-button"
@@ -178,7 +181,16 @@ export class About extends Component {
             >
               Fork
             </a>
-          </div>
+            <a
+              class="github-button"
+              style={{ marginLeft: '10px' }}
+              href="https://github.com/sponsors/coreyginnivan"
+              data-icon="octicon-heart"
+              aria-label="Sponsor @coreyginnivan on GitHub"
+            >
+              Sponsor
+            </a>
+          </ButtonWrapper>
           <Text>
             Created &amp; maintained by
             <a
