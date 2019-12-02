@@ -1,5 +1,6 @@
 import React from 'react'
 import { ForegroundWrapper, Hash, HexWrapper } from './styled'
+import chroma from 'chroma-js'
 
 export const Foreground = ({
   color,
@@ -26,6 +27,18 @@ export const Foreground = ({
         onKeyPress={e => {
           if (e.key.match(/[^0-9a-fA-F]/)) {
             e.preventDefault()
+          }
+        }}
+        onPaste={e => {
+          const text = e.clipboardData.getData('Text')
+          e.preventDefault()
+          if (chroma.valid(text)) {
+            setForeground(
+              chroma(text)
+                .alpha(1)
+                .hex()
+                .replace('#', ''),
+            )
           }
         }}
         onChange={e => {
