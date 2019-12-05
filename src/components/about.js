@@ -131,7 +131,7 @@ export class About extends Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Chrome.JS
+              Chrome.js
             </a>{' '}
             - this does the heavy lifting for us. Once we have the ratio (and
             using font size and font weight) we can apply a grade to that
