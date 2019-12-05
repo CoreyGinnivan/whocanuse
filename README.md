@@ -22,7 +22,7 @@
 <p>Good eyes! (haha) The population data provided are estimates for individual impairments, and don't cover the vast amount of visual impairments in the world. This is to give you not just an understanding of <strong>how</strong> color contrast affects different people but also <strong>who</strong> it can affect.</Text>
 
 **I'm fascinated by how this works, can you tell me more?**
-<p>Of course! There's a few stages to get to this point. First we figure out the contrast between two HEX values. For this we're using a plugin called <a href="https://vis4.net/chromajs/" target="_blank" rel="noopener noreferrer">Chrome.JS</a> - this does the heavy lifting for us. Once we have the ratio (and using font size and font weight) we can apply a grade to that specific color combo.</p>
+<p>Of course! There's a few stages to get to this point. First we figure out the contrast between two HEX values. For this we're using a plugin called <a href="https://vis4.net/chromajs/" target="_blank" rel="noopener noreferrer">chroma.js</a> - this does the heavy lifting for us. Once we have the ratio (and using font size and font weight) we can apply a grade to that specific color combo.</p>
 <p>For the color blindness options we're using another plugin aptly called <a href="https://github.com/skratchdot/color-blind" target="_blank" rel="noopener noreferrer">Color-blind</a> that converts our HEX codes in to ones that would be seen by people with the different impairments, then we can apply our same process to obtain the color ratios and determine their grade.</p>
 <p>For cataracts, glaucoma, low vision, and the situational events I've personally created simulations to help identify their rating.</p>
 
