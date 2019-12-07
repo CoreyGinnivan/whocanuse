@@ -87,13 +87,14 @@ class IndexPage extends Component {
 
     this.setForeground(qs.c, false)
     this.setBackground(qs.b, false)
-    const fontSize = (Number(qs.f) || '20').toString()
+    const fontSize = qs.f
 
     const style = qs.s || ''
     this.setState({
       shadow: style.indexOf('s') !== -1,
       bold: style.indexOf('b') !== -1,
       fontSize,
+      fontSizeText: fontSize,
     })
   }
 
@@ -121,7 +122,9 @@ class IndexPage extends Component {
 
   setFontSize = fontSize => {
     if (!isNaN(Number(fontSize))) {
-      this.setState({ fontSize: fontSize > 60 ? 60 : fontSize })
+      this.setState({ fontSize: fontSize > 60 ? 60 : fontSize }, () => {
+        this.updatePath()
+      })
     }
     this.setState({ fontSizeText: fontSize })
   }
@@ -130,7 +133,9 @@ class IndexPage extends Component {
     this.setState({ shadow })
   }
   setBold = bold => {
-    this.setState({ bold })
+    this.setState({ bold }, () => {
+      this.updatePath()
+    })
   }
 
   updatePath() {
