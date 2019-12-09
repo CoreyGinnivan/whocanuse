@@ -77,6 +77,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://www.juliegrundy.id.au/"><img src="https://avatars3.githubusercontent.com/u/3842742?v=4" width="100px;" alt="Julie Grundy"/><br /><sub><b>Julie Grundy</b></sub></a><br /><a href="#ideas-stringyland" title="Ideas, Planning, & Feedback">🤔</a> <a href="#accessibility-stringyland" title="A11y">♿️</a></td>
     <td align="center"><a href="https://github.com/jessbudd"><img src="https://avatars1.githubusercontent.com/u/17704960?v=4" width="100px;" alt="Jess Budd"/><br /><sub><b>Jess Budd</b></sub></a><br /><a href="#content-jessbudd" title="Content">🖋</a> <a href="#accessibility-jessbudd" title="A11y">♿️</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/severn101"><img src="https://avatars1.githubusercontent.com/u/15342678?v=4" width="100px;" alt="Pavel"/><br /><sub><b>Pavel</b></sub></a><br /><a href="#code-severn101" title="Code">💻</a> <a href="https://github.com/severn101" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->

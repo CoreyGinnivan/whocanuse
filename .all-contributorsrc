@@ -6,6 +6,14 @@
   "commit": false,
   "contributors": [
     {
+      "login": "severn101",
+      "name": "Pavel",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/15342678?v=4",
+      "profile": "https://github.com/severn101",
+      "contributions": [
+        "code"
+    },
+    {
       "login": "jessbudd",
       "name": "Jess Budd",
       "avatar_url": "https://avatars1.githubusercontent.com/u/17704960?v=4",
@@ -13,7 +21,7 @@
       "contributions": [
         "content",
         "a11y"
-    }
+    },
       "login": "stringyland",
       "name": "Julie Grundy",
       "avatar_url": "https://avatars3.githubusercontent.com/u/3842742?v=4",
