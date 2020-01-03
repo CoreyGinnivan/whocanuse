@@ -14,8 +14,8 @@ export function getWcagScore(fontSizeNum, bold, contrast) {
       wcagGrade = "FAIL";
     }
   } else if (fontSizeNum) {
-    tooltip = formatWcagGuidelines(4.5, 7.5);
-    if (contrast >= 7.5) {
+    tooltip = formatWcagGuidelines(4.5, 7);
+    if (contrast >= 7) {
       wcagGrade = "AAA";
     } else if (contrast >= 4.5) {
       wcagGrade = "AA";
