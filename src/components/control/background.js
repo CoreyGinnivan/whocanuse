@@ -25,7 +25,7 @@ export const Background = ({
         textColour={getBackgroundTextColor}
         value={backgroundText}
         onKeyPress={e => {
-          if (e.key.match(/[^0-9a-fA-F]/)) {
+          if (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) {
             e.preventDefault()
           }
         }}
