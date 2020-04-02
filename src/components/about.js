@@ -19,23 +19,13 @@ const AboutWrapper = styled('div')({
   },
 })
 
-const VersionWrapper = styled('div')({
-  padding: '2px 4px',
-  background: '#f6f8fa',
-  border: `1px solid ${theme.color.grey}`,
-  marginRight: '6px',
-  marginBottom: '4px',
-  borderRadius: '4px',
-  fontSize: '12px',
-})
-
 const ButtonWrapper = styled('div')({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  'span': {
-    marginRight: '6px'
-  }
+  span: {
+    marginRight: '6px',
+  },
 })
 
 const Author = styled('div')({
@@ -172,7 +162,6 @@ export class About extends Component {
         </AboutWrapper>
         <Author>
           <ButtonWrapper>
-            <VersionWrapper>v1.0.0</VersionWrapper>
             <a
               className="github-button"
               href="https://github.com/coreyginnivan/whocanuse/fork"
