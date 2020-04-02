@@ -30,6 +30,9 @@ const ContentWrapper = styled('div')({
   width: '60%',
   marginLeft: '40%',
   padding: '60px 40px 40px 0',
+  '@media screen and (max-width: 1400px)': {
+    marginLeft: '550px',
+  },
   '@media screen and (max-width: 1200px)': {
     width: '100%',
     marginLeft: '0',

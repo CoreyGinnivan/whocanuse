@@ -42,6 +42,7 @@ export const Background = ({
         <Hash textColour={getBackgroundTextColor}>#</Hash>
         <HexWrapper
           type="text"
+          autocomplete="off"
           name="background"
           textColour={getBackgroundTextColor}
           value={backgroundText}

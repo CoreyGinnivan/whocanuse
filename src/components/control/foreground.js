@@ -86,6 +86,7 @@ export const Foreground = ({
         <HexWrapper
           type="text"
           name="foreground"
+          autocomplete="off"
           textColour={getForegroundTextColor}
           value={colorText}
           onKeyPress={e => {
