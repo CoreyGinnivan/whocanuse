@@ -27,8 +27,8 @@ const MainLayout = styled('div')({
 
 const ContentWrapper = styled('div')({
   height: '100%',
-  width: '50vw',
-  marginLeft: '50vw',
+  width: '60%',
+  marginLeft: '40%',
   padding: '60px 40px 40px 0',
   '@media screen and (max-width: 1200px)': {
     width: '100%',

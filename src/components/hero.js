@@ -1,32 +1,32 @@
-import React from "react";
-import styled from "@emotion/styled";
-import Logo from "./logo";
-import { Control } from "./control/control";
-import { Background } from "./background";
-import DemoArea from "./demo-area";
-import { Actions } from "./actions";
+import React from 'react'
+import styled from '@emotion/styled'
+import Logo from './logo'
+import { Control } from './control/control'
+import { Background } from './background'
+import DemoArea from './demo-area'
+import { Actions } from './actions'
 
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
 
-const Wrapper = styled("div")({
-  display: "grid",
-  gridTemplateColumns: "40px 1fr 40px",
-  gridTemplateRows: "100px 1fr 200px 40px 60px",
-  height: "100vh",
-  position: "fixed",
-  width: "50vw",
-  padding: "40px",
-  "@media screen and (max-width: 1200px)": {
-    height: "auto",
-    gridTemplateColumns: "20px 1fr 20px",
-    gridTemplateRows: "100px 1fr 1fr 20px 60px",
-    position: "relative",
-    width: "auto",
-    padding: "20px"
-  }
-});
+const Wrapper = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: '40px 1fr 40px',
+  gridTemplateRows: '100px 1fr 200px 40px 60px',
+  height: '100vh',
+  position: 'fixed',
+  width: '40%',
+  padding: '40px',
+  '@media screen and (max-width: 1200px)': {
+    height: 'auto',
+    gridTemplateColumns: '20px 1fr 20px',
+    gridTemplateRows: '100px 1fr 1fr 20px 60px',
+    position: 'relative',
+    width: 'auto',
+    padding: '20px',
+  },
+})
 
 /*----------------------------------------------------------
    Hero Section
@@ -47,7 +47,7 @@ export const Hero = ({
   setShadow,
   setFontSize,
   setBackground,
-  setForeground
+  setForeground,
 }) => {
   return (
     <Wrapper>
@@ -83,5 +83,5 @@ export const Hero = ({
       />
       <Background background={background} />
     </Wrapper>
-  );
-};
+  )
+}
