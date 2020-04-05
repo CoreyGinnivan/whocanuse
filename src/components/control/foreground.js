@@ -3,12 +3,13 @@ import {
   ForegroundWrapper,
   Hash,
   HexWrapper,
-  ColourControlWrapper,
+  ColourControlForeground,
   ColourHeader,
 } from './styled'
 import { Config } from './config'
 import { SmallText } from '../typography'
 import chroma from 'chroma-js'
+import { Sliders } from './sliders'
 
 export const Foreground = ({
   color,
@@ -61,7 +62,7 @@ export const Foreground = ({
   })
 
   return (
-    <ColourControlWrapper>
+    <ColourControlForeground>
       <ColourHeader>
         <SmallText>Text</SmallText>
         <Config
@@ -111,6 +112,7 @@ export const Foreground = ({
           }}
         />
       </ForegroundWrapper>
-    </ColourControlWrapper>
+      <Sliders />
+    </ColourControlForeground>
   )
 }

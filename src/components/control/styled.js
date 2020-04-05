@@ -12,7 +12,7 @@ export const ControlWrapper = styled('div')({
   },
 })
 
-export const ColourControlWrapper = styled('div')({
+export const ColourControlBackground = styled('div')({
   display: 'flex',
   flexDirection: 'column',
   minWidth: '200px',
@@ -24,6 +24,26 @@ export const ColourControlWrapper = styled('div')({
   borderRadius: '6px',
   '&:after': {
     border: '2px solid #E6E6E6',
+  },
+})
+
+export const ColourControlForeground = styled('div')({
+  display: 'flex',
+  flexDirection: 'column',
+  minWidth: '200px',
+  marginLeft: '-6px',
+  width: '100%',
+  background: '#F2F2F2',
+  border: '1px solid #FFFFFF',
+  boxShadow: '0 1px 2px 0 rgba(168,168,168,0.50)',
+  padding: '10px',
+  borderRadius: '6px',
+  '&:after': {
+    border: '2px solid #E6E6E6',
+  },
+  '@media screen and (max-width: 540px)': {
+    marginLeft: 0,
+    marginTop: '10px',
   },
 })
 

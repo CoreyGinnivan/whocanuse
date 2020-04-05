@@ -3,13 +3,14 @@ import {
   BackgroundWrapper,
   Hash,
   HexWrapper,
-  ColourControlWrapper,
+  ColourControlBackground,
   SwitchIcon,
   ColourHeader,
 } from './styled'
 import Switch from '../../images/switch.svg'
 import { SmallText } from '../typography'
 import chroma from 'chroma-js'
+import { Sliders } from './sliders'
 
 export const Background = ({
   background,
@@ -19,7 +20,7 @@ export const Background = ({
   onClick,
 }) => {
   return (
-    <ColourControlWrapper>
+    <ColourControlBackground>
       <ColourHeader>
         <SmallText>Background</SmallText>
         <SwitchIcon
@@ -68,6 +69,7 @@ export const Background = ({
           }}
         />
       </BackgroundWrapper>
-    </ColourControlWrapper>
+      <Sliders />
+    </ColourControlBackground>
   )
 }
