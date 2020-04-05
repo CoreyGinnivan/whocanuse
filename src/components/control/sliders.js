@@ -16,8 +16,28 @@ const SliderHue = styled.input({
   appearance: 'none',
   background:
     'linear-gradient(90deg, #FF0000 0%, #FFFF00 21%, #00FF00 35%, #00FFFF 50%, #0000FF 67%, #FF00FF 87%, #FF0000 100%)',
-  border: '2px solid rgba(0,0,0,0.2)',
+  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
   marginBottom: '14px',
+  '&::-webkit-slider-thumb': {
+    appearance: 'none',
+    width: '14px',
+    height: '14px',
+    borderRadius: '20px',
+    background: 'transparent',
+    cursor: 'pointer',
+    border: '2px solid #FFFFFF',
+    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+  },
+  '&::-moz-range-thumb': {
+    appearance: 'none',
+    width: '14px',
+    height: '14px',
+    borderRadius: '20px',
+    background: 'transparent',
+    cursor: 'pointer',
+    border: '2px solid #FFFFFF',
+    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+  },
 })
 
 const SliderSaturation = styled.input({
@@ -27,8 +47,28 @@ const SliderSaturation = styled.input({
   borderRadius: '10px',
   appearance: 'none',
   background: 'linear-gradient(90deg, #A7A8A8 0%, #5EAFFE 100%)',
-  border: '2px solid rgba(0,0,0,0.2)',
+  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
   marginBottom: '14px',
+  '&::-webkit-slider-thumb': {
+    appearance: 'none',
+    width: '14px',
+    height: '14px',
+    borderRadius: '20px',
+    background: 'transparent',
+    cursor: 'pointer',
+    border: '2px solid #FFFFFF',
+    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+  },
+  '&::-moz-range-thumb': {
+    appearance: 'none',
+    width: '14px',
+    height: '14px',
+    borderRadius: '20px',
+    background: 'transparent',
+    cursor: 'pointer',
+    border: '2px solid #FFFFFF',
+    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+  },
 })
 
 const SliderLightness = styled.input({
@@ -38,7 +78,27 @@ const SliderLightness = styled.input({
   borderRadius: '10px',
   appearance: 'none',
   background: 'linear-gradient(90deg, #000000 0%, #066AC6 34%, #FFFFFF 100%)',
-  border: '2px solid rgba(0,0,0,0.2)',
+  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
+  '&::-webkit-slider-thumb': {
+    appearance: 'none',
+    width: '14px',
+    height: '14px',
+    borderRadius: '20px',
+    background: 'transparent',
+    cursor: 'pointer',
+    border: '2px solid #FFFFFF',
+    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+  },
+  '&::-moz-range-thumb': {
+    appearance: 'none',
+    width: '14px',
+    height: '14px',
+    borderRadius: '20px',
+    background: 'transparent',
+    cursor: 'pointer',
+    border: '2px solid #FFFFFF',
+    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+  },
 })
 
 export const Sliders = () => {
