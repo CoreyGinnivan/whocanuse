@@ -18,6 +18,10 @@ const SliderHue = styled.input({
     'linear-gradient(90deg, #FF0000 0%, #FFFF00 21%, #00FF00 35%, #00FFFF 50%, #0000FF 67%, #FF00FF 87%, #FF0000 100%)',
   boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
   marginBottom: '14px',
+  '&:focus': {
+    outline: 0,
+    boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
+  },
   '&::-webkit-slider-thumb': {
     appearance: 'none',
     width: '14px',
@@ -49,6 +53,10 @@ const SliderSaturation = styled.input({
   background: 'linear-gradient(90deg, #A7A8A8 0%, #5EAFFE 100%)',
   boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
   marginBottom: '14px',
+  '&:focus': {
+    outline: 0,
+    boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
+  },
   '&::-webkit-slider-thumb': {
     appearance: 'none',
     width: '14px',
@@ -79,6 +87,10 @@ const SliderLightness = styled.input({
   appearance: 'none',
   background: 'linear-gradient(90deg, #000000 0%, #066AC6 34%, #FFFFFF 100%)',
   boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
+  '&:focus': {
+    outline: 0,
+    boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
+  },
   '&::-webkit-slider-thumb': {
     appearance: 'none',
     width: '14px',
