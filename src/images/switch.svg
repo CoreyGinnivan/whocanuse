@@ -1,19 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 11</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Main-Copy-12" transform="translate(-558.000000, -187.000000)">
-            <g id="Group-4-Copy">
-                <g id="Group-3" transform="translate(267.000000, 131.000000)">
-                    <g id="Group-11" transform="translate(291.000000, 56.000000)">
-                        <polygon id="Path" fill="#2A2E3B" fill-rule="nonzero" transform="translate(1.500000, 3.000000) rotate(-270.000000) translate(-1.500000, -3.000000) " points="1.5 4.5 -1.5 1.5 4.5 1.5"></polygon>
-                        <polygon id="Path-Copy" fill="#2A2E3B" fill-rule="nonzero" transform="translate(9.000000, 10.500000) rotate(-360.000000) translate(-9.000000, -10.500000) " points="9 12 6 9 12 9"></polygon>
-                        <path d="M3,3 L3,3 C6.3137085,3 9,5.6862915 9,9" id="Path-2" stroke="#2A2E3B"></path>
-                    </g>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11">
+  <g fill="none" fill-rule="evenodd">
+    <polygon fill="#2A2E3B" fill-rule="nonzero" points="1.5 5 -1.5 2 4.5 2" transform="rotate(90 1.5 3.5)"/>
+    <polygon fill="#2A2E3B" fill-rule="nonzero" points="12.5 9 9.5 6 15.5 6" transform="matrix(0 1 1 0 5 -5)"/>
+    <line x1="3" x2="10" y1="3.5" y2="3.5" stroke="#2A2E3B"/>
+    <line x1="4" x2="11" y1="7.5" y2="7.5" stroke="#2A2E3B"/>
+  </g>
 </svg>

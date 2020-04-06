@@ -11,6 +11,7 @@ import Switch from '../../images/switch.svg'
 import { SmallText } from '../typography'
 import chroma from 'chroma-js'
 import { Sliders } from './sliders'
+import Tippy from '@tippy.js/react'
 
 export const Background = ({
   background,
@@ -23,14 +24,22 @@ export const Background = ({
     <ColourControlBackground>
       <ColourHeader>
         <SmallText>Background</SmallText>
-        <SwitchIcon
-        // onClick={() => {
-        //   setForeground(background)
-        //   setBackground(color)
-        // }}
+        <Tippy
+          content="Switch background and text colors"
+          duration="0"
+          arrow="true"
+          placement="top"
+          animation="shift-away"
         >
-          <img src={Switch} alt="Switch colors" />
-        </SwitchIcon>
+          <SwitchIcon
+          // onClick={() => {
+          //   setForeground(background)
+          //   setBackground(color)
+          // }}
+          >
+            <img src={Switch} alt="Switch colors" />
+          </SwitchIcon>
+        </Tippy>
       </ColourHeader>
       <BackgroundWrapper
         background={background}
