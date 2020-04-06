@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import chroma from 'chroma-js'
 
 export const SlidersWrapper = styled('div')({
   display: 'flex',
@@ -8,140 +9,202 @@ export const SlidersWrapper = styled('div')({
   flexDirection: 'column',
 })
 
-const SliderHue = styled.input({
-  display: 'block',
-  width: '100%',
-  height: '10px',
-  borderRadius: '10px',
-  appearance: 'none',
-  background:
-    'linear-gradient(90deg, #FF0000 0%, #FFFF00 21%, #00FF00 35%, #00FFFF 50%, #0000FF 67%, #FF00FF 87%, #FF0000 100%)',
-  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
-  marginBottom: '14px',
-  '&:focus': {
-    outline: 0,
-    boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
-  },
-  '&::-webkit-slider-thumb': {
+const SliderHue = styled.input(
+  {
+    display: 'block',
+    width: '100%',
+    height: '10px',
+    borderRadius: '10px',
     appearance: 'none',
-    width: '14px',
-    height: '14px',
-    borderRadius: '20px',
-    background: 'transparent',
-    cursor: 'pointer',
-    border: '2px solid #FFFFFF',
-    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
+    marginBottom: '14px',
+    '&:focus': {
+      outline: 0,
+      boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
+    },
+    '&::-webkit-slider-thumb': {
+      appearance: 'none',
+      width: '14px',
+      height: '14px',
+      borderRadius: '20px',
+      background: 'transparent',
+      cursor: 'pointer',
+      border: '2px solid #FFFFFF',
+      boxShadow:
+        '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    },
+    '&::-moz-range-thumb': {
+      appearance: 'none',
+      width: '14px',
+      height: '14px',
+      borderRadius: '20px',
+      background: 'transparent',
+      cursor: 'pointer',
+      border: '2px solid #FFFFFF',
+      boxShadow:
+        '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    },
   },
-  '&::-moz-range-thumb': {
-    appearance: 'none',
-    width: '14px',
-    height: '14px',
-    borderRadius: '20px',
-    background: 'transparent',
-    cursor: 'pointer',
-    border: '2px solid #FFFFFF',
-    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
-  },
-})
+  ({ min, max, saturation, lightness }) => ({
+    background: `linear-gradient(to right, ${new Array(10)
+      .fill(1)
+      .map(
+        (_, i, a) =>
+          `hsl(${min +
+            ((max - min) / a.length) * i}, ${saturation}%, ${lightness}%)`,
+      )
+      .join(', ')})`,
+  }),
+)
 
-const SliderSaturation = styled.input({
-  display: 'block',
-  width: '100%',
-  height: '10px',
-  borderRadius: '10px',
-  appearance: 'none',
-  background: 'linear-gradient(90deg, #A7A8A8 0%, #5EAFFE 100%)',
-  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
-  marginBottom: '14px',
-  '&:focus': {
-    outline: 0,
-    boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
-  },
-  '&::-webkit-slider-thumb': {
+const SliderSaturation = styled.input(
+  {
+    display: 'block',
+    width: '100%',
+    height: '10px',
+    borderRadius: '10px',
     appearance: 'none',
-    width: '14px',
-    height: '14px',
-    borderRadius: '20px',
-    background: 'transparent',
-    cursor: 'pointer',
-    border: '2px solid #FFFFFF',
-    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
+    marginBottom: '14px',
+    '&:focus': {
+      outline: 0,
+      boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
+    },
+    '&::-webkit-slider-thumb': {
+      appearance: 'none',
+      width: '14px',
+      height: '14px',
+      borderRadius: '20px',
+      background: 'transparent',
+      cursor: 'pointer',
+      border: '2px solid #FFFFFF',
+      boxShadow:
+        '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    },
+    '&::-moz-range-thumb': {
+      appearance: 'none',
+      width: '14px',
+      height: '14px',
+      borderRadius: '20px',
+      background: 'transparent',
+      cursor: 'pointer',
+      border: '2px solid #FFFFFF',
+      boxShadow:
+        '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    },
   },
-  '&::-moz-range-thumb': {
-    appearance: 'none',
-    width: '14px',
-    height: '14px',
-    borderRadius: '20px',
-    background: 'transparent',
-    cursor: 'pointer',
-    border: '2px solid #FFFFFF',
-    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
-  },
-})
+  ({ hue, lightness }) => ({
+    background: `linear-gradient(to right, ${new Array(10)
+      .fill(1)
+      .map((_, i) => `hsl(${hue}, ${i * 10}%, ${lightness}%)`)
+      .join(', ')})`,
+  }),
+)
 
-const SliderLightness = styled.input({
-  display: 'block',
-  width: '100%',
-  height: '10px',
-  borderRadius: '10px',
-  appearance: 'none',
-  background: 'linear-gradient(90deg, #000000 0%, #066AC6 34%, #FFFFFF 100%)',
-  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
-  '&:focus': {
-    outline: 0,
-    boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
-  },
-  '&::-webkit-slider-thumb': {
+const SliderLightness = styled.input(
+  {
+    display: 'block',
+    width: '100%',
+    height: '10px',
+    borderRadius: '10px',
     appearance: 'none',
-    width: '14px',
-    height: '14px',
-    borderRadius: '20px',
-    background: 'transparent',
-    cursor: 'pointer',
-    border: '2px solid #FFFFFF',
-    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
+    '&:focus': {
+      outline: 0,
+      boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
+    },
+    '&::-webkit-slider-thumb': {
+      appearance: 'none',
+      width: '14px',
+      height: '14px',
+      borderRadius: '20px',
+      background: 'transparent',
+      cursor: 'pointer',
+      border: '2px solid #FFFFFF',
+      boxShadow:
+        '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    },
+    '&::-moz-range-thumb': {
+      appearance: 'none',
+      width: '14px',
+      height: '14px',
+      borderRadius: '20px',
+      background: 'transparent',
+      cursor: 'pointer',
+      border: '2px solid #FFFFFF',
+      boxShadow:
+        '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
+    },
   },
-  '&::-moz-range-thumb': {
-    appearance: 'none',
-    width: '14px',
-    height: '14px',
-    borderRadius: '20px',
-    background: 'transparent',
-    cursor: 'pointer',
-    border: '2px solid #FFFFFF',
-    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.4), inset 0 1px 4px 0 rgba(0,0,0,0.4)',
-  },
-})
+  ({ min, max, hue }) => ({
+    background: `linear-gradient(to right, ${new Array(10)
+      .fill(1)
+      .map(
+        (_, i, a) => `hsl(${hue}, 0%, ${min + ((max - min) / a.length) * i}%)`,
+      )
+      .join(', ')})`,
+  }),
+)
 
-export const Sliders = () => {
+export const Sliders = ({ hue, saturation, lightness, updateHex }) => {
+  const hueValue = isNaN(hue) ? 0 : hue
   return (
     <SlidersWrapper>
       <SliderHue
         type="range"
         property="hue"
-        min="10"
-        max="60"
         datatype="number"
         mv-mode="edit"
         aria-label="Hue"
+        onChange={e => {
+          updateHex(
+            chroma(e.currentTarget.value, saturation, lightness, 'hsl')
+              .hex()
+              .replace('#', ''),
+          )
+        }}
+        value={hueValue}
+        lightness={lightness * 100}
+        saturation={saturation * 100}
+        min={0}
+        max={360}
       />
       <SliderSaturation
         type="range"
         property="saturation"
-        min="10"
-        max="60"
         datatype="number"
         mv-mode="edit"
         aria-label="Saturation"
+        onChange={e => {
+          updateHex(
+            chroma(hue, e.currentTarget.value / 100, lightness, 'hsl')
+              .hex()
+              .replace('#', ''),
+          )
+        }}
+        min={0}
+        max={100}
+        hue={hueValue}
+        lightness={lightness * 100}
+        value={saturation * 100}
       />
       <SliderLightness
         type="range"
         property="lightness"
-        min="10"
-        max="60"
         datatype="number"
         mv-mode="edit"
         aria-label="Lightness"
+        onChange={e => {
+          updateHex(
+            chroma(hue, saturation, e.currentTarget.value / 100, 'hsl')
+              .hex()
+              .replace('#', ''),
+          )
+        }}
+        min={0}
+        max={100}
+        hue={hueValue}
+        value={lightness * 100}
       />
     </SlidersWrapper>
   )

@@ -20,6 +20,8 @@ export const Background = ({
   setBackground,
   onClick,
 }) => {
+  const [hue, saturation, lightness] = chroma(`#${background}`).hsl()
+
   return (
     <ColourControlBackground>
       <ColourHeader>
@@ -78,7 +80,12 @@ export const Background = ({
           }}
         />
       </BackgroundWrapper>
-      <Sliders />
+      <Sliders
+        hue={hue}
+        saturation={saturation}
+        lightness={lightness}
+        updateHex={setBackground}
+      />
     </ColourControlBackground>
   )
 }

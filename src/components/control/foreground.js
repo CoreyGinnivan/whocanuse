@@ -61,6 +61,8 @@ export const Foreground = ({
     }
   })
 
+  const [hue, saturation, lightness] = chroma(`#${color}`).hsl()
+
   return (
     <ColourControlForeground>
       <ColourHeader>
@@ -112,7 +114,12 @@ export const Foreground = ({
           }}
         />
       </ForegroundWrapper>
-      <Sliders />
+      <Sliders
+        hue={hue}
+        saturation={saturation}
+        lightness={lightness}
+        updateHex={setForeground}
+      />
     </ColourControlForeground>
   )
 }

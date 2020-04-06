@@ -5,6 +5,7 @@ import { Control } from './control/control'
 import { Background } from './background'
 import DemoArea from './demo-area'
 import { Actions } from './actions'
+import { Ad } from './ad'
 
 /*----------------------------------------------------------
    Styles
@@ -81,6 +82,7 @@ export const Hero = ({
         bold={bold}
         shadow={shadow}
       />
+      <Ad />
       <Background background={background} />
     </Wrapper>
   )
