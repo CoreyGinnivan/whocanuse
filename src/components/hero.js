@@ -4,7 +4,7 @@ import Logo from './logo'
 import { Control } from './control/control'
 import { Background } from './background'
 import DemoArea from './demo-area'
-import { Actions } from './actions'
+// import { Actions } from './actions'
 import { Ad } from './ad'
 
 /*----------------------------------------------------------
@@ -14,7 +14,7 @@ import { Ad } from './ad'
 const Wrapper = styled('div')({
   display: 'grid',
   gridTemplateColumns: '40px 1fr 40px',
-  gridTemplateRows: '100px 1fr 230px 40px 70px 90px',
+  gridTemplateRows: '100px 1fr 230px 40px 30px 90px',
   height: '100vh',
   position: 'fixed',
   width: '40%',
@@ -75,13 +75,13 @@ export const Hero = ({
         shadow={shadow}
         setShadow={setShadow}
       />
-      <Actions
+      {/* <Actions
         background={background}
         foreground={foreground}
         fontSize={fontSizeText}
         bold={bold}
         shadow={shadow}
-      />
+      /> */}
       <Ad />
       <Background background={background} />
     </Wrapper>
