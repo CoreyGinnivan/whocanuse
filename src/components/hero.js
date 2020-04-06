@@ -14,7 +14,7 @@ import { Ad } from './ad'
 const Wrapper = styled('div')({
   display: 'grid',
   gridTemplateColumns: '40px 1fr 40px',
-  gridTemplateRows: '100px 1fr 200px 40px 60px',
+  gridTemplateRows: '100px 1fr 230px 40px 70px 90px',
   height: '100vh',
   position: 'fixed',
   width: '40%',

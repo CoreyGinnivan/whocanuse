@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-const StyledAd = styled('div')({ display: 'flex' })
+const StyledAd = styled('div')({
+  display: 'flex',
+  gridArea: '6 / 1 / 7 / 4',
+  justifyContent: 'center',
+})
 
 export const Ad = () => {
   const ref = React.useRef(null)
