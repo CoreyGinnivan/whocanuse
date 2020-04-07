@@ -5,10 +5,8 @@ const StyledAd = styled('div')`
   display: flex;
   grid-area: 6 / 1 / 7 / 4;
   justify-content: center;
-  background-color: #f6f8fa;
-  border-radius: 6px;
   position: relative;
-  max-width: 720px;
+  max-width: 684px;
   width: 100%;
   justify-self: center;
   &:before {
@@ -17,6 +15,8 @@ const StyledAd = styled('div')`
     position: absolute;
     top: 0;
     display: flex;
+    background-color: #f6f8fa;
+    border-radius: 6px;
     justify-content: center;
     align-items: center;
     text-align: center;

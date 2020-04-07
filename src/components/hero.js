@@ -4,7 +4,6 @@ import Logo from './logo'
 import { Control } from './control/control'
 import { Background } from './background'
 import DemoArea from './demo-area'
-// import { Actions } from './actions'
 import { Ad } from './ad'
 
 /*----------------------------------------------------------
@@ -75,13 +74,6 @@ export const Hero = ({
         shadow={shadow}
         setShadow={setShadow}
       />
-      {/* <Actions
-        background={background}
-        foreground={foreground}
-        fontSize={fontSizeText}
-        bold={bold}
-        shadow={shadow}
-      /> */}
       <Ad />
       <Background background={background} />
     </Wrapper>
