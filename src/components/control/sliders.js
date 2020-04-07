@@ -9,25 +9,21 @@ export const SlidersWrapper = styled('div')({
   flexDirection: 'column',
 })
 
-const SliderHueNumber = styled.input(
-  {
-    position: 'absolute',
-    marginTop: '-40px',
-    transform: 'translateX(-50%)',
-    padding: '5px 10px',
-    border: 0,
-    borderRadius: '.3em',
-    textAlign: 'center',
-    color: 'white',
-    background: 'rgba(0,0,0,.8)',
-    font: 'inherit',
-    fontSize: '14px',
-    transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
-  },
-  ({ hueValue }) => ({
-    left: `${hueValue} + 'px'`,
-  }),
-)
+const SliderHueNumber = styled.input(props => ({
+  position: 'absolute',
+  marginTop: '-40px',
+  transform: 'translateX(-50%)',
+  padding: '5px 10px',
+  border: 0,
+  borderRadius: '.3em',
+  textAlign: 'center',
+  color: 'white',
+  background: 'rgba(0,0,0,.8)',
+  font: 'inherit',
+  fontSize: '14px',
+  transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+  left: props.hueValue + 'px',
+}))
 
 const SliderHue = styled.input(
   {
