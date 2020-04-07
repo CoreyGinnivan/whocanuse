@@ -8,6 +8,8 @@ const StyledAd = styled('div')`
   background-color: #f6f8fa;
   border-radius: 6px;
   position: relative;
+  max-width: 720px;
+  justify-self: center;
   &:before {
     content:
       "If you want to help keep this site going, please consider turning off your AdBlocker (they're pretty good ones)";

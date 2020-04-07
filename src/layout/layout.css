@@ -743,6 +743,12 @@ pre tt:after {
   line-height: 1;
 }
 
+@media only screen and (min-width: 1200px) and (max-width: 1400px) {
+  .carbon-text {
+    font-size: 18px;
+  }
+}
+
 @media only screen and (min-width: 320px) and (max-width: 759px) {
   .carbon-text {
     font-size: 14px;

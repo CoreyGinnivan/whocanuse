@@ -9,6 +9,26 @@ export const SlidersWrapper = styled('div')({
   flexDirection: 'column',
 })
 
+const SliderHueNumber = styled.input(
+  {
+    position: 'absolute',
+    marginTop: '-40px',
+    transform: 'translateX(-50%)',
+    padding: '5px 10px',
+    border: 0,
+    borderRadius: '.3em',
+    textAlign: 'center',
+    color: 'white',
+    background: 'rgba(0,0,0,.8)',
+    font: 'inherit',
+    fontSize: '14px',
+    transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+  },
+  ({ hueValue }) => ({
+    left: `${hueValue} + 'px'`,
+  }),
+)
+
 const SliderHue = styled.input(
   {
     display: 'block',
@@ -150,30 +170,40 @@ export const Sliders = ({ hue, saturation, lightness, updateHex }) => {
   const hueValue = isNaN(hue) ? 0 : hue
   return (
     <SlidersWrapper>
-      <SliderHue
-        type="range"
-        property="hue"
-        datatype="number"
-        mv-mode="edit"
-        aria-label="Hue"
-        onChange={e => {
-          updateHex(
-            chroma(e.currentTarget.value, saturation, lightness, 'hsl')
-              .hex()
-              .replace('#', ''),
-          )
-        }}
-        value={hueValue}
-        lightness={lightness * 100}
-        saturation={saturation * 100}
-        min={0}
-        max={360}
-      />
+      <label style={{ position: 'relative' }}>
+        <SliderHueNumber
+          type="number"
+          property="hueNumber"
+          datatype="number"
+          aria-label="HUE number"
+          value={hueValue}
+          min={0}
+          max={360}
+          step="1"
+        />
+        <SliderHue
+          type="range"
+          property="hue"
+          datatype="number"
+          aria-label="Hue"
+          onChange={e => {
+            updateHex(
+              chroma(e.currentTarget.value, saturation, lightness, 'hsl')
+                .hex()
+                .replace('#', ''),
+            )
+          }}
+          value={hueValue}
+          lightness={lightness * 100}
+          saturation={saturation * 100}
+          min={0}
+          max={360}
+        />
+      </label>
       <SliderSaturation
         type="range"
         property="saturation"
         datatype="number"
-        mv-mode="edit"
         aria-label="Saturation"
         onChange={e => {
           updateHex(
@@ -192,7 +222,6 @@ export const Sliders = ({ hue, saturation, lightness, updateHex }) => {
         type="range"
         property="lightness"
         datatype="number"
-        mv-mode="edit"
         aria-label="Lightness"
         onChange={e => {
           updateHex(
