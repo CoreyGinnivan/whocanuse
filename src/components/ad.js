@@ -9,10 +9,11 @@ const StyledAd = styled('div')`
   border-radius: 6px;
   position: relative;
   max-width: 720px;
+  width: 100%;
   justify-self: center;
   &:before {
     content:
-      "If you want to help keep this site going, please consider turning off your AdBlocker (they're pretty good ones)";
+      "If you'd like to help keep WhoCanUse maintained, please consider turning off your AdBlocker for us (it's cool if you don't want to, no pressure)";
     position: absolute;
     top: 0;
     display: flex;
@@ -22,7 +23,7 @@ const StyledAd = styled('div')`
     font-size: 14px;
     line-height: 20px;
     color: #8c8c8c;
-    padding: 20px 110px;
+    padding: 20px 40px;
     height: 90px;
   }
 }`

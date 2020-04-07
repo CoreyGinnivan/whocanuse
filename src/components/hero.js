@@ -22,7 +22,7 @@ const Wrapper = styled('div')({
   '@media screen and (max-width: 1200px)': {
     height: 'auto',
     gridTemplateColumns: '20px 1fr 20px',
-    gridTemplateRows: '100px 1fr 1fr 20px 60px',
+    gridTemplateRows: '100px 1fr 1fr 40px 30px 90px',
     position: 'relative',
     width: 'auto',
     padding: '20px',
