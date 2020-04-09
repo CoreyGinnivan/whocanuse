@@ -26,6 +26,9 @@ const StyledAd = styled('div')`
     padding: 20px 40px;
     height: 90px;
   }
+  @media screen and (max-width: 1200px) {
+    max-width: 470px;
+  }
 }`
 
 export const Ad = ({ children }) => {
