@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import chroma from 'chroma-js'
 import styled from '@emotion/styled'
 import Layout from '../layout/layout'
+import queryString from 'query-string'
 import { Hero } from '../components/hero'
 import { Heading } from '../components/typography'
 import { VisionTable } from '../components/table/vision-table'
@@ -10,7 +11,6 @@ import { VisionRow } from '../components/table/vision-row'
 import { VisionRowAlt } from '../components/table/vision-row-alt'
 import { About } from '../components/about'
 import { SmallInfoBars } from '../components/small-info-bars'
-import queryString from 'query-string'
 import { linkPath } from '../helpers/link'
 
 /*----------------------------------------------------------
@@ -63,278 +63,298 @@ const InfoBarWrapper = styled('div')({
    Main Layout
 ----------------------------------------------------------*/
 
-class IndexPage extends Component {
-  constructor(props) {
-    super(props)
+const IndexPage = () => {
+  // The resulting colour value is lossy, the user inputting FFF is a colour of FFFFFF
+  // HSL is the same, [155, 0, 0] is #000000, we have lost the Hue
+  const [foreground, setForeground] = useState({
+    colour: chroma('FFFFFF'),
+    valueKind: 'hex',
+    // This can be invalid, the colour is the source of truth for the last valid colour
+    value: 'FFFFFF',
+  })
+  const [background, setBackground] = useState({
+    colour: chroma('663399'),
+    valueKind: 'hex',
+    // This can be invalid, the colour is the source of truth for the last valid colour
+    value: '663399',
+  })
+  const [fontSize, setFontSize] = useState({ value: 20, text: '20' })
+  const [shadow, setShadow] = useState(false)
+  const [bold, setBold] = useState(false)
 
-    let foreground = 'FFFFFF'
-    let background = '663399'
-    let fontSize = '20'
-    let foregroundText = 'FFFFFF'
-    let backgroundText = '663399'
-    this.state = {
-      foreground,
-      foregroundText,
-      background,
-      backgroundText,
-      fontSize,
-      fontSizeText: fontSize,
-    }
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     const qs =
       typeof window === 'undefined'
         ? {}
         : queryString.parse(window.location.search)
 
-    this.setForeground(qs.c, false)
-    this.setBackground(qs.b, false)
+    if (qs.c && chroma.valid(qs.c)) {
+      setForeground({
+        colour: chroma(`#${qs.c}`),
+        value: qs.c,
+        valueKind: 'hex',
+      })
+    }
+    if (qs.b && chroma.valid(qs.b)) {
+      setBackground({
+        colour: chroma(`#${qs.b}`),
+        value: qs.b,
+        valueKind: 'hex',
+      })
+    }
+
     const fontSize = (Number(qs.f) || '20').toString()
 
     const style = qs.s || ''
-    this.setState({
-      shadow: style.indexOf('s') !== -1,
-      bold: style.indexOf('b') !== -1,
-      fontSize,
+    setShadow(style.indexOf('s') !== -1)
+    setBold(style.indexOf('b') !== -1)
+    setFontSize({ value: fontSize, text: fontSize })
+  }, [])
+
+  function setForegroundCallback(color) {
+    const colourWithHex = `#${color}`
+    const validForeground = chroma.valid(colourWithHex)
+      ? chroma(colourWithHex)
+      : foreground.colour
+    setForeground({
+      colour: validForeground,
+      value: color,
+      valueKind: 'hex',
+    })
+
+    updatePath(
+      background.colour.hex().replace('#', ''),
+      validForeground,
+      fontSize.value,
+      bold,
+      shadow,
+    )
+  }
+
+  function setBackgroundCallback(color) {
+    const colourWithHex = `#${color}`
+    const validBackground = chroma.valid(colourWithHex)
+      ? chroma(colourWithHex)
+      : background.colour
+    setBackground({
+      colour: validBackground,
+      value: color,
+      valueKind: 'hex',
+    })
+    updatePath(
+      validBackground,
+      foreground.colour.hex().replace('#', ''),
+      fontSize.value,
+      bold,
+      shadow,
+    )
+  }
+
+  function setFontSizeCallback(fontSizeText) {
+    setFontSize({
+      value: !isNaN(Number(fontSizeText))
+        ? fontSizeText > 60
+          ? 60
+          : fontSizeText
+        : fontSizeText,
+      text: fontSizeText,
     })
   }
 
-  setForeground = (color, setTextOnInvalid = true) => {
-    if (chroma.valid(color)) {
-      this.setState({ foreground: color, foregroundText: color }, () => {
-        this.updatePath()
-      })
-    }
-    if (setTextOnInvalid) {
-      this.setState({ foregroundText: color })
-    }
-  }
+  const foregroundWithoutHash = foreground.colour.hex().replace('#', '')
+  const backgroundWithoutHash = background.colour.hex().replace('#', '')
 
-  setBackground = (color, setTextOnInvalid = true) => {
-    if (chroma.valid(color)) {
-      this.setState({ background: color, backgroundText: color }, () => {
-        this.updatePath()
-      })
-    }
-    if (setTextOnInvalid) {
-      this.setState({ backgroundText: color })
-    }
-  }
-
-  setFontSize = fontSize => {
-    if (!isNaN(Number(fontSize))) {
-      this.setState({ fontSize: fontSize > 60 ? 60 : fontSize })
-    }
-    this.setState({ fontSizeText: fontSize })
-  }
-
-  setShadow = shadow => {
-    this.setState({ shadow })
-  }
-  setBold = bold => {
-    this.setState({ bold })
-  }
-
-  updatePath() {
-    if (typeof window === 'undefined') {
-      return
-    }
-    window.history.replaceState(
-      undefined,
-      '',
-      linkPath(
-        this.state.background,
-        this.state.foreground,
-        this.state.fontSize,
-        this.state.bold,
-        this.state.shadow,
-      ),
-    )
-  }
-
-  render() {
-    return (
-      <Layout>
-        <MainLayout>
-          <Hero
-            setBackground={this.setBackground}
-            setForeground={this.setForeground}
-            foreground={this.state.foreground}
-            background={this.state.background}
-            foregroundText={this.state.foregroundText}
-            backgroundText={this.state.backgroundText}
-            setFontSize={this.setFontSize}
-            fontSize={this.state.fontSize}
-            minFontSize={10}
-            maxFontSize={60}
-            fontSizeText={this.state.fontSizeText}
-            shadow={this.state.shadow}
-            setShadow={this.setShadow}
-            bold={this.state.bold}
-            setBold={this.setBold}
-          />
-          <ContentWrapper>
-            <Heading align="left">Who can use this color combination?</Heading>
-            <StatsWrapper>
-              <SmallInfoBars
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-            </StatsWrapper>
-            <VisionTable>
-              <VisionRow
-                name="Regular Vision (Trichromatic)"
-                description="Can distinguish all three primary color, little to no blurriness"
-                percent="68"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Protanomaly"
-                simType="protanomaly"
-                description="Trouble distinguishing reds"
-                percent="1.3"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Protanopia"
-                simType="protanopia"
-                description="Red blind - Can’t see reds at all"
-                percent="1.5"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Deuteranomaly"
-                simType="deuteranomaly"
-                description="Trouble distinguishing greens"
-                percent="5.3"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Deuteranopia"
-                simType="deuteranopia"
-                description="Green blind - Can’t see greens at all"
-                percent="1.2"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Tritanomaly"
-                simType="tritanomaly"
-                description="Trouble distinguishing blues"
-                percent="0.02"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Tritanopia"
-                simType="tritanopia"
-                description="Blue blind - Can’t see blues at all"
-                percent="<0.03"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Achromatomaly"
-                simType="achromatomaly"
-                description="Partial color blindness, sees the absence of most colors"
-                percent="<0.1"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Achromatopsia"
-                simType="achromatopsia"
-                description="Complete color blindness, can only see shades"
-                percent="<0.1"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Cataracts"
-                simType="cataracts"
-                description="Clouding of the lens in the eye that affects vision"
-                percent="33"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-                contrastModifier={-0.2}
-              />
-              <VisionRow
-                name="Glaucoma"
-                simType="glaucoma"
-                description="Slight vision loss"
-                percent="2"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRow
-                name="Low Vision"
-                simType="lowvision"
-                description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
-                percent="31"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-                contrastModifier={-0.2}
-              />
-            </VisionTable>
-            <VisionTableAlt>
-              <VisionRowAlt
-                name="Direct Sunlight"
-                simType="sunlight"
-                description="Simulating what direct sunlight on a phone/screen would be"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                contrastModifier={-0.4}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-              <VisionRowAlt
-                name="Night Shift Mode"
-                simType="nightshift"
-                description="Simulating what would be seen on phones/screens with night mode on"
-                foreground={this.state.foreground}
-                background={this.state.background}
-                contrastModifier={-0.1}
-                bold={this.state.bold}
-                fontSize={this.state.fontSize}
-              />
-            </VisionTableAlt>
-            <About />
-          </ContentWrapper>
-        </MainLayout>
-      </Layout>
-    )
-  }
+  return (
+    <Layout>
+      <MainLayout>
+        <Hero
+          setBackground={setBackgroundCallback}
+          setForeground={setForegroundCallback}
+          foreground={foregroundWithoutHash}
+          background={backgroundWithoutHash}
+          backgroundText={background.value}
+          foregroundText={foreground.value}
+          setFontSize={setFontSizeCallback}
+          fontSize={fontSize.value}
+          fontSizeText={fontSize.text}
+          minFontSize={10}
+          maxFontSize={60}
+          shadow={shadow}
+          setShadow={setShadow}
+          bold={bold}
+          setBold={setBold}
+        />
+        <ContentWrapper>
+          <Heading align="left">Who can use this color combination?</Heading>
+          <StatsWrapper>
+            <SmallInfoBars
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+          </StatsWrapper>
+          <VisionTable>
+            <VisionRow
+              name="Regular Vision (Trichromatic)"
+              description="Can distinguish all three primary color, little to no blurriness"
+              percent="68"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Protanomaly"
+              simType="protanomaly"
+              description="Trouble distinguishing reds"
+              percent="1.3"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Protanopia"
+              simType="protanopia"
+              description="Red blind - Can’t see reds at all"
+              percent="1.5"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Deuteranomaly"
+              simType="deuteranomaly"
+              description="Trouble distinguishing greens"
+              percent="5.3"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Deuteranopia"
+              simType="deuteranopia"
+              description="Green blind - Can’t see greens at all"
+              percent="1.2"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Tritanomaly"
+              simType="tritanomaly"
+              description="Trouble distinguishing blues"
+              percent="0.02"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Tritanopia"
+              simType="tritanopia"
+              description="Blue blind - Can’t see blues at all"
+              percent="<0.03"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Achromatomaly"
+              simType="achromatomaly"
+              description="Partial color blindness, sees the absence of most colors"
+              percent="<0.1"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Achromatopsia"
+              simType="achromatopsia"
+              description="Complete color blindness, can only see shades"
+              percent="<0.1"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Cataracts"
+              simType="cataracts"
+              description="Clouding of the lens in the eye that affects vision"
+              percent="33"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+              contrastModifier={-0.2}
+            />
+            <VisionRow
+              name="Glaucoma"
+              simType="glaucoma"
+              description="Slight vision loss"
+              percent="2"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRow
+              name="Low Vision"
+              simType="lowvision"
+              description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
+              percent="31"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              bold={bold}
+              fontSize={fontSize.value}
+              contrastModifier={-0.2}
+            />
+          </VisionTable>
+          <VisionTableAlt>
+            <VisionRowAlt
+              name="Direct Sunlight"
+              simType="sunlight"
+              description="Simulating what direct sunlight on a phone/screen would be"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              contrastModifier={-0.4}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+            <VisionRowAlt
+              name="Night Shift Mode"
+              simType="nightshift"
+              description="Simulating what would be seen on phones/screens with night mode on"
+              foreground={foregroundWithoutHash}
+              background={backgroundWithoutHash}
+              contrastModifier={-0.1}
+              bold={bold}
+              fontSize={fontSize.value}
+            />
+          </VisionTableAlt>
+          <About />
+        </ContentWrapper>
+      </MainLayout>
+    </Layout>
+  )
 }
 
 export default IndexPage
+
+function updatePath(background, forground, fontSize, bold, shadow) {
+  if (typeof window === 'undefined') {
+    return
+  }
+  window.history.replaceState(
+    undefined,
+    '',
+    linkPath(background, forground, fontSize, bold, shadow),
+  )
+}
