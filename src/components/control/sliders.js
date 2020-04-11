@@ -12,7 +12,7 @@ export const SlidersWrapper = styled('div')({
 const SliderHueNumber = styled.input(
   {
     position: 'absolute',
-    marginTop: '-40px',
+    marginTop: '-30px',
     transform: 'translateX(-50%)',
     padding: '5px 10px',
     border: 0,
@@ -87,7 +87,7 @@ const SliderHue = styled.input(
 const SliderSaturationNumber = styled.input(
   {
     position: 'absolute',
-    marginTop: '-40px',
+    marginTop: '-30px',
     transform: 'translateX(-50%)',
     padding: '5px 10px',
     border: 0,
@@ -151,7 +151,7 @@ const SliderSaturation = styled.input(
 const SliderLightnessNumber = styled.input(
   {
     position: 'absolute',
-    marginTop: '-40px',
+    marginTop: '-30px',
     transform: 'translateX(-50%)',
     padding: '5px 10px',
     border: 0,
