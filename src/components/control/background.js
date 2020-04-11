@@ -16,12 +16,9 @@ import Tippy from '@tippy.js/react'
 export const Background = ({
   background,
   getBackgroundTextColor,
-  backgroundText,
   setBackground,
   onClick,
 }) => {
-  const [hue, saturation, lightness] = chroma(`#${background}`).hsl()
-
   return (
     <ColourControlBackground>
       <ColourHeader>
@@ -33,18 +30,13 @@ export const Background = ({
           placement="top"
           animation="shift-away"
         >
-          <SwitchIcon
-          // onClick={() => {
-          //   setForeground(background)
-          //   setBackground(color)
-          // }}
-          >
+          <SwitchIcon>
             <img src={Switch} alt="Switch colors" />
           </SwitchIcon>
         </Tippy>
       </ColourHeader>
       <BackgroundWrapper
-        background={background}
+        background={background.color.hex()}
         onClick={e => {
           if (e.target === e.currentTarget) {
             onClick()
@@ -57,7 +49,11 @@ export const Background = ({
           autocomplete="off"
           name="background"
           textColour={getBackgroundTextColor}
-          value={backgroundText}
+          value={
+            background.valueKind === 'hex'
+              ? background.value
+              : background.color.hex().replace('#', '')
+          }
           onKeyPress={e => {
             if (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) {
               e.preventDefault()
@@ -67,25 +63,28 @@ export const Background = ({
             const text = e.clipboardData.getData('Text')
             e.preventDefault()
             if (chroma.valid(text)) {
-              setBackground(
-                chroma(text)
-                  .alpha(1)
-                  .hex()
-                  .replace('#', ''),
-              )
+              setBackground({
+                color: chroma(text).alpha(1),
+                value: text,
+                valueKind: 'hex',
+              })
             }
           }}
           onChange={e => {
-            setBackground(e.target.value)
+            const backgroundWithHash = `#${e.target.value}`
+            setBackground({
+              color: chroma(
+                chroma.valid(backgroundWithHash)
+                  ? backgroundWithHash
+                  : background.color,
+              ),
+              value: e.target.value,
+              valueKind: 'hex',
+            })
           }}
         />
       </BackgroundWrapper>
-      <Sliders
-        hue={hue}
-        saturation={saturation}
-        lightness={lightness}
-        updateHex={setBackground}
-      />
+      <Sliders color={background} updateColor={setBackground} />
     </ColourControlBackground>
   )
 }

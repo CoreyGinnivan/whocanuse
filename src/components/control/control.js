@@ -8,7 +8,7 @@ import { Foreground } from './foreground'
    Control Control Component
 ----------------------------------------------------------*/
 function getTextColor(bgColor, lightColor, darkColor) {
-  const color = bgColor.charAt(0) === '#' ? bgColor.substring(1, 7) : bgColor
+  const color = bgColor.substring(1, 7)
   let r, g, b
   if (color.length === 3) {
     r = parseInt(color.substring(0, 1) + color.substring(0, 1), 16)
@@ -24,18 +24,20 @@ function getTextColor(bgColor, lightColor, darkColor) {
 
 export const Control = ({
   background,
-  color,
-  backgroundText,
-  colorText,
+  foreground,
   setBackground,
   setForeground,
 }) => {
   const getBackgroundTextColor = getTextColor(
-    `${background}`,
+    background.color.hex(),
     '#FFFFFF',
     '#000000',
   )
-  const getForegroundTextColor = getTextColor(`${color}`, '#FFFFFF', '#000000')
+  const getForegroundTextColor = getTextColor(
+    foreground.color.hex(),
+    '#FFFFFF',
+    '#000000',
+  )
 
   const [isSelectingColour, setIsSelectingColour] = React.useState(false)
 
@@ -44,7 +46,6 @@ export const Control = ({
       <Background
         background={background}
         getBackgroundTextColor={getBackgroundTextColor}
-        backgroundText={backgroundText}
         setBackground={setBackground}
         onClick={() =>
           isSelectingColour
@@ -53,9 +54,8 @@ export const Control = ({
         }
       />
       <Foreground
-        color={color}
+        foreground={foreground}
         getForegroundTextColor={getForegroundTextColor}
-        colorText={colorText}
         setForeground={setForeground}
         onClick={() =>
           isSelectingColour

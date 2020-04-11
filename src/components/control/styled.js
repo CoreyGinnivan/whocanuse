@@ -60,7 +60,7 @@ export const ColorWrapper = styled('div')({
 export const BackgroundWrapper = styled('div')(props => ({
   position: 'relative',
   height: '90px',
-  backgroundColor: '#' + props.background,
+  backgroundColor: props.background,
   border: '1px solid #FFFFFF',
   boxShadow: '0 0 2px 0 rgba(0,0,0,0.2)',
   borderRadius: '4px',
@@ -72,7 +72,7 @@ export const BackgroundWrapper = styled('div')(props => ({
 export const ForegroundWrapper = styled('div')(props => ({
   position: 'relative',
   height: '90px',
-  backgroundColor: '#' + props.color,
+  backgroundColor: props.color,
   border: '1px solid #FFFFFF',
   boxShadow: '0 0 2px 0 rgba(0,0,0,0.2)',
   borderRadius: '4px',

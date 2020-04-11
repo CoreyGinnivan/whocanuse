@@ -162,7 +162,9 @@ const SliderLightness = styled.input(
   }),
 )
 
-export const Sliders = ({ hue, saturation, lightness, updateHex }) => {
+export const Sliders = ({ color, updateColor }) => {
+  const [hue, saturation, lightness] =
+    color.valueKind === 'hsl' ? color.value : color.color.hsl()
   const hueValue = isNaN(hue) ? 0 : hue
   return (
     <SlidersWrapper>
@@ -183,11 +185,13 @@ export const Sliders = ({ hue, saturation, lightness, updateHex }) => {
           datatype="number"
           aria-label="Hue"
           onChange={e => {
-            updateHex(
-              chroma(e.currentTarget.value, saturation, lightness, 'hsl')
-                .hex()
-                .replace('#', ''),
-            )
+            const newHue = e.currentTarget.value
+            const color = chroma(newHue, saturation, lightness, 'hsl')
+            updateColor({
+              color: color,
+              value: [newHue, saturation, lightness],
+              valueKind: 'hsl',
+            })
           }}
           value={hueValue}
           lightness={lightness * 100}
@@ -202,11 +206,13 @@ export const Sliders = ({ hue, saturation, lightness, updateHex }) => {
         datatype="number"
         aria-label="Saturation"
         onChange={e => {
-          updateHex(
-            chroma(hue, e.currentTarget.value / 100, lightness, 'hsl')
-              .hex()
-              .replace('#', ''),
-          )
+          const newSaturation = e.currentTarget.value / 100
+          const color = chroma(hue, newSaturation, lightness, 'hsl')
+          updateColor({
+            color: color,
+            value: [hue, newSaturation, lightness],
+            valueKind: 'hsl',
+          })
         }}
         min={0}
         max={100}
@@ -220,11 +226,13 @@ export const Sliders = ({ hue, saturation, lightness, updateHex }) => {
         datatype="number"
         aria-label="Lightness"
         onChange={e => {
-          updateHex(
-            chroma(hue, saturation, e.currentTarget.value / 100, 'hsl')
-              .hex()
-              .replace('#', ''),
-          )
+          const newLightness = e.currentTarget.value / 100
+          const color = chroma(hue, saturation, newLightness, 'hsl')
+          updateColor({
+            color: color,
+            value: [hue, saturation, newLightness],
+            valueKind: 'hsl',
+          })
         }}
         min={0}
         max={100}

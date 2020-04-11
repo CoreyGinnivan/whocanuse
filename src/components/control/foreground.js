@@ -12,9 +12,8 @@ import chroma from 'chroma-js'
 import { Sliders } from './sliders'
 
 export const Foreground = ({
-  color,
+  foreground,
   getForegroundTextColor,
-  colorText,
   setForeground,
   onClick,
   fontSize,
@@ -45,7 +44,7 @@ export const Foreground = ({
         setFontSize(newFont.toString())
       }
     },
-    [fontDragInfo, maxFontSize, minFontSize, setFontSize],
+    [(fontDragInfo, maxFontSize, minFontSize, setFontSize)],
   )
 
   const mouseUp = React.useCallback(() => {
@@ -60,8 +59,6 @@ export const Foreground = ({
       document.removeEventListener('mouseup', mouseUp)
     }
   })
-
-  const [hue, saturation, lightness] = chroma(`#${color}`).hsl()
 
   return (
     <ColourControlForeground>
@@ -78,7 +75,7 @@ export const Foreground = ({
         />
       </ColourHeader>
       <ForegroundWrapper
-        color={color}
+        color={foreground.color.hex()}
         onClick={e => {
           if (e.target === e.currentTarget) {
             onClick()
@@ -91,7 +88,11 @@ export const Foreground = ({
           name="foreground"
           autocomplete="off"
           textColour={getForegroundTextColor}
-          value={colorText}
+          value={
+            foreground.valueKind === 'hex'
+              ? foreground.value
+              : foreground.color.hex().replace('#', '')
+          }
           onKeyPress={e => {
             if (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) {
               e.preventDefault()
@@ -101,25 +102,28 @@ export const Foreground = ({
             const text = e.clipboardData.getData('Text')
             e.preventDefault()
             if (chroma.valid(text)) {
-              setForeground(
-                chroma(text)
-                  .alpha(1)
-                  .hex()
-                  .replace('#', ''),
-              )
+              setForeground({
+                color: chroma(text).alpha(1),
+                value: text,
+                valueKind: 'hex',
+              })
             }
           }}
           onChange={e => {
-            setForeground(e.target.value)
+            const foregroundWithHash = `#${e.target.value}`
+            setForeground({
+              color: chroma(
+                chroma.valid(foregroundWithHash)
+                  ? foregroundWithHash
+                  : foreground.color,
+              ),
+              value: e.target.value,
+              valueKind: 'hex',
+            })
           }}
         />
       </ForegroundWrapper>
-      <Sliders
-        hue={hue}
-        saturation={saturation}
-        lightness={lightness}
-        updateHex={setForeground}
-      />
+      <Sliders color={foreground} updateColor={setForeground} />
     </ColourControlForeground>
   )
 }

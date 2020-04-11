@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Logo from './logo'
+import { Logo } from './logo'
 import { Control } from './control/control'
 import { Background } from './background'
-import DemoArea from './demo-area'
+import { DemoArea } from './demo-area'
 import { Ad } from './ad'
 
 /*----------------------------------------------------------
@@ -35,8 +35,6 @@ const Wrapper = styled('div')({
 export const Hero = ({
   foreground,
   background,
-  foregroundText,
-  backgroundText,
   fontSize,
   maxFontSize,
   minFontSize,
@@ -51,9 +49,9 @@ export const Hero = ({
 }) => {
   return (
     <Wrapper>
-      <Logo color={foreground} />
+      <Logo color={foreground.color.hex()} />
       <DemoArea
-        color={foreground}
+        color={foreground.color.hex()}
         fontSize={fontSize}
         isBold={bold}
         isShadow={shadow}
@@ -66,16 +64,14 @@ export const Hero = ({
         maxFontSize={maxFontSize}
         minFontSize={minFontSize}
         background={background}
-        color={foreground}
-        backgroundText={backgroundText}
-        colorText={foregroundText}
+        foreground={foreground}
         bold={bold}
         setBold={setBold}
         shadow={shadow}
         setShadow={setShadow}
       />
       <Ad />
-      <Background background={background} />
+      <Background background={background.color.hex()} />
     </Wrapper>
   )
 }
