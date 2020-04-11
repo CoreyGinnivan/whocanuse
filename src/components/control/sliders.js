@@ -29,6 +29,13 @@ const SliderHueNumber = styled.input(
   }),
 )
 
+const Label = styled('label')({
+  position: 'relative',
+  '&:not(:focus-within):not(:hover) > input[type=number]': {
+    display: 'none',
+  },
+})
+
 const SliderHue = styled.input(
   {
     display: 'block',
@@ -214,7 +221,7 @@ export const Sliders = ({ color, updateColor }) => {
   const saturationValue = Math.round(saturation)
   return (
     <SlidersWrapper>
-      <label style={{ position: 'relative' }}>
+      <Label>
         <SliderHueNumber
           type="number"
           property="hueNumber"
@@ -246,8 +253,8 @@ export const Sliders = ({ color, updateColor }) => {
           min={0}
           max={360}
         />
-      </label>
-      <label style={{ position: 'relative' }}>
+      </Label>
+      <Label>
         <SliderSaturationNumber
           type="number"
           property="saturationNumber"
@@ -278,8 +285,8 @@ export const Sliders = ({ color, updateColor }) => {
           lightness={lightness * 100}
           value={saturation * 100}
         />
-      </label>
-      <label style={{ position: 'relative' }}>
+      </Label>
+      <Label>
         <SliderLightnessNumber
           type="number"
           property="lightnessNumber"
@@ -309,7 +316,7 @@ export const Sliders = ({ color, updateColor }) => {
           hue={hueValue}
           value={lightness * 100}
         />
-      </label>
+      </Label>
     </SlidersWrapper>
   )
 }
