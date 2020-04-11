@@ -12,7 +12,7 @@ export const SlidersWrapper = styled('div')({
 const SliderHueNumber = styled.input(
   {
     position: 'absolute',
-    marginTop: '-30px',
+    marginTop: '-34px',
     transform: 'translateX(-50%)',
     padding: '5px 10px',
     border: 0,
@@ -25,7 +25,7 @@ const SliderHueNumber = styled.input(
     transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
   },
   ({ percentage }) => ({
-    left: `${percentage}px`,
+    left: `calc(100% * ${percentage})`,
   }),
 )
 
@@ -87,7 +87,7 @@ const SliderHue = styled.input(
 const SliderSaturationNumber = styled.input(
   {
     position: 'absolute',
-    marginTop: '-30px',
+    marginTop: '-34px',
     transform: 'translateX(-50%)',
     padding: '5px 10px',
     border: 0,
@@ -100,7 +100,7 @@ const SliderSaturationNumber = styled.input(
     transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
   },
   ({ percentage }) => ({
-    left: `${percentage}px`,
+    left: `calc(100% * ${percentage})`,
   }),
 )
 
@@ -151,7 +151,7 @@ const SliderSaturation = styled.input(
 const SliderLightnessNumber = styled.input(
   {
     position: 'absolute',
-    marginTop: '-30px',
+    marginTop: '-34px',
     transform: 'translateX(-50%)',
     padding: '5px 10px',
     border: 0,
@@ -164,7 +164,7 @@ const SliderLightnessNumber = styled.input(
     transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
   },
   ({ percentage }) => ({
-    left: `${percentage}px`,
+    left: `calc(100% * ${percentage})`,
   }),
 )
 
@@ -231,7 +231,7 @@ export const Sliders = ({ color, updateColor }) => {
           min={0}
           max={360}
           step="1"
-          percentage={hueValue}
+          percentage={hueValue / 360}
         />
         <SliderHue
           type="range"
@@ -263,7 +263,7 @@ export const Sliders = ({ color, updateColor }) => {
           value={saturation * 100}
           min={0}
           max={100}
-          percentage={saturationValue * 100}
+          percentage={saturation}
         />
         <SliderSaturation
           type="range"
@@ -295,7 +295,7 @@ export const Sliders = ({ color, updateColor }) => {
           value={lightness * 100}
           min={0}
           max={100}
-          percentage={lightness * 100}
+          percentage={lightness}
         />
         <SliderLightness
           type="range"
