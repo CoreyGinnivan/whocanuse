@@ -30,7 +30,12 @@ export const Background = ({
           placement="top"
           animation="shift-away"
         >
-          <SwitchIcon>
+          <SwitchIcon
+            onClick={() => {
+              // setForeground(background)
+              // setBackground(color)
+            }}
+          >
             <img src={Switch} alt="Switch colors" />
           </SwitchIcon>
         </Tippy>

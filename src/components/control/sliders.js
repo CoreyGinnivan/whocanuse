@@ -232,6 +232,15 @@ export const Sliders = ({ color, updateColor }) => {
           max={360}
           step="1"
           percentage={hueValue / 360}
+          onChange={e => {
+            const newHue = e.currentTarget.value
+            const color = chroma(newHue, saturation, lightness, 'hsl')
+            updateColor({
+              color: color,
+              value: [newHue, saturation, lightness],
+              valueKind: 'hsl',
+            })
+          }}
         />
         <SliderHue
           type="range"
@@ -263,7 +272,17 @@ export const Sliders = ({ color, updateColor }) => {
           value={saturation * 100}
           min={0}
           max={100}
+          step="1"
           percentage={saturation}
+          onChange={e => {
+            const newSaturation = e.currentTarget.value / 100
+            const color = chroma(hue, newSaturation, lightness, 'hsl')
+            updateColor({
+              color: color,
+              value: [hue, newSaturation, lightness],
+              valueKind: 'hsl',
+            })
+          }}
         />
         <SliderSaturation
           type="range"
@@ -295,7 +314,17 @@ export const Sliders = ({ color, updateColor }) => {
           value={lightness * 100}
           min={0}
           max={100}
+          step="1"
           percentage={lightness}
+          onChange={e => {
+            const newLightness = e.currentTarget.value / 100
+            const color = chroma(hue, saturation, newLightness, 'hsl')
+            updateColor({
+              color: color,
+              value: [hue, saturation, newLightness],
+              valueKind: 'hsl',
+            })
+          }}
         />
         <SliderLightness
           type="range"
