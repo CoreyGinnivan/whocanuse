@@ -41,8 +41,6 @@ export const Hero = ({
   fontSizeText,
   bold,
   setBold,
-  shadow,
-  setShadow,
   setFontSize,
   setBackground,
   setForeground,
@@ -54,7 +52,6 @@ export const Hero = ({
         color={foreground.color.hex()}
         fontSize={fontSize}
         isBold={bold}
-        isShadow={shadow}
       />
       <Control
         setBackground={setBackground}
@@ -67,8 +64,6 @@ export const Hero = ({
         foreground={foreground}
         bold={bold}
         setBold={setBold}
-        shadow={shadow}
-        setShadow={setShadow}
       />
       <Ad />
       <Background background={background.color.hex()} />

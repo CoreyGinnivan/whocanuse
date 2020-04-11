@@ -79,7 +79,6 @@ const IndexPage = () => {
     value: '663399',
   })
   const [fontSize, setFontSize] = useState({ value: 20, text: '20' })
-  const [shadow, setShadow] = useState(false)
   const [bold, setBold] = useState(false)
 
   useEffect(() => {
@@ -106,7 +105,6 @@ const IndexPage = () => {
     const fontSize = (Number(qs.f) || '20').toString()
 
     const style = qs.s || ''
-    setShadow(style.indexOf('s') !== -1)
     setBold(style.indexOf('b') !== -1)
     setFontSize({ value: fontSize, text: fontSize })
   }, [])
@@ -118,7 +116,6 @@ const IndexPage = () => {
       color.color.hex().replace('#', ''),
       fontSize.value,
       bold,
-      shadow,
     )
   }
 
@@ -129,7 +126,6 @@ const IndexPage = () => {
       foreground.color.hex().replace('#', ''),
       fontSize.value,
       bold,
-      shadow,
     )
   }
 
@@ -157,8 +153,6 @@ const IndexPage = () => {
           fontSizeText={fontSize.text}
           minFontSize={10}
           maxFontSize={60}
-          shadow={shadow}
-          setShadow={setShadow}
           bold={bold}
           setBold={setBold}
         />
@@ -326,13 +320,13 @@ const IndexPage = () => {
 
 export default IndexPage
 
-function updatePath(background, forground, fontSize, bold, shadow) {
+function updatePath(background, forground, fontSize, bold) {
   if (typeof window === 'undefined') {
     return
   }
   window.history.replaceState(
     undefined,
     '',
-    linkPath(background, forground, fontSize, bold, shadow),
+    linkPath(background, forground, fontSize, bold),
   )
 }

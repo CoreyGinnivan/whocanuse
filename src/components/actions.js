@@ -55,7 +55,6 @@ export const Actions = ({
   background,
   fontSize,
   bold,
-  shadow,
   ...rest
 }) => {
   const copyRef = React.useRef()
@@ -78,7 +77,6 @@ export const Actions = ({
               foreground,
               fontSize,
               bold,
-              shadow,
             )}`}
             readOnly="readonly"
             ref={copyRef}
