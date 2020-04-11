@@ -165,7 +165,8 @@ const SliderLightness = styled.input(
 export const Sliders = ({ color, updateColor }) => {
   const [hue, saturation, lightness] =
     color.valueKind === 'hsl' ? color.value : color.color.hsl()
-  const hueValue = isNaN(hue) ? 0 : hue
+
+  const hueValue = Math.round(isNaN(hue) ? 0 : hue)
   return (
     <SlidersWrapper>
       <label style={{ position: 'relative' }}>
