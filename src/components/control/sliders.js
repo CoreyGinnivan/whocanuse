@@ -9,21 +9,25 @@ export const SlidersWrapper = styled('div')({
   flexDirection: 'column',
 })
 
-const SliderHueNumber = styled.input(props => ({
-  position: 'absolute',
-  marginTop: '-40px',
-  transform: 'translateX(-50%)',
-  padding: '5px 10px',
-  border: 0,
-  borderRadius: '.3em',
-  textAlign: 'center',
-  color: 'white',
-  background: 'rgba(0,0,0,.8)',
-  font: 'inherit',
-  fontSize: '14px',
-  transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
-  left: props.hueValue + 'px',
-}))
+const SliderHueNumber = styled.input(
+  {
+    position: 'absolute',
+    marginTop: '-40px',
+    transform: 'translateX(-50%)',
+    padding: '5px 10px',
+    border: 0,
+    borderRadius: '.3em',
+    textAlign: 'center',
+    color: 'white',
+    background: 'rgba(0,0,0,.8)',
+    font: 'inherit',
+    fontSize: '14px',
+    transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+  },
+  ({ percentage }) => ({
+    left: `${percentage}px`,
+  }),
+)
 
 const SliderHue = styled.input(
   {
@@ -73,6 +77,26 @@ const SliderHue = styled.input(
   }),
 )
 
+const SliderSaturationNumber = styled.input(
+  {
+    position: 'absolute',
+    marginTop: '-40px',
+    transform: 'translateX(-50%)',
+    padding: '5px 10px',
+    border: 0,
+    borderRadius: '.3em',
+    textAlign: 'center',
+    color: 'white',
+    background: 'rgba(0,0,0,.8)',
+    font: 'inherit',
+    fontSize: '14px',
+    transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+  },
+  ({ percentage }) => ({
+    left: `${percentage}px`,
+  }),
+)
+
 const SliderSaturation = styled.input(
   {
     display: 'block',
@@ -114,6 +138,26 @@ const SliderSaturation = styled.input(
       .fill(1)
       .map((_, i) => `hsl(${hue}, ${i * 10}%, ${lightness}%)`)
       .join(', ')})`,
+  }),
+)
+
+const SliderLightnessNumber = styled.input(
+  {
+    position: 'absolute',
+    marginTop: '-40px',
+    transform: 'translateX(-50%)',
+    padding: '5px 10px',
+    border: 0,
+    borderRadius: '.3em',
+    textAlign: 'center',
+    color: 'white',
+    background: 'rgba(0,0,0,.8)',
+    font: 'inherit',
+    fontSize: '14px',
+    transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+  },
+  ({ percentage }) => ({
+    left: `${percentage}px`,
   }),
 )
 
@@ -167,6 +211,7 @@ export const Sliders = ({ color, updateColor }) => {
     color.valueKind === 'hsl' ? color.value : color.color.hsl()
 
   const hueValue = Math.round(isNaN(hue) ? 0 : hue)
+  const saturationValue = Math.round(saturation)
   return (
     <SlidersWrapper>
       <label style={{ position: 'relative' }}>
@@ -179,6 +224,7 @@ export const Sliders = ({ color, updateColor }) => {
           min={0}
           max={360}
           step="1"
+          percentage={hueValue}
         />
         <SliderHue
           type="range"
@@ -201,45 +247,69 @@ export const Sliders = ({ color, updateColor }) => {
           max={360}
         />
       </label>
-      <SliderSaturation
-        type="range"
-        property="saturation"
-        datatype="number"
-        aria-label="Saturation"
-        onChange={e => {
-          const newSaturation = e.currentTarget.value / 100
-          const color = chroma(hue, newSaturation, lightness, 'hsl')
-          updateColor({
-            color: color,
-            value: [hue, newSaturation, lightness],
-            valueKind: 'hsl',
-          })
-        }}
-        min={0}
-        max={100}
-        hue={hueValue}
-        lightness={lightness * 100}
-        value={saturation * 100}
-      />
-      <SliderLightness
-        type="range"
-        property="lightness"
-        datatype="number"
-        aria-label="Lightness"
-        onChange={e => {
-          const newLightness = e.currentTarget.value / 100
-          const color = chroma(hue, saturation, newLightness, 'hsl')
-          updateColor({
-            color: color,
-            value: [hue, saturation, newLightness],
-            valueKind: 'hsl',
-          })
-        }}
-        min={0}
-        max={100}
-        hue={hueValue}
-        value={lightness * 100}
-      />
+      <label style={{ position: 'relative' }}>
+        <SliderSaturationNumber
+          type="number"
+          property="saturationNumber"
+          datatype="number"
+          aria-label="Saturation number"
+          value={saturation * 100}
+          min={0}
+          max={100}
+          percentage={saturationValue * 100}
+        />
+        <SliderSaturation
+          type="range"
+          property="saturation"
+          datatype="number"
+          aria-label="Saturation"
+          onChange={e => {
+            const newSaturation = e.currentTarget.value / 100
+            const color = chroma(hue, newSaturation, lightness, 'hsl')
+            updateColor({
+              color: color,
+              value: [hue, newSaturation, lightness],
+              valueKind: 'hsl',
+            })
+          }}
+          min={0}
+          max={100}
+          hue={hueValue}
+          lightness={lightness * 100}
+          value={saturation * 100}
+        />
+      </label>
+      <label style={{ position: 'relative' }}>
+        <SliderLightnessNumber
+          type="number"
+          property="lightnessNumber"
+          datatype="number"
+          aria-label="Lightness number"
+          value={lightness * 100}
+          min={0}
+          max={100}
+          percentage={lightness * 100}
+        />
+        <SliderLightness
+          type="range"
+          property="lightness"
+          datatype="number"
+          aria-label="Lightness"
+          onChange={e => {
+            const newLightness = e.currentTarget.value / 100
+            const color = chroma(hue, saturation, newLightness, 'hsl')
+            updateColor({
+              color: color,
+              value: [hue, saturation, newLightness],
+              valueKind: 'hsl',
+            })
+          }}
+          min={0}
+          max={100}
+          hue={hueValue}
+          value={lightness * 100}
+        />
+      </label>
     </SlidersWrapper>
   )
 }
