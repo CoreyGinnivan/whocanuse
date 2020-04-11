@@ -218,7 +218,8 @@ export const Sliders = ({ color, updateColor }) => {
     color.valueKind === 'hsl' ? color.value : color.color.hsl()
 
   const hueValue = Math.round(isNaN(hue) ? 0 : hue)
-  const saturationValue = Math.round(saturation)
+  const saturationValue = Math.round(saturation * 100)
+  const lightnessValue = Math.round(lightness * 100)
   return (
     <SlidersWrapper>
       <Label>
@@ -269,7 +270,7 @@ export const Sliders = ({ color, updateColor }) => {
           property="saturationNumber"
           datatype="number"
           aria-label="Saturation number"
-          value={saturation * 100}
+          value={saturationValue}
           min={0}
           max={100}
           step="1"
@@ -311,7 +312,7 @@ export const Sliders = ({ color, updateColor }) => {
           property="lightnessNumber"
           datatype="number"
           aria-label="Lightness number"
-          value={lightness * 100}
+          value={lightnessValue}
           min={0}
           max={100}
           step="1"
