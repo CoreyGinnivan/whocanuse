@@ -23,6 +23,9 @@ const SliderHueNumber = styled.input(
     font: 'inherit',
     fontSize: '14px',
     transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+    '&::-webkit-inner-spin-button': {
+      opacity: 1,
+    },
   },
   ({ percentage }) => ({
     left: `calc(100% * ${percentage})`,
@@ -98,6 +101,9 @@ const SliderSaturationNumber = styled.input(
     font: 'inherit',
     fontSize: '14px',
     transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+    '&::-webkit-inner-spin-button': {
+      opacity: 1,
+    },
   },
   ({ percentage }) => ({
     left: `calc(100% * ${percentage})`,
@@ -162,6 +168,9 @@ const SliderLightnessNumber = styled.input(
     font: 'inherit',
     fontSize: '14px',
     transition: '.3s left cubic-bezier(.17,.67,.49,1.48)',
+    '&::-webkit-inner-spin-button': {
+      opacity: 1,
+    },
   },
   ({ percentage }) => ({
     left: `calc(100% * ${percentage})`,
