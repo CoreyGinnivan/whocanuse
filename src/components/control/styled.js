@@ -142,7 +142,7 @@ export const TextSize = styled.input({
   borderRadius: '3px',
   padding: '6px 0',
   width: '36px',
-  height: '26px',
+  height: '24px',
   fontFamily: theme.fontFamily,
   fontSize: '14px',
   fontWeight: theme.weight.bold,

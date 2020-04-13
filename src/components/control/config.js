@@ -50,9 +50,7 @@ export const Config = ({
             checked={bold}
             onChange={() => setBold(!bold)}
           />
-          <Text bold dark htmlFor="bold">
-            Bold
-          </Text>
+          <SmallText htmlFor="bold">Bold</SmallText>
         </CheckboxWrapper>
       </FieldWrapper>
     </Fields>
