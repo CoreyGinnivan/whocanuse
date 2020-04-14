@@ -29,6 +29,7 @@
         "gatsby-transformer-sharp": "^2.2.12",
         "query-string": "^6.8.3",
         "react": "^16.9.0",
+        "react-compound-slider": "^2.5.0",
         "react-dom": "^16.9.0",
         "react-helmet": "^5.2.1",
         "react-twitter-embed": "^2.0.8",

@@ -1,49 +1,49 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { SmallText } from "./typography";
-import { theme } from "./theme";
-import { TwitterShareButton } from "react-twitter-embed";
-import { linkPath } from "../helpers/link";
+import React from 'react'
+import styled from '@emotion/styled'
+import { SmallText } from './typography'
+import { theme } from './theme'
+import { TwitterShareButton } from 'react-twitter-embed'
+import { linkPath } from '../helpers/link'
 
-import Tippy from "@tippy.js/react";
+import Tippy from '@tippy.js/react'
 
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
 
-const ActionsWrapper = styled("div")(props => ({
-  gridArea: "5 / 1 / 6 / 4",
-  display: "flex",
-  alignItems: "center",
+const ActionsWrapper = styled('div')(props => ({
+  gridArea: '5 / 1 / 6 / 4',
+  display: 'flex',
+  alignItems: 'center',
   input: {
-    borderRadius: "3px",
-    fontSize: "14px",
+    borderRadius: '3px',
+    fontSize: '14px',
     color: theme.color.grey,
     fontFamily: theme.fontFamily,
     border: `1px solid ${theme.color.lightgrey}`,
-    width: "100%",
-    padding: "8px 4px",
-    marginRight: "10px",
-    transition: "all 0.2s ease",
-    "&:hover": {
-      cursor: "pointer",
-      backgroundColor: "#f9f9f9",
-      transition: "all 0.2s ease"
-    }
+    width: '100%',
+    padding: '8px 4px',
+    marginRight: '10px',
+    transition: 'all 0.2s ease',
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: '#f9f9f9',
+      transition: 'all 0.2s ease',
+    },
   },
   form: {
     display: 'flex',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
   },
   iframe: {
-    marginLeft: "10px"
+    marginLeft: '10px',
   },
   div: {
-    display: "flex",
-    alignItems: "center"
-  }
-}));
+    display: 'flex',
+    alignItems: 'center',
+  },
+}))
 
 /*----------------------------------------------------------
    Actions and Sharing Bar
@@ -55,15 +55,13 @@ export const Actions = ({
   background,
   fontSize,
   bold,
-  shadow,
   ...rest
 }) => {
-  const copyRef = React.useRef();
+  const copyRef = React.useRef()
 
   return (
     <ActionsWrapper {...rest}>
       <form>
-        <SmallText style={{ marginRight: "10px" }}>Permalink</SmallText>
         <Tippy
           content="Click to copy"
           placement="bottom"
@@ -74,27 +72,26 @@ export const Actions = ({
             type="text"
             id="permalink"
             name="permalink"
-            value={`http://whocanuse.com/${linkPath(
+            value={`whocanuse.com/${linkPath(
               background,
               foreground,
               fontSize,
               bold,
-              shadow
             )}`}
             readOnly="readonly"
             ref={copyRef}
             onClick={() => {
-              copyRef.current.select();
-              document.execCommand("copy");
+              copyRef.current.select()
+              document.execCommand('copy')
             }}
           />
         </Tippy>
       </form>
       <TwitterShareButton
-        url={"https://whocanuse.com"}
+        url={'https://whocanuse.com'}
         options={{
           text: `An easy-to-use tool that delivers a breakdown of which vision types can see your color combination`,
-          via: "CoreyGinnivan"
+          via: 'CoreyGinnivan',
         }}
       />
       <iframe
@@ -105,7 +102,6 @@ export const Actions = ({
         width="60"
         height="20px"
       />
-
     </ActionsWrapper>
-  );
-};
+  )
+}

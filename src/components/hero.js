@@ -1,32 +1,32 @@
-import React from "react";
-import styled from "@emotion/styled";
-import Logo from "./logo";
-import { Control } from "./control/control";
-import { Background } from "./background";
-import DemoArea from "./demo-area";
-import { Actions } from "./actions";
+import React from 'react'
+import styled from '@emotion/styled'
+import { Logo } from './logo'
+import { Control } from './control/control'
+import { Background } from './background'
+import { DemoArea } from './demo-area'
+import { Ad } from './ad'
 
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
 
-const Wrapper = styled("div")({
-  display: "grid",
-  gridTemplateColumns: "40px 1fr 40px",
-  gridTemplateRows: "100px 1fr 200px 40px 60px",
-  height: "100vh",
-  position: "fixed",
-  width: "50vw",
-  padding: "40px",
-  "@media screen and (max-width: 1200px)": {
-    height: "auto",
-    gridTemplateColumns: "20px 1fr 20px",
-    gridTemplateRows: "100px 1fr 1fr 20px 60px",
-    position: "relative",
-    width: "auto",
-    padding: "20px"
-  }
-});
+const Wrapper = styled('div')({
+  display: 'grid',
+  gridTemplateColumns: '40px 1fr 40px',
+  gridTemplateRows: '100px 1fr 230px 40px 30px 90px',
+  height: '100vh',
+  position: 'fixed',
+  width: '40%',
+  padding: '40px',
+  '@media screen and (max-width: 1200px)': {
+    height: 'auto',
+    gridTemplateColumns: '20px 1fr 20px',
+    gridTemplateRows: '100px 1fr 1fr 40px 30px 90px',
+    position: 'relative',
+    width: 'auto',
+    padding: '20px',
+  },
+})
 
 /*----------------------------------------------------------
    Hero Section
@@ -35,28 +35,23 @@ const Wrapper = styled("div")({
 export const Hero = ({
   foreground,
   background,
-  foregroundText,
-  backgroundText,
   fontSize,
   maxFontSize,
   minFontSize,
   fontSizeText,
   bold,
   setBold,
-  shadow,
-  setShadow,
   setFontSize,
   setBackground,
-  setForeground
+  setForeground,
 }) => {
   return (
     <Wrapper>
-      <Logo color={foreground} />
+      <Logo color={foreground.color.hex()} />
       <DemoArea
-        color={foreground}
+        color={foreground.color.hex()}
         fontSize={fontSize}
         isBold={bold}
-        isShadow={shadow}
       />
       <Control
         setBackground={setBackground}
@@ -66,22 +61,12 @@ export const Hero = ({
         maxFontSize={maxFontSize}
         minFontSize={minFontSize}
         background={background}
-        color={foreground}
-        backgroundText={backgroundText}
-        colorText={foregroundText}
+        foreground={foreground}
         bold={bold}
         setBold={setBold}
-        shadow={shadow}
-        setShadow={setShadow}
       />
-      <Actions
-        background={background}
-        foreground={foreground}
-        fontSize={fontSizeText}
-        bold={bold}
-        shadow={shadow}
-      />
-      <Background background={background} />
+      <Ad />
+      <Background background={background.color.hex()} />
     </Wrapper>
-  );
-};
+  )
+}
