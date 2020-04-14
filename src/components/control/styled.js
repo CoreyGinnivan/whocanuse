@@ -149,6 +149,9 @@ export const TextSize = styled.input({
   color: theme.color.dark,
   marginRight: '6px',
   cursor: 'ew-resize',
+  '&::-webkit-inner-spin-button': {
+    opacity: 1,
+  },
 })
 
 export const CheckboxWrapper = styled('label')({
