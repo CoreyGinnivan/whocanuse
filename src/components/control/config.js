@@ -1,5 +1,5 @@
 import React from 'react'
-import { SmallText, Text } from '../typography'
+import { SmallText } from '../typography'
 import { Fields, FieldWrapper, TextSize, CheckboxWrapper } from './styled'
 
 export const Config = ({
