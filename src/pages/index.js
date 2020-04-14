@@ -63,6 +63,9 @@ const InfoBarWrapper = styled('div')({
    Main Layout
 ----------------------------------------------------------*/
 
+const minFontSize = 10
+const maxFontSize = 60
+
 const IndexPage = () => {
   // The resulting colour value is lossy, the user inputting FFF is a colour of FFFFFF
   // HSL is the same, [155, 0, 0] is #000000, we have lost the Hue
@@ -103,10 +106,12 @@ const IndexPage = () => {
     }
 
     const fontSize = (Number(qs.f) || '20').toString()
+    if (fontSize >= minFontSize && fontSize <= maxFontSize) {
+      setFontSize({ value: fontSize, text: fontSize })
+    }
 
     const style = qs.s || ''
     setBold(style.indexOf('b') !== -1)
-    setFontSize({ value: fontSize, text: fontSize })
   }, [])
 
   function setForegroundCallback(color) {
@@ -158,8 +163,8 @@ const IndexPage = () => {
           setFontSize={setFontSizeCallback}
           fontSize={fontSize.value.toString()}
           fontSizeText={fontSize.text}
-          minFontSize={10}
-          maxFontSize={60}
+          minFontSize={minFontSize}
+          maxFontSize={maxFontSize}
           bold={bold}
           setBold={value => {
             setBold(value)

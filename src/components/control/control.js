@@ -31,6 +31,8 @@ export const Control = ({
   bold,
   fontSize,
   setFontSize,
+  maxFontSize,
+  minFontSize,
 }) => {
   const getBackgroundTextColor = getTextColor(
     background.color.hex(),
@@ -67,6 +69,8 @@ export const Control = ({
         setBold={setBold}
         fontSize={fontSize}
         setFontSize={setFontSize}
+        maxFontSize={maxFontSize}
+        minFontSize={minFontSize}
         onClick={() =>
           isSelectingColour
             ? setIsSelectingColour(false)

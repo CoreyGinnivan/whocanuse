@@ -26,18 +26,6 @@ export const Config = ({
           onChange={e => {
             setFontSize(e.target.value)
           }}
-          onBlur={() => {
-            const fontNumber = Number(fontSize)
-            if (isNaN(fontNumber)) {
-              return
-            }
-            if (fontNumber > maxFontSize) {
-              return setFontSize(maxFontSize.toString())
-            }
-            if (fontNumber < minFontSize) {
-              return setFontSize(minFontSize.toString())
-            }
-          }}
         />
         <SmallText>px</SmallText>
       </FieldWrapper>
