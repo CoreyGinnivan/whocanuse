@@ -29,6 +29,8 @@ export const Control = ({
   setForeground,
   setBold,
   bold,
+  fontSize,
+  setFontSize,
 }) => {
   const getBackgroundTextColor = getTextColor(
     background.color.hex(),
@@ -61,6 +63,8 @@ export const Control = ({
         setForeground={setForeground}
         bold={bold}
         setBold={setBold}
+        fontSize={fontSize}
+        setFontSize={setFontSize}
         onClick={() =>
           isSelectingColour
             ? setIsSelectingColour(false)
