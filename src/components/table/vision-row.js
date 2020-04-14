@@ -108,6 +108,7 @@ export const VisionRow = ({
             foreground={simulatedForeground}
             background={simulatedBackground}
             bold={bold}
+            fontSize={fontSize}
           >
             Text
           </SimulationFilter>

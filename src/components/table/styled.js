@@ -115,6 +115,7 @@ export const SimulationFilter = styled('div')(props => ({
   color: props.foreground,
   userSelect: 'none',
   fontWeight: props.bold ? 'bold' : undefined,
+  fontSize: `${props.fontSize}px`,
 }))
 
 export const PassFailTextWrapper = styled('div')(({ pass }) => ({
