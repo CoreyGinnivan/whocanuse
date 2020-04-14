@@ -94,7 +94,6 @@ export const TableHeadCellWrapper = styled('tr')({
 
 export const Simulation = styled('div')({
   position: 'relative',
-  on: 'relative',
   width: '90px',
   height: '60px',
   userSelect: 'none',
