@@ -130,14 +130,21 @@ const IndexPage = () => {
   }
 
   function setFontSizeCallback(fontSizeText) {
+    const newFontSize = !isNaN(Number(fontSizeText))
+      ? fontSizeText > 60
+        ? 60
+        : fontSizeText
+      : fontSizeText
     setFontSize({
-      value: !isNaN(Number(fontSizeText))
-        ? fontSizeText > 60
-          ? 60
-          : fontSizeText
-        : fontSizeText,
+      value: newFontSize,
       text: fontSizeText,
     })
+    updatePath(
+      background.color.hex().replace('#', ''),
+      foreground.color.hex().replace('#', ''),
+      newFontSize,
+      bold,
+    )
   }
 
   return (
@@ -154,7 +161,15 @@ const IndexPage = () => {
           minFontSize={10}
           maxFontSize={60}
           bold={bold}
-          setBold={setBold}
+          setBold={value => {
+            setBold(value)
+            updatePath(
+              background.color.hex().replace('#', ''),
+              foreground.color.hex().replace('#', ''),
+              fontSize.value,
+              value,
+            )
+          }}
         />
         <ContentWrapper>
           <Heading align="left">Who can use this color combination?</Heading>
