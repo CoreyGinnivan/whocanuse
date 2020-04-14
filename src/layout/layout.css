@@ -135,7 +135,7 @@ select:active,
 textarea:active,
 a:active,
 iframe:active {
-  box-shadow: 0px 0px 0px 3px #0094ff;
+  box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.1);
   outline: 0;
 }
 optgroup {
