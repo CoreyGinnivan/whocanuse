@@ -12,6 +12,7 @@ import { SmallText } from '../typography'
 import chroma from 'chroma-js'
 import { Sliders } from './sliders'
 import Tippy from '@tippy.js/react'
+import { hasTextSelection } from './hasTextSelection'
 
 export const Background = ({
   background,
@@ -64,7 +65,9 @@ export const Background = ({
           onKeyPress={e => {
             if (
               (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) ||
-              (background.valueKind === 'hex' && background.value.length >= 6)
+              (background.valueKind === 'hex' &&
+                background.value.length >= 6 &&
+                !hasTextSelection(e.currentTarget))
             ) {
               e.preventDefault()
             }

@@ -10,6 +10,7 @@ import { Config } from './config'
 import { SmallText } from '../typography'
 import chroma from 'chroma-js'
 import { Sliders } from './sliders'
+import { hasTextSelection } from './hasTextSelection'
 
 export const Foreground = ({
   foreground,
@@ -96,7 +97,9 @@ export const Foreground = ({
           onKeyPress={e => {
             if (
               (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) ||
-              (foreground.valueKind === 'hex' && foreground.value.length >= 6)
+              (foreground.valueKind === 'hex' &&
+                foreground.value.length >= 6 &&
+                !hasTextSelection(e.currentTarget))
             ) {
               e.preventDefault()
             }
