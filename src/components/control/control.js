@@ -49,8 +49,10 @@ export const Control = ({
     <ControlWrapper>
       <Background
         background={background}
+        foreground={foreground}
         getBackgroundTextColor={getBackgroundTextColor}
         setBackground={setBackground}
+        setForeground={setForeground}
         onClick={() =>
           isSelectingColour
             ? setIsSelectingColour(false)

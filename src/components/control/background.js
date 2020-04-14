@@ -18,6 +18,8 @@ export const Background = ({
   getBackgroundTextColor,
   setBackground,
   onClick,
+  foreground,
+  setForeground,
 }) => {
   return (
     <ColourControlBackground>
@@ -32,8 +34,8 @@ export const Background = ({
         >
           <SwitchIcon
             onClick={() => {
-              // setForeground(background)
-              // setBackground(color)
+              setForeground(background)
+              setBackground(foreground)
             }}
           >
             <img src={Switch} alt="Switch colors" />
