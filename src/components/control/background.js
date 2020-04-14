@@ -62,7 +62,10 @@ export const Background = ({
               : background.color.hex().replace('#', '')
           }
           onKeyPress={e => {
-            if (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) {
+            if (
+              (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) ||
+              (background.valueKind === 'hex' && background.value.length >= 6)
+            ) {
               e.preventDefault()
             }
           }}

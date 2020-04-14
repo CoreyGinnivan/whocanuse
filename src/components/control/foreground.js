@@ -94,7 +94,10 @@ export const Foreground = ({
               : foreground.color.hex().replace('#', '')
           }
           onKeyPress={e => {
-            if (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) {
+            if (
+              (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) ||
+              (foreground.valueKind === 'hex' && foreground.value.length >= 6)
+            ) {
               e.preventDefault()
             }
           }}
