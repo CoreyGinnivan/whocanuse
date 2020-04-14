@@ -73,9 +73,10 @@ export const Background = ({
             const text = e.clipboardData.getData('Text')
             e.preventDefault()
             if (chroma.valid(text)) {
+              const pastedColor = chroma(text).alpha(1)
               setBackground({
-                color: chroma(text).alpha(1),
-                value: text,
+                color: pastedColor.alpha(1),
+                value: pastedColor.hex().replace('#', ''),
                 valueKind: 'hex',
               })
             }
