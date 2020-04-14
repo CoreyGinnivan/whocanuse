@@ -44,7 +44,7 @@ export const Foreground = ({
         setFontSize(newFont.toString())
       }
     },
-    [(fontDragInfo, maxFontSize, minFontSize, setFontSize)],
+    [fontDragInfo, maxFontSize, minFontSize, setFontSize],
   )
 
   const mouseUp = React.useCallback(() => {
