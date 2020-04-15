@@ -26,6 +26,9 @@ const Wrapper = styled('div')({
     width: 'auto',
     padding: '20px',
   },
+  '@media screen and (max-height: 760px)': {
+    gridTemplateRows: '80px 1fr 230px 10px 20px 90px',
+  },
 })
 
 /*----------------------------------------------------------

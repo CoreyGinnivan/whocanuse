@@ -313,7 +313,7 @@ const IndexPage = () => {
             <VisionRowAlt
               name="Direct Sunlight"
               simType="sunlight"
-              description="Simulating what direct sunlight on a phone/screen would be"
+              description="Simulating the effect of direct sunlight on a phone or screen"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               contrastModifier={-0.4}
@@ -323,7 +323,7 @@ const IndexPage = () => {
             <VisionRowAlt
               name="Night Shift Mode"
               simType="nightshift"
-              description="Simulating what would be seen on phones/screens with night mode on"
+              description="Simulating the effect of night mode on a phone or screen"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               contrastModifier={-0.1}
