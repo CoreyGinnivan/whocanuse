@@ -117,7 +117,7 @@ export const About = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          Chrome.js
+          Chroma.js
         </a>{' '}
         - this does the heavy lifting for us. Once we have the ratio (and using
         font size and font weight) we can apply a grade to that specific color
