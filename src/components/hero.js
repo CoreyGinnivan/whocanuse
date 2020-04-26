@@ -15,6 +15,7 @@ const Wrapper = styled('div')({
   gridTemplateColumns: '40px 1fr 40px',
   gridTemplateRows: '100px 1fr 230px 40px 30px 90px',
   height: '100vh',
+  minHeight: '-webkit-fill-available',
   position: 'fixed',
   width: '40%',
   padding: '40px',
