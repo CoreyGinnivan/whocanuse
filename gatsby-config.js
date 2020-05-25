@@ -1,7 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Who Can Use',
-    author: 'Corey Ginnivan'
+    title: 'WhoCanUse',
+    description:
+      'A tool that brings attention and understanding to how color contrast can affect people with different visual impairments.',
+    url: 'https://whocanuse.com', // No trailing slash allowed!
+    image: '/images/whocanuse_600.png', // Path to your image you placed in the 'static' folder
+    twitterUsername: '@CoreyGinnivan',
   },
   plugins: [
     {
@@ -26,18 +30,18 @@ module.exports = {
         name: 'gatsby-starter-default',
         short_name: 'starter',
         start_url: '/',
-        image: "src/images/whocanuse_600.png",
+        image: 'src/images/whocanuse_600.png',
         background_color: '#663399',
         theme_color: '#663399',
-        display: 'minimal-ui'
+        display: 'minimal-ui',
       },
     },
     {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
-        lang: 'en'
-      }
-    }
+        lang: 'en',
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
