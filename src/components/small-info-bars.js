@@ -1,44 +1,45 @@
-import React, { Component } from "react";
-import chroma from "chroma-js";
-import styled from "@emotion/styled";
-import { theme } from "../components/theme";
+import React, { Component } from 'react'
+import chroma from 'chroma-js'
+import styled from '@emotion/styled'
+import { theme } from '../components/theme'
 
-import PropTypes from "prop-types";
-import { SmallText, Heading } from "../components/typography";
-import Tippy from "@tippy.js/react";
-import { getWcagScore } from "./getWcagScore";
+import PropTypes from 'prop-types'
+import { SmallText, Heading } from '../components/typography'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
+import { getWcagScore } from './getWcagScore'
 
-const InfoBarWrapper = styled("div")({
-  display: "flex",
-  justifyContent: "space-between"
-});
+const InfoBarWrapper = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+})
 
-const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-start",
-  borderRadius: "6px",
-  width: "100%",
-  marginRight: "20px",
+const SmallInfoBarWrapper = styled('div')(({ pass }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  borderRadius: '6px',
+  width: '100%',
+  marginRight: '20px',
   outline: 0,
   h1: {
-    color: pass ? theme.color.green : theme.color.red
+    color: pass ? theme.color.green : theme.color.red,
   },
   svg: {
-    margin: "auto"
+    margin: 'auto',
   },
   Check: {
-    marginRight: "20px"
+    marginRight: '20px',
   },
-  "&:last-of-type": {
-    marginRight: 0
+  '&:last-of-type': {
+    marginRight: 0,
   },
-  "@media screen and (max-width: 780px)": {
-    "& + &": {
-      marginLeft: "0"
-    }
-  }
-}));
+  '@media screen and (max-width: 780px)': {
+    '& + &': {
+      marginLeft: '0',
+    },
+  },
+}))
 
 // const contrast = chroma.contrast(foreground, background);
 
@@ -55,52 +56,50 @@ const SmallInfoBarWrapper = styled("div")(({ pass }) => ({
 class SmallInfoBar extends Component {
   static propTypes = {
     name: PropTypes.string,
-    tooltip: PropTypes.string
-  };
+    tooltip: PropTypes.string,
+  }
   render() {
-    const { name, tooltip, grade } = this.props;
-    const pass = grade !== "FAIL";
+    const { name, tooltip, grade } = this.props
+    const pass = grade !== 'FAIL'
 
     return (
       <Tippy
         content={tooltip}
         duration="0"
-        arrow="true"
+        arrow={true}
         placement="top"
         animation="shift-away"
-        followCursor="true"
       >
         <SmallInfoBarWrapper pass={pass}>
-          <SmallText style={{ marginBottom: "5px" }}>{name}</SmallText>
+          <SmallText style={{ marginBottom: '5px' }}>{name}</SmallText>
           <Heading>{grade}</Heading>
         </SmallInfoBarWrapper>
       </Tippy>
-    );
+    )
   }
 }
 
 class RatioStat extends Component {
   static propTypes = {
     name: PropTypes.string,
-    tooltip: PropTypes.string
-  };
+    tooltip: PropTypes.string,
+  }
   render() {
-    const { name, tooltip, pass } = this.props;
+    const { name, tooltip, pass } = this.props
     return (
       <Tippy
         content={tooltip}
         duration="0"
-        arrow="true"
+        arrow={true}
         placement="top"
         animation="shift-away"
-        followCursor="true"
       >
         <SmallInfoBarWrapper pass={pass}>
-          <SmallText style={{ marginBottom: "5px" }}>Contrast Ratio</SmallText>
+          <SmallText style={{ marginBottom: '5px' }}>Contrast Ratio</SmallText>
           <Heading>{name}</Heading>
         </SmallInfoBarWrapper>
       </Tippy>
-    );
+    )
   }
 }
 
@@ -109,13 +108,13 @@ class RatioStat extends Component {
 ----------------------------------------------------------*/
 
 export const formatContrast = contrast => {
-  return `${Math.round(contrast * 100) / 100}:1`;
-};
+  return `${Math.round(contrast * 100) / 100}:1`
+}
 
 export const SmallInfoBars = ({ foreground, background, bold, fontSize }) => {
-  const contrast = chroma.contrast(foreground, background);
-  const fontSizeNum = Number(fontSize);
-  let { wcagGrade, tooltip } = getWcagScore(fontSizeNum, bold, contrast);
+  const contrast = chroma.contrast(foreground, background)
+  const fontSizeNum = Number(fontSize)
+  let { wcagGrade, tooltip } = getWcagScore(fontSizeNum, bold, contrast)
 
   return (
     <InfoBarWrapper>
@@ -126,5 +125,5 @@ export const SmallInfoBars = ({ foreground, background, bold, fontSize }) => {
       />
       <SmallInfoBar grade={wcagGrade} tooltip={tooltip} name="WCAG Grading" />
     </InfoBarWrapper>
-  );
-};
+  )
+}

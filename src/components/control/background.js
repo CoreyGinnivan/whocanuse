@@ -10,10 +10,11 @@ import {
 import { SmallText } from '../typography'
 import chroma from 'chroma-js'
 import { Sliders } from './sliders'
-import Tippy from '@tippy.js/react'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
 import { hasTextSelection } from './hasTextSelection'
-
 import Image from 'next/image'
+import switchIcon from '../../images/switch.svg'
 
 export const Background = ({
   background,
@@ -26,11 +27,12 @@ export const Background = ({
   return (
     <ColourControlBackground>
       <ColourHeader>
+        {' '}
         <SmallText>Background</SmallText>
         <Tippy
           content="Switch background and text colors"
           duration="0"
-          arrow="true"
+          arrow={true}
           placement="top"
           animation="shift-away"
         >
@@ -40,7 +42,12 @@ export const Background = ({
               setBackground(foreground)
             }}
           >
-            {/* <Image src={avatar} alt="Switch colors" /> */}
+            <Image
+              src={switchIcon}
+              width="14px"
+              height="10px"
+              alt="Switch colors"
+            />
           </SwitchIcon>
         </Tippy>
       </ColourHeader>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Text, Heading } from '../typography'
+import { Text, LargeText } from '../typography'
 import chroma from 'chroma-js'
 import blinder from 'color-blind'
 import {
@@ -12,7 +12,8 @@ import {
 } from './styled'
 import { renderPassFail } from './renderPassFail'
 import { getWcagScore } from '../getWcagScore'
-import Tippy from '@tippy.js/react'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
 import { formatContrast } from '../small-info-bars'
 
 export const VisionRow = ({
@@ -72,7 +73,7 @@ export const VisionRow = ({
     <VisionRowWrapper pass={pass}>
       <VisionCellWrapper data-th="~Population">
         <PercentWrapper pass={pass}>
-          <Heading margin="0">{percent}</Heading>
+          <LargeText margin="0">{percent}</LargeText>
           <span style={{ marginBottom: '6px' }}>%</span>
         </PercentWrapper>
       </VisionCellWrapper>
@@ -91,7 +92,7 @@ export const VisionRow = ({
             <Tippy
               content={`Contrast: ${formatContrast(contrast)}`}
               duration="0"
-              arrow="true"
+              arrow={true}
               placement="top"
               animation="shift-away"
             >

@@ -1,27 +1,28 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { SmallText } from "../typography";
-import Tippy from "@tippy.js/react";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { SmallText } from '../typography'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
 import {
   VisionTableWrapper,
   TableHeaderWrapper,
-  TableHeadCellWrapper
-} from "./styled";
+  TableHeadCellWrapper,
+} from './styled'
 
 export class VisionTable extends Component {
   static propTypes = {
-    children: PropTypes.node
-  };
+    children: PropTypes.node,
+  }
   render() {
-    let { children } = this.props;
+    let { children } = this.props
     return (
       <VisionTableWrapper>
         <TableHeaderWrapper>
-          <TableHeadCellWrapper style={{ paddingLeft: "6px" }}>
+          <TableHeadCellWrapper style={{ paddingLeft: '6px' }}>
             <Tippy
               content="Estimated affected population"
               duration="0"
-              arrow="true"
+              arrow={true}
               placement="top"
               animation="shift-away"
             >
@@ -31,7 +32,7 @@ export class VisionTable extends Component {
             </Tippy>
           </TableHeadCellWrapper>
           <TableHeadCellWrapper
-            style={{ marginRight: "auto", paddingLeft: "15px" }}
+            style={{ marginRight: 'auto', paddingLeft: '15px' }}
           >
             <td>
               <SmallText>Vision Type</SmallText>
@@ -39,9 +40,9 @@ export class VisionTable extends Component {
           </TableHeadCellWrapper>
           <TableHeadCellWrapper
             style={{
-              width: "126px",
-              display: "flex",
-              justifyContent: "center"
+              width: '126px',
+              display: 'flex',
+              justifyContent: 'center',
             }}
           >
             <td>
@@ -51,6 +52,6 @@ export class VisionTable extends Component {
         </TableHeaderWrapper>
         <tbody>{children}</tbody>
       </VisionTableWrapper>
-    );
+    )
   }
 }
