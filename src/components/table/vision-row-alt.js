@@ -1,17 +1,18 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import { Text } from "../typography";
-import chroma from "chroma-js";
-import { renderPassFail } from "./renderPassFail";
-import { getWcagScore } from "../getWcagScore";
-import Tippy from "@tippy.js/react";
-import { formatContrast } from "../small-info-bars";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Text } from '../typography'
+import chroma from 'chroma-js'
+import { renderPassFail } from './renderPassFail'
+import { getWcagScore } from '../getWcagScore'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
+import { formatContrast } from '../small-info-bars'
 import {
   VisionRowWrapper,
   VisionCellWrapper,
   Simulation,
-  SimulationFilter
-} from "./styled";
+  SimulationFilter,
+} from './styled'
 
 export class VisionRowAlt extends Component {
   static propTypes = {
@@ -21,8 +22,8 @@ export class VisionRowAlt extends Component {
     tooltip: PropTypes.string,
     foreground: PropTypes.string,
     background: PropTypes.string,
-    class: PropTypes.string
-  };
+    class: PropTypes.string,
+  }
 
   render() {
     const {
@@ -34,29 +35,29 @@ export class VisionRowAlt extends Component {
       simType,
       contrastModifier = 0,
       bold,
-      fontSize
-    } = this.props;
-    let simulatedForeground = foreground;
-    let simulatedBackground = background;
-    const contrast = chroma.contrast(simulatedForeground, simulatedBackground);
+      fontSize,
+    } = this.props
+    let simulatedForeground = foreground
+    let simulatedBackground = background
+    const contrast = chroma.contrast(simulatedForeground, simulatedBackground)
 
-    const fontSizeNum = Number(fontSize);
-    const modifiedContrast = contrast + contrast * contrastModifier;
+    const fontSizeNum = Number(fontSize)
+    const modifiedContrast = contrast + contrast * contrastModifier
 
-    let { wcagGrade } = getWcagScore(fontSizeNum, bold, modifiedContrast);
-    const pass = wcagGrade !== "FAIL";
+    let { wcagGrade } = getWcagScore(fontSizeNum, bold, modifiedContrast)
+    const pass = wcagGrade !== 'FAIL'
     return (
       <VisionRowWrapper pass={pass}>
         <VisionCellWrapper
-          style={{ marginRight: "auto" }}
+          style={{ marginRight: 'auto' }}
           data-th="Situational Vision Event"
         >
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div
               style={{
-                display: "flex",
-                flexDrection: "row",
-                alignItems: "center"
+                display: 'flex',
+                flexDrection: 'row',
+                alignItems: 'center',
               }}
             >
               <Text bold dark>
@@ -65,18 +66,18 @@ export class VisionRowAlt extends Component {
               <Tippy
                 content={`Contrast: ${formatContrast(contrast)}`}
                 duration="0"
-                arrow="true"
+                arrow={true}
                 placement="top"
                 animation="shift-away"
               >
                 {renderPassFail(wcagGrade)}
               </Tippy>
             </div>
-            <Text style={{ fontSize: "14px" }}>{description}</Text>
+            <Text style={{ fontSize: '14px' }}>{description}</Text>
           </div>
         </VisionCellWrapper>
         <VisionCellWrapper
-          style={{ justifyContent: "flex-end", marginLeft: "20px" }}
+          style={{ justifyContent: 'flex-end', marginLeft: '20px' }}
           data-th="Simulation"
         >
           <Simulation>
@@ -91,6 +92,6 @@ export class VisionRowAlt extends Component {
           </Simulation>
         </VisionCellWrapper>
       </VisionRowWrapper>
-    );
+    )
   }
 }

@@ -5,7 +5,8 @@ import { theme } from './theme'
 import { TwitterShareButton } from 'react-twitter-embed'
 import { linkPath } from '../helpers/link'
 
-import Tippy from '@tippy.js/react'
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css'
 
 /*----------------------------------------------------------
    Styles
@@ -66,7 +67,7 @@ export const Actions = ({
           content="Click to copy"
           placement="bottom"
           animation="shift-away"
-          arrow="true"
+          arrow={true}
         >
           <input
             type="text"

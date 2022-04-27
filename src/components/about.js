@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Text, MediumText, Heading } from './typography'
 import { theme } from '../components/theme'
 import styled from '@emotion/styled'
-import Avatar from '../images/avatar.png'
+import Image from 'next/image'
+import avatar from '../images/avatar.png'
 
 /*----------------------------------------------------------
    Styles
@@ -157,34 +158,40 @@ export const About = () => (
     <Author>
       <ButtonWrapper>
         <a
-          className="github-button"
-          href="https://github.com/coreyginnivan/whocanuse/fork"
-          data-icon="octicon-repo-forked"
-          aria-label="Fork coreyginnivan/whocanuse on GitHub"
+          href="https://github.com/coreyginnivan/whocanuse/"
+          aria-label="coreyginnivan/whocanuse on GitHub"
         >
-          Fork
+          GitHub
         </a>
         <a
-          className="github-button"
           style={{ marginLeft: '10px' }}
           href="https://github.com/sponsors/coreyginnivan"
-          data-icon="octicon-heart"
           aria-label="Sponsor @coreyginnivan on GitHub"
         >
           Sponsor
         </a>
       </ButtonWrapper>
-      <Text>
-        Created &amp; maintained by
+      <div style={{ display: 'flex' }}>
+        <Text>Created &amp; maintained by</Text>
         <a
           href="https://twitter.com/coreyginnivan"
           target="_blank"
           rel="noopener noreferrer"
+          style={{ marginLeft: '10px' }}
         >
-          <img alt="Corey" src={Avatar} width="30" height="30" />
-          @CoreyGinnivan
+          <Image
+            alt="Corey"
+            src={avatar}
+            width="30"
+            height="30"
+            style={{
+              borderRadius: '30px',
+              overflow: 'hidden',
+            }}
+          />
+          <Text style={{ marginLeft: '4px' }}>@CoreyGinnivan</Text>
         </a>
-      </Text>
+      </div>
     </Author>
   </div>
 )
