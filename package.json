@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mapbox/react-colorpickr": "^9.0.3",
@@ -29,9 +28,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^12.1.5",
     "css-loader": "^6.7.1",
-    "eslint": "^8.14.0",
-    "eslint-plugin-react": "^7.20.0",
     "prettier": "^2.6.2"
   }
 }
