@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Text, MediumText, Heading } from './typography'
 import { theme } from '../components/theme'
 import styled from '@emotion/styled'
-import Avatar from '../images/avatar.png'
+import Image from 'next/image'
+import avatar from '../images/avatar.png'
 
 /*----------------------------------------------------------
    Styles
@@ -181,7 +182,7 @@ export const About = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img alt="Corey" src={Avatar} width="30" height="30" />
+          <Image alt="Corey" src={avatar} width="30" height="30" />
           @CoreyGinnivan
         </a>
       </Text>

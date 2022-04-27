@@ -1,9 +1,10 @@
 # Project dependencies
-.cache
 node_modules
+/node_modules
 yarn-error.log
+.next
+.vscode
 
 # Build directory
-/public
 .DS_Store
 /.cache/redux-state.json

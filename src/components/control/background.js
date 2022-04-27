@@ -7,12 +7,13 @@ import {
   SwitchIcon,
   ColourHeader,
 } from './styled'
-import Switch from '../../images/switch.svg'
 import { SmallText } from '../typography'
 import chroma from 'chroma-js'
 import { Sliders } from './sliders'
 import Tippy from '@tippy.js/react'
 import { hasTextSelection } from './hasTextSelection'
+
+import Image from 'next/image'
 
 export const Background = ({
   background,
@@ -39,7 +40,7 @@ export const Background = ({
               setBackground(foreground)
             }}
           >
-            <img src={Switch} alt="Switch colors" />
+            {/* <Image src={avatar} alt="Switch colors" /> */}
           </SwitchIcon>
         </Tippy>
       </ColourHeader>
