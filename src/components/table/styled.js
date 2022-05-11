@@ -78,20 +78,6 @@ export const PercentWrapper = styled('div')(({ pass }) => ({
   },
 }))
 
-export const TableHeaderWrapper = styled('thead')({
-  display: 'flex',
-  marginBottom: '20px',
-  '@media screen and (max-width: 560px)': {
-    display: 'none',
-  },
-})
-
-export const TableHeadCellWrapper = styled('tr')({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-})
-
 export const Simulation = styled('div')({
   position: 'relative',
   width: '90px',
@@ -102,7 +88,7 @@ export const Simulation = styled('div')({
   boxShadow: '0 0 0px 1px rgba(0,0,0,0.1)',
 })
 
-export const SimulationFilter = styled('div')(props => ({
+export const SimulationFilter = styled('div')((props) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -119,16 +105,8 @@ export const SimulationFilter = styled('div')(props => ({
 }))
 
 export const PassFailTextWrapper = styled('div')(({ pass }) => ({
-  display: 'flex',
-  backgroundColor: pass ? theme.color.lightgreen : theme.color.lightred,
   color: pass ? theme.color.green : theme.color.red,
-  border: pass ? 0 : `1px solid ${theme.color.red}`,
   textTransform: 'uppercase',
-  borderRadius: '4px',
   fontSize: '11px',
-  lineHeight: '14px',
   fontWeight: 600,
-  padding: '1px 4px',
-  marginLeft: '8px',
-  cursor: 'default',
 }))

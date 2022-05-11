@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Text, LargeText } from '../typography'
+import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { Text } from '../typography'
 import chroma from 'chroma-js'
 import blinder from 'color-blind'
 import {
@@ -69,13 +68,30 @@ export const VisionRow = ({
   let { wcagGrade } = getWcagScore(fontSizeNum, bold, modifiedContrast)
   const pass = wcagGrade !== 'FAIL'
 
+  let wcagPercent
+  let wcagColor
+
+  if (wcagGrade === 'AA') {
+    wcagPercent = '50'
+    wcagColor = 'green.500'
+  }
+  if (wcagGrade === 'AAA') {
+    wcagPercent = '100'
+    wcagColor = 'green.500'
+  }
+  if (wcagGrade === 'FAIL') {
+    wcagPercent = '0'
+    wcagColor = 'red.500'
+  }
+
   return (
     <VisionRowWrapper pass={pass}>
-      <VisionCellWrapper data-th="~Population">
-        <PercentWrapper pass={pass}>
-          <LargeText margin="0">{percent}</LargeText>
-          <span style={{ marginBottom: '6px' }}>%</span>
-        </PercentWrapper>
+      <VisionCellWrapper style={{ marginRight: '15px' }}>
+        <CircularProgress value={wcagPercent} color={wcagColor}>
+          <CircularProgressLabel>
+            {renderPassFail(wcagGrade)}
+          </CircularProgressLabel>
+        </CircularProgress>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
         <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -95,14 +111,12 @@ export const VisionRow = ({
               arrow={true}
               placement="top"
               animation="shift-away"
-            >
-              {renderPassFail(wcagGrade)}
-            </Tippy>
+            ></Tippy>
           </div>
           <Text style={{ fontSize: '14px' }}>{description}</Text>
         </div>
       </VisionCellWrapper>
-      <VisionCellWrapper style={{ marginLeft: '15px' }} data-th="Simulation">
+      <VisionCellWrapper style={{ marginLeft: '15px' }}>
         <Simulation>
           <SimulationFilter
             className={simType}
