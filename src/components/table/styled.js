@@ -1,4 +1,3 @@
-import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import { theme } from '../theme'
 
@@ -81,7 +80,7 @@ export const PercentWrapper = styled('div')(({ pass }) => ({
 export const Simulation = styled('div')({
   position: 'relative',
   width: '90px',
-  height: '60px',
+  height: '50px',
   userSelect: 'none',
   borderRadius: '6px',
   overflow: 'hidden',
@@ -93,10 +92,9 @@ export const SimulationFilter = styled('div')((props) => ({
   justifyContent: 'center',
   alignItems: 'center',
   position: 'absolute',
-  top: '-10px',
   left: '-10px',
   width: '110px',
-  height: '80px',
+  height: '50px',
   background: props.background,
   color: props.foreground,
   userSelect: 'none',

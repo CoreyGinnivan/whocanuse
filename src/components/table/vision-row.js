@@ -1,11 +1,10 @@
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
-import { Text } from '../typography'
+import { Text, Flex } from '@chakra-ui/react'
 import chroma from 'chroma-js'
 import blinder from 'color-blind'
 import {
   VisionRowWrapper,
   VisionCellWrapper,
-  PercentWrapper,
   Simulation,
   SimulationFilter,
 } from './styled'
@@ -102,7 +101,7 @@ export const VisionRow = ({
               alignItems: 'center',
             }}
           >
-            <Text bold dark>
+            <Text fontSize="md" fontWeight={700}>
               {name}
             </Text>
             <Tippy
@@ -113,7 +112,7 @@ export const VisionRow = ({
               animation="shift-away"
             ></Tippy>
           </div>
-          <Text style={{ fontSize: '14px' }}>{description}</Text>
+          <Text fontSize="sm">{description}</Text>
         </div>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginLeft: '15px' }}>
@@ -122,12 +121,18 @@ export const VisionRow = ({
             className={simType}
             foreground={simulatedForeground}
             background={simulatedBackground}
-            bold={bold}
-            fontSize={fontSize}
+            bold
+            fontSize={13}
           >
-            Text
+            What I see
           </SimulationFilter>
         </Simulation>
+        <Flex fontSize="xs" mt={2} ml="auto">
+          <Text fontWeight={700} mr={1}>
+            {percent}%
+          </Text>
+          <Text>affected</Text>
+        </Flex>
       </VisionCellWrapper>
     </VisionRowWrapper>
   )
