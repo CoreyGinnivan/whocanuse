@@ -19,7 +19,8 @@ export const VisionRowWrapper = styled('tr')(({ pass }) => ({
   display: 'flex',
   flexDirection: 'row',
   background: '#FFFFFF',
-  borderBottom: '1px solid #f1f1f1',
+  borderBottom: '2px solid #f1f1f1',
+  boxShadow: '0 -1px 0 0 rgb(255, 255, 255)',
   backgroundColor: pass ? theme.color.white : theme.color.lightred,
   padding: '14px',
   alignItems: 'center',
@@ -43,18 +44,6 @@ export const VisionCellWrapper = styled('td')(({ pass }) => ({
     paddingBottom: '10px',
     marginLeft: '0 !important',
     flexDirection: 'row',
-    '&:before': {
-      content: 'attr(data-th)',
-      display: 'inline-block',
-      fontWeight: theme.weight.bold,
-      fontSize: '12px',
-      padding: '10px 0',
-      textTransform: 'uppercase',
-      color: theme.color.grey,
-      textAlign: 'left',
-      minWidth: '140px',
-      alignItems: 'center',
-    },
   },
 }))
 

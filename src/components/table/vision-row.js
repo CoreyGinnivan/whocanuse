@@ -1,4 +1,4 @@
-import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import { Box, CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
 import { Text, Flex } from '@chakra-ui/react'
 import chroma from 'chroma-js'
 import blinder from 'color-blind'
@@ -86,11 +86,28 @@ export const VisionRow = ({
   return (
     <VisionRowWrapper pass={pass}>
       <VisionCellWrapper style={{ marginRight: '15px' }}>
-        <CircularProgress value={wcagPercent} color={wcagColor}>
-          <CircularProgressLabel>
-            {renderPassFail(wcagGrade)}
-          </CircularProgressLabel>
-        </CircularProgress>
+        <Flex
+          justifyItems="center"
+          alignItems="center"
+          w="48px"
+          h="48px"
+          position="relative"
+        >
+          <CircularProgress zIndex={1} value={wcagPercent} color={wcagColor}>
+            <CircularProgressLabel>
+              {renderPassFail(wcagGrade)}
+            </CircularProgressLabel>
+          </CircularProgress>
+          <Box
+            bgColor="white"
+            position="absolute"
+            top="2px"
+            left="2px"
+            right="2px"
+            bottom="2px"
+            borderRadius="full"
+          />
+        </Flex>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
         <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -116,22 +133,24 @@ export const VisionRow = ({
         </div>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginLeft: '15px' }}>
-        <Simulation>
-          <SimulationFilter
-            className={simType}
-            foreground={simulatedForeground}
-            background={simulatedBackground}
-            bold
-            fontSize={13}
-          >
-            What I see
-          </SimulationFilter>
-        </Simulation>
-        <Flex fontSize="xs" mt={2} ml="auto">
-          <Text fontWeight={700} mr={1}>
-            {percent}%
-          </Text>
-          <Text>affected</Text>
+        <Flex flexDirection="column" alignItems="end">
+          <Simulation>
+            <SimulationFilter
+              className={simType}
+              foreground={simulatedForeground}
+              background={simulatedBackground}
+              bold
+              fontSize={13}
+            >
+              What I see
+            </SimulationFilter>
+          </Simulation>
+          <Flex fontSize="xs" mt={2} ml="auto">
+            <Text fontWeight={700} mr={1}>
+              {percent}%
+            </Text>
+            <Text>affected</Text>
+          </Flex>
         </Flex>
       </VisionCellWrapper>
     </VisionRowWrapper>
