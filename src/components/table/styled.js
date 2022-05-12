@@ -69,10 +69,11 @@ export const PercentWrapper = styled('div')(({ pass }) => ({
 export const Simulation = styled('div')({
   position: 'relative',
   width: '90px',
-  height: '50px',
+  height: '40px',
   userSelect: 'none',
   borderRadius: '6px',
   overflow: 'hidden',
+  border: '1px solid #ffffff',
   boxShadow: '0 0 0px 1px rgba(0,0,0,0.1)',
 })
 
@@ -82,8 +83,9 @@ export const SimulationFilter = styled('div')((props) => ({
   alignItems: 'center',
   position: 'absolute',
   left: '-10px',
+  top: '-1px',
   width: '110px',
-  height: '50px',
+  height: '40px',
   background: props.background,
   color: props.foreground,
   userSelect: 'none',
