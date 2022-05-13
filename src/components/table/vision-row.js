@@ -1,4 +1,9 @@
-import { Box, CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
+import {
+  Box,
+  CircularProgress,
+  CircularProgressLabel,
+  Tooltip,
+} from '@chakra-ui/react'
 import { Text, Flex } from '@chakra-ui/react'
 import chroma from 'chroma-js'
 import blinder from 'color-blind'
@@ -13,6 +18,7 @@ import { getWcagScore } from '../getWcagScore'
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 import { formatContrast } from '../small-info-bars'
+import { RGBDots } from './rbg-dots'
 
 export const VisionRow = ({
   name,
@@ -105,9 +111,17 @@ export const VisionRow = ({
             color={wcagColor}
             trackColor={trackColor}
           >
-            <CircularProgressLabel>
-              {renderPassFail(wcagGrade)}
-            </CircularProgressLabel>
+            <Tippy
+              content={`Contrast: ${formatContrast(contrast)}`}
+              duration="0"
+              arrow={true}
+              placement="top"
+              animation="shift-away"
+            >
+              <CircularProgressLabel>
+                {renderPassFail(wcagGrade)}
+              </CircularProgressLabel>
+            </Tippy>
           </CircularProgress>
           <Box
             bgColor={bgColor}
@@ -121,29 +135,17 @@ export const VisionRow = ({
         </Flex>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginRight: 'auto' }} data-th="Vision Type">
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div
-            style={{
-              display: 'flex',
-              flexDrection: 'row',
-              alignItems: 'center',
-            }}
-          >
+        <Flex flexDirection="column">
+          <Flex flexDirection="row" alignItems="center">
             <Text fontSize="md" fontWeight={700}>
               {name}
             </Text>
-            <Tippy
-              content={`Contrast: ${formatContrast(contrast)}`}
-              duration="0"
-              arrow={true}
-              placement="top"
-              animation="shift-away"
-            ></Tippy>
-          </div>
+            <RGBDots simType={simType} />
+          </Flex>
           <Text fontSize="13px" fontWeight="medium" color="gray.500">
             {description}
           </Text>
-        </div>
+        </Flex>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginLeft: '15px' }}>
         <Flex flexDirection="column" alignItems="end">
@@ -158,12 +160,14 @@ export const VisionRow = ({
               What I see
             </SimulationFilter>
           </Simulation>
-          <Flex fontSize="xs" mt={2} ml="auto">
-            <Text fontWeight={700} mr={1}>
-              {percent}%
-            </Text>
-            <Text>affected</Text>
-          </Flex>
+          <Tooltip label="Rough estimation of worldwide population with this vision impairment. Can vary between genders.">
+            <Flex fontSize="xs" mt={2} ml="auto">
+              <Text fontWeight={700} mr={1}>
+                {percent}%
+              </Text>
+              <Text>affected</Text>
+            </Flex>
+          </Tooltip>
         </Flex>
       </VisionCellWrapper>
     </VisionRowWrapper>

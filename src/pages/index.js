@@ -13,6 +13,8 @@ import { About } from '../components/about'
 import { SmallInfoBars } from '../components/small-info-bars'
 import { linkPath } from '../helpers/link'
 
+import { Text } from '@chakra-ui/react'
+
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
@@ -166,7 +168,7 @@ const IndexPage = () => {
           minFontSize={minFontSize}
           maxFontSize={maxFontSize}
           bold={bold}
-          setBold={value => {
+          setBold={(value) => {
             setBold(value)
             updatePath(
               background.color.hex().replace('#', ''),
@@ -199,7 +201,7 @@ const IndexPage = () => {
             <VisionRow
               name="Protanomaly"
               simType="protanomaly"
-              description="Trouble distinguishing reds"
+              description="Reduced sensitivity to red - Trouble distinguishing reds and greens"
               percent="1.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -219,7 +221,7 @@ const IndexPage = () => {
             <VisionRow
               name="Deuteranomaly"
               simType="deuteranomaly"
-              description="Trouble distinguishing greens"
+              description="Reduced sensitivity to green - Trouble distinguishing reds and greens"
               percent="5.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -239,7 +241,7 @@ const IndexPage = () => {
             <VisionRow
               name="Tritanomaly"
               simType="tritanomaly"
-              description="Trouble distinguishing blues"
+              description="Trouble distinguishing blues and greens, and yellows and reds"
               percent="0.02"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -249,7 +251,7 @@ const IndexPage = () => {
             <VisionRow
               name="Tritanopia"
               simType="tritanopia"
-              description="Blue blind - Can’t see blues at all"
+              description="Unable to distinguish between blues and greens, purples and reds, and yellows and pinks"
               percent="<0.03"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -309,6 +311,9 @@ const IndexPage = () => {
               contrastModifier={-0.2}
             />
           </VisionTable>
+          <Text fontWeight="600" fontSize="lg" mb={4} mt={8}>
+            Situational Events
+          </Text>
           <VisionTableAlt>
             <VisionRowAlt
               name="Direct Sunlight"

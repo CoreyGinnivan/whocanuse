@@ -2,8 +2,8 @@ import styled from '@emotion/styled'
 import { theme } from '../theme'
 
 export const VisionTableWrapper = styled('table')({
-  marginTop: '40px',
   display: 'flex',
+  marginTop: '20px',
   flexDirection: 'column',
   'tbody > tr:last-child': {
     borderBottom: 0,
