@@ -57,7 +57,7 @@ export const ColorWrapper = styled('div')({
   },
 })
 
-export const BackgroundWrapper = styled('div')(props => ({
+export const BackgroundWrapper = styled('div')((props) => ({
   position: 'relative',
   height: '90px',
   backgroundColor: props.background,
@@ -69,7 +69,7 @@ export const BackgroundWrapper = styled('div')(props => ({
   },
 }))
 
-export const ForegroundWrapper = styled('div')(props => ({
+export const ForegroundWrapper = styled('div')((props) => ({
   position: 'relative',
   height: '90px',
   backgroundColor: props.color,
@@ -81,7 +81,7 @@ export const ForegroundWrapper = styled('div')(props => ({
   },
 }))
 
-export const HexWrapper = styled.input(props => ({
+export const HexWrapper = styled.input((props) => ({
   color: props.textColour,
   position: 'absolute',
   backgroundColor: 'transparent',
@@ -97,7 +97,7 @@ export const HexWrapper = styled.input(props => ({
   boxShadow: 'inset 0 0 0 1px #E6E6E6',
 }))
 
-export const Hash = styled.div(props => ({
+export const Hash = styled.div((props) => ({
   color: props.textColour,
   position: 'absolute',
   top: '14px',
@@ -120,7 +120,7 @@ export const FieldWrapper = styled('div')({
   },
 })
 
-export const Button = styled.button(props => ({
+export const Button = styled.button((props) => ({
   backgroundColor: props.selected ? '#F1F9FF' : '#FFFFFF',
   border: props.selected ? '2px solid #0094FF' : '1px solid #E1E1E1',
   boxShadow: '0 1px 6px 0 rgba(0,0,0,0.13)',
@@ -163,6 +163,9 @@ export const CheckboxWrapper = styled('label')({
 })
 
 export const SwitchIcon = styled('button')({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   height: '20px',
   width: '20px',
   padding: 0,

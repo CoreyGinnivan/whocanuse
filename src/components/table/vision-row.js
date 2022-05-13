@@ -72,20 +72,18 @@ export const VisionRow = ({
   let trackColor
   let bgColor
 
-  if (wcagGrade === 'AA') {
-    wcagPercent = '50'
-    wcagColor = 'green.500'
-    trackColor = 'gray.200'
-    bgColor = 'white'
-  }
   if (wcagGrade === 'AAA') {
     wcagPercent = '100'
     wcagColor = 'green.500'
     trackColor = 'gray.200'
     bgColor = 'white'
-  }
-  if (wcagGrade === 'FAIL') {
-    wcagPercent = '0'
+  } else if (wcagGrade === 'AA') {
+    wcagPercent = '50'
+    wcagColor = 'green.500'
+    trackColor = 'gray.200'
+    bgColor = 'white'
+  } else if (wcagGrade === 'FAIL') {
+    wcagPercent = '50'
     wcagColor = 'red.500'
     trackColor = 'red.500'
     bgColor = 'red.50'
@@ -154,8 +152,8 @@ export const VisionRow = ({
               className={simType}
               foreground={simulatedForeground}
               background={simulatedBackground}
-              bold
-              fontSize={13}
+              bold={bold}
+              fontSize={fontSize}
             >
               What I see
             </SimulationFilter>

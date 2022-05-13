@@ -53,7 +53,7 @@ export const Background = ({
       </ColourHeader>
       <BackgroundWrapper
         background={background.color.hex()}
-        onClick={e => {
+        onClick={(e) => {
           if (e.target === e.currentTarget) {
             onClick()
           }
@@ -70,7 +70,7 @@ export const Background = ({
               ? background.value
               : background.color.hex().replace('#', '')
           }
-          onKeyPress={e => {
+          onKeyPress={(e) => {
             if (
               (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) ||
               (background.valueKind === 'hex' &&
@@ -80,7 +80,7 @@ export const Background = ({
               e.preventDefault()
             }
           }}
-          onPaste={e => {
+          onPaste={(e) => {
             const text = e.clipboardData.getData('Text')
             e.preventDefault()
             if (chroma.valid(text)) {
@@ -92,7 +92,7 @@ export const Background = ({
               })
             }
           }}
-          onChange={e => {
+          onChange={(e) => {
             const backgroundWithHash = `#${e.target.value}`
             setBackground({
               color: chroma(

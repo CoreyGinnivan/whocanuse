@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import chroma from 'chroma-js'
+import { Flex, Text } from '@chakra-ui/react'
 
 export const SlidersWrapper = styled('div')({
   display: 'flex',
@@ -47,7 +48,6 @@ const SliderHue = styled.input(
     borderRadius: '10px',
     appearance: 'none',
     boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
-    marginBottom: '14px',
     '&:focus': {
       outline: 0,
       boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
@@ -80,8 +80,9 @@ const SliderHue = styled.input(
       .fill(1)
       .map(
         (_, i, a) =>
-          `hsl(${min +
-            ((max - min) / a.length) * i}, ${saturation}%, ${lightness}%)`,
+          `hsl(${
+            min + ((max - min) / a.length) * i
+          }, ${saturation}%, ${lightness}%)`,
       )
       .join(', ')})`,
   }),
@@ -118,7 +119,6 @@ const SliderSaturation = styled.input(
     borderRadius: '10px',
     appearance: 'none',
     boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.2)',
-    marginBottom: '14px',
     '&:focus': {
       outline: 0,
       boxShadow: '0px 0px 0px 4px rgba(0,0,0,0.1)',
@@ -242,7 +242,7 @@ export const Sliders = ({ color, updateColor }) => {
           max={360}
           step="1"
           percentage={hueValue / 360}
-          onChange={e => {
+          onChange={(e) => {
             const newHue = e.currentTarget.value
             const color = chroma(newHue, saturation, lightness, 'hsl')
             updateColor({
@@ -252,26 +252,31 @@ export const Sliders = ({ color, updateColor }) => {
             })
           }}
         />
-        <SliderHue
-          type="range"
-          property="hue"
-          datatype="number"
-          aria-label="Hue"
-          onChange={e => {
-            const newHue = e.currentTarget.value
-            const color = chroma(newHue, saturation, lightness, 'hsl')
-            updateColor({
-              color: color,
-              value: [newHue, saturation, lightness],
-              valueKind: 'hsl',
-            })
-          }}
-          value={hueValue}
-          lightness={lightness * 100}
-          saturation={saturation * 100}
-          min={0}
-          max={360}
-        />
+        <Flex alignItems="center" mb={2}>
+          <Text fontSize="xs" fontWeight="semibold" mr={2}>
+            H
+          </Text>
+          <SliderHue
+            type="range"
+            property="hue"
+            datatype="number"
+            aria-label="Hue"
+            onChange={(e) => {
+              const newHue = e.currentTarget.value
+              const color = chroma(newHue, saturation, lightness, 'hsl')
+              updateColor({
+                color: color,
+                value: [newHue, saturation, lightness],
+                valueKind: 'hsl',
+              })
+            }}
+            value={hueValue}
+            lightness={lightness * 100}
+            saturation={saturation * 100}
+            min={0}
+            max={360}
+          />
+        </Flex>
       </Label>
       <Label>
         <SliderSaturationNumber
@@ -284,7 +289,7 @@ export const Sliders = ({ color, updateColor }) => {
           max={100}
           step="1"
           percentage={saturation}
-          onChange={e => {
+          onChange={(e) => {
             const newSaturation = e.currentTarget.value / 100
             const color = chroma(hue, newSaturation, lightness, 'hsl')
             updateColor({
@@ -294,26 +299,31 @@ export const Sliders = ({ color, updateColor }) => {
             })
           }}
         />
-        <SliderSaturation
-          type="range"
-          property="saturation"
-          datatype="number"
-          aria-label="Saturation"
-          onChange={e => {
-            const newSaturation = e.currentTarget.value / 100
-            const color = chroma(hue, newSaturation, lightness, 'hsl')
-            updateColor({
-              color: color,
-              value: [hue, newSaturation, lightness],
-              valueKind: 'hsl',
-            })
-          }}
-          min={0}
-          max={100}
-          hue={hueValue}
-          lightness={lightness * 100}
-          value={saturation * 100}
-        />
+        <Flex alignItems="center" mb={2}>
+          <Text fontSize="xs" fontWeight="semibold" mr={2}>
+            S
+          </Text>
+          <SliderSaturation
+            type="range"
+            property="saturation"
+            datatype="number"
+            aria-label="Saturation"
+            onChange={(e) => {
+              const newSaturation = e.currentTarget.value / 100
+              const color = chroma(hue, newSaturation, lightness, 'hsl')
+              updateColor({
+                color: color,
+                value: [hue, newSaturation, lightness],
+                valueKind: 'hsl',
+              })
+            }}
+            min={0}
+            max={100}
+            hue={hueValue}
+            lightness={lightness * 100}
+            value={saturation * 100}
+          />
+        </Flex>
       </Label>
       <Label>
         <SliderLightnessNumber
@@ -326,7 +336,7 @@ export const Sliders = ({ color, updateColor }) => {
           max={100}
           step="1"
           percentage={lightness}
-          onChange={e => {
+          onChange={(e) => {
             const newLightness = e.currentTarget.value / 100
             const color = chroma(hue, saturation, newLightness, 'hsl')
             updateColor({
@@ -336,25 +346,30 @@ export const Sliders = ({ color, updateColor }) => {
             })
           }}
         />
-        <SliderLightness
-          type="range"
-          property="lightness"
-          datatype="number"
-          aria-label="Lightness"
-          onChange={e => {
-            const newLightness = e.currentTarget.value / 100
-            const color = chroma(hue, saturation, newLightness, 'hsl')
-            updateColor({
-              color: color,
-              value: [hue, saturation, newLightness],
-              valueKind: 'hsl',
-            })
-          }}
-          min={0}
-          max={100}
-          hue={hueValue}
-          value={lightness * 100}
-        />
+        <Flex alignItems="center" mb={2}>
+          <Text fontSize="xs" fontWeight="semibold" mr={2}>
+            L
+          </Text>
+          <SliderLightness
+            type="range"
+            property="lightness"
+            datatype="number"
+            aria-label="Lightness"
+            onChange={(e) => {
+              const newLightness = e.currentTarget.value / 100
+              const color = chroma(hue, saturation, newLightness, 'hsl')
+              updateColor({
+                color: color,
+                value: [hue, saturation, newLightness],
+                valueKind: 'hsl',
+              })
+            }}
+            min={0}
+            max={100}
+            hue={hueValue}
+            value={lightness * 100}
+          />
+        </Flex>
       </Label>
     </SlidersWrapper>
   )
