@@ -83,7 +83,7 @@ const IndexPage = () => {
     // This can be invalid, the colour is the source of truth for the last valid colour
     value: '663399',
   })
-  const [fontSize, setFontSize] = useState({ value: 20, text: '20' })
+  const [fontSize, setFontSize] = useState({ value: 16, text: '16' })
   const [bold, setBold] = useState(false)
 
   useEffect(() => {
@@ -107,7 +107,7 @@ const IndexPage = () => {
       })
     }
 
-    const fontSize = (Number(qs.f) || '20').toString()
+    const fontSize = (Number(qs.f) || '16').toString()
     if (fontSize >= minFontSize && fontSize <= maxFontSize) {
       setFontSize({ value: fontSize, text: fontSize })
     }
