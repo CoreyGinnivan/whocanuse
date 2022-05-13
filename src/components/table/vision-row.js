@@ -69,18 +69,26 @@ export const VisionRow = ({
 
   let wcagPercent
   let wcagColor
+  let trackColor
+  let bgColor
 
   if (wcagGrade === 'AA') {
     wcagPercent = '50'
     wcagColor = 'green.500'
+    trackColor = 'gray.200'
+    bgColor = 'white'
   }
   if (wcagGrade === 'AAA') {
     wcagPercent = '100'
     wcagColor = 'green.500'
+    trackColor = 'gray.200'
+    bgColor = 'white'
   }
   if (wcagGrade === 'FAIL') {
     wcagPercent = '0'
     wcagColor = 'red.500'
+    trackColor = 'red.50'
+    bgColor = 'red.50'
   }
 
   return (
@@ -93,13 +101,18 @@ export const VisionRow = ({
           h="48px"
           position="relative"
         >
-          <CircularProgress zIndex={1} value={wcagPercent} color={wcagColor}>
+          <CircularProgress
+            zIndex={1}
+            value={wcagPercent}
+            color={wcagColor}
+            trackColor={trackColor}
+          >
             <CircularProgressLabel>
               {renderPassFail(wcagGrade)}
             </CircularProgressLabel>
           </CircularProgress>
           <Box
-            bgColor="white"
+            bgColor={bgColor}
             position="absolute"
             top="2px"
             left="2px"
@@ -129,7 +142,9 @@ export const VisionRow = ({
               animation="shift-away"
             ></Tippy>
           </div>
-          <Text fontSize="sm">{description}</Text>
+          <Text fontSize="13px" fontWeight="medium" color="gray.500">
+            {description}
+          </Text>
         </div>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginLeft: '15px' }}>
