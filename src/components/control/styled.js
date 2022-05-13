@@ -82,9 +82,9 @@ export const ForegroundWrapper = styled('div')((props) => ({
 }))
 
 export const HexWrapper = styled.input((props) => ({
-  color: props.textColour,
+  color: 'black',
   position: 'absolute',
-  backgroundColor: 'transparent',
+  backgroundColor: 'white',
   top: '10px',
   left: '24px',
   borderRadius: '3px',
