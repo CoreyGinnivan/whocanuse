@@ -87,7 +87,7 @@ export const VisionRow = ({
   if (wcagGrade === 'FAIL') {
     wcagPercent = '0'
     wcagColor = 'red.500'
-    trackColor = 'red.50'
+    trackColor = 'red.500'
     bgColor = 'red.50'
   }
 
