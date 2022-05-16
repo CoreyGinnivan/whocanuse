@@ -18,7 +18,7 @@ export const SmallInfoBars = ({ foreground, background, bold, fontSize }) => {
   const pass = contrast >= 4.5
 
   return (
-    <HStack spacing={24}>
+    <HStack spacing={{ base: '8', md: '24' }}>
       <Flex justifyContent="space-between" w="full">
         <Text fontWeight="medium">Contrast Ratio</Text>
         <Text

@@ -4,6 +4,7 @@ import { theme } from '../components/theme'
 import styled from '@emotion/styled'
 import Image from 'next/image'
 import avatar from '../images/avatar.png'
+import { Link } from '@chakra-ui/react'
 
 /*----------------------------------------------------------
    Styles
@@ -60,13 +61,9 @@ export const About = () => (
 
       <Text>
         The{' '}
-        <a
-          href="https://www.w3.org/TR/WCAG21/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link fontWeight="bold" href="https://www.w3.org/TR/WCAG21/" isExternal>
           Web Content Accessibility Guidelines (WCAG)
-        </a>{' '}
+        </Link>{' '}
         covers a wide range of recommendations for making Web content more
         accessible. Just a tiny part of making the web more accessible is
         accommodating for those with a form of blindness or low vision.
@@ -79,21 +76,21 @@ export const About = () => (
       <MediumText>Where did you get the info from?</MediumText>
       <Text>
         The percentages are sourced from both{' '}
-        <a
+        <Link
+          fontWeight="bold"
           href="https://www.colour-blindness.com"
-          target="_blank"
-          rel="noopener noreferrer"
+          isExternal
         >
           colour-blindness.com
-        </a>{' '}
+        </Link>{' '}
         and{' '}
-        <a
+        <Link
+          fontWeight="bold"
           href="https://www.visionaustralia.org/"
-          target="_blank"
-          rel="noopener noreferrer"
+          isExternal
         >
           Vision Australia
-        </a>
+        </Link>
         . P.S. You're both the best, thankyou ✌️
       </Text>
 
@@ -113,26 +110,22 @@ export const About = () => (
         Of course! There's a few stages to get to this point. First we figure
         out the contrast between two HEX values. For this we're using a plugin
         called{' '}
-        <a
-          href="https://vis4.net/chromajs/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Link fontWeight="bold" href="https://vis4.net/chromajs/" isExternal>
           Chroma.js
-        </a>{' '}
+        </Link>{' '}
         - this does the heavy lifting for us. Once we have the ratio (and using
         font size and font weight) we can apply a grade to that specific color
         combo.
       </Text>
       <Text>
         For the color blindness options we're using another plugin aptly called{' '}
-        <a
+        <Link
+          fontWeight="bold"
           href="https://github.com/skratchdot/color-blind"
-          target="_blank"
-          rel="noopener noreferrer"
+          isExternal
         >
           Color-blind
-        </a>{' '}
+        </Link>{' '}
         that converts our HEX codes in to ones that would be seen by people with
         the different impairments, then we can apply our same process to obtain
         the color ratios and determine their grade.
@@ -157,27 +150,31 @@ export const About = () => (
     </AboutWrapper>
     <Author>
       <ButtonWrapper>
-        <a
+        <Link
+          fontWeight="bold"
           href="https://github.com/coreyginnivan/whocanuse/"
           aria-label="coreyginnivan/whocanuse on GitHub"
+          isExternal
         >
           GitHub
-        </a>
-        <a
+        </Link>
+        <Link
+          fontWeight="bold"
           style={{ marginLeft: '10px' }}
           href="https://github.com/sponsors/coreyginnivan"
+          isExternal
           aria-label="Sponsor @coreyginnivan on GitHub"
         >
           Sponsor
-        </a>
+        </Link>
       </ButtonWrapper>
       <div style={{ display: 'flex' }}>
         <Text>Created &amp; maintained by</Text>
-        <a
+        <Link
           href="https://twitter.com/coreyginnivan"
-          target="_blank"
-          rel="noopener noreferrer"
+          isExternal
           style={{ marginLeft: '10px' }}
+          fontWeight="bold"
         >
           <Image
             alt="Corey"
@@ -189,8 +186,8 @@ export const About = () => (
               overflow: 'hidden',
             }}
           />
-          <Text style={{ marginLeft: '4px' }}>@CoreyGinnivan</Text>
-        </a>
+          @CoreyGinnivan
+        </Link>
       </div>
     </Author>
   </div>
