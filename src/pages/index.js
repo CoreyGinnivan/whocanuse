@@ -240,7 +240,7 @@ const IndexPage = () => {
               name="Tritanopia"
               simType="tritanopia"
               description="Unable to distinguish between blues and greens, purples and reds, and yellows and pinks"
-              percent="<0.03"
+              percent="0.03"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               bold={bold}
@@ -250,7 +250,7 @@ const IndexPage = () => {
               name="Achromatomaly"
               simType="achromatomaly"
               description="Partial color blindness, sees the absence of most colors"
-              percent="<0.1"
+              percent="0.09"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               bold={bold}
@@ -260,7 +260,7 @@ const IndexPage = () => {
               name="Achromatopsia"
               simType="achromatopsia"
               description="Complete color blindness, can only see shades"
-              percent="<0.1"
+              percent="0.05"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               bold={bold}

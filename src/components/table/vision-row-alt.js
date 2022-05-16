@@ -90,9 +90,17 @@ export class VisionRowAlt extends Component {
               color={wcagColor}
               trackColor={trackColor}
             >
-              <CircularProgressLabel>
-                {renderPassFail(wcagGrade)}
-              </CircularProgressLabel>
+              <Tippy
+                content={`Contrast: ${formatContrast(contrast)}`}
+                duration="0"
+                arrow={true}
+                placement="top"
+                animation="shift-away"
+              >
+                <CircularProgressLabel>
+                  {renderPassFail(wcagGrade)}
+                </CircularProgressLabel>
+              </Tippy>
             </CircularProgress>
             <Box
               bgColor={bgColor}

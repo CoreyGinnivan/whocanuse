@@ -95,6 +95,61 @@ export const VisionRow = ({
     bgColor = 'red.50'
   }
 
+  function PopIcon() {
+    if (percent < 5) {
+      return (
+        <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" fill-rule="evenodd">
+            <g
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0z"
+                fill="currentColor"
+              />
+              <path d="M9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0zM13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z" />
+            </g>
+          </g>
+        </svg>
+      )
+    } else if (percent >= 5 && percent < 35) {
+      return (
+        <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" fill-rule="evenodd">
+            <g
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0zM9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0z"
+                fill="currentColor"
+              />
+              <path d="M13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z" />
+            </g>
+          </g>
+        </svg>
+      )
+    } else if (percent > 11) {
+      return (
+        <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg">
+          <g fill="none" fill-rule="evenodd">
+            <g
+              fill="currentColor"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0zM9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0zM13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z" />
+            </g>
+          </g>
+        </svg>
+      )
+    }
+  }
+
   return (
     <VisionRowWrapper pass={pass}>
       <VisionCellWrapper style={{ marginRight: '15px' }}>
@@ -148,7 +203,7 @@ export const VisionRow = ({
         </Flex>
       </VisionCellWrapper>
       <VisionCellWrapper style={{ marginLeft: '15px' }}>
-        <Flex flexDirection="column" alignItems="end">
+        <Flex flexDirection="column" alignItems={{ base: 'start', md: 'end' }}>
           <Simulation>
             <SimulationFilter
               className={simType}
@@ -161,7 +216,10 @@ export const VisionRow = ({
             </SimulationFilter>
           </Simulation>
           <Tooltip label="Rough estimation of worldwide population with this vision impairment. Can vary between genders.">
-            <Flex fontSize="xs" mt={2} ml="auto">
+            <Flex fontSize="xs" mt={2} alignItems="center">
+              <Flex mr={1} mt={-1}>
+                <PopIcon />
+              </Flex>
               <Text fontWeight={700} mr={1}>
                 {percent}%
               </Text>
