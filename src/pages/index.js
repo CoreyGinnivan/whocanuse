@@ -104,21 +104,21 @@ const IndexPage = () => {
     setBold(style.indexOf('b') !== -1)
   }, [])
 
-  function setForegroundCallback(color) {
-    setForeground(color)
+  function setBackgroundCallback(color) {
+    setBackground(color)
     updatePath(
+      foreground.color.hex().replace('#', ''),
       background.color.hex().replace('#', ''),
-      color.color.hex().replace('#', ''),
       fontSize.value,
       bold,
     )
   }
 
-  function setBackgroundCallback(color) {
-    setBackground(color)
+  function setForegroundCallback(color) {
+    setForeground(color)
     updatePath(
-      color.color.hex().replace('#', ''),
       foreground.color.hex().replace('#', ''),
+      background.color.hex().replace('#', ''),
       fontSize.value,
       bold,
     )
