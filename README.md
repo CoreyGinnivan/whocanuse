@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="WhoCanUse Logo" src="https://whocanuse.com/3cb0c517afe6a9a74b3853fccd8e881a.png" width="100" />
+    <img alt="WhoCanUse Logo" src="https://whocanuse.com/whocanuse_600.png" width="100" />
 </p>
 <h1 align="center">
   WhoCanUse.com
