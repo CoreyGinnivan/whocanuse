@@ -138,6 +138,7 @@ export class VisionRowAlt extends Component {
               foreground={simulatedForeground}
               background={simulatedBackground}
               bold={bold}
+              fontSize={fontSize}
             >
               What I see
             </SimulationFilter>
