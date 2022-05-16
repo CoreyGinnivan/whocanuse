@@ -1,3 +1,5 @@
 export function linkPath(background, foreground, fontSize, bold) {
-  return `?b=${background}&c=${foreground}&f=${fontSize}&s=${bold ? 'b' : ''}`
+  return `?bg=${background}&fg=${foreground}&fs=${fontSize}&fw=${
+    bold ? 'b' : ''
+  }`
 }

@@ -49,18 +49,6 @@ const StatsWrapper = styled('div')({
   borderRadius: '8px',
 })
 
-const InfoBarWrapper = styled('div')({
-  display: 'flex',
-  marginTop: '15px',
-  justifyContent: 'space-between',
-  '& + &': {
-    marginTop: '10px',
-  },
-  '@media screen and (max-width: 780px)': {
-    flexDirection: 'column',
-  },
-})
-
 /*----------------------------------------------------------
    Main Layout
 ----------------------------------------------------------*/
@@ -201,7 +189,7 @@ const IndexPage = () => {
             <VisionRow
               name="Protanomaly"
               simType="protanomaly"
-              description="Reduced sensitivity to red - Trouble distinguishing reds and greens"
+              description="Reduced sensitivity to red - trouble distinguishing reds and greens"
               percent="1.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -345,13 +333,13 @@ const IndexPage = () => {
 
 export default IndexPage
 
-function updatePath(background, forground, fontSize, bold) {
+function updatePath(background, foreground, fontSize, bold) {
   if (typeof window === 'undefined') {
     return
   }
   window.history.replaceState(
     undefined,
     '',
-    linkPath(background, forground, fontSize, bold),
+    linkPath(background, foreground, fontSize, bold),
   )
 }
