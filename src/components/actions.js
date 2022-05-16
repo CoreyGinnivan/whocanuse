@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { SmallText } from './typography'
 import { theme } from './theme'
 import { TwitterShareButton } from 'react-twitter-embed'
 import { linkPath } from '../helpers/link'
@@ -12,7 +11,7 @@ import 'tippy.js/dist/tippy.css'
    Styles
 ----------------------------------------------------------*/
 
-const ActionsWrapper = styled('div')(props => ({
+const ActionsWrapper = styled('div')((props) => ({
   gridArea: '5 / 1 / 6 / 4',
   display: 'flex',
   alignItems: 'center',

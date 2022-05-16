@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
 import styled from '@emotion/styled'
 import { theme } from '../theme'
 
 export const VisionTableWrapper = styled('table')({
-  marginTop: '40px',
   display: 'flex',
+  marginTop: '20px',
   flexDirection: 'column',
   'tbody > tr:last-child': {
     borderBottom: 0,
@@ -20,7 +19,8 @@ export const VisionRowWrapper = styled('tr')(({ pass }) => ({
   display: 'flex',
   flexDirection: 'row',
   background: '#FFFFFF',
-  borderBottom: '1px solid #f1f1f1',
+  borderBottom: '2px solid #f1f1f1',
+  boxShadow: '0 -1px 0 0 rgb(255, 255, 255)',
   backgroundColor: pass ? theme.color.white : theme.color.lightred,
   padding: '14px',
   alignItems: 'center',
@@ -44,18 +44,6 @@ export const VisionCellWrapper = styled('td')(({ pass }) => ({
     paddingBottom: '10px',
     marginLeft: '0 !important',
     flexDirection: 'row',
-    '&:before': {
-      content: 'attr(data-th)',
-      display: 'inline-block',
-      fontWeight: theme.weight.bold,
-      fontSize: '12px',
-      padding: '10px 0',
-      textTransform: 'uppercase',
-      color: theme.color.grey,
-      textAlign: 'left',
-      minWidth: '140px',
-      alignItems: 'center',
-    },
   },
 }))
 
@@ -78,39 +66,27 @@ export const PercentWrapper = styled('div')(({ pass }) => ({
   },
 }))
 
-export const TableHeaderWrapper = styled('thead')({
-  display: 'flex',
-  marginBottom: '20px',
-  '@media screen and (max-width: 560px)': {
-    display: 'none',
-  },
-})
-
-export const TableHeadCellWrapper = styled('tr')({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-})
-
 export const Simulation = styled('div')({
   position: 'relative',
-  width: '90px',
-  height: '60px',
+  width: '120px',
+  height: '50px',
   userSelect: 'none',
   borderRadius: '6px',
   overflow: 'hidden',
+  border: '1px solid #ffffff',
   boxShadow: '0 0 0px 1px rgba(0,0,0,0.1)',
 })
 
-export const SimulationFilter = styled('div')(props => ({
+export const SimulationFilter = styled('div')((props) => ({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   position: 'absolute',
-  top: '-10px',
   left: '-10px',
-  width: '110px',
-  height: '80px',
+  top: '-1px',
+  width: '140px',
+  height: '50px',
+  whiteSpace: 'nowrap',
   background: props.background,
   color: props.foreground,
   userSelect: 'none',
@@ -119,16 +95,8 @@ export const SimulationFilter = styled('div')(props => ({
 }))
 
 export const PassFailTextWrapper = styled('div')(({ pass }) => ({
-  display: 'flex',
-  backgroundColor: pass ? theme.color.lightgreen : theme.color.lightred,
   color: pass ? theme.color.green : theme.color.red,
-  border: pass ? 0 : `1px solid ${theme.color.red}`,
   textTransform: 'uppercase',
-  borderRadius: '4px',
   fontSize: '11px',
-  lineHeight: '14px',
   fontWeight: 600,
-  padding: '1px 4px',
-  marginLeft: '8px',
-  cursor: 'default',
 }))

@@ -13,6 +13,8 @@ import { About } from '../components/about'
 import { SmallInfoBars } from '../components/small-info-bars'
 import { linkPath } from '../helpers/link'
 
+import { Text } from '@chakra-ui/react'
+
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
@@ -47,18 +49,6 @@ const StatsWrapper = styled('div')({
   borderRadius: '8px',
 })
 
-const InfoBarWrapper = styled('div')({
-  display: 'flex',
-  marginTop: '15px',
-  justifyContent: 'space-between',
-  '& + &': {
-    marginTop: '10px',
-  },
-  '@media screen and (max-width: 780px)': {
-    flexDirection: 'column',
-  },
-})
-
 /*----------------------------------------------------------
    Main Layout
 ----------------------------------------------------------*/
@@ -81,7 +71,7 @@ const IndexPage = () => {
     // This can be invalid, the colour is the source of truth for the last valid colour
     value: '663399',
   })
-  const [fontSize, setFontSize] = useState({ value: 20, text: '20' })
+  const [fontSize, setFontSize] = useState({ value: 16, text: '16' })
   const [bold, setBold] = useState(false)
 
   useEffect(() => {
@@ -105,7 +95,7 @@ const IndexPage = () => {
       })
     }
 
-    const fontSize = (Number(qs.f) || '20').toString()
+    const fontSize = (Number(qs.f) || '16').toString()
     if (fontSize >= minFontSize && fontSize <= maxFontSize) {
       setFontSize({ value: fontSize, text: fontSize })
     }
@@ -114,21 +104,21 @@ const IndexPage = () => {
     setBold(style.indexOf('b') !== -1)
   }, [])
 
-  function setForegroundCallback(color) {
-    setForeground(color)
+  function setBackgroundCallback(color) {
+    setBackground(color)
     updatePath(
+      foreground.color.hex().replace('#', ''),
       background.color.hex().replace('#', ''),
-      color.color.hex().replace('#', ''),
       fontSize.value,
       bold,
     )
   }
 
-  function setBackgroundCallback(color) {
-    setBackground(color)
+  function setForegroundCallback(color) {
+    setForeground(color)
     updatePath(
-      color.color.hex().replace('#', ''),
       foreground.color.hex().replace('#', ''),
+      background.color.hex().replace('#', ''),
       fontSize.value,
       bold,
     )
@@ -166,7 +156,7 @@ const IndexPage = () => {
           minFontSize={minFontSize}
           maxFontSize={maxFontSize}
           bold={bold}
-          setBold={value => {
+          setBold={(value) => {
             setBold(value)
             updatePath(
               background.color.hex().replace('#', ''),
@@ -199,7 +189,7 @@ const IndexPage = () => {
             <VisionRow
               name="Protanomaly"
               simType="protanomaly"
-              description="Trouble distinguishing reds"
+              description="Reduced sensitivity to red - trouble distinguishing reds and greens"
               percent="1.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -219,7 +209,7 @@ const IndexPage = () => {
             <VisionRow
               name="Deuteranomaly"
               simType="deuteranomaly"
-              description="Trouble distinguishing greens"
+              description="Reduced sensitivity to green - Trouble distinguishing reds and greens"
               percent="5.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -239,7 +229,7 @@ const IndexPage = () => {
             <VisionRow
               name="Tritanomaly"
               simType="tritanomaly"
-              description="Trouble distinguishing blues"
+              description="Trouble distinguishing blues and greens, and yellows and reds"
               percent="0.02"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -249,8 +239,8 @@ const IndexPage = () => {
             <VisionRow
               name="Tritanopia"
               simType="tritanopia"
-              description="Blue blind - Can’t see blues at all"
-              percent="<0.03"
+              description="Unable to distinguish between blues and greens, purples and reds, and yellows and pinks"
+              percent="0.03"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               bold={bold}
@@ -260,7 +250,7 @@ const IndexPage = () => {
               name="Achromatomaly"
               simType="achromatomaly"
               description="Partial color blindness, sees the absence of most colors"
-              percent="<0.1"
+              percent="0.09"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               bold={bold}
@@ -270,7 +260,7 @@ const IndexPage = () => {
               name="Achromatopsia"
               simType="achromatopsia"
               description="Complete color blindness, can only see shades"
-              percent="<0.1"
+              percent="0.05"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               bold={bold}
@@ -309,6 +299,9 @@ const IndexPage = () => {
               contrastModifier={-0.2}
             />
           </VisionTable>
+          <Text fontWeight="600" fontSize="lg" mb={4} mt={8}>
+            Situational Events
+          </Text>
           <VisionTableAlt>
             <VisionRowAlt
               name="Direct Sunlight"
@@ -340,13 +333,13 @@ const IndexPage = () => {
 
 export default IndexPage
 
-function updatePath(background, forground, fontSize, bold) {
+function updatePath(background, foreground, fontSize, bold) {
   if (typeof window === 'undefined') {
     return
   }
   window.history.replaceState(
     undefined,
     '',
-    linkPath(background, forground, fontSize, bold),
+    linkPath(background, foreground, fontSize, bold),
   )
 }
