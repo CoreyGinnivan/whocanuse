@@ -79,29 +79,30 @@ const IndexPage = () => {
       typeof window === 'undefined'
         ? {}
         : queryString.parse(window.location.search)
-
-    if (qs.c && chroma.valid(qs.c)) {
+    if (qs.fg && chroma.valid(qs.fg) && foreground.value !== qs.fg) {
       setForeground({
-        color: chroma(`#${qs.c}`),
-        value: qs.c,
+        color: chroma(`#${qs.fg}`),
+        value: qs.fg,
         valueKind: 'hex',
       })
     }
-    if (qs.b && chroma.valid(qs.b)) {
+    if (qs.bg && chroma.valid(qs.bg) && background.value !== qs.bg) {
       setBackground({
-        color: chroma(`#${qs.b}`),
-        value: qs.b,
+        color: chroma(`#${qs.bg}`),
+        value: qs.bg,
         valueKind: 'hex',
       })
     }
 
-    const fontSize = (Number(qs.f) || '16').toString()
-    if (fontSize >= minFontSize && fontSize <= maxFontSize) {
-      setFontSize({ value: fontSize, text: fontSize })
+    const paramFontSize = (Number(qs.fs) || '16').toString()
+    if (paramFontSize >= minFontSize && paramFontSize <= maxFontSize && paramFontSize !== fontSize) {
+      setFontSize({ value: paramFontSize, text: paramFontSize })
     }
 
-    const style = qs.s || ''
-    setBold(style.indexOf('b') !== -1)
+    const paramBold = qs.fw === 'b';
+    if(qs.fw && paramBold !== bold) {	
+      setBold(paramBold)
+    }
   }, [])
 
   function setBackgroundCallback(color) {
