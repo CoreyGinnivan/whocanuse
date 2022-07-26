@@ -108,8 +108,8 @@ const IndexPage = () => {
   function setBackgroundCallback(color) {
     setBackground(color)
     updatePath(
+      color.color.hex().replace('#', ''),
       foreground.color.hex().replace('#', ''),
-      background.color.hex().replace('#', ''),
       fontSize.value,
       bold,
     )
@@ -118,8 +118,8 @@ const IndexPage = () => {
   function setForegroundCallback(color) {
     setForeground(color)
     updatePath(
-      foreground.color.hex().replace('#', ''),
       background.color.hex().replace('#', ''),
+      color.color.hex().replace('#', ''),
       fontSize.value,
       bold,
     )
