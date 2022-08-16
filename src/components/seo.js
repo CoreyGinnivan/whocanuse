@@ -7,7 +7,7 @@ export default function SEO({ title, background }) {
   return (
     <Head>
       <title>{`${siteTitle || title}`}</title>
-      <meta name="theme-color" content={background.color.hex()} />
+      <meta name="theme-color" content={background.color.hex() || '#fff'} />
       <meta
         name="description"
         content="A tool that brings attention and understanding to how color contrast can affect people with different visual impairments."
