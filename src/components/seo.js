@@ -2,13 +2,13 @@ import Head from 'next/head'
 import PropTypes from 'prop-types'
 import config from '../../config'
 
-export default function SEO({ title, background }) {
+export default function SEO({ title, backgroundHex }) {
   const siteTitle = config.siteMetadata.title
 
   return (
     <Head>
       <title>{`${siteTitle || title}`}</title>
-      <meta name="theme-color" content={background.color.hex() || '#fff'} />
+      <meta name="theme-color" content={backgroundHex || '#fff'} />
       <meta
         name="description"
         content="A tool that brings attention and understanding to how color contrast can affect people with different visual impairments."
@@ -42,6 +42,6 @@ export default function SEO({ title, background }) {
 }
 
 SEO.propTypes = {
-  background: PropTypes.object,
+  backgroundHex: PropTypes.string,
   title: PropTypes.string,
 }

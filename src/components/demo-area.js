@@ -6,13 +6,13 @@ import PropTypes from 'prop-types'
    Styles
 ----------------------------------------------------------*/
 
-const DemoAreaWrapper = styled('div')(props => ({
+const DemoAreaWrapper = styled('div')((props) => ({
   gridArea: '2 / 2 / 3 / 3',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   minHeight: '230px',
-  color: props.color,
+  color: props.mainColor,
   fontSize: props.fontSize + 'px',
   lineHeight: props.fontSize + 'px',
   fontWeight: props.isBold && '600',

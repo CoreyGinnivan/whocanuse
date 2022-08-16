@@ -72,7 +72,7 @@ const IndexPage = () => {
     value: '663399',
   })
   const [fontSize, setFontSize] = useState({ value: 16, text: '16' })
-  const [bold, setBold] = useState(false)
+  const [isBold, setBold] = useState(false)
 
   useEffect(() => {
     const qs =
@@ -95,12 +95,16 @@ const IndexPage = () => {
     }
 
     const paramFontSize = (Number(qs.fs) || '16').toString()
-    if (paramFontSize >= minFontSize && paramFontSize <= maxFontSize && paramFontSize !== fontSize) {
+    if (
+      paramFontSize >= minFontSize &&
+      paramFontSize <= maxFontSize &&
+      paramFontSize !== fontSize
+    ) {
       setFontSize({ value: paramFontSize, text: paramFontSize })
     }
 
-    const paramBold = qs.fw === 'b';
-    if(qs.fw && paramBold !== bold) {	
+    const paramBold = qs.fw === 'b'
+    if (qs.fw && paramBold !== isBold) {
       setBold(paramBold)
     }
   }, [])
@@ -111,7 +115,7 @@ const IndexPage = () => {
       color.color.hex().replace('#', ''),
       foreground.color.hex().replace('#', ''),
       fontSize.value,
-      bold,
+      isBold,
     )
   }
 
@@ -121,7 +125,7 @@ const IndexPage = () => {
       background.color.hex().replace('#', ''),
       color.color.hex().replace('#', ''),
       fontSize.value,
-      bold,
+      isBold,
     )
   }
 
@@ -139,12 +143,12 @@ const IndexPage = () => {
       background.color.hex().replace('#', ''),
       foreground.color.hex().replace('#', ''),
       newFontSize,
-      bold,
+      isBold,
     )
   }
 
   return (
-    <Layout background={background}>
+    <Layout backgroundHex={background.color.hex()}>
       <MainLayout>
         <Hero
           setBackground={setBackgroundCallback}
@@ -156,7 +160,7 @@ const IndexPage = () => {
           fontSizeText={fontSize.text}
           minFontSize={minFontSize}
           maxFontSize={maxFontSize}
-          bold={bold}
+          isBold={isBold}
           setBold={(value) => {
             setBold(value)
             updatePath(
@@ -173,7 +177,7 @@ const IndexPage = () => {
             <SmallInfoBars
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
           </StatsWrapper>
@@ -184,7 +188,7 @@ const IndexPage = () => {
               percent="68"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -194,7 +198,7 @@ const IndexPage = () => {
               percent="1.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -204,7 +208,7 @@ const IndexPage = () => {
               percent="1.5"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -214,7 +218,7 @@ const IndexPage = () => {
               percent="5.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -224,7 +228,7 @@ const IndexPage = () => {
               percent="1.2"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -234,7 +238,7 @@ const IndexPage = () => {
               percent="0.02"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -244,7 +248,7 @@ const IndexPage = () => {
               percent="0.03"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -254,7 +258,7 @@ const IndexPage = () => {
               percent="0.09"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -264,7 +268,7 @@ const IndexPage = () => {
               percent="0.05"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -274,7 +278,7 @@ const IndexPage = () => {
               percent="33"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
               contrastModifier={-0.2}
             />
@@ -285,7 +289,7 @@ const IndexPage = () => {
               percent="2"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRow
@@ -295,7 +299,7 @@ const IndexPage = () => {
               percent="31"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
               contrastModifier={-0.2}
             />
@@ -311,7 +315,7 @@ const IndexPage = () => {
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               contrastModifier={-0.4}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
             <VisionRowAlt
@@ -321,7 +325,7 @@ const IndexPage = () => {
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               contrastModifier={-0.1}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize.value}
             />
           </VisionTableAlt>
@@ -334,13 +338,13 @@ const IndexPage = () => {
 
 export default IndexPage
 
-function updatePath(background, foreground, fontSize, bold) {
+function updatePath(background, foreground, fontSize, isBold) {
   if (typeof window === 'undefined') {
     return
   }
   window.history.replaceState(
     undefined,
     '',
-    linkPath(background, foreground, fontSize, bold),
+    linkPath(background, foreground, fontSize, isBold),
   )
 }

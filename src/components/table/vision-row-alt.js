@@ -39,7 +39,7 @@ export class VisionRowAlt extends Component {
       background,
       simType,
       contrastModifier = 0,
-      bold,
+      isBold,
       fontSize,
     } = this.props
     let simulatedForeground = foreground
@@ -49,7 +49,7 @@ export class VisionRowAlt extends Component {
     const fontSizeNum = Number(fontSize)
     const modifiedContrast = contrast + contrast * contrastModifier
 
-    let { wcagGrade } = getWcagScore(fontSizeNum, bold, modifiedContrast)
+    let { wcagGrade } = getWcagScore(fontSizeNum, isBold, modifiedContrast)
     const pass = wcagGrade !== 'FAIL'
 
     let wcagPercent
@@ -137,7 +137,7 @@ export class VisionRowAlt extends Component {
               className={simType}
               foreground={simulatedForeground}
               background={simulatedBackground}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize}
             >
               What I see

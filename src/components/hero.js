@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { Logo } from './logo'
 import { Control } from './control/control'
@@ -43,7 +44,7 @@ export const Hero = ({
   maxFontSize,
   minFontSize,
   fontSizeText,
-  bold,
+  isBold,
   setBold,
   setFontSize,
   setBackground,
@@ -51,11 +52,11 @@ export const Hero = ({
 }) => {
   return (
     <Wrapper>
-      <Logo color={foreground.color.hex()} />
+      <Logo mainColor={foreground.color.hex()} />
       <DemoArea
-        color={foreground.color.hex()}
+        mainColor={foreground.color.hex()}
         fontSize={fontSize}
-        isBold={bold}
+        isBold={isBold}
       />
       <Control
         setBackground={setBackground}
@@ -66,11 +67,25 @@ export const Hero = ({
         minFontSize={minFontSize}
         background={background}
         foreground={foreground}
-        bold={bold}
+        isBold={isBold}
         setBold={setBold}
       />
       <Ad />
       <Background background={background.color.hex()} />
     </Wrapper>
   )
+}
+
+Hero.propTypes = {
+  foreground: PropTypes.object,
+  background: PropTypes.object,
+  fontSize: PropTypes.string,
+  maxFontSize: PropTypes.number,
+  minFontSize: PropTypes.number,
+  fontSizeText: PropTypes.string,
+  isBold: PropTypes.boolean,
+  setBold: PropTypes.func,
+  setFontSize: PropTypes.func,
+  setBackground: PropTypes.func,
+  setForeground: PropTypes.func,
 }

@@ -1,5 +1,5 @@
-export function linkPath(background, foreground, fontSize, bold) {
+export function linkPath(background, foreground, fontSize, isBold) {
   return `?bg=${background}&fg=${foreground}&fs=${fontSize}&fw=${
-    bold ? 'b' : ''
+    isBold ? 'b' : ''
   }`
 }

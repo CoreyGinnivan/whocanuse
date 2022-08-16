@@ -6,14 +6,14 @@ import PropTypes from 'prop-types'
    Styles
 ----------------------------------------------------------*/
 
-const Container = styled('div')(props => ({
+const Container = styled('div')((props) => ({
   gridArea: '1 / 1 / 2 / 4',
   display: 'flex',
   alignContent: 'center',
   justifyContent: 'center',
   padding: '20px',
   'svg, g': {
-    fill: props.color,
+    fill: props.mainColor,
   },
   svg: {
     margin: 'auto',

@@ -7,7 +7,7 @@ import { theme } from '../components/theme'
    Styles
 ----------------------------------------------------------*/
 
-const SmallTextWrapper = styled.span(props => ({
+const SmallTextWrapper = styled.span((props) => ({
   margin: 0,
   fontFamily: theme.fontFamily,
   fontSize: '12px',
@@ -17,10 +17,10 @@ const SmallTextWrapper = styled.span(props => ({
   textAlign: props.align,
 }))
 
-const TextWrapper = styled.p(props => ({
+const TextWrapper = styled.p((props) => ({
   fontFamily: theme.fontFamily,
   fontSize: '16px',
-  fontWeight: props.bold ? theme.weight.bold : theme.weight.normal,
+  fontWeight: props.isBold ? theme.weight.bold : theme.weight.normal,
   color: props.dark ? theme.color.dark : theme.color.grey,
   textAlign: props.align,
   lineHeight: '1.45em',
@@ -30,7 +30,7 @@ const TextWrapper = styled.p(props => ({
   },
 }))
 
-const MediumTextWrapper = styled.h2(props => ({
+const MediumTextWrapper = styled.h2((props) => ({
   margin: props.margin,
   fontFamily: theme.fontFamily,
   fontSize: '18px',
@@ -40,7 +40,7 @@ const MediumTextWrapper = styled.h2(props => ({
   lineHeight: '1.35em',
 }))
 
-const LargeTextWrapper = styled.h1(props => ({
+const LargeTextWrapper = styled.h1((props) => ({
   margin: props.margin,
   fontFamily: theme.fontFamily,
   fontSize: '22px',
@@ -49,7 +49,7 @@ const LargeTextWrapper = styled.h1(props => ({
   textAlign: props.align,
 }))
 
-const HeadingTextWrapper = styled.h1(props => ({
+const HeadingTextWrapper = styled.h1((props) => ({
   margin: props.margin,
   fontFamily: theme.fontFamily,
   fontSize: '30px',

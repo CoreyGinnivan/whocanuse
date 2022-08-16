@@ -8,7 +8,7 @@ export const Config = ({
   setFontSize,
   maxFontSize,
   minFontSize,
-  bold,
+  isBold,
   setBold,
 }) => {
   return (
@@ -20,10 +20,10 @@ export const Config = ({
           min="10"
           max="60"
           value={fontSize}
-          onMouseDown={e => {
+          onMouseDown={(e) => {
             setFontDragInfo({ x: e.clientX, fontSize })
           }}
-          onChange={e => {
+          onChange={(e) => {
             setFontSize(e.target.value)
           }}
         />
@@ -35,8 +35,8 @@ export const Config = ({
             type="checkbox"
             id="bold"
             name="bold"
-            checked={bold}
-            onChange={() => setBold(!bold)}
+            checked={isBold}
+            onChange={() => setBold(!isBold)}
           />
           <SmallText htmlFor="bold">Bold</SmallText>
         </CheckboxWrapper>

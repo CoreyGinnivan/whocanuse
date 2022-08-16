@@ -28,7 +28,7 @@ export const VisionRow = ({
   background,
   simType,
   contrastModifier = 0,
-  bold,
+  isBold,
   fontSize,
 }) => {
   let simulatedForeground = foreground
@@ -70,7 +70,7 @@ export const VisionRow = ({
   const fontSizeNum = Number(fontSize)
   const modifiedContrast = contrast + contrast * contrastModifier
 
-  let { wcagGrade } = getWcagScore(fontSizeNum, bold, modifiedContrast)
+  let { wcagGrade } = getWcagScore(fontSizeNum, isBold, modifiedContrast)
   const pass = wcagGrade !== 'FAIL'
 
   let wcagPercent
@@ -209,7 +209,7 @@ export const VisionRow = ({
               className={simType}
               foreground={simulatedForeground}
               background={simulatedBackground}
-              bold={bold}
+              isBold={isBold}
               fontSize={fontSize}
             >
               What I see

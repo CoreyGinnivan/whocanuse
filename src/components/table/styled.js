@@ -90,7 +90,7 @@ export const SimulationFilter = styled('div')((props) => ({
   background: props.background,
   color: props.foreground,
   userSelect: 'none',
-  fontWeight: props.bold ? 'bold' : undefined,
+  fontWeight: props.isBold ? 'bold' : undefined,
   fontSize: `${props.fontSize}px`,
 }))
 

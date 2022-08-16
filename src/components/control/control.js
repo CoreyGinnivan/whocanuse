@@ -28,7 +28,7 @@ export const Control = ({
   setBackground,
   setForeground,
   setBold,
-  bold,
+  isBold,
   fontSize,
   setFontSize,
   maxFontSize,
@@ -65,7 +65,7 @@ export const Control = ({
         foreground={foreground}
         getForegroundTextColor={getForegroundTextColor}
         setForeground={setForeground}
-        bold={bold}
+        isBold={isBold}
         setBold={setBold}
         fontSize={fontSize}
         setFontSize={setFontSize}
