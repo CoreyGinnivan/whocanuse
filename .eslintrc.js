@@ -3,11 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-  ],
+  extends: 'eslint:recommended',
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
