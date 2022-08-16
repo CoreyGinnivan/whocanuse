@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import config from '../../config'
 
-export default function SEO({ description, title, image }) {
-  const siteTitle = config.title
+export default function SEO({ title, background }) {
+  const siteTitle = config.siteMetadata.title
 
   return (
     <Head>
-      <title>{`${title} | ${siteTitle}`}</title>
+      <title>{`${siteTitle || title}`}</title>
+      <meta name="theme-color" content={background.color.hex()} />
       <meta
         name="description"
         content="A tool that brings attention and understanding to how color contrast can affect people with different visual impairments."
@@ -22,7 +23,7 @@ export default function SEO({ description, title, image }) {
         property="og:description"
         content="A tool that brings attention and understanding to how color contrast can affect people with different visual impairments."
       />
-      <meta property="og:site_name" content={siteTitle} />
+      <meta property="og:site_name" content={siteTitle || title} />
       <meta property="twitter:card" content="summary_large_image" />
       <meta
         property="twitter:image"
