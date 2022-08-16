@@ -31,8 +31,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^12.1.5",
+    "@next/eslint-plugin-next": "^12.2.5",
     "css-loader": "^6.7.1",
+    "eslint": "^8.22.0",
+    "eslint-plugin-react": "^7.30.1",
     "prettier": "^2.6.2"
   }
 }

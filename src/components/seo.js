@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import PropTypes from 'prop-types'
 import config from '../../config'
 
 export default function SEO({ title, background }) {
@@ -38,4 +39,9 @@ export default function SEO({ title, background }) {
       <link rel="shortcut icon" href="/favicon.ico" />
     </Head>
   )
+}
+
+SEO.propTypes = {
+  background: PropTypes.object,
+  title: PropTypes.string,
 }
