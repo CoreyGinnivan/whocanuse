@@ -3,7 +3,7 @@ import SEO from '../components/seo'
 
 const Layout = ({ children, background }) => (
   <React.Fragment>
-    <SEO title="WhoCanUse Local" background={background} />
+    <SEO title="WhoCanUse" background={background} />
     <div>{children}</div>
   </React.Fragment>
 )
