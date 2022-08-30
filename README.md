@@ -56,31 +56,4 @@
 
     Your site is now running at `http://localhost:3000`!
  
-    
-    
-
-
-## Contributors ✨
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/CoreyGinnivan"><img src="https://avatars1.githubusercontent.com/u/7619810?v=4" width="100px;" alt="Corey"/><br /><sub><b>Corey</b></sub></a><br /><a href="#design-CoreyGinnivan" title="Design">🎨</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=CoreyGinnivan" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/JakeGinnivan"><img src="https://avatars2.githubusercontent.com/u/453152?v=4" width="100px;" alt="Jake Ginnivan"/><br /><sub><b>Jake Ginnivan</b></sub></a><br /><a href="#infra-JakeGinnivan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=JakeGinnivan" title="Code">💻</a></td>
-    <td align="center"><a href="http://madebymike.com.au"><img src="https://avatars0.githubusercontent.com/u/1320567?v=4" width="100px;" alt="Mike"/><br /><sub><b>Mike</b></sub></a><br /><a href="#infra-MadeByMike" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=MadeByMike" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Tombre"><img src="https://avatars1.githubusercontent.com/u/3880871?v=4" width="100px;" alt="Tom Leenders"/><br /><sub><b>Tom Leenders</b></sub></a><br /><a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=Tombre" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Logarek"><img src="https://avatars2.githubusercontent.com/u/25744314?v=4" width="100px;" alt="Matthew Putland"/><br /><sub><b>Matthew Putland</b></sub></a><br /><a href="#ideas-Logarek" title="Ideas, Planning, & Feedback">🤔</a> <a href="#accessibility-Logarek" title="A11y">♿️</a></td>
-    <td align="center"><a href="http://www.juliegrundy.id.au/"><img src="https://avatars3.githubusercontent.com/u/3842742?v=4" width="100px;" alt="Julie Grundy"/><br /><sub><b>Julie Grundy</b></sub></a><br /><a href="#ideas-stringyland" title="Ideas, Planning, & Feedback">🤔</a> <a href="#accessibility-stringyland" title="A11y">♿️</a></td>
-    <td align="center"><a href="https://github.com/jessbudd"><img src="https://avatars1.githubusercontent.com/u/17704960?v=4" width="100px;" alt="Jess Budd"/><br /><sub><b>Jess Budd</b></sub></a><br /><a href="#content-jessbudd" title="Content">🖋</a> <a href="#accessibility-jessbudd" title="A11y">♿️</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/severn101"><img src="https://avatars1.githubusercontent.com/u/15342678?v=4" width="100px;" alt="Pavel"/><br /><sub><b>Pavel</b></sub></a><br /><a href="https://github.com/CoreyGinnivan/whocanuse/commits?author=severn101" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
