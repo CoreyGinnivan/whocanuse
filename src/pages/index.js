@@ -95,12 +95,16 @@ const IndexPage = () => {
     }
 
     const paramFontSize = (Number(qs.fs) || '16').toString()
-    if (paramFontSize >= minFontSize && paramFontSize <= maxFontSize && paramFontSize !== fontSize) {
+    if (
+      paramFontSize >= minFontSize &&
+      paramFontSize <= maxFontSize &&
+      paramFontSize !== fontSize
+    ) {
       setFontSize({ value: paramFontSize, text: paramFontSize })
     }
 
-    const paramBold = qs.fw === 'b';
-    if(qs.fw && paramBold !== bold) {	
+    const paramBold = qs.fw === 'b'
+    if (qs.fw && paramBold !== bold) {
       setBold(paramBold)
     }
   }, [])
@@ -144,7 +148,7 @@ const IndexPage = () => {
   }
 
   return (
-    <Layout>
+    <Layout background={background}>
       <MainLayout>
         <Hero
           setBackground={setBackgroundCallback}
