@@ -1,4 +1,5 @@
 import React from 'react'
+import chroma from 'chroma-js'
 import styled from '@emotion/styled'
 import Layout from '../layout/layout'
 import { keyframes } from '@emotion/react'
@@ -54,7 +55,14 @@ const TrippyWrapper = styled('div')({
 })
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout
+    background={{
+      color: chroma('#663399'),
+      valueKind: 'hex',
+      // This can be invalid, the colour is the source of truth for the last valid colour
+      value: '663399',
+    }}
+  >
     <TrippyWrapper>
       <Logo style={{ marginBottom: '100px' }} />
       <h1 style={{ marginBottom: '20px' }}>Mother of gerd...</h1>
