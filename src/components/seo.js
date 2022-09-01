@@ -41,10 +41,10 @@ export default function SEO({ title, background, foreground }) {
         property="twitter:description"
         content="A tool that brings attention and understanding to how color contrast can affect people with different visual impairments."
       />
+      <link rel="icon" href="favicon.png" type="image/png" />
       <link rel="icon" href="favicon.ico" sizes="any" />
       <link rel="icon" href="favicon.svg" type="image/svg+xml" />
       <link rel="icon" href={newFaviconUri} type="image/svg+xml" />
-      <link rel="mask-icon" href="mask-icon.svg" color="#000000" />
     </Head>
   )
 }
