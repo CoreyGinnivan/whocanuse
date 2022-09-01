@@ -148,7 +148,7 @@ const IndexPage = () => {
   }
 
   return (
-    <Layout background={background}>
+    <Layout background={background} foreground={foreground}>
       <MainLayout>
         <Hero
           setBackground={setBackgroundCallback}

@@ -62,6 +62,12 @@ const NotFoundPage = () => (
       // This can be invalid, the colour is the source of truth for the last valid colour
       value: '663399',
     }}
+    foreground={{
+      color: chroma('#FFFFFF'),
+      valueKind: 'hex',
+      // This can be invalid, the colour is the source of truth for the last valid colour
+      value: 'FFFFFF',
+    }}
   >
     <TrippyWrapper>
       <Logo style={{ marginBottom: '100px' }} />
