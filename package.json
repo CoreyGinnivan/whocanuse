@@ -13,6 +13,7 @@
     "emotion-server": "^11.0.0",
     "eslint": "^8.23.0",
     "eslint-plugin-react": "^7.31.1",
+    "fathom-client": "^3.5.0",
     "framer-motion": "^6.3.3",
     "next": "^12.1.5",
     "query-string": "^7.1.1",
