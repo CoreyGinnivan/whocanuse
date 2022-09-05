@@ -19,10 +19,9 @@ import switchIcon from '../../images/switch.svg'
 export const Background = ({
   background,
   getBackgroundTextColor,
-  setBackground,
   onClick,
   foreground,
-  setForeground,
+  setColours,
 }) => {
   return (
     <ColourControlBackground>
@@ -38,8 +37,7 @@ export const Background = ({
         >
           <SwitchIcon
             onClick={() => {
-              setForeground(background)
-              setBackground(foreground)
+              setColours({ background: foreground, foreground: background })
             }}
           >
             <Image
@@ -85,28 +83,35 @@ export const Background = ({
             e.preventDefault()
             if (chroma.valid(text)) {
               const pastedColor = chroma(text).alpha(1)
-              setBackground({
-                color: pastedColor.alpha(1),
-                value: pastedColor.hex().replace('#', ''),
-                valueKind: 'hex',
+              setColours({
+                background: {
+                  color: pastedColor.alpha(1),
+                  value: pastedColor.hex().replace('#', ''),
+                  valueKind: 'hex',
+                },
               })
             }
           }}
           onChange={(e) => {
             const backgroundWithHash = `#${e.target.value}`
-            setBackground({
-              color: chroma(
-                chroma.valid(backgroundWithHash)
-                  ? backgroundWithHash
-                  : background.color,
-              ),
-              value: e.target.value,
-              valueKind: 'hex',
+            setColours({
+              background: {
+                color: chroma(
+                  chroma.valid(backgroundWithHash)
+                    ? backgroundWithHash
+                    : background.color,
+                ),
+                value: e.target.value,
+                valueKind: 'hex',
+              },
             })
           }}
         />
       </BackgroundWrapper>
-      <Sliders color={background} updateColor={setBackground} />
+      <Sliders
+        color={background}
+        updateColor={(background) => setColours({ background })}
+      />
     </ColourControlBackground>
   )
 }

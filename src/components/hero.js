@@ -46,8 +46,7 @@ export const Hero = ({
   bold,
   setBold,
   setFontSize,
-  setBackground,
-  setForeground,
+  setColours,
 }) => {
   return (
     <Wrapper>
@@ -58,8 +57,7 @@ export const Hero = ({
         isBold={bold}
       />
       <Control
-        setBackground={setBackground}
-        setForeground={setForeground}
+        setColours={setColours}
         setFontSize={setFontSize}
         fontSize={fontSizeText}
         maxFontSize={maxFontSize}

@@ -109,21 +109,17 @@ const IndexPage = () => {
     }
   }, [])
 
-  function setBackgroundCallback(color) {
-    setBackground(color)
-    updatePath(
-      color.color.hex().replace('#', ''),
-      foreground.color.hex().replace('#', ''),
-      fontSize.value,
-      bold,
-    )
-  }
+  function setColoursCallback(newColours) {
+    if (newColours.background) {
+      setBackground(newColours.background)
+    }
+    if (newColours.foreground) {
+      setForeground(newColours.foreground)
+    }
 
-  function setForegroundCallback(color) {
-    setForeground(color)
     updatePath(
-      background.color.hex().replace('#', ''),
-      color.color.hex().replace('#', ''),
+      (newColours.background || background).color.hex().replace('#', ''),
+      (newColours.foreground || foreground).color.hex().replace('#', ''),
       fontSize.value,
       bold,
     )
@@ -151,8 +147,7 @@ const IndexPage = () => {
     <Layout background={background} foreground={foreground}>
       <MainLayout>
         <Hero
-          setBackground={setBackgroundCallback}
-          setForeground={setForegroundCallback}
+          setColours={setColoursCallback}
           foreground={foreground}
           background={background}
           setFontSize={setFontSizeCallback}
