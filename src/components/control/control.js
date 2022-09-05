@@ -25,8 +25,7 @@ function getTextColor(bgColor, lightColor, darkColor) {
 export const Control = ({
   background,
   foreground,
-  setBackground,
-  setForeground,
+  setColours,
   setBold,
   bold,
   fontSize,
@@ -53,8 +52,7 @@ export const Control = ({
         background={background}
         foreground={foreground}
         getBackgroundTextColor={getBackgroundTextColor}
-        setBackground={setBackground}
-        setForeground={setForeground}
+        setColours={setColours}
         onClick={() =>
           isSelectingColour
             ? setIsSelectingColour(false)
@@ -64,7 +62,7 @@ export const Control = ({
       <Foreground
         foreground={foreground}
         getForegroundTextColor={getForegroundTextColor}
-        setForeground={setForeground}
+        setForeground={(foreground) => setColours({ foreground })}
         bold={bold}
         setBold={setBold}
         fontSize={fontSize}
