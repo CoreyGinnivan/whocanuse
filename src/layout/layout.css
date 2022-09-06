@@ -681,6 +681,7 @@ pre tt:after {
   border: solid 1px #eee;
   font-size: 22px;
   box-sizing: content-box;
+  border-radius: 10px;
 }
 
 #carbonads > span {

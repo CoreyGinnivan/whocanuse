@@ -16,7 +16,7 @@ const StyledAd = styled('div')`
     top: 0;
     display: flex;
     background-color: #f6f8fa;
-    border-radius: 6px;
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
