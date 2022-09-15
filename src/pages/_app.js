@@ -8,7 +8,7 @@ export default function MyApp({ Component, pageProps }) {
   const router = useRouter()
   useEffect(() => {
     Fathom.load('DEBTPWYR', {
-      includedDomains: ['whocanuse.com'],
+      includedDomains: ['www.whocanuse.com'],
     })
 
     function onRouteChangeComplete() {
