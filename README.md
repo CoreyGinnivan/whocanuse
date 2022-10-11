@@ -5,7 +5,6 @@
   WhoCanUse.com
 </h1>
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6a01d121-f24e-4c62-8fa6-b6fd95bf0cc4/deploy-status)](https://app.netlify.com/sites/whocanuse/deploys)
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 
 **What is WhoCanUse?**
