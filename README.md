@@ -29,30 +29,7 @@
 <p>The grading uses a combination of color contrast, text size and text weight. A fail simply means that the color combination offers some visual strain to the person seeing it and should be avoided if possible.</p>
 
 **Can I help contribute?**
-<p>Absolutely! Feel free to fork the repo and submit a PR with any helpful additions or changes.</p>
 
-## 🚀 Getting Started
+Absolutely! This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
 
-1.  **Clone the repo.**
-
-2.  **Install everything.**
-
-    Navigate to wherever you cloned the whocanuse repo to and install all the things:
-
-    ```sh
-    npm install
-    ```
-
-2.  **Start developing.**
-
-    Start it up!
-
-    ```sh
-    npm run dev
-    ```
-
-3.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:3000`!
- 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+Check out [CONTRIBUTING.md](CONTRIBUTING.md) for more info.
