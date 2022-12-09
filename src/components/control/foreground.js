@@ -11,6 +11,8 @@ import { SmallText } from '../typography'
 import chroma from 'chroma-js'
 import { Sliders } from './sliders'
 import { hasTextSelection } from './hasTextSelection'
+import { getKeyedTranslations } from '../../helpers/i18n'
+const t = getKeyedTranslations("demo")
 
 export const Foreground = ({
   foreground,
@@ -64,7 +66,7 @@ export const Foreground = ({
   return (
     <ColourControlForeground>
       <ColourHeader>
-        <SmallText>Text</SmallText>
+        <SmallText>{t("foreground")}</SmallText>
         <Config
           fontSize={fontSize}
           setFontDragInfo={setFontDragInfo}

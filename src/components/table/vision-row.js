@@ -2,9 +2,8 @@ import {
   Box,
   CircularProgress,
   CircularProgressLabel,
-  Tooltip,
+  Text, Flex
 } from '@chakra-ui/react'
-import { Text, Flex } from '@chakra-ui/react'
 import chroma from 'chroma-js'
 import blinder from 'color-blind'
 import {
@@ -19,17 +18,19 @@ import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 import { formatContrast } from '../small-info-bars'
 import { RGBDots } from './rbg-dots'
+import { Affected } from "./affected"
+import { getKeyedTranslations } from '../../helpers/i18n'
+const t = getKeyedTranslations("vision")
 
 export const VisionRow = ({
-  name,
   percent,
-  description,
   foreground,
   background,
-  simType,
+  simType = "trichromatic",
   contrastModifier = 0,
   bold,
   fontSize,
+  rgbdots = false
 }) => {
   let simulatedForeground = foreground
   let simulatedBackground = background
@@ -95,61 +96,6 @@ export const VisionRow = ({
     bgColor = 'red.50'
   }
 
-  function PopIcon() {
-    if (percent < 5) {
-      return (
-        <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" fillRule="evenodd">
-            <g
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path
-                d="M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0z"
-                fill="currentColor"
-              />
-              <path d="M9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0zM13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z" />
-            </g>
-          </g>
-        </svg>
-      )
-    } else if (percent >= 5 && percent < 35) {
-      return (
-        <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" fillRule="evenodd">
-            <g
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path
-                d="M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0zM9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0z"
-                fill="currentColor"
-              />
-              <path d="M13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z" />
-            </g>
-          </g>
-        </svg>
-      )
-    } else if (percent > 11) {
-      return (
-        <svg width="21" height="21" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" fillRule="evenodd">
-            <g
-              fill="currentColor"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0zM9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0zM13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z" />
-            </g>
-          </g>
-        </svg>
-      )
-    }
-  }
-
   return (
     <VisionRowWrapper pass={pass}>
       <VisionCellWrapper style={{ marginRight: '15px' }}>
@@ -193,12 +139,12 @@ export const VisionRow = ({
         <Flex flexDirection="column">
           <Flex flexDirection="row" alignItems="center">
             <Text fontSize="md" fontWeight={700}>
-              {name}
+              {t(simType + ".name")}
             </Text>
-            <RGBDots simType={simType} />
+            {rgbdots && <RGBDots simType={simType} />}
           </Flex>
           <Text fontSize="13px" fontWeight="medium" color="gray.500">
-            {description}
+            {t(simType + ".desc")}
           </Text>
         </Flex>
       </VisionCellWrapper>
@@ -212,20 +158,10 @@ export const VisionRow = ({
               bold={bold}
               fontSize={fontSize}
             >
-              What I see
+              {t("what-i-see")}
             </SimulationFilter>
           </Simulation>
-          <Tooltip label="Rough estimation of worldwide population with this vision impairment. Can vary between genders.">
-            <Flex fontSize="xs" mt={2} alignItems="center">
-              <Flex mr={1} mt={-1}>
-                <PopIcon />
-              </Flex>
-              <Text fontWeight={700} mr={1}>
-                {percent}%
-              </Text>
-              <Text>affected</Text>
-            </Flex>
-          </Tooltip>
+          <Affected percent={percent} />
         </Flex>
       </VisionCellWrapper>
     </VisionRowWrapper>

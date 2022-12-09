@@ -1,13 +1,13 @@
 import React from 'react'
 import { SmallText } from '../typography'
 import { Fields, FieldWrapper, TextSize, CheckboxWrapper } from './styled'
+import { getKeyedTranslations } from '../../helpers/i18n'
+const t = getKeyedTranslations("demo")
 
 export const Config = ({
   fontSize,
   setFontDragInfo,
   setFontSize,
-  maxFontSize,
-  minFontSize,
   bold,
   setBold,
 }) => {
@@ -38,7 +38,7 @@ export const Config = ({
             checked={bold}
             onChange={() => setBold(!bold)}
           />
-          <SmallText htmlFor="bold">Bold</SmallText>
+          <SmallText htmlFor="bold">{t("bold")}</SmallText>
         </CheckboxWrapper>
       </FieldWrapper>
     </Fields>
