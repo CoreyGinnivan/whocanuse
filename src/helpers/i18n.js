@@ -17,13 +17,13 @@ import textDeDE from "../l10n/textTranslations/de-DE/de-DE"
  * VARS 
  **/
 
-const defaultLanguage = "en-GB"
+const defaultLanguage = "en"
 const keyedTranslations = new Map([
   [defaultLanguage, keyedEnGB],
 
   // Adding translations to the set
   // ["<language-identifier>", <translationSet> ]
-  ["de-DE", keyedDeDE],
+  ["de", keyedDeDE],
 ]) 
 
 const textTranslations = new Map([
@@ -31,7 +31,7 @@ const textTranslations = new Map([
 
   // Adding translations to the set
   // ["<language-identifier>", <translationSet> ]
-  ["de-DE", textDeDE],
+  ["de", textDeDE],
 ]) 
 
 
