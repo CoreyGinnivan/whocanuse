@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
-import PropTypes from 'prop-types'
+import { getKeyedTranslations } from '../helpers/i18n'
+const t = getKeyedTranslations('demo')
 
 /*----------------------------------------------------------
    Styles
 ----------------------------------------------------------*/
 
-const DemoAreaWrapper = styled('div')(props => ({
+const DemoAreaWrapper = styled('div')((props) => ({
   gridArea: '2 / 2 / 3 / 3',
   display: 'flex',
   justifyContent: 'center',
@@ -34,7 +35,7 @@ const TextWrapper = styled('div')({
 export const DemoArea = ({ children, ...rest }) => {
   return (
     <DemoAreaWrapper {...rest}>
-      <TextWrapper>The quick brown fox jumps over the lazy dog</TextWrapper>
+      <TextWrapper>{t('placeholder')}</TextWrapper>
     </DemoAreaWrapper>
   )
 }

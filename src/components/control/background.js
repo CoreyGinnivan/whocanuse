@@ -15,6 +15,8 @@ import 'tippy.js/dist/tippy.css'
 import { hasTextSelection } from './hasTextSelection'
 import Image from 'next/image'
 import switchIcon from '../../images/switch.svg'
+import { getKeyedTranslations } from '../../helpers/i18n'
+const t = getKeyedTranslations('demo')
 
 export const Background = ({
   background,
@@ -27,9 +29,9 @@ export const Background = ({
     <ColourControlBackground>
       <ColourHeader>
         {' '}
-        <SmallText>Background</SmallText>
+        <SmallText>{t('background')}</SmallText>
         <Tippy
-          content="Switch background and text colors"
+          content={t('switch')}
           duration="0"
           arrow={true}
           placement="top"

@@ -11,6 +11,8 @@ import { SmallText } from '../typography'
 import chroma from 'chroma-js'
 import { Sliders } from './sliders'
 import { hasTextSelection } from './hasTextSelection'
+import { getKeyedTranslations } from '../../helpers/i18n'
+const t = getKeyedTranslations('demo')
 
 export const Foreground = ({
   foreground,
@@ -27,7 +29,7 @@ export const Foreground = ({
   const [fontDragInfo, setFontDragInfo] = React.useState(null)
 
   const mouseMove = React.useCallback(
-    e => {
+    (e) => {
       if (!fontDragInfo) {
         return
       }
@@ -64,7 +66,7 @@ export const Foreground = ({
   return (
     <ColourControlForeground>
       <ColourHeader>
-        <SmallText>Text</SmallText>
+        <SmallText>{t('foreground')}</SmallText>
         <Config
           fontSize={fontSize}
           setFontDragInfo={setFontDragInfo}
@@ -77,7 +79,7 @@ export const Foreground = ({
       </ColourHeader>
       <ForegroundWrapper
         color={foreground.color.hex()}
-        onClick={e => {
+        onClick={(e) => {
           if (e.target === e.currentTarget) {
             onClick()
           }
@@ -94,7 +96,7 @@ export const Foreground = ({
               ? foreground.value
               : foreground.color.hex().replace('#', '')
           }
-          onKeyPress={e => {
+          onKeyPress={(e) => {
             if (
               (e.key.match(/[^0-9a-fA-F]/) && !e.metaKey) ||
               (foreground.valueKind === 'hex' &&
@@ -104,7 +106,7 @@ export const Foreground = ({
               e.preventDefault()
             }
           }}
-          onPaste={e => {
+          onPaste={(e) => {
             const text = e.clipboardData.getData('Text')
             e.preventDefault()
             if (chroma.valid(text)) {
@@ -116,7 +118,7 @@ export const Foreground = ({
               })
             }
           }}
-          onChange={e => {
+          onChange={(e) => {
             const foregroundWithHash = `#${e.target.value}`
             setForeground({
               color: chroma(

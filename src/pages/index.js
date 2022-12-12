@@ -6,14 +6,15 @@ import queryString from 'query-string'
 import { Hero } from '../components/hero'
 import { Heading } from '../components/typography'
 import { VisionTable } from '../components/table/vision-table'
-import { VisionTableAlt } from '../components/table/vision-table-alt'
 import { VisionRow } from '../components/table/vision-row'
-import { VisionRowAlt } from '../components/table/vision-row-alt'
 import { About } from '../components/about'
 import { SmallInfoBars } from '../components/small-info-bars'
-import { linkPath } from '../helpers/link'
+import { getUpdatePathFunc } from '../helpers/link'
+import { getKeyedTranslations } from '../helpers/i18n'
+const t = getKeyedTranslations('index')
 
 import { Text } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 
 /*----------------------------------------------------------
    Styles
@@ -57,6 +58,9 @@ const minFontSize = 10
 const maxFontSize = 60
 
 const IndexPage = () => {
+  const router = useRouter()
+  const updatePath = getUpdatePathFunc(router)
+
   // The resulting colour value is lossy, the user inputting FFF is a colour of FFFFFF
   // HSL is the same, [155, 0, 0] is #000000, we have lost the Hue
   const [foreground, setForeground] = useState({
@@ -167,7 +171,7 @@ const IndexPage = () => {
           }}
         />
         <ContentWrapper>
-          <Heading align="left">Who can use this color combination?</Heading>
+          <Heading align="left">{t('title')}</Heading>
           <StatsWrapper>
             <SmallInfoBars
               foreground={foreground.color.hex()}
@@ -178,8 +182,7 @@ const IndexPage = () => {
           </StatsWrapper>
           <VisionTable>
             <VisionRow
-              name="Regular Vision (Trichromatic)"
-              description="Can distinguish all three primary color, little to no blurriness"
+              rgbdots={true}
               percent="68"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -187,9 +190,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Protanomaly"
+              rgbdots={true}
               simType="protanomaly"
-              description="Reduced sensitivity to red - trouble distinguishing reds and greens"
               percent="1.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -197,9 +199,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Protanopia"
+              rgbdots={true}
               simType="protanopia"
-              description="Red blind - Can’t see reds at all"
               percent="1.5"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -207,9 +208,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Deuteranomaly"
+              rgbdots={true}
               simType="deuteranomaly"
-              description="Reduced sensitivity to green - Trouble distinguishing reds and greens"
               percent="5.3"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -217,9 +217,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Deuteranopia"
+              rgbdots={true}
               simType="deuteranopia"
-              description="Green blind - Can’t see greens at all"
               percent="1.2"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -227,9 +226,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Tritanomaly"
+              rgbdots={true}
               simType="tritanomaly"
-              description="Trouble distinguishing blues and greens, and yellows and reds"
               percent="0.02"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -237,9 +235,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Tritanopia"
+              rgbdots={true}
               simType="tritanopia"
-              description="Unable to distinguish between blues and greens, purples and reds, and yellows and pinks"
               percent="0.03"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -247,9 +244,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Achromatomaly"
+              rgbdots={true}
               simType="achromatomaly"
-              description="Partial color blindness, sees the absence of most colors"
               percent="0.09"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -257,9 +253,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Achromatopsia"
+              rgbdots={true}
               simType="achromatopsia"
-              description="Complete color blindness, can only see shades"
               percent="0.05"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -267,9 +262,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Cataracts"
+              rgbdots={true}
               simType="cataracts"
-              description="Clouding of the lens in the eye that affects vision"
               percent="33"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -278,9 +272,8 @@ const IndexPage = () => {
               contrastModifier={-0.2}
             />
             <VisionRow
-              name="Glaucoma"
+              rgbdots={true}
               simType="glaucoma"
-              description="Slight vision loss"
               percent="2"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -288,9 +281,8 @@ const IndexPage = () => {
               fontSize={fontSize.value}
             />
             <VisionRow
-              name="Low Vision"
+              rgbdots={true}
               simType="lowvision"
-              description="Decreased and/or blurry vision (not fixable by usual means such as glasses)"
               percent="31"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
@@ -300,30 +292,26 @@ const IndexPage = () => {
             />
           </VisionTable>
           <Text fontWeight="600" fontSize="lg" mb={4} mt={8}>
-            Situational Events
+            {t('situational-events')}
           </Text>
-          <VisionTableAlt>
-            <VisionRowAlt
-              name="Direct Sunlight"
+          <VisionTable>
+            <VisionRow
               simType="sunlight"
-              description="Simulating the effect of direct sunlight on a phone or screen"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               contrastModifier={-0.4}
               bold={bold}
               fontSize={fontSize.value}
             />
-            <VisionRowAlt
-              name="Night Shift Mode"
+            <VisionRow
               simType="nightshift"
-              description="Simulating the effect of night mode on a phone or screen"
               foreground={foreground.color.hex()}
               background={background.color.hex()}
               contrastModifier={-0.1}
               bold={bold}
               fontSize={fontSize.value}
             />
-          </VisionTableAlt>
+          </VisionTable>
           <About />
         </ContentWrapper>
       </MainLayout>
@@ -332,14 +320,3 @@ const IndexPage = () => {
 }
 
 export default IndexPage
-
-function updatePath(background, foreground, fontSize, bold) {
-  if (typeof window === 'undefined') {
-    return
-  }
-  window.history.replaceState(
-    undefined,
-    '',
-    linkPath(background, foreground, fontSize, bold),
-  )
-}
