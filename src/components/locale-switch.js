@@ -53,7 +53,9 @@ function mapLocalsToLink(locales) {
           textTransform: 'uppercase',
         }}
       >
-        {locale.toUpperCase() + ' –'}
+        {locale.toUpperCase() +
+          String.fromCharCode(160) /* no-break space */ +
+          '–'}
       </span>
       {tLocale(locale)}
     </MenuItem>

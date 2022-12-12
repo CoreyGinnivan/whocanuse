@@ -60,7 +60,11 @@ export default (
       . P.S. You're both the best, thankyou ✌️
     </Text>
 
-    <MediumText>Your maths is off, it doesn't add up to 100%...?</MediumText>
+    <MediumText>
+      Your maths is off, it doesn't add up to 100
+      {String.fromCharCode(8239) /* narrow no-break space */}%
+      {String.fromCharCode(160) /* no-break space */}…?
+    </MediumText>
     <Text>
       Good eyes! (haha) The population data provided are estimates for
       individual impairments, and don't cover the vast amount of visual
@@ -77,10 +81,10 @@ export default (
       the contrast between two HEX values. For this we're using a plugin called{' '}
       <Link fontWeight="bold" href="https://vis4.net/chromajs/" isExternal>
         Chroma.js
-      </Link>{' '}
-      - this does the heavy lifting for us. Once we have the ratio (and using
-      font size and font weight) we can apply a grade to that specific color
-      combo.
+      </Link>
+      {String.fromCharCode(160) /* no-break space */}- this does the heavy
+      lifting for us. Once we have the ratio (and using font size and font
+      weight) we can apply a grade to that specific color combo.
     </Text>
     <Text>
       For the color blindness options we're using another plugin aptly called{' '}

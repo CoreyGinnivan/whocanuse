@@ -60,9 +60,10 @@ export default (
       </Link>
       . PS: Ihr seid die Besten, vielen Dank! ✌️
     </Text>
-    {/* eslint-disable-next-line no-irregular-whitespace */}
     <MediumText>
-      Sie haben sich verrechnet: Die Summe ergibt nicht 100 % …?
+      Sie haben sich verrechnet: Die Summe ergibt nicht 100
+      {String.fromCharCode(8239) /* narrow no-break space */}%
+      {String.fromCharCode(160) /* no-break space */}…?
     </MediumText>
     <Text>
       Gute Augen! (haha) Die angegebenen Bevölkerungsdaten sind Schätzungen für
@@ -85,9 +86,10 @@ export default (
       <Link fontWeight="bold" href="https://vis4.net/chromajs/" isExternal>
         Chroma.js
       </Link>
-      {' '}– dieses übernimmt die schwere Arbeit für uns. Sobald wir das
-      Kontrastverhältnis haben (zusammen mit Schriftgröße und -schnitt), können
-      wir eine Bewertung für diese spezifischen Farbkombination ermitteln.
+      {String.fromCharCode(160) /* no-break space */}– dieses übernimmt die
+      schwere Arbeit für uns. Sobald wir das Kontrastverhältnis haben (zusammen
+      mit Schriftgröße und -schnitt), können wir eine Bewertung für diese
+      spezifischen Farbkombination ermitteln.
     </Text>
     <Text>
       Für die unterschiedlichen Formen der Farbenblindheit nutzen wir ein

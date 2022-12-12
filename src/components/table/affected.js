@@ -71,8 +71,8 @@ function Affected({ percent }) {
           <AffectedBars percent={percent} />
         </Flex>
         <Text fontWeight={700} mr={1}>
-          {/* eslint-disable-next-line no-irregular-whitespace */}
-          {percent} %
+          {percent}
+          {String.fromCharCode(8239) /* narrow no-break space */}%
         </Text>
         <Text>{t('affected')}</Text>
       </Flex>

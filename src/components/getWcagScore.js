@@ -1,4 +1,12 @@
-import { formatWcagGuidelines } from './formatWcagGuidelines'
+import { getKeyedTranslations } from '../helpers/i18n'
+const t = getKeyedTranslations('wcag')
+
+function formatWcagGuidelines(AAContrast, AAAContrast) {
+  return t('hint.requiredContrast')
+    .replace('%AAContrast%', AAContrast)
+    .replace('%AAAContrast%', AAAContrast)
+}
+
 export function getWcagScore(fontSizeNum, bold, contrast) {
   let wcagGrade
   let tooltip
@@ -24,8 +32,7 @@ export function getWcagScore(fontSizeNum, bold, contrast) {
     }
   } else {
     wcagGrade = 'FAIL'
-    tooltip =
-      'While it is not official, the generally accepted practice is a minimum font size of 15px to meet AA standards'
+    tooltip = t('hint.minFontSize')
   }
   return { wcagGrade, tooltip }
 }

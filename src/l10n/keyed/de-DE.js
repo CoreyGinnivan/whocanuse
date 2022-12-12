@@ -24,6 +24,22 @@ export default new Map([
   ],
 
   [
+    'wcag',
+    new Map([
+      [
+        'hint.requiredContrast',
+        'Kontrastverhätnisse gemäß WCAG (Web Content Accessibility Guidelines): %AAContrast% für den AA-Standard und %AAAContrast% für den AAA-Standard',
+      ],
+      [
+        'hint.minFontSize',
+        `Obwohl es nicht offiziell festgelegt ist, wird mindestens eine Schriftgröße von 15${
+          String.fromCharCode(8239) /* narrow no-break space */
+        }px empfohlen, um den WCAG-AA-Standard zu erreichen.`,
+      ],
+    ]),
+  ],
+
+  [
     'vision',
     new Map([
       ['trichromatic.name', 'Normale Sicht (Trichromatisch)'],
