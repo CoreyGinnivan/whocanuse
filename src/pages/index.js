@@ -9,11 +9,12 @@ import { VisionTable } from '../components/table/vision-table'
 import { VisionRow } from '../components/table/vision-row'
 import { About } from '../components/about'
 import { SmallInfoBars } from '../components/small-info-bars'
-import { linkPath } from '../helpers/link'
+import { getUpdatePathFunc } from '../helpers/link'
 import { getKeyedTranslations } from '../helpers/i18n'
 const t = getKeyedTranslations("index")
 
 import { Text } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
 
 /*----------------------------------------------------------
    Styles
@@ -57,6 +58,9 @@ const minFontSize = 10
 const maxFontSize = 60
 
 const IndexPage = () => {
+  const router = useRouter()
+  const updatePath = getUpdatePathFunc(router)
+
   // The resulting colour value is lossy, the user inputting FFF is a colour of FFFFFF
   // HSL is the same, [155, 0, 0] is #000000, we have lost the Hue
   const [foreground, setForeground] = useState({
@@ -316,14 +320,3 @@ const IndexPage = () => {
 }
 
 export default IndexPage
-
-function updatePath(background, foreground, fontSize, bold) {
-  if (typeof window === 'undefined') {
-    return
-  }
-  window.history.replaceState(
-    undefined,
-    '',
-    linkPath(background, foreground, fontSize, bold),
-  )
-}

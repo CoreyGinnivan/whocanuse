@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Image from 'next/image'
 import avatar from '../images/avatar.png'
 import { Link } from '@chakra-ui/react'
+import LocaleSwitcher from './locale-switch'
 import { getKeyedTranslations, getTranslatedText } from '../helpers/i18n'
 const t = getKeyedTranslations()
 
@@ -15,6 +16,7 @@ const ButtonWrapper = styled('div')({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
+  gap: ".75em",
   span: {
     marginRight: '6px',
   },
@@ -25,6 +27,7 @@ const Author = styled('div')({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
+  gap: "2ex 1em",
   flexWrap: 'wrap',
   margin: '14px 0',
   'p, a': {
@@ -62,6 +65,7 @@ export const About = () => (
         >
           {t("sponsor")}
         </Link>
+        <LocaleSwitcher />
       </ButtonWrapper>
       <div style={{ display: 'flex' }}>
         <Text>{t("createdby")}</Text>

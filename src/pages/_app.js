@@ -25,7 +25,7 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <ChakraProvider>
-      <Component {...pageProps} />
+      <Component key={router.locale} {...pageProps} />
     </ChakraProvider>
   )
 }

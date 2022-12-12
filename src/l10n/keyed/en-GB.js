@@ -60,7 +60,12 @@ export default new Map([
     ["what-i-see", "What I see"],
     ["affected", "affected"],
     ["affected.tooltip", "Rough estimation of worldwide population with this vision impairment. Can vary between genders."],
+  ])],
 
+  // Locales (for language switch)
+  ["locale", new Map([
+    ["de", "Deutsch"],
+    ["en", "English"],
   ])],
 
   // Global
@@ -71,6 +76,7 @@ export default new Map([
     ["sponsor", "Sponsor"],
     ["sponsor.aria-label", "Sponsor @coreyginnivan on GitHub"],
     ["github.aria-label", "coreyginnivan/whocanuse on GitHub"],
+    ["translations", "Translations"],
     ["createdby", "Created & maintained by"],
   ])]
 ])

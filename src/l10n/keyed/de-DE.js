@@ -62,6 +62,12 @@ export default new Map([
     ["affected.tooltip", "Grobe Schätzung der weltweiten Bevölkerung mit dieser Sehbehinderung. Kann zwischen den Geschlechtern variieren."],
   ])],
 
+  // Locales (for language switch)
+  ["locale", new Map([
+    ["de", "Deutsch"],
+    ["en", "English"],
+  ])],
+
   // Global
   ["global", new Map([
     ["contrast-ratio", "Kontrastverhältnis"],
@@ -70,6 +76,7 @@ export default new Map([
     ["sponsor", "Unterstützen"],
     ["sponsor.aria-label", "Unterstützen Sie @coreyginnivan via GitHub"],
     ["github.aria-label", "coreyginnivan/whocanuse auf GitHub"],
+    ["translations", "Übersetzungen"],
     ["createdby", "Erstellt & gepflegt von "],
   ])]
 ])
