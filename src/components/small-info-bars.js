@@ -21,14 +21,14 @@ export const SmallInfoBars = ({ foreground, background, bold, fontSize }) => {
   return (
     <HStack spacing={{ base: '8', md: '24' }}>
       <Flex justifyContent="space-between" w="full">
-        <Text fontWeight="medium">{t("contrast-ratio")}</Text>
+        <Text fontWeight="medium">{t('contrast-ratio')}</Text>
         <Text
           fontWeight="extrabold"
           color={pass ? 'green.600' : 'red.600'}
         >{`${formatContrast(contrast)}`}</Text>
       </Flex>
       <Flex justifyContent="space-between" w="full">
-        <Text fontWeight="medium">{t("wcag-grading")}</Text>
+        <Text fontWeight="medium">{t('wcag-grading')}</Text>
         <Text fontWeight="extrabold" color={pass ? 'green.600' : 'red.600'}>
           {wcagGrade}
         </Text>

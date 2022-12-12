@@ -1,5 +1,5 @@
 /**
- * FUNCS 
+ * FUNCS
  **/
 function getUpdatePathFunc(router) {
   const { basePath, pathname, query, asPath, locale } = router
@@ -9,24 +9,27 @@ function getUpdatePathFunc(router) {
       bg: background,
       fg: foreground,
       fs: fontSize,
-      fw: bold ? 'b' : ''
+      fw: bold ? 'b' : '',
     })
 
-    router.replace({
-      basePath,
-      pathname,
-      query
-    }, asPath, {
-      locale,
-      scroll: false,
-      shallow: false
-    })
+    router.replace(
+      {
+        basePath,
+        pathname,
+        query,
+      },
+      asPath,
+      {
+        locale,
+        scroll: false,
+        shallow: false,
+      },
+    )
   }
 }
 
-
 /**
- * EXPORTS 
+ * EXPORTS
  **/
 
 export { getUpdatePathFunc }

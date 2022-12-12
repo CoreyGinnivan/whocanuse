@@ -1,19 +1,18 @@
 /**
- * IMPORTS 
+ * IMPORTS
  **/
 
 import { Text, Flex, Tooltip } from '@chakra-ui/react'
 import { getKeyedTranslations } from '../../helpers/i18n'
-const t = getKeyedTranslations("vision")
-
+const t = getKeyedTranslations('vision')
 
 /**
- * FUNCS 
+ * FUNCS
  **/
 
 /**
  * Creates an SVG with one, two or three filled bars based on the provided path string.
- * @param {string} filledBarsPath String that defines the path of the filled bars  
+ * @param {string} filledBarsPath String that defines the path of the filled bars
  * @returns SVG with three filled/unfilled bars
  */
 function createAffectedBarsSVG(filledBarsPath) {
@@ -37,32 +36,36 @@ function createAffectedBarsSVG(filledBarsPath) {
 
 /**
  * Defines the number of bars to visualise affected share
- * @param {number} percent Percentage that is affected  
+ * @param {number} percent Percentage that is affected
  * @returns SVG to visualise affected share
  */
 function AffectedBars({ percent }) {
-  let filledBarsPath = ""
+  let filledBarsPath = ''
 
-  if (percent > 0) // first bar
-    filledBarsPath = filledBarsPath + "M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0z"
+  if (percent > 0)
+    // first bar
+    filledBarsPath = filledBarsPath + 'M5.5 16.5v-3a1 1 0 112 0v3a1 1 0 01-2 0z'
 
-  if (percent >= 5) // first bar + second bar
-    filledBarsPath = filledBarsPath + "M9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0z"
-  
-  if (percent >= 35) // first bar + second bar + third bar
-    filledBarsPath = filledBarsPath + "M13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z"
+  if (percent >= 5)
+    // first bar + second bar
+    filledBarsPath = filledBarsPath + 'M9.5 16.5v-6a1 1 0 112 0v6a1 1 0 01-2 0z'
+
+  if (percent >= 35)
+    // first bar + second bar + third bar
+    filledBarsPath =
+      filledBarsPath + 'M13.5 16.5v-9a1 1 0 112 0v9a1 1 0 01-2 0z'
 
   return createAffectedBarsSVG(filledBarsPath)
 }
 
 /**
  * Component to visualise and describe the affected share
- * @param {number | null} percent Percentage that is affected  
+ * @param {number | null} percent Percentage that is affected
  * @returns Component including SVG, text and tooltip
  */
 function Affected({ percent }) {
   return percent ? (
-    <Tooltip label={t("affected.tooltip")}>
+    <Tooltip label={t('affected.tooltip')}>
       <Flex fontSize="xs" mt={2} alignItems="center">
         <Flex mr={1} mt={-1}>
           <AffectedBars percent={percent} />
@@ -71,15 +74,14 @@ function Affected({ percent }) {
           {/* eslint-disable-next-line no-irregular-whitespace */}
           {percent} %
         </Text>
-        <Text>{t("affected")}</Text>
+        <Text>{t('affected')}</Text>
       </Flex>
     </Tooltip>
   ) : null
 }
 
-
 /**
- * EXPORTS 
+ * EXPORTS
  **/
 
 export { Affected }

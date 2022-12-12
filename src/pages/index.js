@@ -11,7 +11,7 @@ import { About } from '../components/about'
 import { SmallInfoBars } from '../components/small-info-bars'
 import { getUpdatePathFunc } from '../helpers/link'
 import { getKeyedTranslations } from '../helpers/i18n'
-const t = getKeyedTranslations("index")
+const t = getKeyedTranslations('index')
 
 import { Text } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
@@ -171,7 +171,7 @@ const IndexPage = () => {
           }}
         />
         <ContentWrapper>
-          <Heading align="left">{t("title")}</Heading>
+          <Heading align="left">{t('title')}</Heading>
           <StatsWrapper>
             <SmallInfoBars
               foreground={foreground.color.hex()}
@@ -292,7 +292,7 @@ const IndexPage = () => {
             />
           </VisionTable>
           <Text fontWeight="600" fontSize="lg" mb={4} mt={8}>
-            {t("situational-events")}
+            {t('situational-events')}
           </Text>
           <VisionTable>
             <VisionRow

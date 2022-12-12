@@ -16,7 +16,7 @@ import { hasTextSelection } from './hasTextSelection'
 import Image from 'next/image'
 import switchIcon from '../../images/switch.svg'
 import { getKeyedTranslations } from '../../helpers/i18n'
-const t = getKeyedTranslations("demo")
+const t = getKeyedTranslations('demo')
 
 export const Background = ({
   background,
@@ -29,9 +29,9 @@ export const Background = ({
     <ColourControlBackground>
       <ColourHeader>
         {' '}
-        <SmallText>{t("background")}</SmallText>
+        <SmallText>{t('background')}</SmallText>
         <Tippy
-          content={t("switch")}
+          content={t('switch')}
           duration="0"
           arrow={true}
           placement="top"

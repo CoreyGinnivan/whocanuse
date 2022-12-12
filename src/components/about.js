@@ -16,7 +16,7 @@ const ButtonWrapper = styled('div')({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  gap: ".75em",
+  gap: '.75em',
   span: {
     marginRight: '6px',
   },
@@ -27,7 +27,7 @@ const Author = styled('div')({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gap: "2ex 1em",
+  gap: '2ex 1em',
   flexWrap: 'wrap',
   margin: '14px 0',
   'p, a': {
@@ -45,13 +45,13 @@ const Author = styled('div')({
 
 export const About = () => (
   <div>
-    { getTranslatedText("about") }
+    {getTranslatedText('about')}
     <Author>
       <ButtonWrapper>
         <Link
           fontWeight="bold"
           href="https://github.com/coreyginnivan/whocanuse/"
-          aria-label={t("github.aria-label")}
+          aria-label={t('github.aria-label')}
           isExternal
         >
           GitHub
@@ -61,14 +61,14 @@ export const About = () => (
           style={{ marginLeft: '10px' }}
           href="https://github.com/sponsors/coreyginnivan"
           isExternal
-          aria-label={t("sponsor.aria-label")}
+          aria-label={t('sponsor.aria-label')}
         >
-          {t("sponsor")}
+          {t('sponsor')}
         </Link>
         <LocaleSwitcher />
       </ButtonWrapper>
       <div style={{ display: 'flex' }}>
-        <Text>{t("createdby")}</Text>
+        <Text>{t('createdby')}</Text>
         <Link
           href="https://twitter.com/coreyginnivan"
           isExternal

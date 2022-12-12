@@ -2,7 +2,8 @@ import {
   Box,
   CircularProgress,
   CircularProgressLabel,
-  Text, Flex
+  Text,
+  Flex,
 } from '@chakra-ui/react'
 import chroma from 'chroma-js'
 import blinder from 'color-blind'
@@ -18,19 +19,19 @@ import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 import { formatContrast } from '../small-info-bars'
 import { RGBDots } from './rbg-dots'
-import { Affected } from "./affected"
+import { Affected } from './affected'
 import { getKeyedTranslations } from '../../helpers/i18n'
-const t = getKeyedTranslations("vision")
+const t = getKeyedTranslations('vision')
 
 export const VisionRow = ({
   percent,
   foreground,
   background,
-  simType = "trichromatic",
+  simType = 'trichromatic',
   contrastModifier = 0,
   bold,
   fontSize,
-  rgbdots = false
+  rgbdots = false,
 }) => {
   let simulatedForeground = foreground
   let simulatedBackground = background
@@ -139,12 +140,12 @@ export const VisionRow = ({
         <Flex flexDirection="column">
           <Flex flexDirection="row" alignItems="center">
             <Text fontSize="md" fontWeight={700}>
-              {t(simType + ".name")}
+              {t(simType + '.name')}
             </Text>
             {rgbdots && <RGBDots simType={simType} />}
           </Flex>
           <Text fontSize="13px" fontWeight="medium" color="gray.500">
-            {t(simType + ".desc")}
+            {t(simType + '.desc')}
           </Text>
         </Flex>
       </VisionCellWrapper>
@@ -158,7 +159,7 @@ export const VisionRow = ({
               bold={bold}
               fontSize={fontSize}
             >
-              {t("what-i-see")}
+              {t('what-i-see')}
             </SimulationFilter>
           </Simulation>
           <Affected percent={percent} />

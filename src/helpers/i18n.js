@@ -1,42 +1,40 @@
 /**
- * IMPORTS 
+ * IMPORTS
  **/
 
 import { useRouter } from 'next/router'
-import keyedEnGB from "../l10n/keyed/en-GB"
-import textEnGB from "../l10n/textTranslations/en-GB/en-GB"
+import keyedEnGB from '../l10n/keyed/en-GB'
+import textEnGB from '../l10n/textTranslations/en-GB/en-GB'
 
 // Import translations
-import keyedDeDE from "../l10n/keyed/de-DE"
+import keyedDeDE from '../l10n/keyed/de-DE'
 
 // Import running texts
-import textDeDE from "../l10n/textTranslations/de-DE/de-DE"
-
+import textDeDE from '../l10n/textTranslations/de-DE/de-DE'
 
 /**
- * VARS 
+ * VARS
  **/
 
-const defaultLanguage = "en"
+const defaultLanguage = 'en'
 const keyedTranslations = new Map([
   [defaultLanguage, keyedEnGB],
 
   // Adding translations to the set
   // ["<language-identifier>", <translationSet> ]
-  ["de", keyedDeDE],
-]) 
+  ['de', keyedDeDE],
+])
 
 const textTranslations = new Map([
   [defaultLanguage, textEnGB],
 
   // Adding translations to the set
   // ["<language-identifier>", <translationSet> ]
-  ["de", textDeDE],
-]) 
-
+  ['de', textDeDE],
+])
 
 /**
- * FUNCS 
+ * FUNCS
  **/
 
 /**
@@ -50,12 +48,13 @@ function getLocales() {
 /**
  * Retrieves the translation for a given translation key.
  * @param {string} key Translation key
- * @param {string=} set Set to which the translation key belongs; defaults to `global`. 
+ * @param {string=} set Set to which the translation key belongs; defaults to `global`.
  * @returns {string} Translation or translation key if no translation was found.
  */
-function translateByKey(key, set = "global") {
+function translateByKey(key, set = 'global') {
   const lang = useRouter().locale ?? defaultLanguage
-  const translations = keyedTranslations.get(lang) ?? keyedTranslations.get(lang.substring(0, 2)) 
+  const translations =
+    keyedTranslations.get(lang) ?? keyedTranslations.get(lang.substring(0, 2))
   return translations?.get(set)?.get(key) ?? key
 }
 
@@ -65,7 +64,7 @@ function translateByKey(key, set = "global") {
  * @returns {(key: string) => string} Translate function
  */
 function getKeyedTranslations(set) {
-  return key => translateByKey(key, set)
+  return (key) => translateByKey(key, set)
 }
 
 /**
@@ -75,14 +74,16 @@ function getKeyedTranslations(set) {
  */
 function getTranslatedText(key) {
   const { locale } = useRouter()
-  const translations = textTranslations.get(locale ?? defaultLanguage) ??
-    textTranslations.get(locale.substring(0, 2) ?? defaultLanguage.substring(0, 2))
+  const translations =
+    textTranslations.get(locale ?? defaultLanguage) ??
+    textTranslations.get(
+      locale.substring(0, 2) ?? defaultLanguage.substring(0, 2),
+    )
   return translations?.get(key) ?? key
 }
 
-
 /**
- * EXPORTS 
+ * EXPORTS
  **/
 
 export { getKeyedTranslations, getTranslatedText, getLocales }

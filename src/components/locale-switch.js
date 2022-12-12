@@ -7,8 +7,7 @@ import { Component } from 'react'
 import { Menu, MenuButton, MenuList, Button, MenuItem } from '@chakra-ui/react'
 import { getKeyedTranslations } from '../helpers/i18n'
 const t = getKeyedTranslations()
-const tLocale = getKeyedTranslations("locale")
-
+const tLocale = getKeyedTranslations('locale')
 
 /**
  * FUNCS
@@ -22,13 +21,12 @@ function getLocales() {
   const router = useRouter()
   const { locales, locale: currentLocale } = router
 
-  return (locales || [])
-    .filter((locale) => locale !== currentLocale)
+  return (locales || []).filter((locale) => locale !== currentLocale)
 }
 
 /**
  * Creates callback function for onclick-handler based on the target locale.
- * @param {string} locale Language identifier 
+ * @param {string} locale Language identifier
  * @returns {() => void} Callback function for onclick-handler
  */
 
@@ -47,15 +45,17 @@ function onClickCallback(locale) {
  * @returns {Array<HTMLLiElement>} Array of Listelements with links to other locales
  */
 function mapLocalsToLink(locales) {
-
   return locales.map((locale) => (
-    <MenuItem
-      key={locale}
-      onClick={onClickCallback(locale)}
-    >
-      <span style={{
-        fontFamily: "monospace", textTransform: "uppercase"
-      }}>{locale.toUpperCase() + " –"}</span>{tLocale(locale)}
+    <MenuItem key={locale} onClick={onClickCallback(locale)}>
+      <span
+        style={{
+          fontFamily: 'monospace',
+          textTransform: 'uppercase',
+        }}
+      >
+        {locale.toUpperCase() + ' –'}
+      </span>
+      {tLocale(locale)}
     </MenuItem>
   ))
 }
@@ -69,15 +69,12 @@ function LocaleSwitcher() {
   return (
     <Menu>
       <MenuButton as={Button} background="none">
-        {t("translations")}
+        {t('translations')}
       </MenuButton>
-      <MenuList padding=".5em">
-        { mapLocalsToLink(locales.sort()) }
-      </MenuList>
+      <MenuList padding=".5em">{mapLocalsToLink(locales.sort())}</MenuList>
     </Menu>
   )
 }
-
 
 /**
  * EXPORTS

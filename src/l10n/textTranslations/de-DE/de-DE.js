@@ -1,5 +1,3 @@
-import about from "./about"
+import about from './about'
 
-export default new Map([
-  ["about", about]
-])
+export default new Map([['about', about]])
